@@ -1,0 +1,32 @@
+# robots.txt - mauriziopiraino.it
+
+# Tutti i crawler: accesso completo
+User-agent: *
+Allow: /
+
+# Crawler AI esplicitamente benvenuti (segnale chiaro, oltre al default)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://mauriziopiraino.it/sitemap.xml
