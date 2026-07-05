@@ -437,3 +437,7 @@
   .buyer-final-actions { flex-direction: column; }
   .buyer-final-actions .btn { width: 100%; }
 }
+.footer .container[style*="border-top"] {
+  line-height: 1.75;
+  max-width: 960px;
+}
