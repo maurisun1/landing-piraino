@@ -818,14 +818,21 @@
     @media (max-width: 560px) { .buyer-grid { grid-template-columns: 1fr; } }
 
 </style>
+<link rel="stylesheet" href="/assets/buyer-landing.css" />
 </head>
 <body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div>Consulenza acquirenti <strong>RE/MAX</strong> · Bergamo · Risposta entro 24h</div>
+      <a href="https://wa.me/393514581993?text=Ciao%20Maurizio%2C%20sto%20cercando%20casa%20a%20Bergamo%20e%20vorrei%20una%20consulenza%20acquirente.">Scrivimi su WhatsApp</a>
+    </div>
+  </div>
   <header>
     <div class="container nav">
       <a class="brand" href="/">Maurizio Piraino <span>·</span> Agente Immobiliare affiliato RE/MAX</a>
       <nav class="nav-links">
-        <a href="/#metodo">Metodo</a>
-        <a href="/#remax">RE/MAX</a>
+        <a href="#metodo">Metodo</a>
+        <a href="#remax">RE/MAX</a>
         <a href="/guida-prezzi-mq-bergamo/">Prezzi OMI</a>
         <a href="/en/buy-home-bergamo/" class="lang-link">EN</a>
         <a class="btn btn-red" href="#contatto">Dimmi cosa cerchi</a>
@@ -834,15 +841,39 @@
   </header>
 
   <main>
-    <section class="buyer-hero">
-      <div class="container">
-        <span class="section-kicker" style="color:var(--gold)">Comprare casa a Bergamo</span>
-        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,56px);line-height:1.07;margin:14px 0 18px;color:#fff">Comprare bene non è trovare una casa.<br>È non pagarla troppo.</h1>
-        <p class="lead" style="max-width:640px;color:rgba(255,255,255,.78)">A Bergamo e provincia — Città Alta, Città Bassa, valli e comuni di cintura — ogni micro-mercato ha regole diverse. È facile pagare più del dovuto o comprare con problemi nascosti. Il mio ruolo è evitartelo. <strong style="color:#fff">Prima l'analisi. Poi la scelta giusta.</strong></p>
-        <div class="hero-actions" style="margin-top:30px">
-          <a class="btn btn-red" href="#contatto">Dimmi cosa cerchi →</a>
-          <a class="btn btn-outline" href="#come">Come funziona</a>
+    <section class="buyer-hero-pro" style="--hero-img: url('/bergamo.jpg')">
+      <div class="container buyer-hero-pro-grid">
+        <div class="buyer-hero-pro-copy reveal">
+          <span class="section-kicker" style="color:var(--gold)">Comprare casa a Bergamo</span>
+          <h1>Comprare bene non è trovare una casa.<br>È non pagarla troppo.</h1>
+          <p class="lead">A Bergamo e provincia — Città Alta, Città Bassa, valli e comuni di cintura — ogni micro-mercato ha regole diverse. È facile pagare più del dovuto o comprare con problemi nascosti. Il mio ruolo è evitartelo. <strong style="color:#fff">Prima l'analisi. Poi la scelta giusta.</strong></p>
+          <div class="hero-actions" style="margin-top:30px">
+            <a class="btn btn-red" href="#contatto">Dimmi cosa cerchi →</a>
+            <a class="btn btn-outline" href="#come">Come funziona</a>
+          </div>
+          <div class="buyer-trust-row"><div class="trust"><strong>OMI</strong><span>Prezzo basato su dati ufficiali</span></div><div class="trust"><strong>RE/MAX</strong><span>Accesso alla rete MLS</span></div><div class="trust"><strong>Geometra</strong><span>Verifica tecnica reale</span></div></div>
         </div>
+        <aside class="buyer-hero-card reveal">
+          <h3>Registra la ricerca</h3>
+          <p>Due minuti. Ti richiamo entro 24 ore.</p>
+          <ul class="buyer-hero-list"><li>Analisi prezzo su dati OMI della tua zona</li><li>Verifica tecnica prima dell'offerta</li><li>Ricerca mirata, senza spam di annunci</li></ul>
+          <div class="hero-actions">
+            <a class="btn btn-red" href="#contatto">Compila il modulo →</a>
+            <a class="btn btn-outline" href="https://wa.me/393514581993?text=Ciao%20Maurizio%2C%20sto%20cercando%20casa%20a%20Bergamo%20e%20vorrei%20una%20consulenza%20acquirente.">Scrivimi su WhatsApp</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="buyer-stats-strip">
+      <div class="container buyer-stats-grid"><div><strong>OMI</strong><span>Dati ufficiali Agenzia Entrate</span></div><div><strong>24h</strong><span>Risposta alla tua richiesta</span></div><div><strong>0</strong><span>Obbligo di incarico</span></div><div><strong>RE/MAX</strong><span>Rete internazionale</span></div></div>
+    </section>
+
+    <section class="buyer-pain">
+      <div class="container">
+        <div class="section-head"><span class="section-kicker">Ti riconosci?</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0">Quattro situazioni frequenti — e come le evito</h2></div>
+        <div class="buyer-pain-grid"><article class="buyer-pain-card reveal"><div class="num">01</div><h3>Hai paura di pagare troppo</h3><p>Vedi una casa che ti piace e non sai se il prezzo richiesto è realistico per quella strada.</p></article><article class="buyer-pain-card reveal"><div class="num">02</div><h3>Perdi l'occasione per un'offerta sbagliata</h3><p>Mercato competitivo: un'offerta bassa ti esclude, una troppo alta ti costa per anni.</p></article><article class="buyer-pain-card reveal"><div class="num">03</div><h3>Non hai tempo per decine di annunci</h3><p>Portali, visite, trattative: senza filtro perdi settimane su immobili che non erano per te.</p></article><article class="buyer-pain-card reveal"><div class="num">04</div><h3>Temi problemi nascosti</h3><p>Difformità, documenti, vincoli: scoprirli dopo il rogito è troppo tardi — e costoso.</p></article></div>
       </div>
     </section>
 
@@ -850,12 +881,35 @@
       <div class="container">
         <div class="section-head"><span class="section-kicker">Perché affidarti a un consulente</span>
         <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0">Quattro vantaggi reali quando compri con me</h2></div>
-        <div class="adv-grid">
-          <div class="adv-card"><h3>Il prezzo giusto</h3><p>Analisi della micro-zona sui dati ufficiali OMI: sai se quella casa vale davvero il prezzo richiesto, prima di fare un'offerta. Non paghi l'emozione del momento.</p></div>
-          <div class="adv-card"><h3>La rete RE/MAX</h3><p>A volte è possibile conoscere immobili in arrivo prima che finiscano sui portali — anche per chi si sposta da Milano verso Bergamo e provincia.</p></div>
-          <div class="adv-card"><h3>La verifica prima di comprare</h3><p>Conformità urbanistica e catastale, difformità, documenti: controlli fatti <em>prima</em> dell'acquisto, così non scopri i problemi dopo il rogito.</p></div>
-          <div class="adv-card"><h3>Ricerca su misura</h3><p>Mi dici cosa cerchi una volta sola. Ti avviso quando esce qualcosa davvero in linea, senza farti perdere tempo dietro annunci che non fanno per te.</p></div>
+        <div class="adv-grid"><div class="adv-card reveal"><div class="buyer-adv-icon">◎</div><h3>Il prezzo giusto</h3><p>Analisi della micro-zona sui dati ufficiali OMI: sai se quella casa vale davvero il prezzo richiesto, prima di fare un'offerta.</p></div><div class="adv-card reveal"><div class="buyer-adv-icon">◈</div><h3>La rete RE/MAX</h3><p>A volte è possibile conoscere immobili in arrivo prima che finiscano sui portali.</p></div><div class="adv-card reveal"><div class="buyer-adv-icon">✓</div><h3>La verifica prima di comprare</h3><p>Conformità urbanistica e catastale, difformità, documenti: controlli fatti prima dell'acquisto.</p></div><div class="adv-card reveal"><div class="buyer-adv-icon">→</div><h3>Ricerca su misura</h3><p>Mi dici cosa cerchi una volta sola. Ti avviso quando esce qualcosa davvero in linea.</p></div></div>
+      </div>
+    </section>
+
+    <section id="metodo" class="buyer-trust-block">
+      <div class="container buyer-trust-grid">
+        <div class="buyer-portrait reveal">
+          <img src="/foto.jpg" loading="lazy" decoding="async" alt="Maurizio Piraino Agente Immobiliare RE/MAX Bergamo" />
+          <div class="buyer-portrait-meta">
+            <strong>Maurizio Piraino</strong>
+            <span>Agente RE/MAX · Bergamo e Provincia</span>
+            <div class="buyer-badges"><span class="buyer-badge">REA BS-639579</span><span class="buyer-badge">Geometra</span><span class="buyer-badge">Dati OMI</span></div>
+          </div>
         </div>
+        <div class="reveal">
+          <span class="section-kicker">Chi ti affianca</span>
+          <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 14px">Non un portale. Una persona con numeri e metodo.</h2>
+          <p class="lead" style="margin:0 0 8px">Agente RE/MAX con background da geometra. Conosco le dinamiche di Bergamo centro, valli e provincia — e ti dico se il prezzo ha senso, prima che tu lo scopra dopo il rogito.</p>
+          <blockquote class="buyer-quote">A Bergamo, Città Alta e Città Bassa non seguono le stesse regole. Conoscere la micro-zona prima dell'offerta vale migliaia di euro.</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="remax" class="buyer-market">
+      <div class="container">
+        <div class="section-head"><span class="section-kicker" style="color:var(--gold)">Mercato Bergamo</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0;color:#fff">Ogni zona ha regole diverse. I numeri vengono prima dell'emozione.</h2></div>
+        <div class="buyer-market-grid"><div class="buyer-market-card reveal"><span>Bergamo città</span><h3>Città Alta e Bassa</h3><p>Due mercati diversi: domanda solida, prezzi e tempi che cambiano strada per strada.</p></div><div class="buyer-market-card reveal"><span>Valli</span><h3>Seriana e Brembana</h3><p>Qualità di vita, verde e prezzi spesso più accessibili del capoluogo — ma servono numeri giusti.</p></div><div class="buyer-market-card reveal"><span>Provincia</span><h3>Cintura e pianura</h3><p>Dalmine, Seriate, Treviglio: chi esce da Milano cerca spazio, ma la concorrenza c'è lo stesso.</p></div></div>
+        <p style="text-align:center"><a class="buyer-omi-link" href="/guida-prezzi-mq-bergamo/">Consulta i valori OMI per zona →</a></p>
       </div>
     </section>
 
@@ -863,54 +917,61 @@
       <div class="container">
         <div class="section-head"><span class="section-kicker" style="color:var(--gold)">Come funziona</span>
         <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0;color:#fff">Tre passi. Nessuna pressione.</h2></div>
-        <div class="steps-buy">
-          <div><div class="num" style="color:var(--gold);font-size:2rem;font-family:'Playfair Display',serif">1</div><h3>Mi dici cosa cerchi</h3><p>Zona, tipologia, budget e tempi. Bastano due minuti dal modulo qui sotto.</p></div>
-          <div><div class="num" style="color:var(--gold);font-size:2rem;font-family:'Playfair Display',serif">2</div><h3>Analisi e selezione mirata</h3><p>Cerco e filtro, verifico il prezzo giusto e i documenti. Ti propongo solo ciò che ha senso davvero.</p></div>
-          <div><div class="num" style="color:var(--gold);font-size:2rem;font-family:'Playfair Display',serif">3</div><h3>Trattativa e acquisto</h3><p>Ti affianco nella trattativa e nei passaggi fino al rogito, perché tu compri al prezzo giusto e in sicurezza.</p></div>
-        </div>
+        <div class="steps-buy"><div class="reveal"><div class="num" style="color:var(--gold);font-size:2rem;font-family:'Playfair Display',serif">1</div><h3>Mi dici cosa cerchi</h3><p>Zona, tipologia, budget e tempi. Bastano due minuti dal modulo.</p></div><div class="reveal"><div class="num" style="color:var(--gold);font-size:2rem;font-family:'Playfair Display',serif">2</div><h3>Analisi e selezione mirata</h3><p>Cerco, filtro e verifico prezzo e documenti. Ti propongo solo ciò che ha senso.</p></div><div class="reveal"><div class="num" style="color:var(--gold);font-size:2rem;font-family:'Playfair Display',serif">3</div><h3>Trattativa e acquisto</h3><p>Ti affianco fino al rogito, perché tu compri al prezzo giusto e in sicurezza.</p></div></div>
       </div>
     </section>
 
     <section style="background:var(--cream);padding:74px 0">
       <div class="container">
-        <div class="section-head"><span class="section-kicker">Domande frequenti</span>
+        <div class="section-head"><span class="section-kicker">FAQ</span>
         <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0">Le domande di chi compra</h2></div>
-        <div class="faq-buy">
-          <details><summary>Quanto costa il servizio per chi compra?</summary><p>Ne parliamo con chiarezza fin dal primo contatto, senza sorprese. L'obiettivo è farti comprare bene: il valore che ti faccio risparmiare evitando di pagare troppo conta più della provvigione.</p></details>
-          <details><summary>Mi fai vedere solo le tue case?</summary><p>No. L'obiettivo è trovare la casa giusta per te, non piazzarti un immobile. Grazie alla rete RE/MAX a volte è possibile conoscere immobili prima che arrivino sui portali.</p></details>
-          <details><summary>Come fai a sapere se il prezzo è giusto?</summary><p>Con un'analisi della micro-zona basata sui dati ufficiali OMI dell'Agenzia delle Entrate e sulle caratteristiche reali dell'immobile, non sui prezzi degli annunci.</p></details>
-          <details><summary>Posso comprare prima di aver venduto la mia casa?</summary><p>Sì, ed è una situazione frequente. Va pianificata con i tempi e i numeri giusti: ne parliamo nell'analisi iniziale.</p></details>
-          <details><summary>Lavori solo a Bergamo?</summary><p>Bergamo, valli e provincia sono il focus, ma seguo acquirenti anche su Milano e Brescia.</p></details>
-        </div>
+        <div class="faq-buy"><details><summary>Quanto costa il servizio per chi compra?</summary><p>Ne parliamo con chiarezza fin dal primo contatto. Il valore che ti faccio risparmiare evitando di pagare troppo conta più della provvigione.</p></details><details><summary>Mi fate vedere solo le vostre case?</summary><p>No. L'obiettivo è trovare la casa giusta per te, non piazzarti un immobile.</p></details><details><summary>Come fate a sapere se il prezzo è giusto?</summary><p>Con un'analisi della micro-zona basata sui dati ufficiali OMI e sulle caratteristiche reali dell'immobile.</p></details><details><summary>Posso comprare prima di aver venduto la mia casa?</summary><p>Sì, ed è frequente. Va pianificata con i tempi e i numeri giusti.</p></details><details><summary>Lavori solo a Bergamo?</summary><p>Bergamo, valli e provincia sono il focus, ma seguo acquirenti anche su Milano e Brescia.</p></details></div>
       </div>
     </section>
 
-    <section id="contatto" class="buyer-form-wrap">
-      <div class="container">
-        <form class="buyer-form" action="https://formspree.io/f/mvzlgeqb" method="POST" id="buyerForm">
+    <section id="contatto" class="buyer-form-section">
+      <div class="container buyer-form-layout">
+        <div class="buyer-form-aside reveal">
+          <h2>Compra con i numeri giusti, non con l'ansia.</h2>
+          <p>Compila il modulo: è il primo passo per una ricerca mirata e una valutazione seria del prezzo.</p>
+          <ul class="buyer-form-benefits"><li>Ti richiamo entro 24 ore, senza pressione</li><li>Analisi del prezzo giusto per la zona che cerchi</li><li>Alert quando esce qualcosa davvero in linea</li><li>Supporto in trattativa fino al rogito</li></ul>
+          <a class="btn btn-outline" href="https://wa.me/393514581993?text=Ciao%20Maurizio%2C%20sto%20cercando%20casa%20a%20Bergamo%20e%20vorrei%20una%20consulenza%20acquirente.">Scrivimi su WhatsApp</a>
+        </div>
+        <form class="buyer-form reveal" action="https://formspree.io/f/mvzlgeqb" method="POST" id="buyerForm">
           <h2>Dimmi cosa cerchi</h2>
-          <p style="color:var(--muted);margin:0 0 20px">Registra la tua ricerca: ti avviso quando trovo qualcosa in linea, e ti dico se il prezzo è giusto. Nessuna pressione.</p>
+          <p style="color:var(--muted);margin:0 0 20px">Registra la tua ricerca: ti avviso quando trovo qualcosa in linea, e ti dico se il prezzo è giusto.</p>
           <input type="hidden" name="landing" value="Comprare casa Bergamo - acquirente" />
           <input type="hidden" name="_subject" value="Richiesta acquirente - Bergamo" />
           <div class="buyer-grid">
             <div><label class="field" for="b_nome">Nome *</label><input id="b_nome" name="nome" type="text" required placeholder="Es. Marco Rossi"></div>
             <div><label class="field" for="b_tel">Telefono / WhatsApp *</label><input id="b_tel" name="telefono" type="tel" required placeholder="Es. 348 000 0000"></div>
             <div><label class="field" for="b_zona">Zona o comune cercato *</label><input id="b_zona" name="zona" type="text" list="zoneBG" required placeholder="Es. Città Alta, Seriate, Treviglio..." autocomplete="off"></div>
-            <div><label class="field" for="b_tip">Tipologia</label><select id="b_tip" name="tipologia"><option value="">Indifferente</option><option>Bilocale</option><option>Trilocale</option><option>Quattro locali o più</option><option>Villa / indipendente</option><option>Altro</option></select></div>
-            <div><label class="field" for="b_budget">Budget indicativo</label><select id="b_budget" name="budget"><option value="">Preferisco non indicarlo</option><option>Fino a 150.000 €</option><option>150.000 - 250.000 €</option><option>250.000 - 400.000 €</option><option>400.000 - 600.000 €</option><option>Oltre 600.000 €</option></select></div>
-            <div><label class="field" for="b_tempi">Tempistiche</label><select id="b_tempi" name="tempistiche"><option value="">—</option><option>Sto cercando attivamente</option><option>Entro 3-6 mesi</option><option>Sto solo valutando</option></select></div>
+            <div><label class="field" for="b_tip">Tipologia</label><select id="b_tip" name="tipologia"><option value="">Indifferente</option><option value="bilocale">Bilocale</option><option value="trilocale">Trilocale</option><option value="quattro">Quattro locali o più</option><option value="villa">Villa / indipendente</option><option value="altro">Altro</option></select></div>
+            <div><label class="field" for="b_budget">Budget indicativo</label><select id="b_budget" name="budget"><option value="">Preferisco non indicarlo</option><option value="150000">Fino a 150.000 €</option><option value="150000-250000">150.000 - 250.000 €</option><option value="250000-400000">250.000 - 400.000 €</option><option value="400000-600000">400.000 - 600.000 €</option><option value="600000+">Oltre 600.000 €</option></select></div>
+            <div><label class="field" for="b_tempi">Tempistiche</label><select id="b_tempi" name="tempistiche"><option value="">—</option><option value="attivo">Sto cercando attivamente</option><option value="3-6">Entro 3-6 mesi</option><option value="valuto">Sto solo valutando</option></select></div>
           </div>
-          <div style="margin-top:14px"><label class="field" for="b_msg">Cosa è importante per te? (opzionale)</label><textarea id="b_msg" name="messaggio" rows="3" placeholder="Es. trilocale in Città Bassa, casa in Valle Seriana, max piano 2..."></textarea></div>
+          <div style="margin-top:14px"><label class="field" for="b_msg">Cosa è importante per te? (opzionale)</label><textarea id="b_msg" name="messaggio" rows="3" placeholder="Es. cerco trilocale in Città Bassa, casa in Valle Seriana, max 2° piano..."></textarea></div>
           <label class="buyer-check"><input type="checkbox" name="privacy" required><span>Ho letto l'<a href="/privacy/" style="color:inherit;text-decoration:underline">informativa privacy</a> e acconsento ad essere ricontattato.</span></label>
           <button type="submit" class="btn btn-red" style="margin-top:20px;width:100%">Registra la mia ricerca →</button>
           <p style="text-align:center;color:var(--muted);font-size:12.5px;margin:14px 0 0">Risposta entro 24 ore · Nessun impegno</p>
         </form>
       </div>
     </section>
+
+    <section class="buyer-final-cta">
+      <div class="container">
+        <h2>Pronto a cercare casa con un metodo, non a caso?</h2>
+        <p>Registra cosa cerchi. Ti richiamo entro 24 ore con un approccio chiaro — senza pressione.</p>
+        <div class="buyer-final-actions">
+          <a class="btn btn-red" href="#contatto">Dimmi cosa cerchi →</a>
+          <a class="btn btn-outline" href="https://wa.me/393514581993?text=Ciao%20Maurizio%2C%20sto%20cercando%20casa%20a%20Bergamo%20e%20vorrei%20una%20consulenza%20acquirente.">Scrivimi su WhatsApp</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-<datalist id="zoneBG">
-              <option>Bergamo Città Alta</option>
+  <datalist id="zoneBG">
+    <option>Bergamo Città Alta</option>
               <option>Bergamo Città Bassa</option>
               <option>Dalmine / Osio</option>
               <option>Seriate / Scanzorosciate</option>
@@ -918,7 +979,14 @@
               <option>Valle Brembana</option>
               <option>Treviglio / Romano di Lombardia</option>
               <option>Altra zona provincia Bergamo</option>
-            </datalist>
+  </datalist>
+
+  <div class="buyer-sticky-bar">
+    <div class="buyer-sticky-inner">
+      <a class="btn btn-red" href="#contatto">Dimmi cosa cerchi</a>
+      <a class="btn btn-outline" href="https://wa.me/393514581993?text=Ciao%20Maurizio%2C%20sto%20cercando%20casa%20a%20Bergamo%20e%20vorrei%20una%20consulenza%20acquirente." aria-label="WhatsApp">WA</a>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="container footer-inner">
@@ -935,5 +1003,6 @@
     </div>
     <div class="container" style="border-top:1px solid rgba(255,255,255,.12);margin-top:18px;padding-top:16px;text-align:center;font-size:.9rem;opacity:.85">Vuoi vendere? <a href="/bergamo/" style="color:inherit;text-decoration:underline">Analisi vendita Bergamo</a> · Comprare: <a href="/comprare-casa-milano/" style="color:inherit;text-decoration:underline">Milano</a> · <a href="/comprare-casa-brescia/" style="color:inherit;text-decoration:underline">Brescia</a> · <strong>Bergamo</strong> · <a href="/privacy/" style="color:inherit;text-decoration:underline">Privacy</a></div>
   </footer>
+  <script src="/assets/buyer-landing.js" defer></script>
 </body>
 </html>
