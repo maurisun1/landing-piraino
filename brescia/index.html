@@ -86,7 +86,7 @@
     .btn-outline:hover{background:rgba(255,255,255,.13)}
     .hero{min-height:calc(100vh - 118px);display:grid;grid-template-columns:1.35fr .75fr;background:var(--dark)}
     .hero-left{position:relative;overflow:hidden;color:white;display:flex;align-items:center;min-height:720px}
-    .hero-left::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.55)),url('https://mauriziopiraino.it/brescia.jpg') center/cover no-repeat;transform:scale(1.04);animation:slowZoom 18s ease-in-out infinite alternate}
+    .hero-left::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.55)),url('../brescia.jpg') center/cover no-repeat;transform:scale(1.04);animation:slowZoom 18s ease-in-out infinite alternate}
     .hero-left::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 25% 30%,rgba(183,154,100,.18),transparent 34%)}
     @keyframes slowZoom{from{transform:scale(1.04)}to{transform:scale(1.10)}}
     .hero-content{position:relative;z-index:2;max-width:790px;padding:74px 70px 62px}
@@ -111,6 +111,27 @@
     input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0 4px rgba(184,36,27,.08)}
     .form-card .btn{width:100%;margin-top:22px}
     .microcopy{text-align:center;color:#8a8a8a;font-size:12px;margin-top:14px}
+    .form-progress{display:flex;align-items:center;justify-content:center;gap:10px;margin:22px 0 6px}
+    .fp-dot{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:13px;border:1px solid rgba(0,0,0,.14);color:var(--muted);background:#fff;transition:.25s ease}
+    .fp-dot.active{background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 8px 20px rgba(184,36,27,.24)}
+    .fp-line{width:64px;height:2px;background:var(--line);transition:.25s ease}
+    .fp-line.active{background:var(--red)}
+    .form-step{display:none}
+    .form-step.active{display:block;animation:reveal .5s ease both}
+    .step-note{margin:14px 0 4px;color:var(--muted);font-size:13px;text-align:center}
+    .step-actions{display:flex;gap:12px;margin-top:22px}
+    .step-actions .btn{margin-top:0;flex:1}
+    .btn-outline-dark{background:#fff;color:var(--text);border-color:rgba(0,0,0,.16)}
+    .btn-outline-dark:hover{background:var(--cream)}
+    .type-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:4px}
+    .tcard{border:1.5px solid rgba(0,0,0,.14);border-radius:7px;padding:14px 8px;text-align:center;font-size:13px;font-weight:800;color:#555;cursor:pointer;transition:.2s ease}
+    .tcard:hover{border-color:var(--red)}
+    .tcard.on{border-color:var(--red);background:rgba(184,36,27,.06);color:var(--red-dark)}
+    .slider-wrap{display:flex;align-items:center;gap:12px}
+    input[type=range]{flex:1;-webkit-appearance:none;height:4px;min-height:unset;border-radius:99px;background:var(--line);outline:none;border:none;padding:0}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--red);cursor:pointer;border:2px solid #fff;box-shadow:0 2px 6px rgba(184,36,27,.35)}
+    input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--red);cursor:pointer;border:2px solid #fff}
+    .sv{background:var(--red);color:#fff;padding:4px 12px;border-radius:99px;font-size:12px;font-weight:800;min-width:60px;text-align:center;white-space:nowrap}
     section{padding:100px 0}
     .section-head{max-width:840px;margin-bottom:46px}
     .section-kicker{color:var(--red);font-weight:900;text-transform:uppercase;letter-spacing:.18em;font-size:12px;margin-bottom:12px}
@@ -174,7 +195,7 @@
     .reveal{opacity:0;transform:translateY(22px);animation:reveal .75s ease forwards}
     @keyframes reveal{to{opacity:1;transform:translateY(0)}}
     @media(max-width:980px){.hero{grid-template-columns:1fr}.hero-left{min-height:auto}.hero-content{padding:70px 28px 50px}.hero-form-wrap{padding:42px 24px}.nav-links a{display:none}.situations-grid,.method-grid,.market-grid,.network-grid,.steps-grid,.testimonial-grid,.faq-grid,.about-grid{grid-template-columns:1fr}section{padding:72px 0}}
-    @media(max-width:560px){.container{width:min(100% - 28px,1180px)}.topbar-inner{justify-content:center;text-align:center}.topbar a{display:none}.brand{font-size:18px}.nav .btn{display:none}h1{font-size:42px}.hero-content p{font-size:16px}.hero-actions{flex-direction:column}.btn{width:100%}.trust-row{grid-template-columns:1fr;gap:18px}.hero-form-wrap{padding:36px 18px}.form-card h2{font-size:28px}.footer-inner{flex-direction:column}}
+    @media(max-width:560px){.container{width:min(100% - 28px,1180px)}.topbar-inner{justify-content:center;text-align:center}.topbar a{display:none}.brand{font-size:18px}.nav .btn{display:none}h1{font-size:42px}.hero-content p{font-size:16px}.hero-actions{flex-direction:column}.btn{width:100%}.trust-row{grid-template-columns:1fr;gap:18px}.hero-form-wrap{padding:36px 18px}.form-card h2{font-size:28px}.footer-inner{flex-direction:column}.step-actions{flex-direction:column}.type-grid{grid-template-columns:repeat(2,1fr)}}
   </style>
 </head>
 <body>
@@ -186,7 +207,7 @@
   </div>
   <header>
     <div class="container nav">
-      <a class="brand" href="#">Maurizio Piraino <span>&middot;</span> Agente Immobiliare affiliato RE/MAX</a>
+      <a class="brand" href="/">Maurizio Piraino <span>&middot;</span> Agente Immobiliare affiliato RE/MAX</a>
       <nav class="nav-links">
         <a href="#metodo">Metodo</a>
         <a href="#remax">RE/MAX</a>
@@ -215,40 +236,74 @@
         </div>
       </div>
       <aside class="hero-form-wrap" id="form">
-        <form class="form-card reveal" action="https://formspree.io/f/mvzlgeqb" method="POST">
+        <form class="form-card reveal" action="https://formspree.io/f/mvzlgeqb" method="POST" id="leadForm">
           <h2>Ricevi una consulenza immobiliare riservata</h2>
           <p>Nessuna stima automatica. Solo analisi reale basata sul mercato della tua zona.</p>
           <div class="divider"></div>
           <input type="hidden" name="landing" value="Landing Brescia RE/MAX Premium" />
-          <label for="nome">Nome e Cognome</label>
-          <input id="nome" name="nome" type="text" placeholder="Il tuo nome" required />
-          <label for="telefono">Telefono</label>
-          <input id="telefono" name="telefono" type="tel" placeholder="Numero di telefono" required />
-          <label for="tipologia">Tipologia immobile</label>
-          <select id="tipologia" name="tipologia" required>
-            <option value="">Seleziona tipologia</option>
-            <option>Appartamento</option>
-            <option>Attico / Mansarda</option>
-            <option>Villa / Casa indipendente</option>
-            <option>Rustico / Casale</option>
-            <option>Locale commerciale</option>
-          </select>
-          <label for="zona">Zona / Comune</label>
-          <select id="zona" name="zona" required>
-            <option value="">Seleziona zona</option>
-            <option>Brescia citt&agrave;</option>
-            <option>Franciacorta</option>
-            <option>Lago di Garda bresciano</option>
-            <option>Lago d'Iseo</option>
-            <option>Valle Trompia</option>
-            <option>Valle Camonica</option>
-            <option>Bassa bresciana</option>
-            <option>Altra zona provincia Brescia</option>
-          </select>
-          <label for="messaggio">Note facoltative</label>
-          <textarea id="messaggio" name="messaggio" placeholder="Es. comune, metri quadri, piano, stato dell'immobile, fronte lago..."></textarea>
-          <button class="btn btn-red" type="submit">Richiedi la mia analisi</button>
-          <div class="microcopy">Dati riservati &middot; Nessun obbligo di incarico &middot; Risposta personale</div>
+
+          <div class="form-progress" aria-label="Avanzamento form">
+            <div class="fp-dot active" id="fp1">1</div>
+            <div class="fp-line" id="fpl"></div>
+            <div class="fp-dot" id="fp2">2</div>
+          </div>
+
+          <div class="form-step active" id="formStep1">
+            <p class="step-note">Due informazioni sull'immobile, per preparare un'analisi pi&ugrave; precisa.</p>
+
+            <label for="zona">Zona o comune dell'immobile</label>
+            <input id="zona" name="zona" type="text" list="zoneBS" placeholder="Scrivi zona o comune (es. Franciacorta, Desenzano, centro Brescia...)" autocomplete="off" required />
+            <datalist id="zoneBS">
+              <option>Brescia città</option>
+              <option>Franciacorta</option>
+              <option>Lago di Garda bresciano</option>
+              <option>Lago d'Iseo</option>
+              <option>Valle Trompia</option>
+              <option>Valle Camonica</option>
+              <option>Bassa bresciana</option>
+              <option>Altra zona provincia Brescia</option>
+            </datalist>
+
+            <label>Superficie &mdash; <span id="mqShow">90 mq</span></label>
+            <div class="slider-wrap">
+              <input type="range" min="20" max="300" step="5" value="90" id="mqR" oninput="onMqChange(this.value)" />
+              <span class="sv" id="mqV">90 mq</span>
+            </div>
+            <input type="hidden" name="superficie" id="mqVal" value="90 mq" />
+
+            <label>Tipologia immobile</label>
+            <input type="hidden" name="tipologia" id="tipologiaVal" value="Appartamento" />
+            <div class="type-grid">
+              <div class="tcard on" data-v="Appartamento" onclick="setTipo(this)">Appartamento</div>
+              <div class="tcard" data-v="Attico / Mansarda" onclick="setTipo(this)">Attico / Mansarda</div>
+              <div class="tcard" data-v="Villa / Casa indipendente" onclick="setTipo(this)">Villa / Casa</div>
+              <div class="tcard" data-v="Rustico / Casale" onclick="setTipo(this)">Rustico / Casale</div>
+            </div>
+
+            <div class="step-actions">
+              <button class="btn btn-red" type="button" onclick="nextFormStep()">Continua</button>
+            </div>
+          </div>
+
+          <div class="form-step" id="formStep2">
+            <p class="step-note">Ultimo passo: dimmi come posso ricontattarti.</p>
+
+            <label for="nome">Nome e Cognome</label>
+            <input id="nome" name="nome" type="text" placeholder="Il tuo nome" required />
+
+            <label for="telefono">Telefono</label>
+            <input id="telefono" name="telefono" type="tel" placeholder="Numero di telefono" required />
+
+            <label for="messaggio">Note facoltative</label>
+            <textarea id="messaggio" name="messaggio" placeholder="Es. piano, stato dell'immobile, fronte lago o giardino"></textarea>
+
+            <div class="step-actions">
+              <button class="btn btn-outline-dark" type="button" onclick="prevFormStep()">Indietro</button>
+              <button class="btn btn-red" type="submit">Richiedi la mia analisi</button>
+            </div>
+          </div>
+
+          <div class="microcopy">Dati riservati &middot; Nessun obbligo di incarico &middot; Risposta personale<br><small style="font-size:11px;margin-top:8px;display:block;line-height:1.5">Inviando il form acconsenti al trattamento dei dati per essere ricontattato. <a href="/privacy/" style="color:inherit;text-decoration:underline">Informativa privacy</a>.</small></div>
         </form>
       </aside>
     </section>
@@ -272,7 +327,7 @@
     <section class="about" id="metodo">
       <div class="container about-grid">
         <div class="portrait-card reveal">
-          <img src="https://mauriziopiraino.it/foto.jpg" loading="lazy" decoding="async" alt="Maurizio Piraino Agente Immobiliare affiliato RE/MAX Brescia" />
+          <img src="../foto.jpg" loading="lazy" decoding="async" alt="Maurizio Piraino Agente Immobiliare affiliato RE/MAX Brescia" />
           <div class="portrait-info">
             <strong>Maurizio Piraino</strong>
             <span>Agente Immobiliare affiliato RE/MAX &middot; Brescia e Provincia</span>
@@ -325,6 +380,7 @@
           <div class="market-card reveal"><span>Franciacorta</span><strong>Prestigio</strong><p>Mercato delle ville e delle residenze di pregio. Acquirenti selettivi con forte attenzione alla qualit&agrave; costruttiva e al contesto paesaggistico.</p></div>
           <div class="market-card reveal"><span>Laghi Garda &middot; Iseo</span><strong>Turistica</strong><p>Forte componente di acquirenti internazionali e investitori. Richiede posizionamento dedicato e comunicazione multilingua.</p></div>
         </div>
+        <p style="margin-top:28px;text-align:center"><a href="/guida-prezzi-mq-brescia/" style="color:var(--gold);font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:13px;text-decoration:underline">Consulta i valori OMI per zona →</a></p>
       </div>
     </section>
 
@@ -409,7 +465,41 @@
         <a href="tel:+393514581993">+39 351 458 1993</a>
       </div>
     </div>
-      <div class="container" style="border-top:1px solid rgba(255,255,255,.12);margin-top:18px;padding-top:16px;text-align:center;font-size:.9rem;opacity:.85">Sedi operative: <a href="/" style="color:inherit;text-decoration:underline">Milano</a> &middot; <strong>Brescia</strong> &middot; <a href="/bergamo/" style="color:inherit;text-decoration:underline">Bergamo</a></div>
+      <div class="container" style="border-top:1px solid rgba(255,255,255,.12);margin-top:18px;padding-top:16px;text-align:center;font-size:.9rem;opacity:.85">Sedi operative: <a href="/" style="color:inherit;text-decoration:underline">Milano</a> &middot; <strong>Brescia</strong> &middot; <a href="/bergamo/" style="color:inherit;text-decoration:underline">Bergamo</a><br>Guide prezzi OMI: <a href="/guida-prezzi-mq-milano/" style="color:inherit;text-decoration:underline">Milano</a> &middot; <a href="/guida-prezzi-mq-brescia/" style="color:inherit;text-decoration:underline">Brescia</a> &middot; <a href="/guida-prezzi-mq-bergamo/" style="color:inherit;text-decoration:underline">Bergamo</a><br>Vuoi comprare? <a href="/comprare-casa-milano/" style="color:inherit;text-decoration:underline">Milano</a> &middot; <a href="/comprare-casa-brescia/" style="color:inherit;text-decoration:underline">Brescia</a> &middot; <a href="/comprare-casa-bergamo/" style="color:inherit;text-decoration:underline">Bergamo</a> &middot; <a href="/privacy/" style="color:inherit;text-decoration:underline">Privacy</a></div>
   </footer>
+
+  <script>
+    function onMqChange(val){
+      document.getElementById('mqShow').textContent = val + ' mq';
+      document.getElementById('mqV').textContent = val + ' mq';
+      document.getElementById('mqVal').value = val + ' mq';
+    }
+    function setTipo(el){
+      document.querySelectorAll('.tcard').forEach(function(c){ c.classList.remove('on'); });
+      el.classList.add('on');
+      document.getElementById('tipologiaVal').value = el.dataset.v;
+    }
+    function nextFormStep(){
+      var zona = document.getElementById('zona');
+      if (!zona.value) {
+        zona.style.borderColor = 'var(--red)';
+        zona.focus();
+        return;
+      }
+      zona.style.borderColor = '';
+      document.getElementById('formStep1').classList.remove('active');
+      document.getElementById('formStep2').classList.add('active');
+      document.getElementById('fp1').classList.remove('active');
+      document.getElementById('fp2').classList.add('active');
+      document.getElementById('fpl').classList.add('active');
+    }
+    function prevFormStep(){
+      document.getElementById('formStep2').classList.remove('active');
+      document.getElementById('formStep1').classList.add('active');
+      document.getElementById('fp2').classList.remove('active');
+      document.getElementById('fp1').classList.add('active');
+      document.getElementById('fpl').classList.remove('active');
+    }
+  </script>
 </body>
 </html>

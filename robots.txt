@@ -3,6 +3,7 @@
 # Tutti i crawler: accesso completo
 User-agent: *
 Allow: /
+Disallow: /mauriziopiraino-sito-completo/
 
 # Crawler AI esplicitamente benvenuti (segnale chiaro, oltre al default)
 User-agent: GPTBot
