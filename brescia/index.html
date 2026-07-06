@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agente Immobiliare Brescia | Valutazione Casa &middot; Piraino</title>
@@ -18,7 +20,36 @@
   <meta name="twitter:title" content="Agente Immobiliare affiliato RE/MAX Brescia" />
   <meta name="twitter:description" content="Analisi immobiliare riservata per vendere casa a Brescia, Franciacorta, Lago di Garda e Lago d'Iseo." />
   <meta name="twitter:image" content="https://mauriziopiraino.it/brescia.jpg" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Maurizio Piraino","url":"https://mauriziopiraino.it/brescia/","image":"https://mauriziopiraino.it/foto.jpg","telephone":"+393514581993","email":"maurizio.piraino@remax.it","address":{"@type":"PostalAddress","addressLocality":"Brescia","addressRegion":"Lombardia","addressCountry":"IT"},"areaServed":["Brescia","Franciacorta","Lago di Garda","Lago d'Iseo","Desenzano del Garda","Sirmione","Iseo","Sarnico","Erbusco","Rovato"],"description":"Agente Immobiliare affiliato RE/MAX a Brescia, Franciacorta, Lago di Garda e Lago d'Iseo.","sameAs":["https://www.instagram.com/mauriziopiraino.immobiliare"]}</script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "Maurizio Piraino — RE/MAX", "url": "https://mauriziopiraino.it/", "inLanguage": "it-IT", "publisher": {"@id": "https://mauriziopiraino.it/#agent"}}
+  </script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "@id": "https://mauriziopiraino.it/#agent",
+  "name": "Maurizio Piraino",
+  "url": "https://mauriziopiraino.it/",
+  "image": "https://mauriziopiraino.it/foto.jpg",
+  "telephone": "+393514581993",
+  "email": "maurizio.piraino@remax.it",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Lombardia",
+    "addressCountry": "IT"
+  },
+  "areaServed": [
+    "Milano",
+    "Bergamo",
+    "Brescia",
+    "Lombardia"
+  ],
+  "description": "Agente Immobiliare affiliato RE/MAX. Consulenza per venditori e acquirenti in Lombardia.",
+  "sameAs": [
+    "https://www.instagram.com/mauriziopiraino.immobiliare"
+  ]
+}
+  </script>
 
   <script type="application/ld+json">
   {
@@ -198,8 +229,12 @@
     @media(max-width:560px){.container{width:min(100% - 28px,1180px)}.topbar-inner{justify-content:center;text-align:center}.brand{font-size:18px}h1{font-size:42px}.hero-content p{font-size:16px}.hero-actions{flex-direction:column}.btn{width:100%}.trust-row{grid-template-columns:1fr;gap:18px}.hero-form-wrap{padding:36px 18px}.form-card h2{font-size:28px}.footer-inner{flex-direction:column}.step-actions{flex-direction:column}.type-grid{grid-template-columns:repeat(2,1fr)}}
   </style>
   <link rel="stylesheet" href="/assets/site-nav.css" />
+  <link rel="stylesheet" href="/assets/site-base.css" />
+  <link rel="stylesheet" href="/assets/dual-path.css" />
+  <link rel="preload" as="image" href="/brescia.jpg" fetchpriority="high" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Salta al contenuto</a>
       <div class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-tagline">Agente Immobiliare affiliato <strong>RE/MAX</strong> · Brescia · Franciacorta · Laghi</div>
@@ -222,6 +257,7 @@
           <a href="#metodo">Metodo</a>
           <a href="#remax">RE/MAX</a>
           <a href="/comprare-casa/">Comprare</a>
+          <a href="/en/buy-home-milan/" class="lang-link">EN</a>
           <a href="#mercato">Strategia</a>
           <a href="#recensioni">Recensioni</a>
           <a class="btn btn-red nav-cta" href="#contatto">Richiedi Analisi</a>
@@ -230,7 +266,7 @@
       <div class="nav-backdrop" hidden></div>
     </div>
   </header>
-  <main>
+  <main id="main">
     <section class="hero" id="contatto">
       <div class="hero-left">
         <div class="hero-content reveal">
@@ -320,7 +356,22 @@
         </form>
       </aside>
     </section>
-
+    <section class="dual-path" aria-label="Scegli il tuo percorso">
+      <div class="container dual-path-grid">
+        <a class="dual-path-card dual-path-sell" href="#form">
+          <span class="dual-path-label">Vuoi vendere</span>
+          <strong>Analisi del tuo immobile</strong>
+          <p>Valutazione su città, Franciacorta e laghi. Nessun obbligo di incarico.</p>
+          <span class="dual-path-cta">Richiedi analisi →</span>
+        </a>
+        <a class="dual-path-card dual-path-buy" href="/comprare-casa-brescia/">
+          <span class="dual-path-label">Cerchi casa</span>
+          <strong>Consulenza acquirente</strong>
+          <p>Comprare a Brescia con metodo: laghi, colline e città.</p>
+          <span class="dual-path-cta">Comprare a Brescia →</span>
+        </a>
+      </div>
+    </section>
     <section>
       <div class="container">
         <div class="section-head reveal">

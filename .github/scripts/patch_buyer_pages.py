@@ -502,8 +502,9 @@ def build_body(cfg):
     </div>
   </header>
 
-  <main>
-    <section class="buyer-hero-pro" style="--hero-img: url('{cfg['hero_img']}')">
+  <main id="main">
+    <section class="buyer-hero-pro">
+      <img class="buyer-hero-img" src="{cfg['hero_img']}" alt="{cfg['city']}" width="1920" height="1080" fetchpriority="high" decoding="async" />
       <div class="container buyer-hero-pro-grid">
         <div class="buyer-hero-pro-copy reveal">
           <span class="section-kicker" style="color:var(--gold)">{kicker}</span>
@@ -516,7 +517,7 @@ def build_body(cfg):
           <div class="buyer-trust-row">{trust_row}</div>
         </div>
         <aside class="buyer-hero-card reveal">
-          <h3>{card_h}</h3>
+          <h2>{card_h}</h2>
           <p>{card_p}</p>
           <ul class="buyer-hero-list">{hero_list}</ul>
           <div class="hero-actions">
@@ -636,7 +637,7 @@ def build_body(cfg):
     {{DATALIST}}
   </datalist>
 
-  <div class="buyer-sticky-bar">
+  <div class="buyer-sticky-bar" role="region" aria-label="{'Quick actions' if is_en else 'Azioni rapide'}">
     <div class="buyer-sticky-inner">
       <a class="btn btn-red" href="#contatto">{sticky}</a>
       <a class="btn btn-outline" href="{wa_url}" aria-label="WhatsApp">WA</a>
@@ -913,6 +914,8 @@ def build_head(cfg):
 <html lang="{lang_attr}">
 <head>
 <meta charset="UTF-8" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="index,follow" />
 <title>{title}</title>
@@ -928,6 +931,7 @@ def build_head(cfg):
 <meta property="og:locale" content="{locale}" />
 <meta property="og:image" content="{img}" />
 <meta name="twitter:card" content="summary_large_image" />
+<link rel="preload" as="image" href="{img}" fetchpriority="high" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
@@ -935,8 +939,10 @@ def build_head(cfg):
 {get_styles()}
 <link rel="stylesheet" href="/assets/buyer-landing.css" />
 <link rel="stylesheet" href="/assets/site-nav.css" />
+<link rel="stylesheet" href="/assets/site-base.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">{'Skip to content' if is_en else 'Salta al contenuto'}</a>
 """
 
 

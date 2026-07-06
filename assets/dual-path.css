@@ -1,0 +1,86 @@
+/* Dual path — Vendere / Comprare sotto l'hero */
+
+.dual-path {
+  background: var(--cream, #f6f1e9);
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
+  padding: 28px 0 32px;
+}
+
+.dual-path-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.dual-path-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 26px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, .08);
+  background: #fff;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  min-height: 100%;
+}
+
+.dual-path-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, .08);
+}
+
+.dual-path-sell {
+  border-top: 3px solid var(--red, #b8241b);
+}
+
+.dual-path-sell:hover {
+  border-color: rgba(184, 36, 27, .35);
+}
+
+.dual-path-buy {
+  border-top: 3px solid var(--gold, #b79a64);
+}
+
+.dual-path-buy:hover {
+  border-color: rgba(183, 154, 100, .55);
+}
+
+.dual-path-label {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted, #707070);
+}
+
+.dual-path-card strong {
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  color: var(--text, #222);
+  line-height: 1.2;
+}
+
+.dual-path-card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted, #707070);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.dual-path-cta {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--red, #b8241b);
+}
+
+.dual-path-buy .dual-path-cta {
+  color: #8a7348;
+}
+
+@media (max-width: 720px) {
+  .dual-path-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+  <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="index,follow" />
 <title>Comprare casa a Lodi: consulenza per acquirenti | Piraino</title>
@@ -810,8 +812,11 @@
 </style>
 <link rel="stylesheet" href="/assets/buyer-landing.css" />
   <link rel="stylesheet" href="/assets/site-nav.css" />
+  <link rel="stylesheet" href="/assets/site-base.css" />
+  <link rel="preload" as="image" href="/lodi.jpg" fetchpriority="high" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Salta al contenuto</a>
       <div class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-tagline">Consulenza acquirenti <strong>RE/MAX</strong> · Lodi · Risposta entro 24h</div>
@@ -842,8 +847,9 @@
     </div>
   </header>
 
-  <main>
-    <section class="buyer-hero-pro" style="--hero-img: url('/lodi.jpg')">
+  <main id="main">
+    <section class="buyer-hero-pro">
+      <img class="buyer-hero-img" src="/lodi.jpg" alt="Lodi" width="1920" height="1080" fetchpriority="high" decoding="async" />
       <div class="container buyer-hero-pro-grid">
         <div class="buyer-hero-pro-copy reveal">
           <span class="section-kicker" style="color:var(--gold)">Comprare casa a Lodi</span>
@@ -856,7 +862,7 @@
           <div class="buyer-trust-row"><div class="trust"><strong>OMI</strong><span>Prezzo basato su dati ufficiali</span></div><div class="trust"><strong>RE/MAX</strong><span>Accesso alla rete MLS</span></div><div class="trust"><strong>Geometra</strong><span>Verifica tecnica reale</span></div></div>
         </div>
         <aside class="buyer-hero-card reveal">
-          <h3>Registra la ricerca</h3>
+          <h2>Registra la ricerca</h2>
           <p>Due minuti. Ti richiamo entro 24 ore.</p>
           <ul class="buyer-hero-list"><li>Analisi prezzo su dati OMI della tua zona</li><li>Verifica tecnica prima dell'offerta</li><li>Ricerca mirata, senza spam di annunci</li></ul>
           <div class="hero-actions">
@@ -980,7 +986,7 @@
               <option>Altra zona provincia Lodi</option>
   </datalist>
 
-  <div class="buyer-sticky-bar">
+  <div class="buyer-sticky-bar" role="region" aria-label="Azioni rapide">
     <div class="buyer-sticky-inner">
       <a class="btn btn-red" href="#contatto">Dimmi cosa cerchi</a>
       <a class="btn btn-outline" href="https://wa.me/393514581993?text=Ciao%20Maurizio%2C%20sto%20cercando%20casa%20a%20Lodi%20e%20vorrei%20una%20consulenza%20acquirente." aria-label="WhatsApp">WA</a>
