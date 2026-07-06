@@ -1,0 +1,43 @@
+name: Validate site
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check required deploy files
+        run: |
+          test -f .nojekyll
+          test -f assets/site-nav.css
+          test -f assets/site-nav.js
+          test -f assets/buyer-landing.css
+          test -f assets/buyer-landing.js
+          ! test -d scripts
+
+      - name: Check HTML pages load nav assets
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          root = Path(".")
+          pages = list(root.glob("**/index.html"))
+          missing_css = []
+          missing_js = []
+          for page in pages:
+              html = page.read_text(encoding="utf-8")
+              if 'class="site-header"' in html or page.name == "index.html" and "site-header" in html:
+                  if 'href="/assets/site-nav.css"' not in html:
+                      missing_css.append(str(page))
+                  if 'src="/assets/site-nav.js"' not in html and "privacy" not in str(page):
+                      missing_js.append(str(page))
+          if missing_css:
+              raise SystemExit("Missing site-nav.css in: " + ", ".join(missing_css))
+          if missing_js:
+              raise SystemExit("Missing site-nav.js in: " + ", ".join(missing_js))
+          print(f"Validated {len(pages)} pages")
+          PY

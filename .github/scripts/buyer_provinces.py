@@ -48,7 +48,7 @@ MILANO_BUDGET = [
 DEFAULT_STATS_IT = [
     ("OMI", "Dati ufficiali Agenzia Entrate"),
     ("24h", "Risposta alla tua richiesta"),
-    ("0", "Obbligo di incarico"),
+    ("✓", "Nessun obbligo di incarico"),
     ("RE/MAX", "Rete internazionale"),
 ]
 
@@ -72,7 +72,7 @@ DEFAULT_HERO_LIST_IT = [
 ]
 
 DEFAULT_FORM_BENEFITS_IT = [
-    "Ti richiamo entro 24 ore, senza pressione",
+    "Ti richiamo entro 24 ore, nessun obbligo di incarico",
     "Analisi del prezzo giusto per la zona che cerchi",
     "Alert quando esce qualcosa davvero in linea",
     "Supporto in trattativa fino al rogito",
