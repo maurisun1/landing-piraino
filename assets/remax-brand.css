@@ -1,5 +1,106 @@
 /* RE/MAX brand layer — loaded site-wide after base styles */
 
+/* ── Global palette override ── */
+body {
+  background: #eef3fb !important;
+  color: #1a1a1a;
+}
+
+.topbar {
+  background: var(--remax-blue) !important;
+}
+
+.site-header {
+  background: #fff !important;
+  border-bottom: 4px solid var(--remax-red) !important;
+  box-shadow: 0 8px 24px rgba(0, 61, 165, .08);
+}
+
+.brand {
+  color: var(--remax-blue) !important;
+}
+
+.brand span {
+  color: var(--remax-red) !important;
+}
+
+/* ── Seller hero blue overlay ── */
+section.hero:not(.buyer-hero-pro) {
+  position: relative;
+  isolation: isolate;
+}
+
+section.hero:not(.buyer-hero-pro)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    rgba(0, 61, 165, .88) 0%,
+    rgba(12, 39, 73, .82) 42%,
+    rgba(220, 28, 46, .28) 100%
+  );
+}
+
+section.hero:not(.buyer-hero-pro) > * {
+  position: relative;
+  z-index: 2;
+}
+
+section.hero:not(.buyer-hero-pro)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  z-index: 3;
+  background: linear-gradient(
+    90deg,
+    var(--remax-red) 0%,
+    var(--remax-red) 50%,
+    var(--remax-blue) 50%,
+    var(--remax-blue) 100%
+  );
+}
+
+/* ── Alternating section backgrounds ── */
+section:nth-of-type(even):not(.hero):not(.buyer-hero-pro):not(.final-cta):not(.buyer-final-cta) {
+  background: #fff !important;
+}
+
+section:nth-of-type(odd):not(.hero):not(.buyer-hero-pro):not(.final-cta):not(.buyer-final-cta) {
+  background: linear-gradient(180deg, #eef3fb 0%, #e4ecf8 100%) !important;
+}
+
+/* ── Cards & grids ── */
+.card,
+.situations-grid .card,
+.method-grid .card,
+.adv-card {
+  border-top: 3px solid var(--remax-blue) !important;
+  box-shadow: 0 12px 32px rgba(0, 61, 165, .1) !important;
+}
+
+.card:hover,
+.situations-grid .card:hover {
+  border-top-color: var(--remax-red) !important;
+}
+
+h2.serif,
+.section-head h2 {
+  color: var(--remax-blue) !important;
+}
+
+.eyebrow {
+  color: var(--remax-red) !important;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
 /* ── Buttons & CTAs ── */
 .btn-red,
 .nav-links .btn-red.nav-cta {
@@ -10,6 +111,46 @@
 
 .btn-red:hover {
   box-shadow: 0 18px 40px rgba(220, 28, 46, .42) !important;
+}
+
+.btn-outline {
+  border-color: var(--remax-blue) !important;
+  color: var(--remax-blue) !important;
+}
+
+.btn-outline:hover {
+  background: rgba(0, 61, 165, .08) !important;
+  color: var(--remax-blue) !important;
+}
+
+/* ── Dual-path section ── */
+.dual-path {
+  border-top: 5px solid var(--remax-red);
+  border-bottom: 5px solid var(--remax-blue);
+  background: linear-gradient(180deg, #fff 0%, #eef3fb 100%) !important;
+}
+
+.dual-path-card {
+  border-top: 4px solid var(--remax-blue) !important;
+}
+
+.dual-path-card:hover {
+  border-top-color: var(--remax-red) !important;
+}
+
+.dual-path-card h3 {
+  color: var(--remax-blue) !important;
+}
+
+/* ── Stats strip buyer ── */
+.buyer-stats-strip {
+  background: linear-gradient(
+    90deg,
+    var(--remax-red) 0%,
+    var(--remax-red) 50%,
+    var(--remax-blue) 50%,
+    var(--remax-blue) 100%
+  ) !important;
 }
 
 /* ── Nav RE/MAX badge (injected by site-nav.js) ── */

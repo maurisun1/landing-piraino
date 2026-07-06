@@ -89,12 +89,14 @@ header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0
 .footer strong{color:#fff;font-family:"Playfair Display",serif;font-size:20px;display:block;margin-bottom:8px}
 @media(max-width:560px){.nav .btn{font-size:13px;padding:0 16px}}
 </style>
-  <link rel="stylesheet" href="/assets/site-nav.css?v=20260708 />
-  <link rel="stylesheet" href="/assets/site-base.css?v=20260708 />
+  <link rel="stylesheet" href="/assets/site-nav.css?v=20260709" />
+  <link rel="stylesheet" href="/assets/site-base.css?v=20260709" />
+  <link rel="stylesheet" href="/assets/remax-brand.css?v=20260709" />
 </head>
 <body>
   <a class="skip-link" href="#main">Salta al contenuto</a>
   
+    
     <div class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-tagline">Consulenza acquirenti <strong>RE/MAX</strong> · Lombardia · Risposta entro 24h</div>
@@ -114,9 +116,23 @@ header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0
       </div>
       <div class="nav-panel" id="site-nav-panel">
         <nav class="nav-links" aria-label="Menu principale">
-          <a href="/">Vendere</a>
-          <a href="/comprare-casa/">Province</a>
-          <a href="/en/buy-home/" class="lang-link">EN</a>
+          <div class="nav-group nav-group-path">
+            <span class="nav-group-label">Percorso</span>
+            <div class="nav-group-links">
+              <a href="/comprare-casa/" class="nav-link-primary">Comprare</a>
+              <a href="/">Vendere</a>
+            </div>
+          </div>
+          <div class="nav-group nav-group-info">
+            <span class="nav-group-label">Info</span>
+            <div class="nav-group-links">
+              <a href="#remax">RE/MAX</a>
+              <a href="/en/buy-home/">English</a>
+            </div>
+          </div>
+          <div class="nav-group nav-group-lang">
+            <a href="/en/buy-home/" class="lang-link">EN</a>
+          </div>
           <a class="btn btn-red nav-cta" href="/comprare-casa-milano/#contatto">Dimmi cosa cerchi</a>
         </nav>
       </div>
@@ -162,6 +178,6 @@ header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0
     <a href="/" style="color:inherit;text-decoration:underline">Vendere casa</a> · <a href="/privacy/" style="color:inherit;text-decoration:underline">Privacy</a>
   </div>
 </footer>
-  <script src="/assets/site-nav.js" defer></script>
+  <script src="/assets/site-nav.js?v=20260709" defer></script>
 </body>
 </html>
