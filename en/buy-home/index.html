@@ -87,12 +87,14 @@ header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0
 .footer strong{color:#fff;font-family:"Playfair Display",serif;font-size:20px;display:block;margin-bottom:8px}
 @media(max-width:560px){.nav .btn{font-size:13px;padding:0 16px}}
 </style>
-  <link rel="stylesheet" href="/assets/site-nav.css?v=20260708 />
-  <link rel="stylesheet" href="/assets/site-base.css?v=20260708 />
+  <link rel="stylesheet" href="/assets/site-nav.css?v=20260709" />
+  <link rel="stylesheet" href="/assets/site-base.css?v=20260709" />
+  <link rel="stylesheet" href="/assets/remax-brand.css?v=20260709" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   
+    
     <div class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-tagline">Buyer advisory <strong>RE/MAX</strong> · Lombardy · Reply within 24h</div>
@@ -112,9 +114,23 @@ header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0
       </div>
       <div class="nav-panel" id="site-nav-panel">
         <nav class="nav-links" aria-label="Main menu">
-          <a href="/">Sell</a>
-          <a href="/en/buy-home/">Provinces</a>
-          <a href="/comprare-casa/" class="lang-link">IT</a>
+          <div class="nav-group nav-group-path">
+            <span class="nav-group-label">Path</span>
+            <div class="nav-group-links">
+              <a href="/en/buy-home/" class="nav-link-primary">Buy</a>
+              <a href="/">Sell</a>
+            </div>
+          </div>
+          <div class="nav-group nav-group-info">
+            <span class="nav-group-label">About</span>
+            <div class="nav-group-links">
+              <a href="#remax">RE/MAX</a>
+              <a href="/comprare-casa/">Provinces IT</a>
+            </div>
+          </div>
+          <div class="nav-group nav-group-lang">
+            <a href="/comprare-casa/" class="lang-link">IT</a>
+          </div>
           <a class="btn btn-red nav-cta" href="/en/buy-home-milan/#contatto">Tell me what you need</a>
         </nav>
       </div>
@@ -160,6 +176,6 @@ header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0
     <a href="/" style="color:inherit;text-decoration:underline">Sell your home</a> · <a href="/privacy/" style="color:inherit;text-decoration:underline">Privacy</a>
   </div>
 </footer>
-  <script src="/assets/site-nav.js" defer></script>
+  <script src="/assets/site-nav.js?v=20260709" defer></script>
 </body>
 </html>
