@@ -12,6 +12,22 @@
   gap: 16px;
 }
 
+.dual-path-intro {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--remax-blue, #003da5);
+}
+
+.dual-path-intro em {
+  font-style: normal;
+  color: var(--remax-red, #dc1c2e);
+}
+
 .dual-path-card {
   display: flex;
   flex-direction: column;

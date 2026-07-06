@@ -12,8 +12,9 @@ ROOT = Path(__file__).resolve().parents[2]
 FAVICON_LINKS = """<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/favicon.svg" />"""
 
-BASE_CSS = '<link rel="stylesheet" href="/assets/site-base.css?v=20260707" />'
-DUAL_PATH_CSS = '<link rel="stylesheet" href="/assets/dual-path.css?v=20260707" />'
+BASE_CSS = '<link rel="stylesheet" href="/assets/site-base.css?v=20260708" />'
+REMAX_BRAND_CSS = '<link rel="stylesheet" href="/assets/remax-brand.css?v=20260708" />'
+DUAL_PATH_CSS = '<link rel="stylesheet" href="/assets/dual-path.css?v=20260708" />'
 
 PROVINCE_HERO = {
     "milano": ("/milano.jpg", "Milano", "Milano"),
@@ -69,7 +70,9 @@ def ensure_head_assets(html: str, *, dual_path: bool = False, preload: str | Non
     if FAVICON_LINKS not in html:
         html = html.replace("<meta charset", f"{FAVICON_LINKS}\n  <meta charset", 1)
     if BASE_CSS not in html:
-        html = html.replace("</head>", f"  {BASE_CSS}\n</head>", 1)
+        html = html.replace("</head>", f"  {BASE_CSS}\n  {REMAX_BRAND_CSS}\n</head>", 1)
+    elif REMAX_BRAND_CSS not in html:
+        html = html.replace(BASE_CSS, f"{BASE_CSS}\n  {REMAX_BRAND_CSS}", 1)
     if dual_path and DUAL_PATH_CSS not in html:
         html = html.replace("</head>", f"  {DUAL_PATH_CSS}\n</head>", 1)
     if preload and f'href="{preload}"' not in html:
@@ -92,6 +95,7 @@ def inject_dual_path(html: str, cfg: dict) -> str:
     block = f"""
     <section class="dual-path" aria-label="Scegli il tuo percorso">
       <div class="container dual-path-grid">
+        <p class="dual-path-intro"><em>RE/MAX</em> · Scegli il tuo percorso</p>
         <a class="dual-path-card dual-path-sell" href="{cfg['sell_href']}">
           <span class="dual-path-label">Vuoi vendere</span>
           <strong>{cfg['sell_title']}</strong>

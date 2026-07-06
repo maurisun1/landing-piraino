@@ -80,8 +80,8 @@
 }
 
 .nav-toggle:hover {
-  border-color: rgba(184, 36, 27, .35);
-  background: #faf7f2;
+  border-color: rgba(220, 28, 46, .45);
+  background: #f0f4fb;
 }
 
 .nav-toggle-bar {
@@ -126,10 +126,11 @@
   min-width: 36px;
   text-align: center;
   padding: 6px 10px;
-  border: 1px solid rgba(0, 0, 0, .12);
+  border: 1px solid rgba(0, 61, 165, .25);
   border-radius: 6px;
   font-size: 12px;
   letter-spacing: .08em;
+  color: var(--remax-blue, #003da5);
 }
 
 .nav-links .nav-wa-full {
