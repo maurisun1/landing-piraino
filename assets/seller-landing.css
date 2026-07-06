@@ -1,0 +1,250 @@
+/* Seller landing — hero + lead form layout (index, bergamo, brescia) */
+
+/* ── Hero grid: balanced split ── */
+section.hero#contatto {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr) !important;
+  min-height: calc(100vh - 118px);
+  background: #0c2749;
+}
+
+/* Blue overlay only on photo side, not the form column */
+section.hero#contatto::before,
+section.hero#contatto::after {
+  content: none !important;
+  display: none !important;
+}
+
+.hero-left {
+  min-height: min(88vh, 820px);
+}
+
+.hero-left::after {
+  background: linear-gradient(
+    115deg,
+    rgba(0, 61, 165, .72) 0%,
+    rgba(12, 39, 73, .55) 50%,
+    rgba(220, 28, 46, .18) 100%
+  ) !important;
+}
+
+.hero-left .eyebrow {
+  color: rgba(255, 255, 255, .88) !important;
+}
+
+.hero-left .eyebrow::before {
+  background: var(--remax-red, #dc1c2e) !important;
+}
+
+/* ── Form column: fills space, no tiny card floating in void ── */
+.hero-form-wrap {
+  display: flex !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  padding: clamp(28px, 3.5vw, 52px) clamp(24px, 3vw, 44px) !important;
+  background: linear-gradient(180deg, #e4ebf6 0%, #f0f4fb 40%, #fff 100%) !important;
+  border-left: 5px solid var(--remax-red, #dc1c2e);
+  min-height: 100%;
+}
+
+.form-card {
+  width: 100% !important;
+  max-width: none !important;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(32px, 3.5vw, 48px) clamp(28px, 3vw, 42px) !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(0, 61, 165, .12) !important;
+  border-top: 5px solid var(--remax-red, #dc1c2e) !important;
+  background: #fff !important;
+  box-shadow:
+    0 24px 64px rgba(0, 61, 165, .16),
+    0 8px 24px rgba(0, 0, 0, .06) !important;
+}
+
+.form-card::before {
+  content: "Consulenza riservata · RE/MAX";
+  display: block;
+  width: fit-content;
+  margin-bottom: 16px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(0, 61, 165, .08);
+  color: var(--remax-blue, #003da5);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.form-card h2 {
+  font-size: clamp(1.55rem, 2.4vw, 2.05rem) !important;
+  line-height: 1.18 !important;
+  margin-bottom: 10px !important;
+  color: var(--remax-blue, #003da5) !important;
+}
+
+.form-card > p {
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 24px !important;
+  color: #555 !important;
+}
+
+.form-card label {
+  font-size: 11px !important;
+  letter-spacing: .08em !important;
+  color: var(--remax-blue, #003da5) !important;
+  margin-top: 18px !important;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+  min-height: 56px !important;
+  border-radius: 8px !important;
+  border-color: rgba(0, 61, 165, .18) !important;
+  font-size: 15px !important;
+}
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+  border-color: var(--remax-red, #dc1c2e) !important;
+  box-shadow: 0 0 0 4px rgba(220, 28, 46, .1) !important;
+}
+
+.form-card .btn {
+  min-height: 56px !important;
+  font-size: 15px !important;
+  border-radius: 8px !important;
+  margin-top: 24px !important;
+}
+
+.form-card .microcopy {
+  margin-top: 16px !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+.form-progress {
+  margin: 8px 0 12px !important;
+}
+
+.fp-dot {
+  width: 36px !important;
+  height: 36px !important;
+  font-size: 14px !important;
+}
+
+.fp-line {
+  width: 72px !important;
+}
+
+.fp-dot.active {
+  background: var(--remax-red, #dc1c2e) !important;
+  border-color: var(--remax-red, #dc1c2e) !important;
+}
+
+.type-grid {
+  gap: 10px !important;
+}
+
+.tcard {
+  padding: 16px 10px !important;
+  font-size: 14px !important;
+  border-radius: 8px !important;
+}
+
+.tcard.on {
+  border-color: var(--remax-red, #dc1c2e) !important;
+  background: rgba(220, 28, 46, .07) !important;
+  color: var(--remax-red, #dc1c2e) !important;
+}
+
+/* ── Hero content polish ── */
+.hero-content {
+  padding: clamp(48px, 6vw, 80px) clamp(32px, 5vw, 70px) clamp(40px, 5vw, 62px) !important;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.4rem, 5vw, 4.5rem) !important;
+}
+
+.trust-row {
+  margin-top: 40px !important;
+  padding-top: 24px !important;
+}
+
+.trust-row .trust {
+  border-left: 3px solid var(--remax-red, #dc1c2e) !important;
+  padding-left: 14px;
+}
+
+.trust-row .trust strong {
+  color: #fff !important;
+  font-size: clamp(1.25rem, 2vw, 1.75rem) !important;
+}
+
+/* ── Sections below hero ── */
+main > section {
+  padding: clamp(72px, 8vw, 100px) 0 !important;
+}
+
+.section-head {
+  margin-bottom: 40px !important;
+}
+
+.card {
+  background: #fff !important;
+  border-radius: 14px !important;
+  padding: 32px !important;
+}
+
+/* ── Responsive ── */
+@media (max-width: 980px) {
+  section.hero#contatto {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-left {
+    min-height: auto;
+  }
+
+  .hero-form-wrap {
+    border-left: none !important;
+    border-top: 5px solid var(--remax-blue, #003da5);
+    padding: 40px 24px 48px !important;
+  }
+
+  .form-card {
+    padding: 32px 24px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-form-wrap {
+    padding: 32px 18px 40px !important;
+  }
+
+  .form-card {
+    padding: 28px 20px !important;
+    border-radius: 14px !important;
+  }
+
+  .form-card h2 {
+    font-size: 1.45rem !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  section.hero#contatto {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) !important;
+  }
+
+  .form-card {
+    padding: 52px 48px !important;
+  }
+}

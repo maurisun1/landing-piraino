@@ -24,13 +24,26 @@ body {
   color: var(--remax-red) !important;
 }
 
-/* ── Seller hero blue overlay ── */
-section.hero:not(.buyer-hero-pro) {
+/* ── Seller hero — overlay scoped to photo column only (see seller-landing.css) ── */
+section.hero#contatto {
   position: relative;
   isolation: isolate;
 }
 
-section.hero:not(.buyer-hero-pro)::before {
+section.hero#contatto > .hero-left,
+section.hero#contatto > .hero-form-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+/* Do NOT overlay the form column */
+section.hero#contatto::before,
+section.hero#contatto::after {
+  display: none !important;
+}
+
+/* Hub / generic heroes without seller form */
+section.hero:not(#contatto):not(.buyer-hero-pro)::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -44,26 +57,9 @@ section.hero:not(.buyer-hero-pro)::before {
   );
 }
 
-section.hero:not(.buyer-hero-pro) > * {
+section.hero:not(#contatto):not(.buyer-hero-pro) > * {
   position: relative;
   z-index: 2;
-}
-
-section.hero:not(.buyer-hero-pro)::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 5px;
-  z-index: 3;
-  background: linear-gradient(
-    90deg,
-    var(--remax-red) 0%,
-    var(--remax-red) 50%,
-    var(--remax-blue) 50%,
-    var(--remax-blue) 100%
-  );
 }
 
 /* ── Alternating section backgrounds (subtle, skip hero) ── */
@@ -99,6 +95,11 @@ h2.serif,
   font-weight: 900;
   letter-spacing: .14em;
   text-transform: uppercase;
+}
+
+.hero-left .eyebrow,
+.buyer-hero-pro-copy .eyebrow {
+  color: rgba(255, 255, 255, .88) !important;
 }
 
 /* ── Buttons & CTAs ── */
@@ -179,11 +180,6 @@ h2.serif,
 
 .form-card {
   border-top: 5px solid var(--remax-red) !important;
-  box-shadow: 0 24px 60px rgba(0, 61, 165, .18) !important;
-}
-
-.form-card h2 {
-  color: var(--remax-blue) !important;
 }
 
 .trust-row .trust {
