@@ -1,8 +1,8 @@
 /* Dual path — Vendere / Comprare sotto l'hero */
 
 .dual-path {
-  background: var(--cream, #f6f1e9);
-  border-bottom: 1px solid rgba(0, 0, 0, .08);
+  background: linear-gradient(180deg, #e8eef8 0%, var(--remax-cream, #f7f5ee) 55%, var(--cream, #f6f1e9) 100%);
+  border-bottom: 2px solid rgba(0, 61, 165, .14);
   padding: 28px 0 32px;
 }
 
@@ -18,8 +18,9 @@
   gap: 8px;
   padding: 24px 26px;
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, .08);
+  border: 1px solid rgba(0, 61, 165, .12);
   background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 61, 165, .08);
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   min-height: 100%;
 }

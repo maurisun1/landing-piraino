@@ -8,6 +8,7 @@
   --gold: #003da5;
   --remax-red: #dc1c2e;
   --remax-blue: #003da5;
+  --remax-cream: #f7f5ee;
 }
 
 .skip-link {
@@ -26,11 +27,90 @@
   left: 0;
 }
 
+/* RE/MAX topbar — blu brand + barra rosso/bianco/blu */
+.topbar {
+  background: var(--remax-blue) !important;
+  color: rgba(255, 255, 255, .92) !important;
+}
+
+.topbar a {
+  color: #fff !important;
+}
+
+.topbar-tagline strong {
+  display: inline-block;
+  background: var(--remax-red);
+  color: #fff !important;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: .06em;
+}
+
 .topbar::after {
   content: "";
   display: block;
-  height: 3px;
-  background: linear-gradient(90deg, var(--remax-red) 50%, var(--remax-blue) 50%);
+  height: 5px;
+  background: linear-gradient(
+    90deg,
+    var(--remax-red) 0%,
+    var(--remax-red) 33.33%,
+    #fff 33.33%,
+    #fff 66.66%,
+    var(--remax-blue) 66.66%,
+    var(--remax-blue) 100%
+  );
+}
+
+.site-header {
+  border-bottom: 3px solid var(--remax-red) !important;
+}
+
+.brand span {
+  color: var(--remax-red) !important;
+}
+
+.section-kicker {
+  color: var(--remax-red) !important;
+}
+
+.footer {
+  background: var(--blue-dark) !important;
+  border-top: 5px solid var(--remax-red);
+}
+
+.footer-geo {
+  border-top: 1px solid rgba(255, 255, 255, .16);
+  margin-top: 18px;
+  padding-top: 18px;
+  text-align: center;
+  font-size: .88rem;
+  line-height: 1.9;
+}
+
+.footer-geo-row {
+  margin: 0 0 12px;
+  color: rgba(255, 255, 255, .78);
+}
+
+.footer-geo-label {
+  color: #fff;
+  font-weight: 800;
+  margin-right: 4px;
+}
+
+.footer-geo a {
+  color: rgba(255, 255, 255, .86);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-geo a:hover {
+  color: #fff;
+}
+
+.footer-geo strong {
+  color: #fff;
+  font-weight: 800;
 }
 
 @media (prefers-reduced-motion: reduce) {
