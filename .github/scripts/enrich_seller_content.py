@@ -160,7 +160,8 @@ def render_enrichment(cfg: dict) -> str:
           <article class="seller-service-card reveal"><div class="seller-service-num">A</div><h3>Analisi e valutazione</h3><p>Studio del mercato locale, comparables, OMI e posizionamento prezzo iniziale.</p></article>
           <article class="seller-service-card reveal"><div class="seller-service-num">B</div><h3>Preparazione immobile</h3><p>Home staging consigliato, documenti in ordine, presentazione che valorizza i punti di forza.</p></article>
           <article class="seller-service-card reveal"><div class="seller-service-num">C</div><h3>Marketing RE/MAX</h3><p>Foto professionali, portali, rete MLS e visibilità internazionale del brand.</p></article>
-          <article class="seller-service-card reveal"><div class="seller-service-num">D</div><h3>Trattativa e rogito</h3><p>Gestione offerte, negoziazione e affiancamento fino al passaggio definitivo.</p></article>
+          <article class="seller-service-card reveal"><div class="seller-service-num">D</div><h3>Open House</h3><p>Porte aperte organizzate per attrarre più acquirenti qualificati in poche ore, con gestione professionale delle visite.</p></article>
+          <article class="seller-service-card reveal"><div class="seller-service-num">E</div><h3>Trattativa e rogito</h3><p>Gestione offerte, negoziazione e affiancamento fino al passaggio definitivo.</p></article>
         </div>
       </div>
     </section>
