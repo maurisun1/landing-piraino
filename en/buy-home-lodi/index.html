@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+  <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="index,follow" />
 <title>Buy a home in Lodi: buyer advisory | Piraino</title>
@@ -810,8 +812,11 @@
 </style>
 <link rel="stylesheet" href="/assets/buyer-landing.css" />
   <link rel="stylesheet" href="/assets/site-nav.css" />
+  <link rel="stylesheet" href="/assets/site-base.css" />
+  <link rel="preload" as="image" href="/lodi.jpg" fetchpriority="high" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Salta al contenuto</a>
       <div class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-tagline">Buyer advisory <strong>RE/MAX</strong> · Lodi · Reply within 24h</div>
@@ -842,8 +847,9 @@
     </div>
   </header>
 
-  <main>
-    <section class="buyer-hero-pro" style="--hero-img: url('/lodi.jpg')">
+  <main id="main">
+    <section class="buyer-hero-pro">
+      <img class="buyer-hero-img" src="/lodi.jpg" alt="Lodi" width="1920" height="1080" fetchpriority="high" decoding="async" />
       <div class="container buyer-hero-pro-grid">
         <div class="buyer-hero-pro-copy reveal">
           <span class="section-kicker" style="color:var(--gold)">Buy a home in Lodi</span>
@@ -856,7 +862,7 @@
           <div class="buyer-trust-row"><div class="trust"><strong>OMI</strong><span>Price based on official data</span></div><div class="trust"><strong>RE/MAX</strong><span>Access to the MLS network</span></div><div class="trust"><strong>Surveyor</strong><span>Real technical checks</span></div></div>
         </div>
         <aside class="buyer-hero-card reveal">
-          <h3>Register your search</h3>
+          <h2>Register your search</h2>
           <p>Two minutes. I will call you back within 24 hours.</p>
           <ul class="buyer-hero-list"><li>Price analysis based on OMI data for your area</li><li>Technical checks before you offer</li><li>Targeted search, no listing spam</li></ul>
           <div class="hero-actions">
@@ -980,7 +986,7 @@
               <option>Other area in Lodi province</option>
   </datalist>
 
-  <div class="buyer-sticky-bar">
+  <div class="buyer-sticky-bar" role="region" aria-label="Azioni rapide">
     <div class="buyer-sticky-inner">
       <a class="btn btn-red" href="#contatto">Tell me what you need</a>
       <a class="btn btn-outline" href="https://wa.me/393514581993?text=Hi%20Maurizio%2C%20I%20am%20looking%20to%20buy%20in%20Lodi%20and%20would%20like%20buyer%20advisory." aria-label="WhatsApp">WA</a>

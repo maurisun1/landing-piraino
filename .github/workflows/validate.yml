@@ -18,6 +18,10 @@ jobs:
           test -f assets/site-nav.js
           test -f assets/buyer-landing.css
           test -f assets/buyer-landing.js
+          test -f assets/site-base.css
+          test -f assets/dual-path.css
+          test -f favicon.svg
+          test -f llms.txt
           ! test -d scripts
 
       - name: Check HTML pages load nav assets
