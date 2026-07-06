@@ -818,14 +818,21 @@
     @media (max-width: 560px) { .buyer-grid { grid-template-columns: 1fr; } }
 
 </style>
+<link rel="stylesheet" href="/assets/buyer-landing.css" />
 </head>
 <body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div>Buyer advisory <strong>RE/MAX</strong> · Brescia · Reply within 24 hours</div>
+      <a href="https://wa.me/393514581993?text=Hi%20Maurizio%2C%20I%20am%20looking%20to%20buy%20in%20Brescia%20and%20would%20like%20buyer%20advisory.">Message me on WhatsApp</a>
+    </div>
+  </div>
   <header>
     <div class="container nav">
       <a class="brand" href="/">Maurizio Piraino <span>·</span> RE/MAX Real Estate Agent</a>
       <nav class="nav-links">
-        <a href="/#metodo">Method</a>
-        <a href="/#remax">RE/MAX</a>
+        <a href="#metodo">Method</a>
+        <a href="#remax">RE/MAX</a>
         <a href="/guida-prezzi-mq-brescia/">OMI prices</a>
         <a href="/comprare-casa-brescia/" class="lang-link">IT</a>
         <a class="btn btn-red" href="#contatto">Tell me what you need</a>
@@ -834,15 +841,39 @@
   </header>
 
   <main>
-    <section class="buyer-hero">
-      <div class="container">
-        <span class="section-kicker" style="color:var(--gold)">Buy a home in Brescia</span>
-        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,56px);line-height:1.07;margin:14px 0 18px;color:#fff">Buying well is not about finding a home.<br>It is about not overpaying.</h1>
-        <p class="lead" style="max-width:640px;color:rgba(255,255,255,.78)">In Brescia and its province — from the city centre to Franciacorta, from Lake Garda to Lake Iseo — each area has different dynamics. It is easy to overpay, lose a property, or buy a home with hidden issues. My role is to help you avoid that. <strong style="color:#fff">Analysis first. Then the right choice.</strong></p>
-        <div class="hero-actions" style="margin-top:30px">
-          <a class="btn btn-red" href="#contatto">Tell me what you need →</a>
-          <a class="btn btn-outline" href="#come">How it works</a>
+    <section class="buyer-hero-pro" style="--hero-img: url('/brescia.jpg')">
+      <div class="container buyer-hero-pro-grid">
+        <div class="buyer-hero-pro-copy reveal">
+          <span class="section-kicker" style="color:var(--gold)">Buy a home in Brescia</span>
+          <h1>Buying well is not about finding a home.<br>It is about not overpaying.</h1>
+          <p class="lead">In Brescia and its province — from the city centre to Franciacorta, from Lake Garda to Lake Iseo — each area has different dynamics. It is easy to overpay, lose a property, or buy a home with hidden issues. <strong style="color:#fff">Analysis first. Then the right choice.</strong></p>
+          <div class="hero-actions" style="margin-top:30px">
+            <a class="btn btn-red" href="#contatto">Tell me what you need →</a>
+            <a class="btn btn-outline" href="#come">How it works</a>
+          </div>
+          <div class="buyer-trust-row"><div class="trust"><strong>OMI</strong><span>Price based on official data</span></div><div class="trust"><strong>RE/MAX</strong><span>Access to the MLS network</span></div><div class="trust"><strong>Surveyor</strong><span>Real technical checks</span></div></div>
         </div>
+        <aside class="buyer-hero-card reveal">
+          <h3>Register your search</h3>
+          <p>Two minutes. I will call you back within 24 hours.</p>
+          <ul class="buyer-hero-list"><li>OMI analysis across city, lakes and Franciacorta</li><li>Document checks before you offer</li><li>Targeted selection, no random listings</li></ul>
+          <div class="hero-actions">
+            <a class="btn btn-red" href="#contatto">Fill in the form →</a>
+            <a class="btn btn-outline" href="https://wa.me/393514581993?text=Hi%20Maurizio%2C%20I%20am%20looking%20to%20buy%20in%20Brescia%20and%20would%20like%20buyer%20advisory.">Message me on WhatsApp</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="buyer-stats-strip">
+      <div class="container buyer-stats-grid"><div><strong>OMI</strong><span>Dati ufficiali Agenzia Entrate</span></div><div><strong>24h</strong><span>Risposta alla tua richiesta</span></div><div><strong>0</strong><span>Obbligo di incarico</span></div><div><strong>RE/MAX</strong><span>Rete internazionale</span></div></div>
+    </section>
+
+    <section class="buyer-pain">
+      <div class="container">
+        <div class="section-head"><span class="section-kicker">Sound familiar?</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0">Four common situations — and how I help you avoid them</h2></div>
+        <div class="buyer-pain-grid"><article class="buyer-pain-card reveal"><div class="num">01</div><h3>You are not sure lake prices are fair</h3><p>Franciacorta and Garda are premium markets: you need a real comparison, not the asking price.</p></article><article class="buyer-pain-card reveal"><div class="num">02</div><h3>You compete with other buyers</h3><p>A poorly calibrated offer makes you lose the home — or locks you into too high a price.</p></article><article class="buyer-pain-card reveal"><div class="num">03</div><h3>You search across very different areas</h3><p>City, hills, lakes: each area has different rules and needs a serious filter.</p></article><article class="buyer-pain-card reveal"><div class="num">04</div><h3>You want to avoid technical surprises</h3><p>Before the offer you need to know about urban planning or cadastral issues.</p></article></div>
       </div>
     </section>
 
@@ -850,12 +881,35 @@
       <div class="container">
         <div class="section-head"><span class="section-kicker">Why work with an advisor</span>
         <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0">Four real advantages when you buy with me</h2></div>
-        <div class="adv-grid">
-          <div class="adv-card"><h3>The right price</h3><p>Micro-area analysis based on official OMI data: you know whether that home is truly worth the asking price before making an offer. You do not pay for emotion.</p></div>
-          <div class="adv-card"><h3>The RE/MAX network</h3><p>It is sometimes possible to see upcoming listings before they hit the portals — including lakefront homes or properties in Franciacorta, where international competition changes the rules.</p></div>
-          <div class="adv-card"><h3>Checks before you buy</h3><p>Urban planning and cadastral compliance, discrepancies, documents: checks done <em>before</em> the purchase, so you do not discover problems after closing.</p></div>
-          <div class="adv-card"><h3>Tailored search</h3><p>Tell me what you need once. I alert you when something truly relevant appears, without wasting time on listings that are not for you.</p></div>
+        <div class="adv-grid"><div class="adv-card reveal"><div class="buyer-adv-icon">◎</div><h3>The right price</h3><p>Micro-area analysis based on official OMI data: you know whether that home is truly worth the asking price before making an offer.</p></div><div class="adv-card reveal"><div class="buyer-adv-icon">◈</div><h3>The RE/MAX network</h3><p>It is sometimes possible to see upcoming listings before they hit the portals.</p></div><div class="adv-card reveal"><div class="buyer-adv-icon">✓</div><h3>Checks before you buy</h3><p>Urban planning and cadastral compliance, discrepancies, documents: checks done before the purchase.</p></div><div class="adv-card reveal"><div class="buyer-adv-icon">→</div><h3>Tailored search</h3><p>Tell me what you need once. I alert you when something truly relevant appears.</p></div></div>
+      </div>
+    </section>
+
+    <section id="metodo" class="buyer-trust-block">
+      <div class="container buyer-trust-grid">
+        <div class="buyer-portrait reveal">
+          <img src="/foto.jpg" loading="lazy" decoding="async" alt="Maurizio Piraino RE/MAX real estate agent Brescia" />
+          <div class="buyer-portrait-meta">
+            <strong>Maurizio Piraino</strong>
+            <span>RE/MAX Agent · Brescia and province</span>
+            <div class="buyer-badges"><span class="buyer-badge">REA BS-639579</span><span class="buyer-badge">Surveyor</span><span class="buyer-badge">OMI data</span></div>
+          </div>
         </div>
+        <div class="reveal">
+          <span class="section-kicker">Who supports you</span>
+          <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 14px">Not a portal. A person with data and method.</h2>
+          <p class="lead" style="margin:0 0 8px">I support buyers in Brescia city, Franciacorta, lakes and valleys. With OMI data and technical checks I help you buy at the right price, not the listing price.</p>
+          <blockquote class="buyer-quote">In Franciacorta or on Lake Garda, two similar homes can be worth very different amounts. The micro-area decides — not the emotion of the moment.</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="remax" class="buyer-market">
+      <div class="container">
+        <div class="section-head"><span class="section-kicker" style="color:var(--gold)">Brescia market</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0;color:#fff">Each area has different rules. Numbers come before emotion.</h2></div>
+        <div class="buyer-market-grid"><div class="buyer-market-card reveal"><span>City</span><h3>Brescia centre</h3><p>Stable demand, prices that change neighbourhood by neighbourhood.</p></div><div class="buyer-market-card reveal"><span>Franciacorta</span><h3>Hills and villages</h3><p>Premium market: you need to know if the price fits the micro-area.</p></div><div class="buyer-market-card reveal"><span>Lakes</span><h3>Garda and Iseo</h3><p>High competition, including international buyers — analysis before the offer is decisive.</p></div></div>
+        <p style="text-align:center"><a class="buyer-omi-link" href="/guida-prezzi-mq-brescia/">See OMI values by area →</a></p>
       </div>
     </section>
 
@@ -863,11 +917,7 @@
       <div class="container">
         <div class="section-head"><span class="section-kicker" style="color:var(--gold)">How it works</span>
         <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0;color:#fff">Three steps. No pressure.</h2></div>
-        <div class="steps-buy">
-          <div><div class="num" style="color:var(--gold);font-size:2rem;font-family:'Playfair Display',serif">1</div><h3>You tell me what you need</h3><p>Area, property type, budget and timing. Two minutes using the form below.</p></div>
-          <div><div class="num" style="color:var(--gold);font-size:2rem;font-family:'Playfair Display',serif">2</div><h3>Analysis and targeted selection</h3><p>I search and filter, verify fair price and documents. I only propose what truly makes sense.</p></div>
-          <div><div class="num" style="color:var(--gold);font-size:2rem;font-family:'Playfair Display',serif">3</div><h3>Negotiation and purchase</h3><p>I support you through negotiation and closing, so you buy at the right price and with confidence.</p></div>
-        </div>
+        <div class="steps-buy"><div class="reveal"><div class="num" style="color:var(--gold);font-size:2rem;font-family:'Playfair Display',serif">1</div><h3>You tell me what you need</h3><p>Area, property type, budget and timing. Two minutes using the form.</p></div><div class="reveal"><div class="num" style="color:var(--gold);font-size:2rem;font-family:'Playfair Display',serif">2</div><h3>Analysis and targeted selection</h3><p>I search, filter, verify fair price and documents. I only propose what truly makes sense.</p></div><div class="reveal"><div class="num" style="color:var(--gold);font-size:2rem;font-family:'Playfair Display',serif">3</div><h3>Negotiation and purchase</h3><p>I support you through negotiation and closing, so you buy at the right price and with confidence.</p></div></div>
       </div>
     </section>
 
@@ -875,30 +925,30 @@
       <div class="container">
         <div class="section-head"><span class="section-kicker">FAQ</span>
         <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0">Questions from buyers</h2></div>
-        <div class="faq-buy">
-          <details><summary>How much does the buyer service cost?</summary><p>We discuss it clearly from the first contact, with no surprises. The goal is to help you buy well: the value you save by avoiding overpaying matters more than the fee.</p></details>
-          <details><summary>Do you only show your own listings?</summary><p>No. The goal is to find the right home for you, not to push a property. Through the RE/MAX network, it is sometimes possible to see homes before they hit the portals.</p></details>
-          <details><summary>How do you know if the price is fair?</summary><p>With a micro-area analysis based on official OMI data from the Italian Revenue Agency and the property's real characteristics, not listing prices.</p></details>
-          <details><summary>Can I buy before selling my current home?</summary><p>Yes, and it is a common situation. It needs to be planned with the right timing and numbers: we discuss it in the initial analysis.</p></details>
-          <details><summary>Do you work only in Brescia?</summary><p>Brescia, Franciacorta and the lakes are the focus, but I also support buyers in Milan and Bergamo.</p></details>
-        </div>
+        <div class="faq-buy"><details><summary>How much does the buyer service cost?</summary><p>We discuss it clearly from the first contact. The value you save by avoiding overpaying matters more than the fee.</p></details><details><summary>Do you only show your own listings?</summary><p>No. The goal is to find the right home for you, not to push a property.</p></details><details><summary>How do you know if the price is fair?</summary><p>With a micro-area analysis based on official OMI data and the property's real characteristics.</p></details><details><summary>Can I buy before selling my current home?</summary><p>Yes, and it is common. It needs to be planned with the right timing and numbers.</p></details><details><summary>Do you work only in Brescia?</summary><p>Brescia, Franciacorta, lakes and province are the focus, but I also support buyers in Milan and Bergamo.</p></details></div>
       </div>
     </section>
 
-    <section id="contatto" class="buyer-form-wrap">
-      <div class="container">
-        <form class="buyer-form" action="https://formspree.io/f/mvzlgeqb" method="POST" id="buyerForm">
+    <section id="contatto" class="buyer-form-section">
+      <div class="container buyer-form-layout">
+        <div class="buyer-form-aside reveal">
+          <h2>Buy with the right numbers, not with anxiety.</h2>
+          <p>Fill in the form: it is the first step toward a targeted search and a serious price assessment.</p>
+          <ul class="buyer-form-benefits"><li>Reply within 24 hours, no obligation</li><li>Price analysis for the area you want</li><li>Alert when I find something relevant</li><li>Support through negotiation and closing</li></ul>
+          <a class="btn btn-outline" href="https://wa.me/393514581993?text=Hi%20Maurizio%2C%20I%20am%20looking%20to%20buy%20in%20Brescia%20and%20would%20like%20buyer%20advisory.">Message me on WhatsApp</a>
+        </div>
+        <form class="buyer-form reveal" action="https://formspree.io/f/mvzlgeqb" method="POST" id="buyerForm">
           <h2>Tell me what you need</h2>
-          <p style="color:var(--muted);margin:0 0 20px">Register your search: I will alert you when I find something relevant, and tell you whether the price is fair. No pressure.</p>
+          <p style="color:var(--muted);margin:0 0 20px">Register your search: I will alert you when I find something relevant, and tell you whether the price is fair.</p>
           <input type="hidden" name="landing" value="Buy home Brescia - buyer EN" />
           <input type="hidden" name="_subject" value="Buyer request - Brescia EN" />
           <div class="buyer-grid">
-            <div><label class="field" for="b_nome">Name *</label><input id="b_nome" name="nome" type="text" required placeholder="Es. Marco Rossi"></div>
-            <div><label class="field" for="b_tel">Phone / WhatsApp *</label><input id="b_tel" name="telefono" type="tel" required placeholder="Es. 348 000 0000"></div>
+            <div><label class="field" for="b_nome">Name *</label><input id="b_nome" name="nome" type="text" required placeholder="e.g. Marco Rossi"></div>
+            <div><label class="field" for="b_tel">Phone / WhatsApp *</label><input id="b_tel" name="telefono" type="tel" required placeholder="e.g. +39 348 000 0000"></div>
             <div><label class="field" for="b_zona">Area or municipality *</label><input id="b_zona" name="zona" type="text" list="zoneBS" required placeholder="e.g. Franciacorta, Desenzano, Brescia centre..." autocomplete="off"></div>
-            <div><label class="field" for="b_tip">Property type</label><select id="b_tip" name="tipologia"><option value="">No preference</option><option>Two-bedroom</option><option>Three-bedroom</option><option>Four bedrooms or more</option><option>Villa / detached house</option><option>Other</option></select></div>
-            <div><label class="field" for="b_budget">Estimated budget</label><select id="b_budget" name="budget"><option value="">Prefer not to say</option><option>Up to €150,000</option><option>€150,000 - €250,000</option><option>€250,000 - €400,000</option><option>€400,000 - €600,000</option><option>Over €600,000</option></select></div>
-            <div><label class="field" for="b_tempi">Timing</label><select id="b_tempi" name="tempistiche"><option value="">—</option><option>Actively searching</option><option>Within 3-6 months</option><option>Just exploring</option></select></div>
+            <div><label class="field" for="b_tip">Property type</label><select id="b_tip" name="tipologia"><option value="">No preference</option><option value="bilocale">Two-bedroom</option><option value="trilocale">Three-bedroom</option><option value="quattro">Four bedrooms or more</option><option value="villa">Villa / detached house</option><option value="altro">Other</option></select></div>
+            <div><label class="field" for="b_budget">Indicative budget</label><select id="b_budget" name="budget"><option value="">Prefer not to say</option><option value="150000">Up to €150,000</option><option value="150000-250000">€150,000 - €250,000</option><option value="250000-400000">€250,000 - €400,000</option><option value="400000-600000">€400,000 - €600,000</option><option value="600000+">Over €600,000</option></select></div>
+            <div><label class="field" for="b_tempi">Timing</label><select id="b_tempi" name="tempistiche"><option value="">—</option><option value="attivo">Actively searching</option><option value="3-6">Within 3-6 months</option><option value="valuto">Just exploring</option></select></div>
           </div>
           <div style="margin-top:14px"><label class="field" for="b_msg">What matters most to you? (optional)</label><textarea id="b_msg" name="messaggio" rows="3" placeholder="e.g. three-bedroom in Franciacorta, lakefront villa, max budget €350,000..."></textarea></div>
           <label class="buyer-check"><input type="checkbox" name="privacy" required><span>I have read the <a href="/privacy/" style="color:inherit;text-decoration:underline">privacy policy</a> and agree to be contacted.</span></label>
@@ -907,10 +957,21 @@
         </form>
       </div>
     </section>
+
+    <section class="buyer-final-cta">
+      <div class="container">
+        <h2>Ready to search with a method, not by chance?</h2>
+        <p>Tell me what you need. I will call you back within 24 hours with a clear approach — no pressure.</p>
+        <div class="buyer-final-actions">
+          <a class="btn btn-red" href="#contatto">Tell me what you need →</a>
+          <a class="btn btn-outline" href="https://wa.me/393514581993?text=Hi%20Maurizio%2C%20I%20am%20looking%20to%20buy%20in%20Brescia%20and%20would%20like%20buyer%20advisory.">Message me on WhatsApp</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-<datalist id="zoneBS">
-              <option>Brescia città</option>
+  <datalist id="zoneBS">
+    <option>Brescia città</option>
               <option>Franciacorta</option>
               <option>Lago di Garda bresciano</option>
               <option>Lago d'Iseo</option>
@@ -918,13 +979,20 @@
               <option>Valle Camonica</option>
               <option>Bassa bresciana</option>
               <option>Altra zona provincia Brescia</option>
-            </datalist>
+  </datalist>
+
+  <div class="buyer-sticky-bar">
+    <div class="buyer-sticky-inner">
+      <a class="btn btn-red" href="#contatto">Tell me what you need</a>
+      <a class="btn btn-outline" href="https://wa.me/393514581993?text=Hi%20Maurizio%2C%20I%20am%20looking%20to%20buy%20in%20Brescia%20and%20would%20like%20buyer%20advisory." aria-label="WhatsApp">WA</a>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="container footer-inner">
       <div>
         <strong>Analysis first. Then the right choice.</strong>
-        <div>RE/MAX Real Estate Agent · REA BS-639579 · P.IVA 14597560961 · Brescia · Franciacorta · Lago di Garda · Lago d'Iseo<br><small>The initial consultation does not create an obligation to appoint an agent.</small></div>
+        <div>RE/MAX Real Estate Agent · REA BS-639579 · P.IVA 14597560961 · Brescia · Franciacorta · Lake Garda · Lake Iseo<br><small>The initial consultation does not create an obligation to appoint an agent.</small></div>
       </div>
       <div class="footer-links">
         <a href="https://wa.me/393514581993">WhatsApp</a>
@@ -933,7 +1001,8 @@
         <a href="tel:+393514581993">+39 351 458 1993</a>
       </div>
     </div>
-    <div class="container" style="border-top:1px solid rgba(255,255,255,.12);margin-top:18px;padding-top:16px;text-align:center;font-size:.9rem;opacity:.85">Selling instead? <a href="/brescia/" style="color:inherit;text-decoration:underline">Seller analysis Brescia</a> · Buy: <a href="/en/buy-home-milan/" style="color:inherit;text-decoration:underline">Milan</a> · <strong>Brescia</strong> · <a href="/en/buy-home-bergamo/" style="color:inherit;text-decoration:underline">Bergamo</a> · <a href="/privacy/" style="color:inherit;text-decoration:underline">Privacy</a></div>
+    <div class="container" style="border-top:1px solid rgba(255,255,255,.12);margin-top:18px;padding-top:16px;text-align:center;font-size:.9rem;opacity:.85">Selling instead? <a href="/brescia/" style="color:inherit;text-decoration:underline">Seller analysis Brescia</a> · Buy: <a href="/en/buy-home-milan/" style="color:inherit;text-decoration:underline">Milan</a> · <a href="/en/buy-home-monza/" style="color:inherit;text-decoration:underline">Monza and Brianza</a> · <a href="/en/buy-home-bergamo/" style="color:inherit;text-decoration:underline">Bergamo</a> · <strong>Brescia</strong> · <a href="/en/buy-home-como/" style="color:inherit;text-decoration:underline">Como</a> · <a href="/en/buy-home-varese/" style="color:inherit;text-decoration:underline">Varese</a> · <a href="/en/buy-home-lecco/" style="color:inherit;text-decoration:underline">Lecco</a> · <a href="/en/buy-home-sondrio/" style="color:inherit;text-decoration:underline">Sondrio</a> · <a href="/en/buy-home-cremona/" style="color:inherit;text-decoration:underline">Cremona</a> · <a href="/en/buy-home-lodi/" style="color:inherit;text-decoration:underline">Lodi</a> · <a href="/en/buy-home-mantova/" style="color:inherit;text-decoration:underline">Mantova</a> · <a href="/en/buy-home-pavia/" style="color:inherit;text-decoration:underline">Pavia</a> · <a href="/privacy/" style="color:inherit;text-decoration:underline">Privacy</a></div>
   </footer>
+  <script src="/assets/buyer-landing.js" defer></script>
 </body>
 </html>
