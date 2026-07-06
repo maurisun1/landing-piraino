@@ -74,6 +74,7 @@
   padding: 32px 28px;
   box-shadow: 0 30px 70px rgba(0,0,0,.35);
 }
+.buyer-hero-card h2,
 .buyer-hero-card h3 {
   font-family: "Playfair Display", serif;
   font-size: 1.55rem;
