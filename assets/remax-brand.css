@@ -66,13 +66,13 @@ section.hero:not(.buyer-hero-pro)::after {
   );
 }
 
-/* ── Alternating section backgrounds ── */
-section:nth-of-type(even):not(.hero):not(.buyer-hero-pro):not(.final-cta):not(.buyer-final-cta) {
+/* ── Alternating section backgrounds (subtle, skip hero) ── */
+main > section:nth-of-type(even):not(.hero):not(.buyer-hero-pro):not(.final-cta):not(.buyer-final-cta) {
   background: #fff !important;
 }
 
-section:nth-of-type(odd):not(.hero):not(.buyer-hero-pro):not(.final-cta):not(.buyer-final-cta) {
-  background: linear-gradient(180deg, #eef3fb 0%, #e4ecf8 100%) !important;
+main > section:nth-of-type(odd):not(.hero):not(.buyer-hero-pro):not(.final-cta):not(.buyer-final-cta) {
+  background: #f4f7fc !important;
 }
 
 /* ── Cards & grids ── */
@@ -123,6 +123,19 @@ h2.serif,
   color: var(--remax-blue) !important;
 }
 
+.hero .btn-outline,
+.buyer-hero-pro .btn-outline {
+  border-color: rgba(255, 255, 255, .45) !important;
+  color: #fff !important;
+  background: rgba(255, 255, 255, .08) !important;
+}
+
+.hero .btn-outline:hover,
+.buyer-hero-pro .btn-outline:hover {
+  background: rgba(255, 255, 255, .16) !important;
+  color: #fff !important;
+}
+
 /* ── Dual-path section ── */
 .dual-path {
   border-top: 5px solid var(--remax-red);
@@ -153,34 +166,9 @@ h2.serif,
   ) !important;
 }
 
-/* ── Nav RE/MAX badge (injected by site-nav.js) ── */
+/* ── Nav badge in brand-wrap (HTML, not JS) ── */
 .remax-nav-badge {
   display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-left: 10px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: var(--remax-red);
-  color: #fff !important;
-  font-family: Inter, Arial, sans-serif;
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  vertical-align: middle;
-  box-shadow: 0 4px 12px rgba(220, 28, 46, .28);
-}
-
-@media (max-width: 980px) {
-  .remax-nav-badge {
-    display: none;
-  }
-}
-
-.site-nav .brand {
-  color: var(--blue-dark);
 }
 
 /* ── Seller hero & form ── */
@@ -206,6 +194,15 @@ h2.serif,
   color: var(--remax-blue) !important;
 }
 
+.hero .trust-row .trust strong,
+.buyer-hero-pro .trust-row .trust strong {
+  color: #fff !important;
+}
+
+.hero .trust-row .trust {
+  border-left-color: var(--remax-red) !important;
+}
+
 .card .num,
 .situations-grid .num {
   color: var(--remax-red) !important;
@@ -228,7 +225,8 @@ h2.serif,
   text-transform: uppercase;
 }
 
-.hero {
+/* Hub hero only — do not override seller hero with background image */
+section.hero:not(#contatto):not(.buyer-hero-pro) {
   background: linear-gradient(145deg, var(--blue-dark) 0%, var(--remax-blue) 100%) !important;
   border-bottom: 5px solid var(--remax-red);
 }
