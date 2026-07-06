@@ -20,6 +20,7 @@ jobs:
           test -f assets/buyer-landing.js
           test -f assets/site-base.css
           test -f assets/dual-path.css
+          test -f assets/remax-brand.css
           test -f favicon.svg
           test -f llms.txt
           ! test -d scripts
