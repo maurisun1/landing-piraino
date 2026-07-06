@@ -267,7 +267,7 @@ body.nav-open {
     transition: opacity .28s ease, visibility .28s ease;
   }
 
-  .site-header.menu-open .nav-backdrop {
+  .site-header.menu-open .nav-backdrop:not([hidden]) {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
