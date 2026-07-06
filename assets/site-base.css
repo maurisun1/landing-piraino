@@ -1,4 +1,14 @@
-/* Shared base utilities — SEO audit improvements */
+/* Shared base — RE/MAX brand palette + a11y utilities */
+
+:root {
+  --red: #dc1c2e;
+  --red-dark: #b01828;
+  --blue: #003da5;
+  --blue-dark: #0c2749;
+  --gold: #003da5;
+  --remax-red: #dc1c2e;
+  --remax-blue: #003da5;
+}
 
 .skip-link {
   position: absolute;
@@ -6,7 +16,7 @@
   top: 0;
   z-index: 100;
   padding: 12px 18px;
-  background: var(--red, #b8241b);
+  background: var(--remax-red);
   color: #fff;
   font-weight: 800;
   border-radius: 0 0 8px 0;
@@ -14,6 +24,13 @@
 
 .skip-link:focus {
   left: 0;
+}
+
+.topbar::after {
+  content: "";
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, var(--remax-red) 50%, var(--remax-blue) 50%);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -30,19 +30,19 @@
 }
 
 .dual-path-sell {
-  border-top: 3px solid var(--red, #b8241b);
+  border-top: 3px solid var(--remax-red, #dc1c2e);
 }
 
 .dual-path-sell:hover {
-  border-color: rgba(184, 36, 27, .35);
+  border-color: rgba(220, 28, 46, .35);
 }
 
 .dual-path-buy {
-  border-top: 3px solid var(--gold, #b79a64);
+  border-top: 3px solid var(--remax-blue, #003da5);
 }
 
 .dual-path-buy:hover {
-  border-color: rgba(183, 154, 100, .55);
+  border-color: rgba(0, 61, 165, .35);
 }
 
 .dual-path-label {
@@ -72,11 +72,11 @@
   margin-top: 6px;
   font-size: 13px;
   font-weight: 900;
-  color: var(--red, #b8241b);
+  color: var(--remax-red, #dc1c2e);
 }
 
 .dual-path-buy .dual-path-cta {
-  color: #8a7348;
+  color: var(--remax-blue, #003da5);
 }
 
 @media (max-width: 720px) {

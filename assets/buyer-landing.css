@@ -1,14 +1,4 @@
-/* Buyer landing — shared engagement styles (RE/MAX brand palette) */
-:root {
-  --red: #dc1c2e;
-  --red-dark: #b01828;
-  --blue: #003da5;
-  --blue-dark: #0c2749;
-  --gold: #003da5;
-  --remax-red: #dc1c2e;
-  --remax-blue: #003da5;
-}
-
+/* Buyer landing — shared engagement styles */
 .buyer-hero-pro {
   position: relative;
   min-height: min(92vh, 860px);
@@ -419,12 +409,6 @@
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at 50% 0%, rgba(0, 61, 165, .16), transparent 35%);
-}
-.topbar::after {
-  content: "";
-  display: block;
-  height: 3px;
-  background: linear-gradient(90deg, var(--remax-red) 50%, var(--remax-blue) 50%);
 }
 .buyer-final-cta .container {
   position: relative;
