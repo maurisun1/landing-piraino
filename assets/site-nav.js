@@ -55,12 +55,4 @@
   });
 
   setNavTop();
-
-  var brand = header.querySelector('.brand');
-  if (brand && !header.querySelector('.remax-nav-badge')) {
-    var badge = document.createElement('span');
-    badge.className = 'remax-nav-badge';
-    badge.textContent = 'Affiliato RE/MAX';
-    brand.insertAdjacentElement('afterend', badge);
-  }
 })();

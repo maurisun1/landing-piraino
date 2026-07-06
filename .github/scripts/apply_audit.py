@@ -12,9 +12,9 @@ ROOT = Path(__file__).resolve().parents[2]
 FAVICON_LINKS = """<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/favicon.svg" />"""
 
-BASE_CSS = '<link rel="stylesheet" href="/assets/site-base.css?v=20260709" />'
-REMAX_BRAND_CSS = '<link rel="stylesheet" href="/assets/remax-brand.css?v=20260709" />'
-DUAL_PATH_CSS = '<link rel="stylesheet" href="/assets/dual-path.css?v=20260709" />'
+BASE_CSS = '<link rel="stylesheet" href="/assets/site-base.css?v=20260710" />'
+REMAX_BRAND_CSS = '<link rel="stylesheet" href="/assets/remax-brand.css?v=20260710" />'
+DUAL_PATH_CSS = '<link rel="stylesheet" href="/assets/dual-path.css?v=20260710" />'
 
 PROVINCE_HERO = {
     "milano": ("/milano.jpg", "Milano", "Milano"),

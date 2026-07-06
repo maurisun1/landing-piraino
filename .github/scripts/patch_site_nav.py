@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE = "20260709"
+CACHE = "20260710"
 
 WA_ICON = (
     '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
@@ -85,6 +85,9 @@ def render_nav_group(label: str, links: list[str], *, extra_class: str = "") -> 
           </div>"""
 
 
+SHORT_BRAND = "Maurizio Piraino"
+
+
 def render_nav(
     *,
     tagline: str | None,
@@ -118,7 +121,10 @@ def render_nav(
 """
     return f"""{topbar}  <header class="site-header">
     <div class="container site-nav">
-      <a class="brand" href="/">{brand}</a>
+      <div class="brand-wrap">
+        <a class="brand" href="/">{brand}</a>
+        <span class="remax-nav-badge">RE/MAX</span>
+      </div>
       <div class="site-nav-actions">
         <a class="btn btn-wa nav-wa-compact" href="{wa_url}" aria-label="WhatsApp">{WA_ICON}<span class="nav-wa-label">{wa_short}</span></a>
         <button type="button" class="nav-toggle" aria-label="{menu_label}" aria-expanded="false" aria-controls="site-nav-panel">
@@ -139,15 +145,16 @@ def render_nav(
 
 
 def ensure_assets(html: str) -> str:
+    html = re.sub(
+        r'\s*<script src="/assets/site-nav\.js[^"]*" defer></script>',
+        "",
+        html,
+    )
     if NAV_CSS not in html:
         if "</head>" in html:
             html = html.replace("</head>", f"  {NAV_CSS}\n</head>", 1)
-    old_js = '<script src="/assets/site-nav.js" defer></script>'
-    if NAV_JS not in html:
-        if old_js in html:
-            html = html.replace(old_js, NAV_JS, 1)
-        elif "</body>" in html:
-            html = html.replace("</body>", f"  {NAV_JS}\n</body>", 1)
+    if NAV_JS not in html and "</body>" in html:
+        html = html.replace("</body>", f"  {NAV_JS}\n</body>", 1)
     return html
 
 
@@ -263,7 +270,6 @@ def seller_nav_groups(*, sell_href: str, buy_href: str, lang: str = "it") -> lis
             [
                 '<a href="#metodo">Metodo</a>',
                 '<a href="#remax">RE/MAX</a>',
-                '<a href="/comprare-casa/">Province</a>',
             ],
             extra_class="nav-group-info",
         ),
@@ -413,7 +419,7 @@ def main() -> None:
         patch_page(
             path,
             tagline=extract_tagline(block) or infer_tagline(path, "it"),
-            brand=extract_brand(block),
+            brand=SHORT_BRAND,
             groups=seller_nav_groups(sell_href=sell, buy_href="/comprare-casa/"),
             lang_link=f'<a href="{en_link}" class="lang-link">EN</a>',
             wa_url=extract_wa_url(block),
@@ -432,7 +438,7 @@ def main() -> None:
         patch_page(
             path,
             tagline=extract_tagline(block) or infer_tagline(path, "it"),
-            brand=extract_brand(block),
+            brand=SHORT_BRAND,
             groups=buyer_nav_groups(
                 sell_href=seller_href_for_city(slug),
                 omi_href=buyer_omi_href(slug),
@@ -453,7 +459,7 @@ def main() -> None:
         patch_page(
             path,
             tagline=extract_tagline(block) or infer_tagline(path, "en"),
-            brand=extract_brand(block),
+            brand=SHORT_BRAND,
             groups=buyer_nav_groups(
                 sell_href=seller_href_for_city(it_slug),
                 omi_href=buyer_omi_href(it_slug),
@@ -486,7 +492,7 @@ def main() -> None:
                 if lang == "it"
                 else "Buyer advisory <strong>RE/MAX</strong> · Lombardy · Reply within 24h"
             ),
-            brand=extract_brand(block),
+            brand=SHORT_BRAND,
             groups=hub_nav_groups(lang=lang),
             lang_link=lang_link,
             wa_url=extract_wa_url(block)

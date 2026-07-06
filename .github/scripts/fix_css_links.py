@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE = "20260709"
+CACHE = "20260710"
 BRAND_LINK = f'  <link rel="stylesheet" href="/assets/remax-brand.css?v={CACHE}" />'
 
 BROKEN = re.compile(
@@ -41,6 +41,15 @@ def fix_file(path: Path) -> bool:
                 f'/assets/site-base.css?v={CACHE}" />\n{BRAND_LINK}',
                 1,
             )
+
+    html = re.sub(
+        r'\s*<script src="/assets/site-nav\.js[^"]*" defer></script>',
+        "",
+        html,
+    )
+    nav_js = f'  <script src="/assets/site-nav.js?v={CACHE}" defer></script>'
+    if nav_js not in html and "</body>" in html:
+        html = html.replace("</body>", f"{nav_js}\n</body>", 1)
 
     if html != original:
         path.write_text(html, encoding="utf-8")
