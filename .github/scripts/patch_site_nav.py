@@ -76,7 +76,6 @@ def render_nav(
       <div class="nav-panel" id="site-nav-panel">
         <nav class="nav-links" aria-label="{aria_nav}">
           {links_html}
-          <a class="btn btn-wa nav-wa-full" href="{wa_url}">{WA_ICON} {wa_nav}</a>
           <a class="btn btn-red nav-cta" href="{cta_href}">{cta_label}</a>
         </nav>
       </div>

@@ -495,7 +495,6 @@ def build_body(cfg):
           <a href="#remax">{nav_remax}</a>
           <a href="{cfg['omi']}">{nav_omi}</a>
           <a href="{cfg['lang_link']}" class="lang-link">{cfg['lang_label']}</a>
-          <a class="btn btn-wa nav-wa-full" href="{wa_url}">{wa_icon} {wa_nav}</a>
           <a class="btn btn-red nav-cta" href="#contatto">{nav_cta}</a>
         </nav>
       </div>
@@ -627,7 +626,7 @@ def build_body(cfg):
         <p>{final_p}</p>
         <div class="buyer-final-actions">
           <a class="btn btn-red" href="#contatto">{cta1}</a>
-          <a class="btn btn-outline" href="{wa_url}">{card_wa}</a>
+          <a class="btn btn-wa" href="{wa_url}">{wa_icon} {card_wa}</a>
         </div>
       </div>
     </section>
