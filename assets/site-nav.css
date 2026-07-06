@@ -119,7 +119,7 @@
 }
 
 .nav-links > a:not(.btn):hover {
-  color: #b8241b;
+  color: var(--remax-red, #dc1c2e);
 }
 
 .nav-links .lang-link {

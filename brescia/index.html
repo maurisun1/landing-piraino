@@ -96,7 +96,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--black:#070707;--dark:#111111;--anthracite:#1b1b1b;--cream:#f6f1e9;--warm:#eee3d5;--text:#222222;--muted:#707070;--line:rgba(0,0,0,.10);--white:#ffffff;--red:#b8241b;--red-dark:#8f1712;--blue:#123f8c;--gold:#b79a64;--shadow:0 24px 70px rgba(0,0,0,.18);--radius:22px}
+    :root{--black:#070707;--dark:#111111;--anthracite:#1b1b1b;--cream:#f6f1e9;--warm:#eee3d5;--text:#222222;--muted:#707070;--line:rgba(0,0,0,.10);--white:#ffffff;--red:#dc1c2e;--red-dark:#b01828;--blue:#003da5;--gold:#003da5;--shadow:0 24px 70px rgba(0,0,0,.18);--radius:22px}
     *{box-sizing:border-box}html{scroll-behavior:smooth}
     body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--text);background:var(--cream);line-height:1.6}
     a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
@@ -111,14 +111,14 @@
     .nav-links{display:flex;align-items:center;gap:26px;color:#575757;font-weight:800;font-size:14px}
     .nav-links a:hover{color:var(--red)}
     .btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 28px;border-radius:7px;border:1px solid transparent;font-weight:900;letter-spacing:.01em;cursor:pointer;transition:.25s ease;text-align:center}
-    .btn-red{background:linear-gradient(135deg,var(--red),var(--red-dark));color:white;box-shadow:0 18px 36px rgba(184,36,27,.28)}
-    .btn-red:hover{transform:translateY(-2px);box-shadow:0 22px 44px rgba(184,36,27,.36)}
+    .btn-red{background:linear-gradient(135deg,var(--red),var(--red-dark));color:white;box-shadow:0 18px 36px rgba(220,28,46,.28)}
+    .btn-red:hover{transform:translateY(-2px);box-shadow:0 22px 44px rgba(220,28,46,.36)}
     .btn-outline{color:white;border-color:rgba(255,255,255,.34);background:rgba(255,255,255,.06)}
     .btn-outline:hover{background:rgba(255,255,255,.13)}
     .hero{min-height:calc(100vh - 118px);display:grid;grid-template-columns:1.35fr .75fr;background:var(--dark)}
     .hero-left{position:relative;overflow:hidden;color:white;display:flex;align-items:center;min-height:720px}
     .hero-left::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.55)),url('../brescia.jpg') center/cover no-repeat;transform:scale(1.04);animation:slowZoom 18s ease-in-out infinite alternate}
-    .hero-left::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 25% 30%,rgba(183,154,100,.18),transparent 34%)}
+    .hero-left::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 25% 30%,rgba(0,61,165,.18),transparent 34%)}
     @keyframes slowZoom{from{transform:scale(1.04)}to{transform:scale(1.10)}}
     .hero-content{position:relative;z-index:2;max-width:790px;padding:74px 70px 62px}
     .eyebrow{display:flex;align-items:center;gap:14px;color:rgba(255,255,255,.74);text-transform:uppercase;letter-spacing:.24em;font-size:12px;font-weight:900;margin-bottom:26px}
@@ -139,12 +139,12 @@
     label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:900;color:#595959;margin:16px 0 8px}
     input,select,textarea{width:100%;min-height:54px;border:1px solid rgba(0,0,0,.14);border-radius:5px;padding:0 16px;font:inherit;background:#fff;color:var(--text);outline:none}
     textarea{min-height:108px;padding-top:14px;resize:vertical}
-    input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0 4px rgba(184,36,27,.08)}
+    input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0 4px rgba(220,28,46,.08)}
     .form-card .btn{width:100%;margin-top:22px}
     .microcopy{text-align:center;color:#8a8a8a;font-size:12px;margin-top:14px}
     .form-progress{display:flex;align-items:center;justify-content:center;gap:10px;margin:22px 0 6px}
     .fp-dot{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:13px;border:1px solid rgba(0,0,0,.14);color:var(--muted);background:#fff;transition:.25s ease}
-    .fp-dot.active{background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 8px 20px rgba(184,36,27,.24)}
+    .fp-dot.active{background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 8px 20px rgba(220,28,46,.24)}
     .fp-line{width:64px;height:2px;background:var(--line);transition:.25s ease}
     .fp-line.active{background:var(--red)}
     .form-step{display:none}
@@ -157,10 +157,10 @@
     .type-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:4px}
     .tcard{border:1.5px solid rgba(0,0,0,.14);border-radius:7px;padding:14px 8px;text-align:center;font-size:13px;font-weight:800;color:#555;cursor:pointer;transition:.2s ease}
     .tcard:hover{border-color:var(--red)}
-    .tcard.on{border-color:var(--red);background:rgba(184,36,27,.06);color:var(--red-dark)}
+    .tcard.on{border-color:var(--red);background:rgba(220,28,46,.06);color:var(--red-dark)}
     .slider-wrap{display:flex;align-items:center;gap:12px}
     input[type=range]{flex:1;-webkit-appearance:none;height:4px;min-height:unset;border-radius:99px;background:var(--line);outline:none;border:none;padding:0}
-    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--red);cursor:pointer;border:2px solid #fff;box-shadow:0 2px 6px rgba(184,36,27,.35)}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--red);cursor:pointer;border:2px solid #fff;box-shadow:0 2px 6px rgba(220,28,46,.35)}
     input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--red);cursor:pointer;border:2px solid #fff}
     .sv{background:var(--red);color:#fff;padding:4px 12px;border-radius:99px;font-size:12px;font-weight:800;min-width:60px;text-align:center;white-space:nowrap}
     section{padding:100px 0}
@@ -187,14 +187,14 @@
     .quote{margin:28px 0;padding:24px;border-left:3px solid var(--red);background:var(--cream);font-family:"Playfair Display",serif;font-size:26px;line-height:1.25;color:#181818}
     .method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
     .network{background:linear-gradient(135deg,#0b0b0b,#1b1b1b);color:white;position:relative;overflow:hidden}
-    .network::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 15%,rgba(184,36,27,.22),transparent 30%),radial-gradient(circle at 86% 8%,rgba(18,63,140,.22),transparent 30%)}
+    .network::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 15%,rgba(220,28,46,.22),transparent 30%),radial-gradient(circle at 86% 8%,rgba(18,63,140,.22),transparent 30%)}
     .network .container{position:relative;z-index:2}.network h2{color:#fff}.network p{color:rgba(255,255,255,.74)}
     .network-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
     .network-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:30px}
     .network-card span{color:var(--gold);font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
     .network-card strong{display:block;font-family:"Playfair Display",serif;font-size:40px;line-height:1;color:#fff;margin:14px 0}
     .market{background:var(--anthracite);color:white;overflow:hidden;position:relative}
-    .market::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,rgba(183,154,100,.16),transparent 30%),radial-gradient(circle at 90% 10%,rgba(184,36,27,.15),transparent 28%)}
+    .market::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,rgba(0,61,165,.16),transparent 30%),radial-gradient(circle at 90% 10%,rgba(220,28,46,.15),transparent 28%)}
     .market .container{position:relative;z-index:2}.market h2{color:white}.market .section-head p{color:rgba(255,255,255,.72)}
     .market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .market-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:30px}
@@ -215,7 +215,7 @@
     summary{font-weight:900;cursor:pointer;color:#191919}
     details p{color:var(--muted);margin:14px 0 0}
     .final-cta{background:linear-gradient(135deg,#0b0b0b,#1b1b1b);color:white;text-align:center;padding:110px 0;position:relative;overflow:hidden}
-    .final-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(183,154,100,.18),transparent 35%)}
+    .final-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(0,61,165,.18),transparent 35%)}
     .final-cta .container{position:relative;z-index:2}.final-cta h2{color:white;max-width:850px;margin:0 auto}
     .final-cta p{color:rgba(255,255,255,.74);max-width:700px;margin:22px auto 34px;font-size:18px}
     .footer{background:var(--black);color:rgba(255,255,255,.68);padding:44px 0;font-size:14px}
@@ -228,9 +228,9 @@
     @media(max-width:980px){.hero{grid-template-columns:1fr}.hero-left{min-height:auto}.hero-content{padding:70px 28px 50px}.hero-form-wrap{padding:42px 24px}.situations-grid,.method-grid,.market-grid,.network-grid,.steps-grid,.testimonial-grid,.faq-grid,.about-grid{grid-template-columns:1fr}section{padding:72px 0}}
     @media(max-width:560px){.container{width:min(100% - 28px,1180px)}.topbar-inner{justify-content:center;text-align:center}.brand{font-size:18px}h1{font-size:42px}.hero-content p{font-size:16px}.hero-actions{flex-direction:column}.btn{width:100%}.trust-row{grid-template-columns:1fr;gap:18px}.hero-form-wrap{padding:36px 18px}.form-card h2{font-size:28px}.footer-inner{flex-direction:column}.step-actions{flex-direction:column}.type-grid{grid-template-columns:repeat(2,1fr)}}
   </style>
-  <link rel="stylesheet" href="/assets/site-nav.css" />
-  <link rel="stylesheet" href="/assets/site-base.css" />
-  <link rel="stylesheet" href="/assets/dual-path.css" />
+  <link rel="stylesheet" href="/assets/site-nav.css?v=20260706" />
+  <link rel="stylesheet" href="/assets/site-base.css?v=20260706" />
+  <link rel="stylesheet" href="/assets/dual-path.css?v=20260706" />
   <link rel="preload" as="image" href="/brescia.jpg" fetchpriority="high" />
 </head>
 <body>

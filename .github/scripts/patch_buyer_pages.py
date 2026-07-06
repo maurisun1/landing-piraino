@@ -679,10 +679,10 @@ def patch_page(cfg):
 
     if 'href="/assets/buyer-landing.css?v=20260706"' not in html:
         html = html.replace("</style>\n</head>", '</style>\n<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260706" />\n</head>')
-    if 'href="/assets/site-nav.css"' not in html:
+    if 'href="/assets/site-nav.css?v=20260706"' not in html:
         html = html.replace(
             '<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260706" />',
-            '<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260706" />\n<link rel="stylesheet" href="/assets/site-nav.css" />',
+            '<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260706" />\n<link rel="stylesheet" href="/assets/site-nav.css?v=20260706" />',
         )
 
     datalist = extract_datalist(html, cfg["datalist_id"])
@@ -938,8 +938,8 @@ def build_head(cfg):
 <script type="application/ld+json">{schema}</script>
 {get_styles()}
 <link rel="stylesheet" href="/assets/buyer-landing.css?v=20260706" />
-<link rel="stylesheet" href="/assets/site-nav.css" />
-<link rel="stylesheet" href="/assets/site-base.css" />
+<link rel="stylesheet" href="/assets/site-nav.css?v=20260706" />
+<link rel="stylesheet" href="/assets/site-base.css?v=20260706" />
 </head>
 <body>
   <a class="skip-link" href="#main">{'Skip to content' if is_en else 'Salta al contenuto'}</a>
