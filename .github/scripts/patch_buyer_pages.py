@@ -461,23 +461,45 @@ def build_body(cfg):
     )
 
     wa_url = f"https://wa.me/{COMMON['wa']}?text={cfg['wa_text'].replace(' ', '%20').replace(',', '%2C').replace("'", '%27')}"
+    wa_icon = (
+        '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
+        '<path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>'
+        "</svg>"
+    )
+    menu_label = "Open menu" if is_en else "Apri menu"
+    aria_nav = "Main menu" if is_en else "Menu principale"
+    wa_topbar = "WhatsApp"
+    wa_nav = topbar_wa
+    wa_short = "WA"
 
     return f"""  <div class="topbar">
     <div class="container topbar-inner">
-      <div>{topbar_left}</div>
-      <a href="{wa_url}">{topbar_wa}</a>
+      <div class="topbar-tagline">{topbar_left}</div>
+      <a class="topbar-wa topbar-wa-desktop" href="{wa_url}">{wa_icon} {wa_topbar}</a>
     </div>
   </div>
-  <header>
-    <div class="container nav">
+  <header class="site-header">
+    <div class="container site-nav">
       <a class="brand" href="/">{brand}</a>
-      <nav class="nav-links">
-        <a href="#metodo">{nav_method}</a>
-        <a href="#remax">{nav_remax}</a>
-        <a href="{cfg['omi']}">{nav_omi}</a>
-        <a href="{cfg['lang_link']}" class="lang-link">{cfg['lang_label']}</a>
-        <a class="btn btn-red" href="#contatto">{nav_cta}</a>
-      </nav>
+      <div class="site-nav-actions">
+        <a class="btn btn-wa nav-wa-compact" href="{wa_url}" aria-label="WhatsApp">{wa_icon}<span class="nav-wa-label">{wa_short}</span></a>
+        <button type="button" class="nav-toggle" aria-label="{menu_label}" aria-expanded="false" aria-controls="site-nav-panel">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+      </div>
+      <div class="nav-panel" id="site-nav-panel">
+        <nav class="nav-links" aria-label="{aria_nav}">
+          <a href="#metodo">{nav_method}</a>
+          <a href="#remax">{nav_remax}</a>
+          <a href="{cfg['omi']}">{nav_omi}</a>
+          <a href="{cfg['lang_link']}" class="lang-link">{cfg['lang_label']}</a>
+          <a class="btn btn-wa nav-wa-full" href="{wa_url}">{wa_icon} {wa_nav}</a>
+          <a class="btn btn-red nav-cta" href="#contatto">{nav_cta}</a>
+        </nav>
+      </div>
+      <div class="nav-backdrop" hidden></div>
     </div>
   </header>
 
@@ -637,7 +659,8 @@ def build_body(cfg):
     </div>
     <div class="container" style="border-top:1px solid rgba(255,255,255,.12);margin-top:18px;padding-top:16px;text-align:center;font-size:.9rem;opacity:.85">{footer_links(cfg)}</div>
   </footer>
-  <script src="/assets/buyer-landing.js" defer></script>"""
+  <script src="/assets/buyer-landing.js" defer></script>
+  <script src="/assets/site-nav.js" defer></script>"""
 
 
 def extract_datalist(html: str, datalist_id: str) -> str:
@@ -656,6 +679,11 @@ def patch_page(cfg):
 
     if 'href="/assets/buyer-landing.css"' not in html:
         html = html.replace("</style>\n</head>", '</style>\n<link rel="stylesheet" href="/assets/buyer-landing.css" />\n</head>')
+    if 'href="/assets/site-nav.css"' not in html:
+        html = html.replace(
+            '<link rel="stylesheet" href="/assets/buyer-landing.css" />',
+            '<link rel="stylesheet" href="/assets/buyer-landing.css" />\n<link rel="stylesheet" href="/assets/site-nav.css" />',
+        )
 
     datalist = extract_datalist(html, cfg["datalist_id"])
     if not datalist and "datalist" in cfg:
@@ -907,6 +935,7 @@ def build_head(cfg):
 <script type="application/ld+json">{schema}</script>
 {get_styles()}
 <link rel="stylesheet" href="/assets/buyer-landing.css" />
+<link rel="stylesheet" href="/assets/site-nav.css" />
 </head>
 <body>
 """

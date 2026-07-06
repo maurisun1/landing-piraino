@@ -760,7 +760,7 @@
       .hero-left { min-height: auto; }
       .hero-content { padding: 70px 28px 50px; }
       .hero-form-wrap { padding: 42px 24px; }
-      .nav-links a { display: none; }
+      
       .situations-grid, .method-grid, .market-grid, .network-grid, .steps-grid, .testimonial-grid, .faq-grid, .about-grid {
         grid-template-columns: 1fr;
       }
@@ -769,9 +769,9 @@
     @media (max-width: 560px) {
       .container { width: min(100% - 28px, 1180px); }
       .topbar-inner { justify-content: center; text-align: center; }
-      .topbar a { display: none; }
+      
       .brand { font-size: 18px; }
-      .nav .btn { display: none; }
+      
       h1 { font-size: 42px; }
       .hero-content p { font-size: 16px; }
       .hero-actions { flex-direction: column; }
@@ -809,24 +809,37 @@
 
 </style>
 <link rel="stylesheet" href="/assets/buyer-landing.css" />
+  <link rel="stylesheet" href="/assets/site-nav.css" />
 </head>
 <body>
-  <div class="topbar">
+      <div class="topbar">
     <div class="container topbar-inner">
-      <div>Consulenza acquirenti <strong>RE/MAX</strong> · Monza e Brianza · Risposta entro 24h</div>
-      <a href="https://wa.me/393514581993?text=Ciao%20Maurizio%2C%20sto%20cercando%20casa%20in%20Monza%20e%20Brianza%20e%20vorrei%20una%20consulenza%20acquirente.">Scrivimi su WhatsApp</a>
+      <div class="topbar-tagline">Consulenza acquirenti <strong>RE/MAX</strong> · Monza e Brianza · Risposta entro 24h</div>
+      <a class="topbar-wa topbar-wa-desktop" href="https://wa.me/393514581993?text=Ciao%20Maurizio%2C%20sto%20cercando%20casa%20in%20Monza%20e%20Brianza%20e%20vorrei%20una%20consulenza%20acquirente."><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
     </div>
   </div>
-  <header>
-    <div class="container nav">
+  <header class="site-header">
+    <div class="container site-nav">
       <a class="brand" href="/">Maurizio Piraino <span>·</span> Agente Immobiliare affiliato RE/MAX</a>
-      <nav class="nav-links">
-        <a href="#metodo">Metodo</a>
-        <a href="#remax">RE/MAX</a>
-        <a href="#contatto">Prezzi OMI</a>
-        <a href="/en/buy-home-monza/" class="lang-link">EN</a>
-        <a class="btn btn-red" href="#contatto">Dimmi cosa cerchi</a>
-      </nav>
+      <div class="site-nav-actions">
+        <a class="btn btn-wa nav-wa-compact" href="https://wa.me/393514581993?text=Ciao%20Maurizio%2C%20sto%20cercando%20casa%20in%20Monza%20e%20Brianza%20e%20vorrei%20una%20consulenza%20acquirente." aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="nav-wa-label">WA</span></a>
+        <button type="button" class="nav-toggle" aria-label="Apri menu" aria-expanded="false" aria-controls="site-nav-panel">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+      </div>
+      <div class="nav-panel" id="site-nav-panel">
+        <nav class="nav-links" aria-label="Menu principale">
+          <a href="#metodo">Metodo</a>
+          <a href="#remax">RE/MAX</a>
+          <a href="#contatto">Prezzi OMI</a>
+          <a href="/en/buy-home-monza/" class="lang-link">EN</a>
+          <a class="btn btn-wa nav-wa-full" href="https://wa.me/393514581993?text=Ciao%20Maurizio%2C%20sto%20cercando%20casa%20in%20Monza%20e%20Brianza%20e%20vorrei%20una%20consulenza%20acquirente."><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Scrivimi su WhatsApp</a>
+          <a class="btn btn-red nav-cta" href="#contatto">Dimmi cosa cerchi</a>
+        </nav>
+      </div>
+      <div class="nav-backdrop" hidden></div>
     </div>
   </header>
 
@@ -993,5 +1006,6 @@
     <div class="container" style="border-top:1px solid rgba(255,255,255,.12);margin-top:18px;padding-top:16px;text-align:center;font-size:.9rem;opacity:.85">Vuoi vendere? <a href="/" style="color:inherit;text-decoration:underline">Consulenza vendita</a> · Comprare: <a href="/comprare-casa-milano/" style="color:inherit;text-decoration:underline">Milano</a> · <strong>Monza e Brianza</strong> · <a href="/comprare-casa-bergamo/" style="color:inherit;text-decoration:underline">Bergamo</a> · <a href="/comprare-casa-brescia/" style="color:inherit;text-decoration:underline">Brescia</a> · <a href="/comprare-casa-como/" style="color:inherit;text-decoration:underline">Como</a> · <a href="/comprare-casa-varese/" style="color:inherit;text-decoration:underline">Varese</a> · <a href="/comprare-casa-lecco/" style="color:inherit;text-decoration:underline">Lecco</a> · <a href="/comprare-casa-sondrio/" style="color:inherit;text-decoration:underline">Sondrio</a> · <a href="/comprare-casa-cremona/" style="color:inherit;text-decoration:underline">Cremona</a> · <a href="/comprare-casa-lodi/" style="color:inherit;text-decoration:underline">Lodi</a> · <a href="/comprare-casa-mantova/" style="color:inherit;text-decoration:underline">Mantova</a> · <a href="/comprare-casa-pavia/" style="color:inherit;text-decoration:underline">Pavia</a> · <a href="/privacy/" style="color:inherit;text-decoration:underline">Privacy</a></div>
   </footer>
   <script src="/assets/buyer-landing.js" defer></script>
+  <script src="/assets/site-nav.js" defer></script>
 </body>
 </html>
