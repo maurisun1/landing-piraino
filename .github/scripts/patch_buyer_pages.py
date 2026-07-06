@@ -677,12 +677,12 @@ def patch_page(cfg):
     path = ROOT / cfg["path"]
     html = path.read_text(encoding="utf-8")
 
-    if 'href="/assets/buyer-landing.css"' not in html:
-        html = html.replace("</style>\n</head>", '</style>\n<link rel="stylesheet" href="/assets/buyer-landing.css" />\n</head>')
+    if 'href="/assets/buyer-landing.css?v=20260706"' not in html:
+        html = html.replace("</style>\n</head>", '</style>\n<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260706" />\n</head>')
     if 'href="/assets/site-nav.css"' not in html:
         html = html.replace(
-            '<link rel="stylesheet" href="/assets/buyer-landing.css" />',
-            '<link rel="stylesheet" href="/assets/buyer-landing.css" />\n<link rel="stylesheet" href="/assets/site-nav.css" />',
+            '<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260706" />',
+            '<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260706" />\n<link rel="stylesheet" href="/assets/site-nav.css" />',
         )
 
     datalist = extract_datalist(html, cfg["datalist_id"])
@@ -937,7 +937,7 @@ def build_head(cfg):
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">{schema}</script>
 {get_styles()}
-<link rel="stylesheet" href="/assets/buyer-landing.css" />
+<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260706" />
 <link rel="stylesheet" href="/assets/site-nav.css" />
 <link rel="stylesheet" href="/assets/site-base.css" />
 </head>
