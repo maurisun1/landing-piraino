@@ -77,7 +77,7 @@ PAGES = [
         "stats": [
             ("OMI", "Dati ufficiali Agenzia Entrate"),
             ("24h", "Risposta alla tua richiesta"),
-            ("0", "Obbligo di incarico"),
+            ("✓", "Nessun obbligo di incarico"),
             ("RE/MAX", "Rete internazionale"),
         ],
         "pain": [
@@ -97,7 +97,7 @@ PAGES = [
             ("Geometra", "Verifica tecnica reale"),
         ],
         "form_benefits": [
-            "Ti richiamo entro 24 ore, senza pressione",
+            "Ti richiamo entro 24 ore, nessun obbligo di incarico",
             "Analisi del prezzo giusto per la zona che cerchi",
             "Alert quando esce qualcosa davvero in linea",
             "Supporto in trattativa fino al rogito",
@@ -144,7 +144,7 @@ PAGES = [
         "stats": [
             ("OMI", "Dati ufficiali Agenzia Entrate"),
             ("24h", "Risposta alla tua richiesta"),
-            ("0", "Obbligo di incarico"),
+            ("✓", "Nessun obbligo di incarico"),
             ("RE/MAX", "Rete internazionale"),
         ],
         "pain": [
@@ -164,7 +164,7 @@ PAGES = [
             ("Geometra", "Verifica tecnica reale"),
         ],
         "form_benefits": [
-            "Risposta entro 24 ore, senza impegno",
+            "Risposta entro 24 ore, nessun obbligo di incarico",
             "Analisi prezzo per la zona che cerchi",
             "Avviso quando trovo qualcosa in linea",
             "Affiancamento in trattativa fino al rogito",
@@ -208,7 +208,7 @@ PAGES = [
         "stats": [
             ("OMI", "Dati ufficiali Agenzia Entrate"),
             ("24h", "Risposta alla tua richiesta"),
-            ("0", "Obbligo di incarico"),
+            ("✓", "Nessun obbligo di incarico"),
             ("RE/MAX", "Rete internazionale"),
         ],
         "pain": [
@@ -228,7 +228,7 @@ PAGES = [
             ("Geometra", "Verifica tecnica reale"),
         ],
         "form_benefits": [
-            "Risposta entro 24 ore, senza impegno",
+            "Risposta entro 24 ore, nessun obbligo di incarico",
             "Analisi prezzo per zona e tipologia",
             "Alert su immobili davvero rilevanti",
             "Supporto in trattativa fino al rogito",
@@ -415,10 +415,10 @@ def build_body(cfg):
                 'Ho letto l\'<a href="/privacy/" style="color:inherit;text-decoration:underline">informativa privacy</a> e acconsento ad essere ricontattato.',
                 'I have read the <a href="/privacy/" style="color:inherit;text-decoration:underline">privacy policy</a> and agree to be contacted.')
     submit = t(cfg, "submit", "Registra la mia ricerca →", "Register my search →")
-    form_note = t(cfg, "form_note", "Risposta entro 24 ore · Nessun impegno", "Reply within 24 hours · No obligation")
+    form_note = t(cfg, "form_note", "Risposta entro 24 ore · Nessun obbligo di incarico", "Reply within 24 hours · No obligation to appoint")
 
     final_h2 = t(cfg, "final_h", "Pronto a cercare casa con un metodo, non a caso?", "Ready to search with a method, not by chance?")
-    final_p = t(cfg, "final_p", "Registra cosa cerchi. Ti richiamo entro 24 ore con un approccio chiaro — senza pressione.", "Tell me what you need. I will call you back within 24 hours with a clear approach — no pressure.")
+    final_p = t(cfg, "final_p", "Registra cosa cerchi. Ti richiamo entro 24 ore con un approccio chiaro — nessun obbligo di incarico.", "Tell me what you need. I will call you back within 24 hours with a clear approach — no obligation to appoint.")
     sticky = t(cfg, "sticky", "Dimmi cosa cerchi", "Tell me what you need")
 
     footer_strong = t(cfg, "footer_s", "Prima l'analisi. Poi la scelta giusta.", "Analysis first. Then the right choice.")
@@ -731,7 +731,7 @@ def make_en(cfg_it):
             ("Surveyor", "Real technical checks"),
         ]
         en["form_benefits"] = [
-            "I call you back within 24 hours, no pressure",
+            "I call you back within 24 hours, no obligation to appoint",
             "Fair price analysis for the area you want",
             "Alert when something truly relevant appears",
             "Support through negotiation and closing",
@@ -771,7 +771,7 @@ def make_en(cfg_it):
             ("Surveyor", "Real technical checks"),
         ]
         en["form_benefits"] = [
-            "Reply within 24 hours, no obligation",
+            "Reply within 24 hours, no obligation to appoint",
             "Price analysis for the area you want",
             "Alert when I find something relevant",
             "Support through negotiation and closing",
@@ -807,7 +807,7 @@ def make_en(cfg_it):
             ("Surveyor", "Real technical checks"),
         ]
         en["form_benefits"] = [
-            "Reply within 24 hours, no obligation",
+            "Reply within 24 hours, no obligation to appoint",
             "Price analysis by area and property type",
             "Alerts on truly relevant homes",
             "Support through negotiation and closing",
@@ -957,11 +957,11 @@ def build_new_cfg(slug, lang):
         stats = [
             ("OMI", "Official Revenue Agency data"),
             ("24h", "Reply to your request"),
-            ("0", "No obligation"),
+            ("✓", "No obligation to appoint"),
             ("RE/MAX", "International network"),
         ]
         form_benefits = content.get("form_benefits", [
-            "Reply within 24 hours, no pressure",
+            "Reply within 24 hours, no obligation to appoint",
             "Fair price analysis for the area you want",
             "Alert when something truly relevant appears",
             "Support through negotiation and closing",
