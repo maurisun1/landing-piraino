@@ -86,14 +86,19 @@
   position: relative;
 }
 .buyer-hero-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 28px;
-  width: 4px;
-  height: 36px;
-  background: var(--remax-blue);
-  border-radius: 0 0 3px 3px;
+  content: "Affiliato RE/MAX";
+  display: block;
+  width: fit-content;
+  margin-bottom: 12px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(220, 28, 46, .12);
+  color: var(--remax-red);
+  font-family: Inter, Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
 }
 .buyer-hero-card h2,
 .buyer-hero-card h3 {
