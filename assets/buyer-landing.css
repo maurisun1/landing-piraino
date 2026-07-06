@@ -48,10 +48,10 @@
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap: 42px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(28px, 3vw, 40px);
   align-items: center;
-  padding: 88px 0 72px;
+  padding: clamp(64px, 7vw, 92px) 0 clamp(56px, 6vw, 76px);
 }
 .buyer-hero-pro-copy h1 {
   font-family: "Playfair Display", serif;
@@ -69,10 +69,11 @@
 .buyer-hero-card {
   background: #fff;
   border: 1px solid rgba(0, 61, 165, .14);
-  border-top: 4px solid var(--remax-red);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, .28);
-  border-radius: 20px;
-  padding: 32px 28px;
+  border-top: 5px solid var(--remax-red);
+  box-shadow: 0 28px 72px rgba(0, 0, 0, .32);
+  border-radius: 18px;
+  padding: clamp(32px, 3.5vw, 44px) clamp(28px, 3vw, 40px);
+  width: 100%;
   position: relative;
 }
 .buyer-hero-card::before {
@@ -93,14 +94,16 @@
 .buyer-hero-card h2,
 .buyer-hero-card h3 {
   font-family: "Playfair Display", serif;
-  font-size: 1.55rem;
-  margin: 0 0 8px;
+  font-size: clamp(1.45rem, 2.2vw, 1.9rem);
+  line-height: 1.2;
+  margin: 0 0 10px;
   color: var(--remax-blue);
 }
 .buyer-hero-card > p {
   color: #555;
-  margin: 0 0 18px;
-  font-size: 15px;
+  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.55;
 }
 .buyer-hero-list {
   list-style: none;
@@ -129,7 +132,7 @@
   flex-direction: column;
   gap: 10px;
 }
-.buyer-hero-card .btn { width: 100%; min-height: 50px; }
+.buyer-hero-card .btn { width: 100%; min-height: 54px; font-size: 15px; }
 .buyer-hero-card .btn-outline {
   color: var(--remax-blue);
   border-color: rgba(0, 61, 165, .35);

@@ -21,6 +21,7 @@ jobs:
           test -f assets/site-base.css
           test -f assets/dual-path.css
           test -f assets/remax-brand.css
+          test -f assets/seller-landing.css
           test -f favicon.svg
           test -f llms.txt
           ! test -d scripts
@@ -36,9 +37,9 @@ jobs:
           for page in pages:
               html = page.read_text(encoding="utf-8")
               if 'class="site-header"' in html or page.name == "index.html" and "site-header" in html:
-                  if 'href="/assets/site-nav.css"' not in html:
+                  if "/assets/site-nav.css" not in html:
                       missing_css.append(str(page))
-                  if 'src="/assets/site-nav.js"' not in html and "privacy" not in str(page):
+                  if "/assets/site-nav.js" not in html and "privacy" not in str(page):
                       missing_js.append(str(page))
           if missing_css:
               raise SystemExit("Missing site-nav.css in: " + ", ".join(missing_css))

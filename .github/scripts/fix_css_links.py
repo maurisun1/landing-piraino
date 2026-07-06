@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fix malformed CSS link tags and ensure remax-brand.css loads site-wide."""
+"""Fix malformed CSS link tags and ensure brand/seller CSS loads site-wide."""
 
 from __future__ import annotations
 
@@ -7,8 +7,15 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE = "20260710"
+CACHE = "20260711"
 BRAND_LINK = f'  <link rel="stylesheet" href="/assets/remax-brand.css?v={CACHE}" />'
+SELLER_LINK = f'  <link rel="stylesheet" href="/assets/seller-landing.css?v={CACHE}" />'
+
+SELLER_PAGES = {
+    "index.html",
+    "bergamo/index.html",
+    "brescia/index.html",
+}
 
 BROKEN = re.compile(
     r'href="(/assets/[^"?]+\?v=\d+)\s*/>',
@@ -19,6 +26,7 @@ BROKEN = re.compile(
 def fix_file(path: Path) -> bool:
     html = path.read_text(encoding="utf-8")
     original = html
+    rel = path.relative_to(ROOT).as_posix()
 
     html = BROKEN.sub(rf'href="\1" />', html)
 
@@ -42,6 +50,13 @@ def fix_file(path: Path) -> bool:
                 1,
             )
 
+    if rel in SELLER_PAGES and "seller-landing.css" not in html:
+        html = html.replace(
+            f'/assets/remax-brand.css?v={CACHE}" />',
+            f'/assets/remax-brand.css?v={CACHE}" />\n{SELLER_LINK}',
+            1,
+        )
+
     html = re.sub(
         r'\s*<script src="/assets/site-nav\.js[^"]*" defer></script>',
         "",
@@ -53,7 +68,7 @@ def fix_file(path: Path) -> bool:
 
     if html != original:
         path.write_text(html, encoding="utf-8")
-        print(f"  fixed: {path.relative_to(ROOT)}")
+        print(f"  fixed: {rel}")
         return True
     return False
 
