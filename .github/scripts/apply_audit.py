@@ -12,10 +12,10 @@ ROOT = Path(__file__).resolve().parents[2]
 FAVICON_LINKS = """<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/favicon.svg" />"""
 
-BASE_CSS = '<link rel="stylesheet" href="/assets/site-base.css?v=20260711" />'
-REMAX_BRAND_CSS = '<link rel="stylesheet" href="/assets/remax-brand.css?v=20260711" />'
-SELLER_LANDING_CSS = '<link rel="stylesheet" href="/assets/seller-landing.css?v=20260711" />'
-DUAL_PATH_CSS = '<link rel="stylesheet" href="/assets/dual-path.css?v=20260711" />'
+BASE_CSS = '<link rel="stylesheet" href="/assets/site-base.css?v=20260712" />'
+REMAX_BRAND_CSS = '<link rel="stylesheet" href="/assets/remax-brand.css?v=20260712" />'
+SELLER_LANDING_CSS = '<link rel="stylesheet" href="/assets/seller-landing.css?v=20260712" />'
+DUAL_PATH_CSS = '<link rel="stylesheet" href="/assets/dual-path.css?v=20260712" />'
 
 PROVINCE_HERO = {
     "milano": ("/milano.jpg", "Milano", "Milano"),
@@ -77,7 +77,7 @@ def ensure_head_assets(html: str, *, dual_path: bool = False, preload: str | Non
     if dual_path and DUAL_PATH_CSS not in html:
         html = html.replace("</head>", f"  {DUAL_PATH_CSS}\n</head>", 1)
     if dual_path and SELLER_LANDING_CSS not in html and "seller-landing.css" not in html:
-        marker = f'/assets/remax-brand.css?v=20260711" />'
+        marker = f'/assets/remax-brand.css?v=20260712" />'
         if marker in html:
             html = html.replace(marker, f'{marker}\n  {SELLER_LANDING_CSS}', 1)
     if preload and f'href="{preload}"' not in html:
