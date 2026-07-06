@@ -133,7 +133,7 @@
 }
 
 .nav-links .nav-wa-full {
-  display: none;
+  display: none !important;
 }
 
 .nav-links .nav-cta {
@@ -167,10 +167,6 @@ body.nav-open {
 
   .nav-links {
     justify-content: flex-end;
-  }
-
-  .nav-links .nav-wa-full {
-    display: inline-flex;
   }
 
   .nav-toggle {
@@ -238,21 +234,12 @@ body.nav-open {
     margin: 8px 0;
   }
 
-  .nav-links .nav-wa-full,
   .nav-links .nav-cta {
     display: inline-flex;
     width: 100%;
     margin-top: 12px;
     min-height: 52px;
     font-size: 15px;
-  }
-
-  .nav-links .nav-wa-full {
-    order: 10;
-  }
-
-  .nav-links .nav-cta {
-    order: 11;
   }
 
   .nav-backdrop {
@@ -299,12 +286,7 @@ body.nav-open {
 
 @media (max-width: 560px) {
   header .nav .btn,
-  .site-header .nav-links .nav-cta,
-  .site-header .nav-links .nav-wa-full {
-    display: inline-flex !important;
-  }
-
-  .topbar a.topbar-wa {
+  .site-header .nav-links .nav-cta {
     display: inline-flex !important;
   }
 }
