@@ -19,8 +19,6 @@ from buyer_provinces import (
     ABOUT_AGENCY_EN,
     FOOTER_AFFILIATION_EN,
     FOOTER_AFFILIATION_IT,
-    FOOTER_LEGAL_EN,
-    FOOTER_LEGAL_IT,
     LOMBARD_PROVINCES,
     MILANO_BUDGET,
     NEW_PROVINCES,
@@ -435,7 +433,6 @@ def build_body(cfg):
     agent_label = t(cfg, "agent", "Agente Immobiliare affiliato RE/MAX", "RE/MAX Real Estate Agent")
     footer_affiliation = t(cfg, "footer_aff", FOOTER_AFFILIATION_IT, FOOTER_AFFILIATION_EN)
     agency_bio = t(cfg, "agency_bio", ABOUT_AGENCY_IT, ABOUT_AGENCY_EN)
-    footer_legal = t(cfg, "footer_legal", FOOTER_LEGAL_IT, FOOTER_LEGAL_EN)
 
     pain_cards = "".join(
         f'<article class="buyer-pain-card reveal"><div class="num">{n}</div><h3>{h}</h3><p>{p}</p></article>'
@@ -660,7 +657,7 @@ def build_body(cfg):
       <div>
         <strong>{footer_strong}</strong>
         <div class="footer-affiliation">{footer_affiliation}</div>
-        <div>{footer_legal}<br><small>{footer_note}</small></div>
+        <div>{agent_label} · {COMMON['rea']} · {COMMON['piva']} · {cfg['footer_geo']}<br><small>{footer_note}</small></div>
       </div>
       <div class="footer-links">
         <a href="https://wa.me/{COMMON['wa']}">WhatsApp</a>

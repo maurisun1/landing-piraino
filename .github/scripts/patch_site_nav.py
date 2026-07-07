@@ -4,12 +4,7 @@
 from __future__ import annotations
 
 import re
-import sys
 from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-
-from buyer_provinces import TOPBAR_SELLER_IT
 
 ROOT = Path(__file__).resolve().parents[2]
 CACHE = "20260720"
@@ -237,21 +232,18 @@ def extract_cta(block: str) -> tuple[str, str]:
     return "#contatto", "Contatto"
 
 
-def seller_topbar_tagline() -> str:
-    return TOPBAR_SELLER_IT
-
-
 def infer_tagline(path: Path, lang: str) -> str | None:
     rel = path.relative_to(ROOT).as_posix()
-    if rel == "index.html" or (
-        rel.endswith("/index.html")
-        and "/" in rel
-        and not rel.startswith("comprare-casa")
-        and not rel.startswith("en/")
-        and not rel.startswith("guida-prezzi-mq-")
-        and rel != "privacy/index.html"
-    ):
-        return seller_topbar_tagline()
+    if rel == "index.html":
+        return "Agente Immobiliare affiliato <strong>RE/MAX</strong> · Milano"
+    if rel == "bergamo/index.html":
+        return "Agente Immobiliare affiliato <strong>RE/MAX</strong> · Bergamo · Città Alta · Provincia"
+    if rel == "brescia/index.html":
+        return "Agente Immobiliare affiliato <strong>RE/MAX</strong> · Brescia · Franciacorta · Laghi"
+    if rel.endswith("/index.html") and "/" in rel and not rel.startswith("comprare-casa") and not rel.startswith("en/"):
+        slug = rel.split("/")[0]
+        city = CITY_LABELS_IT.get(slug, slug.title())
+        return f"Agente Immobiliare affiliato <strong>RE/MAX</strong> · {city}"
     if rel.startswith("comprare-casa-"):
         slug = rel.split("/")[0].replace("comprare-casa-", "")
         city = CITY_LABELS_IT.get(slug, slug.title())
@@ -461,7 +453,7 @@ def main() -> None:
         block = extract_header_block(path.read_text(encoding="utf-8"))
         patch_page(
             path,
-            tagline=infer_tagline(path, "it"),
+            tagline=extract_tagline(block) or infer_tagline(path, "it"),
             brand=SHORT_BRAND,
             groups=seller_nav_groups(sell_href=sell, buy_href="/comprare-casa/"),
             lang_link=f'<a href="{en_link}" class="lang-link">EN</a>',
