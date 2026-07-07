@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE = "20260712"
+CACHE = "20260719"
 
 WA_ICON = (
     '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
@@ -150,9 +150,14 @@ def ensure_assets(html: str) -> str:
         "",
         html,
     )
-    if NAV_CSS not in html:
-        if "</head>" in html:
-            html = html.replace("</head>", f"  {NAV_CSS}\n</head>", 1)
+    # Keep a single site-nav.css link (avoid duplicates from cache bumps / re-runs)
+    html = re.sub(
+        r'\s*<link rel="stylesheet" href="/assets/site-nav\.css\?v=\d+" />\s*',
+        "\n",
+        html,
+    )
+    if "</head>" in html:
+        html = html.replace("</head>", f"  {NAV_CSS}\n</head>", 1)
     if NAV_JS not in html and "</body>" in html:
         html = html.replace("</body>", f"  {NAV_JS}\n</body>", 1)
     return html

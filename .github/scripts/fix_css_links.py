@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE = "20260718"
+CACHE = "20260719"
 BRAND_LINK = f'  <link rel="stylesheet" href="/assets/remax-brand.css?v={CACHE}" />'
 SELLER_LINK = f'  <link rel="stylesheet" href="/assets/seller-landing.css?v={CACHE}" />'
 
@@ -45,6 +45,12 @@ def fix_file(path: Path) -> bool:
         rf'href="\1?v={CACHE}"',
         html,
     )
+
+    # Remove duplicate site-nav.css links (keep first occurrence)
+    nav_hits = list(re.finditer(r'\s*<link rel="stylesheet" href="/assets/site-nav\.css\?v=\d+" />\s*', html))
+    if len(nav_hits) > 1:
+        for hit in reversed(nav_hits[1:]):
+            html = html[: hit.start()] + html[hit.end() :]
 
     if "remax-brand.css" not in html:
         if "dual-path.css" in html:

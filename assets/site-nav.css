@@ -1,13 +1,29 @@
 /* Shared site navigation — desktop + mobile hamburger */
 
-.site-header {
-  background: #fff;
+/* Override legacy inline header/topbar rules on seller pages */
+.topbar {
+  width: 100%;
+  position: relative;
+  z-index: 47;
+  background: var(--remax-blue, #003da5) !important;
+}
+
+.site-header,
+header.site-header {
+  background: #fff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
   border-bottom: 4px solid var(--remax-red, #dc1c2e);
   box-shadow: 0 4px 20px rgba(0, 61, 165, .08);
   position: sticky;
   top: 0;
   z-index: 45;
+  width: 100%;
+  isolation: isolate;
+  overflow: visible;
 }
+
+.site-header {
 
 .site-nav {
   position: relative;
@@ -73,7 +89,7 @@
   color: #fff !important;
   font-weight: 900;
   font-size: 13px;
-  box-shadow: 0 8px 20px rgba(37, 211, 102, .28);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, .22);
   transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
   white-space: nowrap;
 }
@@ -205,6 +221,7 @@
   border-radius: 7px;
   margin-left: 4px;
   white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(220, 28, 46, .22);
 }
 
 .nav-backdrop {
@@ -225,7 +242,7 @@ body.nav-open {
   border-radius: 999px;
   font-weight: 900;
   font-size: 12px;
-  box-shadow: 0 8px 20px rgba(37, 211, 102, .28);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, .22);
 }
 
 .topbar-wa:hover {
@@ -251,12 +268,14 @@ body.nav-open {
 
   .nav-panel {
     min-width: 0;
+    overflow: hidden;
   }
 
   .nav-links {
     justify-content: flex-end;
     flex-wrap: nowrap;
     gap: 4px;
+    min-width: 0;
   }
 
   /* Flatten groups into one row */
