@@ -23,11 +23,8 @@ PROVINCES = [
     ("pavia", "Pavia"),
 ]
 
-SELLER_HREF = {
-    "milano": "/",
-    "bergamo": "/bergamo/",
-    "brescia": "/brescia/",
-}
+def seller_href(slug: str) -> str:
+    return "/" if slug == "milano" else f"/{slug}/"
 
 OMI_HREF = {
     "milano": "/guida-prezzi-mq-milano/",
@@ -49,10 +46,7 @@ def join_links(parts: list[str]) -> str:
 def build_footer_geo(current: str) -> str:
     sedi = []
     for slug, name in PROVINCES:
-        if slug in SELLER_HREF:
-            sedi.append(link(name, SELLER_HREF[slug], current=(slug == current)))
-        else:
-            sedi.append(link(name, "/#form"))
+        sedi.append(link(name, seller_href(slug), current=(slug == current)))
 
     omi = []
     for slug, name in PROVINCES:
@@ -76,7 +70,7 @@ def build_footer_geo(current: str) -> str:
 
 
 FOOTER_GEO_RE = re.compile(
-    r'\s*<div class="container" style="border-top:1px solid rgba\(255,255,255,.12\)[^"]*"[^>]*>.*?</div>\s*(?=</footer>)',
+    r'\s*<div class="container footer-geo">.*?</div>\s*(?=</footer>)',
     re.DOTALL,
 )
 
@@ -92,9 +86,11 @@ def patch_seller(path: Path, current: str) -> None:
 
 
 def main() -> None:
-    patch_seller(ROOT / "index.html", "milano")
-    patch_seller(ROOT / "bergamo/index.html", "bergamo")
-    patch_seller(ROOT / "brescia/index.html", "brescia")
+    for slug, _name in PROVINCES:
+        rel = "index.html" if slug == "milano" else f"{slug}/index.html"
+        path = ROOT / rel
+        if path.exists():
+            patch_seller(path, slug)
 
 
 if __name__ == "__main__":

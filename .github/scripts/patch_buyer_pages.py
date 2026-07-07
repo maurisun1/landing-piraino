@@ -20,9 +20,10 @@ from buyer_provinces import (
     NEW_PROVINCES,
     OMI_LINKS,
     SELLER_LINKS,
+    seller_link_for,
 )
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 STYLE_TEMPLATE = ROOT / "comprare-casa-bergamo" / "index.html"
 
 COMMON = {
@@ -1042,7 +1043,7 @@ def build_new_cfg(slug, lang):
         "city_slug": slug,
         "omi": omi,
         "omi_text": omi_text,
-        "seller_link": SELLER_LINKS.get(slug, "/"),
+        "seller_link": seller_link_for(slug),
         "lang_link": province_urls(slug, "en" if lang == "it" else "it"),
         "lang_label": "EN" if lang == "it" else "IT",
         "form_hidden": f"{'Comprare casa' if lang == 'it' else 'Buy home'} {city_label} - {'acquirente' if lang == 'it' else 'buyer EN'}",

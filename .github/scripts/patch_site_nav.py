@@ -225,6 +225,10 @@ def infer_tagline(path: Path, lang: str) -> str | None:
         return "Agente Immobiliare affiliato <strong>RE/MAX</strong> · Bergamo · Città Alta · Provincia"
     if rel == "brescia/index.html":
         return "Agente Immobiliare affiliato <strong>RE/MAX</strong> · Brescia · Franciacorta · Laghi"
+    if rel.endswith("/index.html") and "/" in rel and not rel.startswith("comprare-casa") and not rel.startswith("en/"):
+        slug = rel.split("/")[0]
+        city = CITY_LABELS_IT.get(slug, slug.title())
+        return f"Agente Immobiliare affiliato <strong>RE/MAX</strong> · {city}"
     if rel.startswith("comprare-casa-"):
         slug = rel.split("/")[0].replace("comprare-casa-", "")
         city = CITY_LABELS_IT.get(slug, slug.title())
@@ -394,11 +398,28 @@ def patch_page(path: Path, **nav_kwargs) -> bool:
 
 
 def seller_href_for_city(slug: str) -> str:
-    if slug == "milano":
-        return "/"
-    if slug in ("bergamo", "brescia"):
-        return f"/{slug}/"
-    return "/"
+    return "/" if slug == "milano" else f"/{slug}/"
+
+
+def en_buyer_slug(slug: str) -> str:
+    return "milan" if slug == "milano" else slug
+
+
+def seller_page_paths() -> list[tuple[str, str, str]]:
+    pages = [("index.html", "/", "/en/buy-home-milan/")]
+    for slug, _name, _en in __import__(
+        "buyer_provinces", fromlist=["LOMBARD_PROVINCES"]
+    ).LOMBARD_PROVINCES:
+        if slug == "milano":
+            continue
+        pages.append(
+            (
+                f"{slug}/index.html",
+                seller_href_for_city(slug),
+                f"/en/buy-home-{en_buyer_slug(slug)}/",
+            )
+        )
+    return pages
 
 
 def buyer_omi_href(slug: str) -> str:
@@ -409,12 +430,11 @@ def buyer_omi_href(slug: str) -> str:
 
 def main() -> None:
     print("Patching seller pages...")
-    for rel, sell, en_link in [
-        ("index.html", "/", "/en/buy-home-milan/"),
-        ("bergamo/index.html", "/bergamo/", "/en/buy-home-bergamo/"),
-        ("brescia/index.html", "/brescia/", "/en/buy-home-brescia/"),
-    ]:
+    for rel, sell, en_link in seller_page_paths():
         path = ROOT / rel
+        if not path.exists():
+            print(f"  skip (missing): {rel}")
+            continue
         block = extract_header_block(path.read_text(encoding="utf-8"))
         patch_page(
             path,

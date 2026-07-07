@@ -15,11 +15,11 @@ LOMBARD_PROVINCES = [
     ("pavia", "Pavia", "Pavia"),
 ]
 
-SELLER_LINKS = {
-    "milano": "/",
-    "brescia": "/brescia/",
-    "bergamo": "/bergamo/",
-}
+def seller_link_for(slug: str) -> str:
+    return "/" if slug == "milano" else f"/{slug}/"
+
+
+SELLER_LINKS = {slug: seller_link_for(slug) for slug, _name, _en in LOMBARD_PROVINCES}
 
 OMI_LINKS = {
     "milano": "/guida-prezzi-mq-milano/",

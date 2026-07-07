@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE = "20260717"
+CACHE = "20260718"
 BRAND_LINK = f'  <link rel="stylesheet" href="/assets/remax-brand.css?v={CACHE}" />'
 SELLER_LINK = f'  <link rel="stylesheet" href="/assets/seller-landing.css?v={CACHE}" />'
 
@@ -15,6 +15,15 @@ SELLER_PAGES = {
     "index.html",
     "bergamo/index.html",
     "brescia/index.html",
+    "como/index.html",
+    "cremona/index.html",
+    "lecco/index.html",
+    "lodi/index.html",
+    "mantova/index.html",
+    "monza/index.html",
+    "pavia/index.html",
+    "sondrio/index.html",
+    "varese/index.html",
     "comprare-casa/index.html",
 }
 
