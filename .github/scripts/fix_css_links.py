@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE = "20260712"
+CACHE = "20260716"
 BRAND_LINK = f'  <link rel="stylesheet" href="/assets/remax-brand.css?v={CACHE}" />'
 SELLER_LINK = f'  <link rel="stylesheet" href="/assets/seller-landing.css?v={CACHE}" />'
 
@@ -15,6 +15,7 @@ SELLER_PAGES = {
     "index.html",
     "bergamo/index.html",
     "brescia/index.html",
+    "comprare-casa/index.html",
 }
 
 BROKEN = re.compile(
