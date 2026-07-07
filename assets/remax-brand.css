@@ -510,6 +510,10 @@ h2.serif,
   border-top: 5px solid var(--remax-red) !important;
 }
 
+.hero-form-wrap .form-card {
+  border-top: none !important;
+}
+
 .trust-row .trust {
   border-left: 3px solid var(--remax-red) !important;
 }

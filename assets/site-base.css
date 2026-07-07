@@ -113,6 +113,19 @@
   font-weight: 800;
 }
 
+/* ── Global layout: centered page shell ── */
+.container {
+  width: min(1240px, calc(100% - 48px)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.section-head {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
