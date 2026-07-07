@@ -15,6 +15,10 @@ from buyer_provinces import (
     DEFAULT_PAIN_IT,
     DEFAULT_STATS_IT,
     DEFAULT_TRUST_IT,
+    ABOUT_AGENCY_IT,
+    ABOUT_AGENCY_EN,
+    FOOTER_AFFILIATION_EN,
+    FOOTER_AFFILIATION_IT,
     LOMBARD_PROVINCES,
     MILANO_BUDGET,
     NEW_PROVINCES,
@@ -427,6 +431,8 @@ def build_body(cfg):
                     "La consulenza iniziale non costituisce obbligo di conferimento incarico.",
                     "The initial consultation does not create an obligation to appoint an agent.")
     agent_label = t(cfg, "agent", "Agente Immobiliare affiliato RE/MAX", "RE/MAX Real Estate Agent")
+    footer_affiliation = t(cfg, "footer_aff", FOOTER_AFFILIATION_IT, FOOTER_AFFILIATION_EN)
+    agency_bio = t(cfg, "agency_bio", ABOUT_AGENCY_IT, ABOUT_AGENCY_EN)
 
     pain_cards = "".join(
         f'<article class="buyer-pain-card reveal"><div class="num">{n}</div><h3>{h}</h3><p>{p}</p></article>'
@@ -562,6 +568,7 @@ def build_body(cfg):
         <div class="reveal">
           <span class="section-kicker">{trust_kicker}</span>
           <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 14px">{trust_h2}</h2>
+          <p class="lead" style="margin:0 0 12px">{agency_bio}</p>
           <p class="lead" style="margin:0 0 8px">{cfg['about_lead']}</p>
           <blockquote class="buyer-quote">{cfg['quote']}</blockquote>
         </div>
@@ -649,6 +656,7 @@ def build_body(cfg):
     <div class="container footer-inner">
       <div>
         <strong>{footer_strong}</strong>
+        <div class="footer-affiliation">{footer_affiliation}</div>
         <div>{agent_label} · {COMMON['rea']} · {COMMON['piva']} · {cfg['footer_geo']}<br><small>{footer_note}</small></div>
       </div>
       <div class="footer-links">

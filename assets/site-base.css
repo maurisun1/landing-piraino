@@ -117,6 +117,18 @@
   font-weight: 800;
 }
 
+.footer-affiliation {
+  margin: 8px 0 10px;
+  font-size: .92rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, .88);
+}
+
+footer.footer .footer-affiliation,
+.footer .footer-affiliation {
+  color: rgba(255, 255, 255, .88);
+}
+
 /* ── Global layout: centered page shell ── */
 .container {
   width: min(1240px, calc(100% - 48px)) !important;
