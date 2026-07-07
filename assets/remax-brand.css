@@ -92,8 +92,19 @@ section#come {
   background: linear-gradient(145deg, #0a1f3a 0%, var(--remax-blue) 100%) !important;
 }
 
-/* ── Readable text on light sections ── */
-.about,
+.situations {
+  background: #f4f7fc !important;
+}
+
+.faq {
+  background: #fff !important;
+}
+
+details p,
+.faq-buy p,
+.faq-grid details p {
+  color: #555 !important;
+}
 .situations,
 .method,
 .steps,
@@ -106,7 +117,8 @@ section#come {
 .buyer-pain,
 .buyer-trust-block,
 .dual-path,
-.faq {
+.faq,
+main > section:not([class]) {
   color: #1a1a1a;
 }
 
@@ -123,8 +135,7 @@ section#come {
 .buyer-pain .section-head p,
 .buyer-trust-block .section-head p,
 .faq .section-head p,
-.card p,
-.card h3,
+main > section:not([class]) .section-head p,
 .situations-grid .card h3,
 .situations-grid .card p,
 .method-grid .card h3,
@@ -141,14 +152,13 @@ section#come {
 .buyer-pain-card p,
 .buyer-pain-card h3,
 .testimonial-card p,
-.testimonial-card .person strong,
 .testimonial-card .person span,
-.dual-path-card strong,
 .dual-path-card p,
 .dual-path-label,
 .about .lead,
 .about p,
-.lead {
+.provinces .card-body p,
+.card-body p {
   color: #444 !important;
 }
 
@@ -165,14 +175,56 @@ section#come {
 .buyer-pain .section-head h2,
 .buyer-trust-block .section-head h2,
 .faq .section-head h2,
+main > section:not([class]) .section-head h2,
 .card h3,
+.situations-grid .card h3,
+.method-grid .card h3,
+.steps-grid .card h3,
 .seller-include-card h3,
 .seller-service-card h3,
-.testimonial-card .person strong {
+.adv-card h3,
+.buyer-pain-card h3,
+.testimonial-card .person strong,
+.dual-path-card strong,
+.provinces .card-body h3 {
   color: var(--remax-blue, #003da5) !important;
 }
 
 .section-head h2 {
+  color: var(--remax-blue, #003da5) !important;
+}
+
+/* Hero / dark copy — never inherit light-section text rules */
+.hero-left p,
+.hero-content p,
+section.hero:not(#contatto):not(.buyer-hero-pro) p,
+section.hero:not(#contatto):not(.buyer-hero-pro) h1,
+.buyer-hero-pro-copy p,
+.buyer-hero-pro-copy h1,
+.buyer-hero-pro-copy .lead {
+  color: rgba(255, 255, 255, .85) !important;
+}
+
+.form-card p,
+.form-card h2,
+.form-card label,
+.buyer-hero-card p,
+.buyer-hero-card h2,
+.buyer-hero-card h3,
+.buyer-form p,
+.buyer-form h2,
+.buyer-form label {
+  color: inherit;
+}
+
+.form-card > p {
+  color: #555 !important;
+}
+
+.form-card h2,
+.buyer-hero-card h2,
+.buyer-hero-card h3,
+.buyer-form h2 {
   color: var(--remax-blue, #003da5) !important;
 }
 
@@ -257,13 +309,84 @@ section#come p {
   color: rgba(255, 255, 255, .82) !important;
 }
 
+section#come .steps-buy h3 {
+  color: #fff !important;
+}
+
+section#come .steps-buy p {
+  color: rgba(255, 255, 255, .82) !important;
+}
+
+.market a,
+.network a,
+.buyer-omi-link {
+  color: #ff8a94 !important;
+}
+
+.market a:hover,
+.network a:hover,
+.buyer-omi-link:hover {
+  color: #fff !important;
+}
+
 /* ── Cards & grids ── */
+.card,
+.situations-grid .card,
+.method-grid .card,
+.steps-grid .card,
+.adv-card,
+.buyer-pain-card,
+.seller-include-card,
+.seller-service-card,
+.testimonial-card,
+.dual-path-card,
+.provinces .card,
+details,
+.faq-buy details {
+  background: #fff !important;
+  border: 1px solid rgba(0, 61, 165, .14) !important;
+}
+
 .card,
 .situations-grid .card,
 .method-grid .card,
 .adv-card {
   border-top: 3px solid var(--remax-blue) !important;
   box-shadow: 0 12px 32px rgba(0, 61, 165, .1) !important;
+}
+
+.card p,
+.situations-grid .card p,
+.method-grid .card p,
+.steps-grid .card p {
+  color: #444 !important;
+}
+
+.card h3,
+.situations-grid .card h3,
+.method-grid .card h3,
+.steps-grid .card h3 {
+  color: var(--remax-blue, #003da5) !important;
+}
+
+.card .num,
+.situations-grid .num,
+.method-grid .num,
+.steps-grid .num {
+  color: var(--remax-red, #dc1c2e) !important;
+}
+
+.step-time {
+  color: var(--remax-red, #dc1c2e) !important;
+}
+
+/* Dark-section cards stay glass — override light card rules above */
+.network-card,
+.market-card,
+.buyer-market-card {
+  background: rgba(255, 255, 255, .1) !important;
+  border: 1px solid rgba(255, 255, 255, .2) !important;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, .2) !important;
 }
 
 .card:hover,
@@ -400,11 +523,6 @@ h2.serif,
 
 .hero .trust-row .trust {
   border-left-color: var(--remax-red) !important;
-}
-
-.card .num,
-.situations-grid .num {
-  color: var(--remax-red) !important;
 }
 
 .final-cta {

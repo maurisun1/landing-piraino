@@ -310,7 +310,7 @@ main > section {
 }
 
 .seller-include-card {
-  background: #f8fafd;
+  background: #fff !important;
   border: 1px solid rgba(0, 61, 165, .1);
   border-top: 4px solid var(--remax-blue, #003da5);
   border-radius: 14px;
