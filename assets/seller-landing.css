@@ -723,3 +723,84 @@ details p {
     border-bottom: 1px solid rgba(255, 255, 255, .15);
   }
 }
+
+/* ══════════════════════════════════════════════════════════
+   FINAL OVERRIDE — network + market (dark section, glass cards)
+   Loaded last: fixes white cards + white text on production
+   ══════════════════════════════════════════════════════════ */
+section.network#remax,
+section.network,
+section.market#mercato,
+section.market {
+  background: linear-gradient(145deg, #0c2749 0%, #003da5 100%) !important;
+  color: #fff !important;
+  position: relative;
+  overflow: hidden;
+}
+
+section.network#remax .section-head h2,
+section.network#remax h2,
+section.network .section-head h2,
+section.network h2,
+section.market#mercato .section-head h2,
+section.market#mercato h2,
+section.market .section-head h2,
+section.market h2 {
+  color: #fff !important;
+}
+
+section.network#remax .section-head p,
+section.network#remax .section-kicker,
+section.network .section-head p,
+section.network .section-kicker,
+section.market#mercato .section-head p,
+section.market#mercato .section-kicker,
+section.market .section-head p,
+section.market .section-kicker {
+  color: rgba(255, 255, 255, .88) !important;
+}
+
+section.network .network-card,
+section.market .market-card,
+.network-card,
+.market-card {
+  background: rgba(255, 255, 255, .12) !important;
+  border: 1px solid rgba(255, 255, 255, .22) !important;
+  border-top: 4px solid var(--remax-red, #dc1c2e) !important;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, .25) !important;
+}
+
+section.network .network-card span,
+section.market .market-card span,
+.network-card span,
+.market-card span {
+  color: #ff8a94 !important;
+}
+
+section.network .network-card strong,
+section.market .market-card strong,
+.network-card strong,
+.market-card strong {
+  color: #fff !important;
+}
+
+section.network .network-card p,
+section.market .market-card p,
+.network-card p,
+.market-card p {
+  color: rgba(255, 255, 255, .88) !important;
+}
+
+section.market#mercato a,
+section.market a,
+section.network#remax a,
+section.network a {
+  color: #ff8a94 !important;
+}
+
+section.market#mercato a:hover,
+section.market a:hover,
+section.network#remax a:hover,
+section.network a:hover {
+  color: #fff !important;
+}

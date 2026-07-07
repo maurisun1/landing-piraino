@@ -80,7 +80,9 @@ main > section:not([class]):nth-of-type(odd):not(.hero):not(.buyer-hero-pro) {
 .buyer-form-section,
 .seller-mid-cta,
 .seller-stats-strip,
-section#come {
+section#come,
+section.network,
+section.market {
   background-image: none;
 }
 
@@ -660,4 +662,73 @@ details[open] summary {
 
 .faq-buy summary {
   color: var(--remax-blue) !important;
+}
+
+/* ── FINAL OVERRIDE: dark sections beat generic .section-head rules ── */
+section.network#remax,
+section.network,
+section.market#mercato,
+section.market,
+.buyer-market,
+.final-cta,
+.seller-mid-cta {
+  background-image: none !important;
+}
+
+section.network#remax,
+section.network {
+  background: linear-gradient(145deg, #0c2749 0%, #0a1f3a 100%) !important;
+}
+
+section.market#mercato,
+section.market {
+  background: linear-gradient(145deg, #0a1f3a 0%, #003da5 100%) !important;
+}
+
+section.network#remax .section-head h2,
+section.network#remax h2,
+section.network .section-head h2,
+section.network h2,
+section.market#mercato .section-head h2,
+section.market#mercato h2,
+section.market .section-head h2,
+section.market h2,
+.buyer-market .section-head h2,
+.buyer-market h2,
+.final-cta h2,
+.seller-mid-cta h2 {
+  color: #fff !important;
+}
+
+section.network#remax .section-head p,
+section.network#remax .section-kicker,
+section.network .section-head p,
+section.network .section-kicker,
+section.market#mercato .section-head p,
+section.market#mercato .section-kicker,
+section.market .section-head p,
+section.market .section-kicker {
+  color: rgba(255, 255, 255, .88) !important;
+}
+
+section.network .network-card,
+section.market .market-card,
+.network-card,
+.market-card {
+  background: rgba(255, 255, 255, .12) !important;
+  border: 1px solid rgba(255, 255, 255, .22) !important;
+}
+
+section.network .network-card strong,
+section.market .market-card strong,
+.network-card strong,
+.market-card strong {
+  color: #fff !important;
+}
+
+section.network .network-card p,
+section.market .market-card p,
+.network-card p,
+.market-card p {
+  color: rgba(255, 255, 255, .88) !important;
 }
