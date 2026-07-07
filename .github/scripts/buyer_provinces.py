@@ -52,6 +52,16 @@ ABOUT_AGENCY_EN = (
     "combine a personal advisory approach with the strength of an international network."
 )
 
+TOPBAR_SELLER_IT = (
+    "Agente Immobiliare affiliato <strong>RE/MAX Associati Real Estate</strong>"
+)
+
+FOOTER_LEGAL_IT = "Agente Immobiliare affiliato RE/MAX · REA BS-639579 · P.IVA 14597560961"
+FOOTER_LEGAL_IT_HTML = (
+    "Agente Immobiliare affiliato RE/MAX &middot; REA BS-639579 &middot; P.IVA 14597560961"
+)
+FOOTER_LEGAL_EN = "RE/MAX Real Estate Agent · REA BS-639579 · P.IVA 14597560961"
+
 DEFAULT_BUDGET_PROVINCE = [
     ("", "Preferisco non indicarlo"),
     ("150000", "Fino a 150.000 €"),

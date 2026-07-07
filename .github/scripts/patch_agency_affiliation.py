@@ -9,7 +9,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from buyer_provinces import ABOUT_AGENCY_IT, FOOTER_AFFILIATION_EN, FOOTER_AFFILIATION_IT
+from buyer_provinces import ABOUT_AGENCY_IT, FOOTER_AFFILIATION_EN, FOOTER_AFFILIATION_IT, FOOTER_LEGAL_IT_HTML
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -33,9 +33,9 @@ SELLER_PAGES = [
     "pavia/index.html",
 ]
 
-FOOTER_INNER_RE = re.compile(
+FOOTER_FIRST_COL_RE = re.compile(
     r'(<div class="container footer-inner">\s*<div>\s*<strong>.*?</strong>\s*)'
-    r'(?!        <div class="footer-affiliation">)',
+    r'(?:\s*<div class="footer-affiliation">.*?</div>\s*)*',
     re.DOTALL,
 )
 
@@ -45,13 +45,38 @@ ABOUT_RE = re.compile(
     re.DOTALL,
 )
 
+FOOTER_LEGAL_RE = re.compile(
+    r'(<div>Agente Immobiliare affiliato RE/MAX(?: &middot;| ·) REA BS-639579(?: &middot;| ·) P\.IVA 14597560961)'
+    r'(?: &middot;| ·)[^<]*',
+)
+
+
+def patch_footer_legal(html: str) -> str:
+    return FOOTER_LEGAL_RE.sub(
+        f"<div>{FOOTER_LEGAL_IT_HTML}",
+        html,
+        count=1,
+    )
+
+
+def normalize_footer_affiliation(html: str) -> str:
+    block = f'        <div class="footer-affiliation">{FOOTER_AFFILIATION_IT}</div>\n'
+    html = re.sub(
+        r'\s*<div class="footer-affiliation">.*?</div>',
+        "",
+        html,
+        flags=re.DOTALL,
+    )
+    return FOOTER_FIRST_COL_RE.sub(r"\1" + block, html, count=1)
+
 
 def patch_seller(path: Path) -> bool:
     html = path.read_text(encoding="utf-8")
     original = html
-    html = FOOTER_INNER_RE.sub(r"\1" + FOOTER_BLOCK_IT, html, count=1)
+    html = normalize_footer_affiliation(html)
     if ABOUT_AGENCY_IT not in html:
         html = ABOUT_RE.sub(r"\1" + ABOUT_BLOCK, html, count=1)
+    html = patch_footer_legal(html)
     if html != original:
         path.write_text(html, encoding="utf-8")
         print(f"Patched {path.relative_to(ROOT)}")
