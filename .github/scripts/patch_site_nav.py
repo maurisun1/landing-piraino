@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE = "20260719"
+CACHE = "20260720"
 
 WA_ICON = (
     '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
@@ -19,11 +19,15 @@ NAV_CSS = f'<link rel="stylesheet" href="/assets/site-nav.css?v={CACHE}" />'
 NAV_JS = f'<script src="/assets/site-nav.js?v={CACHE}" defer></script>'
 
 TOPBAR_RE = re.compile(
-    r'<div class="topbar">\s*<div class="container topbar-inner">.*?</div>\s*</div>',
+    r'<div class="topbar">\s*<div class="container topbar-inner">.*?</div>\s*</div>\s*',
+    re.DOTALL,
+)
+CHROME_HEADER_RE = re.compile(
+    r'(?:<div class="site-chrome">\s*)?(?:<div class="topbar">\s*<div class="container topbar-inner">.*?</div>\s*</div>\s*)?<header class="site-header">.*?</header>(?:\s*</div>)?',
     re.DOTALL,
 )
 HEADER_RE = re.compile(
-    r'<header(?:\s+class="[^"]*")?>.*?</header>',
+    r'<header(?:\s+class="[^"]*")?>.*?</header>\s*',
     re.DOTALL,
 )
 
@@ -111,7 +115,11 @@ def render_nav(
             {lang_link}
           </div>"""
     topbar = ""
+    chrome_open = ""
+    chrome_close = ""
     if tagline:
+        chrome_open = '  <div class="site-chrome">\n'
+        chrome_close = "\n</div>"
         topbar = f"""  <div class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-tagline">{tagline}</div>
@@ -119,7 +127,7 @@ def render_nav(
     </div>
   </div>
 """
-    return f"""{topbar}  <header class="site-header">
+    return f"""{chrome_open}{topbar}  <header class="site-header">
     <div class="container site-nav">
       <div class="brand-wrap">
         <a class="brand" href="/">{brand}</a>
@@ -141,7 +149,7 @@ def render_nav(
       </div>
       <div class="nav-backdrop" hidden></div>
     </div>
-  </header>"""
+  </header>{chrome_close}"""
 
 
 def ensure_assets(html: str) -> str:
@@ -175,6 +183,8 @@ def strip_nav_hide_rules(html: str) -> str:
 
 
 def replace_header(html: str, new_header: str) -> str:
+    if CHROME_HEADER_RE.search(html):
+        return CHROME_HEADER_RE.sub(new_header, html, count=1)
     html = TOPBAR_RE.sub("", html)
     if HEADER_RE.search(html):
         return HEADER_RE.sub(new_header, html, count=1)

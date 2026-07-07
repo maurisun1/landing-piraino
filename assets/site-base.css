@@ -27,10 +27,15 @@
   left: 0;
 }
 
-/* RE/MAX topbar — blu brand + barra rosso/bianco/blu */
+/* RE/MAX topbar — blu brand + striscia tricolore full-width */
 .topbar {
   background: var(--remax-blue) !important;
   color: rgba(255, 255, 255, .92) !important;
+  display: block;
+  width: 100%;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
 }
 
 .topbar a {
@@ -46,19 +51,18 @@
   letter-spacing: .06em;
 }
 
-.topbar::after {
+/* Tre strisce orizzontali (rosso · bianco · blu) sempre visibili su tutta la larghezza */
+.topbar::after,
+.remax-stripe {
   content: "";
   display: block;
-  height: 5px;
-  background: linear-gradient(
-    90deg,
-    var(--remax-red) 0%,
-    var(--remax-red) 33.33%,
-    #fff 33.33%,
-    #fff 66.66%,
-    var(--remax-blue) 66.66%,
-    var(--remax-blue) 100%
-  );
+  width: 100%;
+  height: 6px;
+  background:
+    linear-gradient(var(--remax-red), var(--remax-red)) 0 0 / 100% 2px no-repeat,
+    linear-gradient(#fff, #fff) 0 2px / 100% 2px no-repeat,
+    linear-gradient(var(--remax-blue), var(--remax-blue)) 0 4px / 100% 2px no-repeat;
+  flex-shrink: 0;
 }
 
 .site-header {
