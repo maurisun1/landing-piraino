@@ -276,7 +276,7 @@ section#come .lead {
 
 .network-card span,
 .market-card span {
-  color: #ff8a94 !important;
+  color: rgba(255, 255, 255, .92) !important;
 }
 
 .network-card strong,
@@ -286,11 +286,11 @@ section#come .lead {
 
 .network-card p,
 .market-card p {
-  color: rgba(255, 255, 255, .82) !important;
+  color: rgba(255, 255, 255, .88) !important;
 }
 
 .buyer-market-card span {
-  color: #ff8a94 !important;
+  color: rgba(255, 255, 255, .92) !important;
 }
 
 .buyer-market-card h3 {
@@ -298,7 +298,7 @@ section#come .lead {
 }
 
 .buyer-market-card p {
-  color: rgba(255, 255, 255, .82) !important;
+  color: rgba(255, 255, 255, .88) !important;
 }
 
 section#come .num {
@@ -310,7 +310,7 @@ section#come h3 {
 }
 
 section#come p {
-  color: rgba(255, 255, 255, .82) !important;
+  color: rgba(255, 255, 255, .88) !important;
 }
 
 section#come .steps-buy h3 {
@@ -318,13 +318,13 @@ section#come .steps-buy h3 {
 }
 
 section#come .steps-buy p {
-  color: rgba(255, 255, 255, .82) !important;
+  color: rgba(255, 255, 255, .88) !important;
 }
 
 .market a,
 .network a,
 .buyer-omi-link {
-  color: #ff8a94 !important;
+  color: #ffc9cf !important;
 }
 
 .market a:hover,
@@ -448,6 +448,25 @@ h2.serif,
 
 .hero .btn-outline:hover,
 .buyer-hero-pro .btn-outline:hover {
+  background: rgba(255, 255, 255, .16) !important;
+  color: #fff !important;
+}
+
+.buyer-sticky-bar .btn-outline,
+.final-cta .btn-outline,
+.seller-mid-cta .btn-outline,
+.buyer-final-cta .btn-outline,
+.buyer-form-section .btn-outline {
+  border-color: rgba(255, 255, 255, .45) !important;
+  color: #fff !important;
+  background: rgba(255, 255, 255, .08) !important;
+}
+
+.buyer-sticky-bar .btn-outline:hover,
+.final-cta .btn-outline:hover,
+.seller-mid-cta .btn-outline:hover,
+.buyer-final-cta .btn-outline:hover,
+.buyer-form-section .btn-outline:hover {
   background: rgba(255, 255, 255, .16) !important;
   color: #fff !important;
 }
@@ -586,7 +605,7 @@ section.hero:not(#contatto):not(.buyer-hero-pro) {
 }
 
 .buyer-hero-pro-copy .section-kicker {
-  color: rgba(255, 255, 255, .82) !important;
+  color: rgba(255, 255, 255, .88) !important;
   font-weight: 900;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -629,9 +648,9 @@ section.hero:not(#contatto):not(.buyer-hero-pro) {
   border-top: 3px solid var(--remax-red);
 }
 
-.buyer-badge {
-  background: rgba(220, 28, 46, .15) !important;
-  border-color: rgba(220, 28, 46, .35) !important;
+.buyer-portrait-meta .buyer-badge {
+  background: rgba(255, 255, 255, .12) !important;
+  border-color: rgba(255, 255, 255, .22) !important;
   color: #fff !important;
 }
 
@@ -653,7 +672,7 @@ h1.serif {
   font-size: 11px;
   font-weight: 900;
   letter-spacing: .24em;
-  color: rgba(255, 255, 255, .45);
+  color: rgba(255, 255, 255, .62);
   margin-bottom: 8px;
 }
 

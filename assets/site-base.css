@@ -142,6 +142,48 @@ footer.footer .footer-affiliation,
   text-align: left;
 }
 
+/* ── Contrast: light surfaces → dark text ── */
+.microcopy,
+.form-card .microcopy {
+  color: #5c5c5c !important;
+}
+
+/* ── Contrast: dark footer strips without container opacity ── */
+.footer-secondary {
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  margin-top: 18px;
+  padding-top: 16px;
+  text-align: center;
+  font-size: .9rem;
+  color: rgba(255, 255, 255, .88);
+}
+
+.footer-secondary a {
+  color: rgba(255, 255, 255, .92);
+}
+
+.footer-secondary a:hover {
+  color: #fff;
+}
+
+/* Warm standalone footers (OMI guides, privacy) */
+footer:not(.footer) {
+  color: #555 !important;
+}
+
+footer:not(.footer) strong {
+  color: #222 !important;
+}
+
+footer:not(.footer) a {
+  color: #003da5;
+}
+
+footer:not(.footer) .disc {
+  color: #555 !important;
+  opacity: 1 !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
