@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE = "20260720"
+CACHE = "20260723"
 
 WA_ICON = (
     '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'

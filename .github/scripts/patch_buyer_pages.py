@@ -666,7 +666,7 @@ def build_body(cfg):
         <a href="tel:{COMMON['phone'].replace(' ', '')}">{COMMON['phone']}</a>
       </div>
     </div>
-    <div class="container" style="border-top:1px solid rgba(255,255,255,.12);margin-top:18px;padding-top:16px;text-align:center;font-size:.9rem;opacity:.85">{footer_links(cfg)}</div>
+    <div class="container footer-secondary">{footer_links(cfg)}</div>
   </footer>
   <script src="/assets/buyer-landing.js" defer></script>
   <script src="/assets/site-nav.js" defer></script>"""

@@ -279,7 +279,7 @@
 }
 .buyer-portrait-meta span {
   display: block;
-  color: rgba(255,255,255,.68);
+  color: rgba(255,255,255,.82);
   font-size: 13px;
   margin-top: 4px;
 }
@@ -298,6 +298,7 @@
   font-weight: 800;
   letter-spacing: .06em;
   text-transform: uppercase;
+  color: #fff;
 }
 .buyer-quote {
   border-left: 3px solid var(--remax-red);
@@ -340,7 +341,7 @@
 }
 .buyer-market-card p {
   margin: 0;
-  color: rgba(255,255,255,.68);
+  color: rgba(255,255,255,.88);
   font-size: 15px;
 }
 .buyer-omi-link {
@@ -372,7 +373,7 @@
   color: #fff;
 }
 .buyer-form-aside > p {
-  color: rgba(255,255,255,.72);
+  color: rgba(255,255,255,.88);
   margin: 0 0 24px;
   font-size: 17px;
 }
@@ -461,6 +462,15 @@
 }
 .buyer-sticky-inner .btn { flex: 1; min-height: 48px; font-size: 14px; padding: 0 16px; }
 .buyer-sticky-inner .btn-outline { flex: 0 0 auto; min-width: 48px; padding: 0 14px; }
+.buyer-sticky-bar .btn-outline {
+  border-color: rgba(255, 255, 255, .45);
+  color: #fff;
+  background: rgba(255, 255, 255, .08);
+}
+.buyer-sticky-bar .btn-outline:hover {
+  background: rgba(255, 255, 255, .16);
+  color: #fff;
+}
 @media (max-width: 980px) {
   .buyer-hero-pro-grid,
   .buyer-trust-grid,

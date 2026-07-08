@@ -135,6 +135,7 @@ section.hero#contatto::after {
   margin-top: 16px !important;
   font-size: 12px !important;
   line-height: 1.5 !important;
+  color: #5c5c5c !important;
 }
 
 .form-progress {
@@ -397,7 +398,7 @@ main > section {
 }
 
 .seller-compare-row .na {
-  color: #999;
+  color: #666;
 }
 
 .seller-zones {
