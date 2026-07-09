@@ -103,6 +103,18 @@ DEFAULT_FORM_BENEFITS_IT = [
     "Supporto in trattativa fino al rogito",
 ]
 
+DEFAULT_BUYER_TESTIMONIALS_IT = [
+    ("MR", "Acquirente · Milano", "Navigli", "Stavo per fare un'offerta al prezzo richiesto. L'analisi OMI sulla micro-zona mi ha fatto risparmiare circa 15.000 € sulla trattativa."),
+    ("GL", "Coppia · prima casa", "Bergamo", "Ci ha evitato di comprare un immobile con difformità catastale. Controlli fatti prima dell'offerta, rogito senza sorprese."),
+    ("SF", "Acquirente · Brescia", "Franciacorta", "Mercato competitivo: grazie al tempismo e ai numeri giusti abbiamo chiuso al prezzo corretto, non quello dell'annuncio."),
+]
+
+DEFAULT_BUYER_TESTIMONIALS_EN = [
+    ("MR", "Buyer · Milan", "Navigli", "I was about to offer the asking price. OMI micro-area analysis saved me around €15,000 in the negotiation."),
+    ("GL", "Couple · first home", "Bergamo", "Avoided buying a property with cadastral discrepancies. Checks done before the offer, smooth closing."),
+    ("SF", "Buyer · Brescia", "Franciacorta", "Competitive market: with the right timing and numbers we closed at the fair price, not the listing price."),
+]
+
 DEFAULT_FAQ_WORK_IT = "Lavori solo in {city}?"
 DEFAULT_FAQ_WORK_A_IT = "Seguo acquirenti in tutta la Lombardia, con attenzione particolare a {city} e alle province limitrofe."
 

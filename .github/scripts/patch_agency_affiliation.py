@@ -46,10 +46,19 @@ ABOUT_RE = re.compile(
 )
 
 
+def dedupe_footer_affiliation(html: str) -> str:
+    if len(re.findall(r'<div class="footer-affiliation">', html)) <= 1:
+        return html
+    html = re.sub(r'\s*<div class="footer-affiliation">.*?</div>', '', html)
+    return FOOTER_INNER_RE.sub(r"\1" + FOOTER_BLOCK_IT, html, count=1)
+
+
 def patch_seller(path: Path) -> bool:
     html = path.read_text(encoding="utf-8")
     original = html
-    html = FOOTER_INNER_RE.sub(r"\1" + FOOTER_BLOCK_IT, html, count=1)
+    html = dedupe_footer_affiliation(html)
+    if FOOTER_AFFILIATION_IT not in html:
+        html = FOOTER_INNER_RE.sub(r"\1" + FOOTER_BLOCK_IT, html, count=1)
     if ABOUT_AGENCY_IT not in html:
         html = ABOUT_RE.sub(r"\1" + ABOUT_BLOCK, html, count=1)
     if html != original:
