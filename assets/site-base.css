@@ -59,16 +59,20 @@
 .site-chrome .remax-stripe,
 .remax-stripe {
   display: block;
-  width: 100%;
-  height: 6px;
+  width: 100vw;
+  max-width: 100vw;
   margin: 0;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   padding: 0;
   border: 0;
-  background:
-    linear-gradient(var(--remax-red), var(--remax-red)) 0 0 / 100% 2px no-repeat,
-    linear-gradient(#fff, #fff) 0 2px / 100% 2px no-repeat,
-    linear-gradient(var(--remax-blue), var(--remax-blue)) 0 4px / 100% 2px no-repeat;
+  height: 9px;
   flex-shrink: 0;
+  background:
+    linear-gradient(var(--remax-red), var(--remax-red)) 0 0 / 100% 3px no-repeat,
+    linear-gradient(#fff, #fff) 0 3px / 100% 3px no-repeat,
+    linear-gradient(var(--remax-blue), var(--remax-blue)) 0 6px / 100% 3px no-repeat;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .12);
 }
 
 .site-header {
