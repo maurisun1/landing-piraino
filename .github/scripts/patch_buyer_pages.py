@@ -10,6 +10,8 @@ from buyer_provinces import (
     DEFAULT_BUDGET_PROVINCE,
     DEFAULT_FAQ_WORK_A_IT,
     DEFAULT_FAQ_WORK_IT,
+    DEFAULT_BUYER_TESTIMONIALS_EN,
+    DEFAULT_BUYER_TESTIMONIALS_IT,
     DEFAULT_FORM_BENEFITS_IT,
     DEFAULT_HERO_LIST_IT,
     DEFAULT_PAIN_IT,
@@ -301,8 +303,8 @@ def build_body(cfg):
     nav_cta = t(cfg, "nav_cta", "Dimmi cosa cerchi", "Tell me what you need")
     kicker = t(cfg, "kicker", f'Comprare casa a {cfg["city"]}', f'Buy a home in {cfg["city"]}')
     h1 = t(cfg, "h1",
-           "Comprare bene non è trovare una casa.<br>È non pagarla troppo.",
-           "Buying well is not about finding a home.<br>It is about not overpaying.")
+           f'Comprare bene a {cfg["city"]} non è trovare una casa.<br>È non pagarla troppo.',
+           f'Buying well in {cfg["city"]} is not about finding a home.<br>It is about not overpaying.')
     leads = {
         "bergamo": (
             "A Bergamo e provincia — Città Alta, Città Bassa, valli e comuni di cintura — ogni micro-mercato ha regole diverse. È facile pagare più del dovuto o comprare con problemi nascosti. Il mio ruolo è evitartelo.",
@@ -376,6 +378,17 @@ def build_body(cfg):
     ]
 
     faq_kicker = "FAQ"
+    exp_kicker = t(cfg, "exp_k", "Esperienze", "Experiences")
+    exp_h2 = t(cfg, "exp_h", "Chi ha comprato con metodo, non a caso.", "People who bought with a method, not by chance.")
+    testimonials = cfg.get("testimonials") or (
+        DEFAULT_BUYER_TESTIMONIALS_EN if is_en else DEFAULT_BUYER_TESTIMONIALS_IT
+    )
+    testimonial_cards = "".join(
+        f'<article class="buyer-testimonial-card reveal"><div class="buyer-testimonial-stars">★★★★★</div>'
+        f'<p>{text}</p><div class="buyer-testimonial-person"><div class="buyer-testimonial-avatar">{av}</div>'
+        f'<div><strong>{title}</strong><span>{zone}</span></div></div></article>'
+        for av, title, zone, text in testimonials
+    )
     faq_h2 = t(cfg, "faq_h", "Le domande di chi compra", "Questions from buyers")
     faqs = [
         (t(cfg, "fq1", "Quanto costa il servizio per chi compra?", "How much does the buyer service cost?"),
@@ -589,6 +602,14 @@ def build_body(cfg):
         <div class="section-head"><span class="section-kicker" style="color:var(--gold)">{steps_kicker}</span>
         <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0;color:#fff">{steps_h2}</h2></div>
         <div class="steps-buy">{steps_html}</div>
+      </div>
+    </section>
+
+    <section id="esperienze" class="buyer-testimonials">
+      <div class="container">
+        <div class="section-head"><span class="section-kicker">{exp_kicker}</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0">{exp_h2}</h2></div>
+        <div class="buyer-testimonial-grid">{testimonial_cards}</div>
       </div>
     </section>
 

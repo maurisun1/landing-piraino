@@ -106,8 +106,8 @@ def build_page(slug: str) -> str:
 
     wa_base = quote(f"Ciao Maurizio, vorrei ricevere un'analisi riservata del mio immobile a {city}.")
     html = re.sub(
-        r"wa\.me/393514581993\?text=[^\"']+",
-        f"wa.me/393514581993?text={wa_base}",
+        r'href="https://wa\.me/393514581993\?text=[^"]*"',
+        f'href="https://wa.me/393514581993?text={wa_base}"',
         html,
     )
 
