@@ -414,22 +414,28 @@ def patch_page(rel: str) -> None:
 
 
 def patch_hub() -> None:
-    hub_stats = """    <div class="hub-stats-bar seller-stats-strip" aria-label="Numeri RE/MAX">
-      <div class="container seller-stats-grid">
-        <div class="seller-stat"><strong>12</strong><span>Province lombarde</span></div>
-        <div class="seller-stat"><strong>OMI</strong><span>Dati ufficiali Entrate</span></div>
-        <div class="seller-stat"><strong>24h</strong><span>Risposta alla richiesta</span></div>
-        <div class="seller-stat"><strong>RE/MAX</strong><span>Rete internazionale</span></div>
-      </div>
-    </div>"""
-    hub_stats_en = """    <div class="hub-stats-bar seller-stats-strip" aria-label="RE/MAX highlights">
-      <div class="container seller-stats-grid">
-        <div class="seller-stat"><strong>12</strong><span>Lombard provinces</span></div>
-        <div class="seller-stat"><strong>OMI</strong><span>Official Revenue Agency data</span></div>
-        <div class="seller-stat"><strong>24h</strong><span>Reply to your request</span></div>
-        <div class="seller-stat"><strong>RE/MAX</strong><span>International network</span></div>
-      </div>
-    </div>"""
+    hub_stats = """  <section class="hub-stats-bar seller-stats-strip" aria-label="Numeri RE/MAX">
+    <div class="container seller-stats-grid">
+      <div class="seller-stat"><strong>12</strong><span>Province lombarde</span></div>
+      <div class="seller-stat"><strong>OMI</strong><span>Dati ufficiali Entrate</span></div>
+      <div class="seller-stat"><strong>24h</strong><span>Risposta alla richiesta</span></div>
+      <div class="seller-stat"><strong>RE/MAX</strong><span>Rete internazionale</span></div>
+    </div>
+  </section>"""
+    hub_stats_en = """  <section class="hub-stats-bar seller-stats-strip" aria-label="RE/MAX highlights">
+    <div class="container seller-stats-grid">
+      <div class="seller-stat"><strong>12</strong><span>Lombard provinces</span></div>
+      <div class="seller-stat"><strong>OMI</strong><span>Official Revenue Agency data</span></div>
+      <div class="seller-stat"><strong>24h</strong><span>Reply to your request</span></div>
+      <div class="seller-stat"><strong>RE/MAX</strong><span>International network</span></div>
+    </div>
+  </section>"""
+    inline_hero = ".hero{color:#fff;text-align:center}"
+    inside_stats = re.compile(
+        r"(<section class=\"hero hub-hero\">.*?<div class=\"container\">.*?</div>\s*)"
+        r"<(?:div|section) class=\"hub-stats-bar seller-stats-strip\"[^>]*>.*?</(?:div|section)>\s*</section>",
+        re.DOTALL,
+    )
     for rel, stats in (
         ("comprare-casa/index.html", hub_stats),
         ("en/buy-home/index.html", hub_stats_en),
@@ -438,46 +444,30 @@ def patch_hub() -> None:
         if not path.exists():
             continue
         html = path.read_text(encoding="utf-8")
-        hero_css = (
-            ".hero{background:linear-gradient(180deg,rgba(7,7,7,.78),rgba(7,7,7,.9)),"
-            "url(/milano.jpg) center/cover no-repeat;color:#fff;padding:96px 0 0;text-align:center}"
-        )
-        html = re.sub(
-            r"\.hero\{background:var\(--black\);color:#fff;padding:72px 0 64px;text-align:center\}",
-            hero_css,
-            html,
-            count=1,
-        )
-        html = re.sub(
-            r'\.hero\{background:linear-gradient\(180deg,rgba\(7,7,7,.78\),rgba\(7,7,7,.9\)\),url\(/milano\.jpg\) center/cover no-repeat;color:#fff;padding:96px 0 80px;text-align:center\}',
-            hero_css,
-            html,
-            count=1,
-        )
-        if "hub-stats-bar" in html:
-            path.write_text(html, encoding="utf-8")
-            print(f"Skipped hub {rel} (already patched)")
-            continue
-        html = re.sub(
-            r'<section class="hero">',
-            '<section class="hero hub-hero">',
-            html,
-            count=1,
-        )
-        html = re.sub(
-            r"(<section class=\"hero hub-hero\">.*?<div class=\"container\">.*?</div>\s*)</section>",
-            rf"\1{stats}\n  </section>",
-            html,
-            count=1,
-            flags=re.DOTALL,
-        )
-        html = re.sub(
-            r"\s*<section class=\"seller-stats-strip\" aria-label=\"[^\"]*\">.*?</section>\s*",
-            "\n",
-            html,
-            count=1,
-            flags=re.DOTALL,
-        )
+        html = re.sub(r"\.hero\{background:[^}]+\}", inline_hero, html, count=1)
+        if inside_stats.search(html):
+            html = inside_stats.sub(r"\1</section>\n" + stats, html, count=1)
+        elif "hub-stats-bar" not in html:
+            html = re.sub(
+                r'<section class="hero">',
+                '<section class="hero hub-hero">',
+                html,
+                count=1,
+            )
+            html = re.sub(
+                r"(<section class=\"hero hub-hero\">.*?<div class=\"container\">.*?</div>\s*)</section>",
+                rf"\1</section>\n{stats}",
+                html,
+                count=1,
+                flags=re.DOTALL,
+            )
+            html = re.sub(
+                r"\s*<section class=\"seller-stats-strip\" aria-label=\"[^\"]*\">.*?</section>\s*",
+                "\n",
+                html,
+                count=1,
+                flags=re.DOTALL,
+            )
         if 'rel="preload" as="image" href="/milano.jpg"' not in html:
             html = html.replace(
                 "</head>",

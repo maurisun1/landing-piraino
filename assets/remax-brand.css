@@ -45,7 +45,7 @@ section.hero#contatto::after {
 }
 
 /* Hub / generic heroes without seller form */
-section.hero:not(#contatto):not(.buyer-hero-pro)::before {
+section.hero:not(#contatto):not(.buyer-hero-pro):not(.hub-hero)::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -59,7 +59,7 @@ section.hero:not(#contatto):not(.buyer-hero-pro)::before {
   );
 }
 
-section.hero:not(#contatto):not(.buyer-hero-pro) > * {
+section.hero:not(#contatto):not(.buyer-hero-pro):not(.hub-hero) > * {
   position: relative;
   z-index: 2;
 }
@@ -570,30 +570,43 @@ h2.serif,
 }
 
 /* Hub hero only — do not override seller hero with background image */
-section.hero:not(#contatto):not(.buyer-hero-pro) {
+section.hero:not(#contatto):not(.buyer-hero-pro):not(.hub-hero) {
   background: linear-gradient(180deg, rgba(12, 39, 73, .84), rgba(0, 61, 165, .9)), url(/milano.jpg) center/cover no-repeat !important;
   border-bottom: none !important;
 }
 
-/* Hub: stats bar integrata in fondo all'hero — banda rosso/blu a tutta larghezza */
+/* Hub hero only — do not override seller hero with background image */
 section.hero.hub-hero {
-  display: flex;
-  flex-direction: column;
-  padding: 96px 0 0 !important;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: block;
+  padding: 96px 0 80px !important;
   text-align: center;
+  background: linear-gradient(180deg, rgba(12, 39, 73, .84), rgba(0, 61, 165, .9)), url(/milano.jpg) center/cover no-repeat !important;
+  border-bottom: none !important;
+}
+
+/* No gradient overlay on hub hero — stats bar sits below as its own section */
+section.hero.hub-hero::before {
+  display: none !important;
 }
 
 section.hero.hub-hero > .container {
-  padding-bottom: 48px;
+  position: relative;
+  z-index: 2;
 }
 
-section.hero.hub-hero .hub-stats-bar,
-section.hero.hub-hero .seller-stats-strip {
-  width: 100%;
+/* Hub stats — standalone band below hero, full viewport width */
+section.hub-stats-bar.seller-stats-strip {
+  width: 100vw;
+  max-width: 100vw;
   margin: 0;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   padding: 0;
   position: relative;
-  z-index: 3;
+  z-index: 2;
   background: linear-gradient(
     90deg,
     var(--remax-red) 0%,
@@ -604,17 +617,17 @@ section.hero.hub-hero .seller-stats-strip {
   box-shadow: 0 4px 16px rgba(0, 0, 0, .18);
 }
 
-section.hero.hub-hero .seller-stat {
+section.hub-stats-bar .seller-stat {
   color: #fff !important;
   border-right-color: rgba(255, 255, 255, .22) !important;
 }
 
-section.hero.hub-hero .seller-stat strong {
+section.hub-stats-bar .seller-stat strong {
   color: #fff !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .25);
 }
 
-section.hero.hub-hero .seller-stat span {
+section.hub-stats-bar .seller-stat span {
   color: #fff !important;
   opacity: 1 !important;
   font-weight: 800;
