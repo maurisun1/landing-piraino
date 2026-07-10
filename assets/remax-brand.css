@@ -73,21 +73,6 @@ main > section:not([class]):nth-of-type(odd):not(.hero):not(.buyer-hero-pro) {
   background: #f4f7fc;
 }
 
-/* Never override dark / branded sections */
-.network,
-.market,
-.final-cta,
-.buyer-final-cta,
-.buyer-market,
-.buyer-form-section,
-.seller-mid-cta,
-.seller-stats-strip,
-section#come,
-section.network,
-section.market {
-  background-image: none;
-}
-
 .network {
   background: linear-gradient(145deg, var(--blue-dark) 0%, #0a1f3a 100%) !important;
 }
@@ -505,7 +490,8 @@ h2.serif,
   color: rgba(255, 255, 255, .85) !important;
 }
 
-/* ── Stats strip buyer ── */
+/* ── Stats strip (seller hub + seller pages) ── */
+.seller-stats-strip,
 .buyer-stats-strip {
   background: linear-gradient(
     90deg,
@@ -514,6 +500,20 @@ h2.serif,
     var(--remax-blue) 50%,
     var(--remax-blue) 100%
   ) !important;
+}
+
+.seller-stat,
+.seller-stat strong,
+.seller-stat span,
+.buyer-stats-grid strong,
+.buyer-stats-grid span {
+  color: #fff !important;
+}
+
+.seller-stat span,
+.buyer-stats-grid span {
+  opacity: 1;
+  color: rgba(255, 255, 255, .92) !important;
 }
 
 /* ── Nav badge in brand-wrap (HTML, not JS) ── */
@@ -571,7 +571,7 @@ h2.serif,
 
 /* Hub hero only — do not override seller hero with background image */
 section.hero:not(#contatto):not(.buyer-hero-pro) {
-  background: linear-gradient(145deg, var(--blue-dark) 0%, var(--remax-blue) 100%) !important;
+  background: linear-gradient(180deg, rgba(12, 39, 73, .84), rgba(0, 61, 165, .9)), url(/milano.jpg) center/cover no-repeat !important;
   border-bottom: 5px solid var(--remax-red);
 }
 
@@ -691,16 +691,6 @@ details[open] summary {
 
 /* ── FINAL OVERRIDE: dark sections beat generic .section-head rules ── */
 section.network#remax,
-section.network,
-section.market#mercato,
-section.market,
-.buyer-market,
-.final-cta,
-.seller-mid-cta {
-  background-image: none !important;
-}
-
-section.network#remax,
 section.network {
   background: linear-gradient(145deg, #0c2749 0%, #0a1f3a 100%) !important;
 }
@@ -708,6 +698,19 @@ section.network {
 section.market#mercato,
 section.market {
   background: linear-gradient(145deg, #0a1f3a 0%, #003da5 100%) !important;
+}
+
+.buyer-market {
+  background: linear-gradient(180deg, var(--blue-dark) 0%, var(--remax-blue) 100%) !important;
+}
+
+.final-cta,
+.buyer-final-cta {
+  background: linear-gradient(145deg, var(--blue-dark) 0%, var(--remax-blue) 55%, #0a3d8f 100%) !important;
+}
+
+.seller-mid-cta {
+  background: linear-gradient(135deg, #0c2749 0%, var(--remax-blue) 100%) !important;
 }
 
 section.network#remax .section-head h2,
@@ -721,6 +724,7 @@ section.market h2,
 .buyer-market .section-head h2,
 .buyer-market h2,
 .final-cta h2,
+.buyer-final-cta h2,
 .seller-mid-cta h2 {
   color: #fff !important;
 }
