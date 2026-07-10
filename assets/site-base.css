@@ -51,13 +51,19 @@
   letter-spacing: .06em;
 }
 
-/* Tre strisce orizzontali (rosso · bianco · blu) sempre visibili su tutta la larghezza */
-.topbar::after,
+/* Tre strisce orizzontali (rosso · bianco · blu) — full viewport sotto la nav */
+.topbar::after {
+  display: none;
+}
+
+.site-chrome .remax-stripe,
 .remax-stripe {
-  content: "";
   display: block;
   width: 100%;
   height: 6px;
+  margin: 0;
+  padding: 0;
+  border: 0;
   background:
     linear-gradient(var(--remax-red), var(--remax-red)) 0 0 / 100% 2px no-repeat,
     linear-gradient(#fff, #fff) 0 2px / 100% 2px no-repeat,
@@ -66,7 +72,7 @@
 }
 
 .site-header {
-  border-bottom: 3px solid var(--remax-red) !important;
+  border-bottom: none !important;
 }
 
 .brand span {

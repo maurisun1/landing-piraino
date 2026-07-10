@@ -14,7 +14,7 @@ body {
   background: #fff !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  border-bottom: 4px solid var(--remax-red) !important;
+  border-bottom: none !important;
   box-shadow: 0 4px 16px rgba(0, 61, 165, .06);
 }
 
@@ -572,7 +572,55 @@ h2.serif,
 /* Hub hero only — do not override seller hero with background image */
 section.hero:not(#contatto):not(.buyer-hero-pro) {
   background: linear-gradient(180deg, rgba(12, 39, 73, .84), rgba(0, 61, 165, .9)), url(/milano.jpg) center/cover no-repeat !important;
-  border-bottom: 5px solid var(--remax-red);
+  border-bottom: none !important;
+}
+
+/* Hub: stats bar integrata in fondo all'hero — banda rosso/blu a tutta larghezza */
+section.hero.hub-hero {
+  display: flex;
+  flex-direction: column;
+  padding: 96px 0 0 !important;
+  text-align: center;
+}
+
+section.hero.hub-hero > .container {
+  padding-bottom: 48px;
+}
+
+section.hero.hub-hero .hub-stats-bar,
+section.hero.hub-hero .seller-stats-strip {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 3;
+  background: linear-gradient(
+    90deg,
+    var(--remax-red) 0%,
+    var(--remax-red) 50%,
+    var(--remax-blue) 50%,
+    var(--remax-blue) 100%
+  ) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .18);
+}
+
+section.hero.hub-hero .seller-stat {
+  color: #fff !important;
+  border-right-color: rgba(255, 255, 255, .22) !important;
+}
+
+section.hero.hub-hero .seller-stat strong {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+}
+
+section.hero.hub-hero .seller-stat span {
+  color: #fff !important;
+  opacity: 1 !important;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .2);
 }
 
 .provinces .card {
