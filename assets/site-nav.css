@@ -23,6 +23,8 @@
   top: 0;
   z-index: 50;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .site-header,
@@ -30,7 +32,7 @@ header.site-header {
   background: #fff !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  border-bottom: 4px solid var(--remax-red, #dc1c2e);
+  border-bottom: none !important;
   box-shadow: 0 4px 20px rgba(0, 61, 165, .08);
   position: relative;
   top: auto;

@@ -119,7 +119,7 @@ def render_nav(
     chrome_close = ""
     if tagline:
         chrome_open = '  <div class="site-chrome">\n'
-        chrome_close = "\n</div>"
+        chrome_close = "\n  <div class=\"remax-stripe\" aria-hidden=\"true\"></div>\n</div>"
         topbar = f"""  <div class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-tagline">{tagline}</div>

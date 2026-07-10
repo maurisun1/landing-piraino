@@ -16,7 +16,7 @@ from seller_footer_geo import patch_seller as patch_footer_geo
 from seller_localize import SELLER_LOCALIZE, build_testimonials_html
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE = "20260725"
+CACHE = "20260726"
 
 SELLER_PAGES = ["index.html"] + [
     f"{slug}/index.html" for slug, _, _ in LOMBARD_PROVINCES if slug != "milano"
@@ -414,20 +414,69 @@ def patch_page(rel: str) -> None:
 
 
 def patch_hub() -> None:
-    for rel in ("comprare-casa/index.html", "en/buy-home/index.html"):
+    hub_stats = """    <div class="hub-stats-bar seller-stats-strip" aria-label="Numeri RE/MAX">
+      <div class="container seller-stats-grid">
+        <div class="seller-stat"><strong>12</strong><span>Province lombarde</span></div>
+        <div class="seller-stat"><strong>OMI</strong><span>Dati ufficiali Entrate</span></div>
+        <div class="seller-stat"><strong>24h</strong><span>Risposta alla richiesta</span></div>
+        <div class="seller-stat"><strong>RE/MAX</strong><span>Rete internazionale</span></div>
+      </div>
+    </div>"""
+    hub_stats_en = """    <div class="hub-stats-bar seller-stats-strip" aria-label="RE/MAX highlights">
+      <div class="container seller-stats-grid">
+        <div class="seller-stat"><strong>12</strong><span>Lombard provinces</span></div>
+        <div class="seller-stat"><strong>OMI</strong><span>Official Revenue Agency data</span></div>
+        <div class="seller-stat"><strong>24h</strong><span>Reply to your request</span></div>
+        <div class="seller-stat"><strong>RE/MAX</strong><span>International network</span></div>
+      </div>
+    </div>"""
+    for rel, stats in (
+        ("comprare-casa/index.html", hub_stats),
+        ("en/buy-home/index.html", hub_stats_en),
+    ):
         path = ROOT / rel
         if not path.exists():
             continue
         html = path.read_text(encoding="utf-8")
         hero_css = (
             ".hero{background:linear-gradient(180deg,rgba(7,7,7,.78),rgba(7,7,7,.9)),"
-            "url(/milano.jpg) center/cover no-repeat;color:#fff;padding:96px 0 80px;text-align:center}"
+            "url(/milano.jpg) center/cover no-repeat;color:#fff;padding:96px 0 0;text-align:center}"
         )
         html = re.sub(
             r"\.hero\{background:var\(--black\);color:#fff;padding:72px 0 64px;text-align:center\}",
             hero_css,
             html,
             count=1,
+        )
+        html = re.sub(
+            r'\.hero\{background:linear-gradient\(180deg,rgba\(7,7,7,.78\),rgba\(7,7,7,.9\)\),url\(/milano\.jpg\) center/cover no-repeat;color:#fff;padding:96px 0 80px;text-align:center\}',
+            hero_css,
+            html,
+            count=1,
+        )
+        if "hub-stats-bar" in html:
+            path.write_text(html, encoding="utf-8")
+            print(f"Skipped hub {rel} (already patched)")
+            continue
+        html = re.sub(
+            r'<section class="hero">',
+            '<section class="hero hub-hero">',
+            html,
+            count=1,
+        )
+        html = re.sub(
+            r"(<section class=\"hero hub-hero\">.*?<div class=\"container\">.*?</div>\s*)</section>",
+            rf"\1{stats}\n  </section>",
+            html,
+            count=1,
+            flags=re.DOTALL,
+        )
+        html = re.sub(
+            r"\s*<section class=\"seller-stats-strip\" aria-label=\"[^\"]*\">.*?</section>\s*",
+            "\n",
+            html,
+            count=1,
+            flags=re.DOTALL,
         )
         if 'rel="preload" as="image" href="/milano.jpg"' not in html:
             html = html.replace(
