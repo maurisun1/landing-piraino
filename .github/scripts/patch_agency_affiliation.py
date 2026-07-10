@@ -137,7 +137,34 @@ def patch_privacy() -> bool:
     return True
 
 
+def migrate_copy(html: str) -> str:
+    html = html.replace(
+        "Opero come consulente immobiliare con RE/MAX Associati Real Estate, agenzia con ",
+        "Opero come consulente immobiliare con RE/MAX Associati Real Estate a Milano, agenzia con ",
+    )
+    html = html.replace(
+        "I work as a real estate consultant with RE/MAX Associati Real Estate, an agency with ",
+        "I work as a real estate consultant with RE/MAX Associati Real Estate in Milan, an agency with ",
+    )
+    html = html.replace(
+        "<span>Dati ufficiali Entrate</span>",
+        "<span>Quotazioni ufficiali</span>",
+    )
+    html = html.replace(
+        "<span>Official Revenue Agency data</span>",
+        "<span>Official market data</span>",
+    )
+    return html
+
+
 def main() -> None:
+    for path in sorted(ROOT.rglob("*.html")):
+        html = path.read_text(encoding="utf-8")
+        updated = migrate_copy(html)
+        if updated != html:
+            path.write_text(updated, encoding="utf-8")
+            print(f"Migrated copy {path.relative_to(ROOT)}")
+
     for rel in SELLER_PAGES:
         patch_seller(ROOT / rel)
     patch_hub(ROOT / "comprare-casa/index.html", lang="it")

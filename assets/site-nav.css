@@ -18,6 +18,29 @@
   gap: 18px;
 }
 
+.topbar-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.topbar-phone {
+  display: inline-flex;
+  align-items: center;
+  color: #fff !important;
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.topbar-phone:hover {
+  color: rgba(255, 255, 255, .88) !important;
+  text-decoration: underline;
+}
+
 .site-chrome {
   position: sticky;
   top: 0;
@@ -467,6 +490,10 @@ body.nav-open {
 
   .topbar-wa-desktop {
     display: none;
+  }
+
+  .topbar-phone {
+    font-size: 13px;
   }
 }
 

@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE = "20260723"
+CACHE = "20260728"
 
 WA_ICON = (
     '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
@@ -17,6 +17,9 @@ WA_ICON = (
 
 NAV_CSS = f'<link rel="stylesheet" href="/assets/site-nav.css?v={CACHE}" />'
 NAV_JS = f'<script src="/assets/site-nav.js?v={CACHE}" defer></script>'
+
+PHONE_HREF = "tel:+393514581993"
+PHONE_LABEL = "351 458 1993"
 
 TOPBAR_RE = re.compile(
     r'<div class="topbar">\s*<div class="container topbar-inner">.*?</div>\s*</div>\s*',
@@ -123,7 +126,10 @@ def render_nav(
         topbar = f"""  <div class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-tagline">{tagline}</div>
-      <a class="topbar-wa topbar-wa-desktop" href="{wa_url}">{WA_ICON} {wa_topbar}</a>
+      <div class="topbar-contact">
+        <a class="topbar-phone" href="{PHONE_HREF}">{PHONE_LABEL}</a>
+        <a class="topbar-wa topbar-wa-desktop" href="{wa_url}">{WA_ICON} {wa_topbar}</a>
+      </div>
     </div>
   </div>
 """
@@ -269,7 +275,7 @@ def seller_nav_groups(*, sell_href: str, buy_href: str, lang: str = "it") -> lis
             render_nav_group(
                 "About",
                 [
-                    '<a href="#metodo">Method</a>',
+                    '<a href="#metodo">About me</a>',
                     '<a href="#remax">RE/MAX</a>',
                 ],
                 extra_class="nav-group-info",
@@ -287,7 +293,7 @@ def seller_nav_groups(*, sell_href: str, buy_href: str, lang: str = "it") -> lis
         render_nav_group(
             "Info",
             [
-                '<a href="#metodo">Metodo</a>',
+                '<a href="#metodo">Chi sono</a>',
                 '<a href="#remax">RE/MAX</a>',
             ],
             extra_class="nav-group-info",
@@ -314,7 +320,7 @@ def buyer_nav_groups(
             render_nav_group(
                 "About",
                 [
-                    '<a href="#metodo">Method</a>',
+                    '<a href="#metodo">About me</a>',
                     '<a href="#remax">RE/MAX</a>',
                     f'<a href="{omi_href}">OMI prices</a>',
                 ],
@@ -333,7 +339,7 @@ def buyer_nav_groups(
         render_nav_group(
             "Info",
             [
-                '<a href="#metodo">Metodo</a>',
+                '<a href="#metodo">Chi sono</a>',
                 '<a href="#remax">RE/MAX</a>',
                 f'<a href="{omi_href}">Prezzi OMI</a>',
             ],
@@ -356,6 +362,7 @@ def hub_nav_groups(*, lang: str) -> list[str]:
             render_nav_group(
                 "About",
                 [
+                    '<a href="/#metodo">About me</a>',
                     '<a href="#remax">RE/MAX</a>',
                     '<a href="/comprare-casa/">Provinces IT</a>',
                 ],
@@ -374,6 +381,7 @@ def hub_nav_groups(*, lang: str) -> list[str]:
         render_nav_group(
             "Info",
             [
+                '<a href="/#metodo">Chi sono</a>',
                 '<a href="#remax">RE/MAX</a>',
                 '<a href="/en/buy-home/">English</a>',
             ],

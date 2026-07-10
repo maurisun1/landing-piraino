@@ -417,7 +417,7 @@ def patch_hub() -> None:
     hub_stats = """  <section class="hub-stats-bar seller-stats-strip" aria-label="Numeri RE/MAX">
     <div class="container seller-stats-grid">
       <div class="seller-stat"><strong>12</strong><span>Province lombarde</span></div>
-      <div class="seller-stat"><strong>OMI</strong><span>Dati ufficiali Entrate</span></div>
+      <div class="seller-stat"><strong>OMI</strong><span>Quotazioni ufficiali</span></div>
       <div class="seller-stat"><strong>24h</strong><span>Risposta alla richiesta</span></div>
       <div class="seller-stat"><strong>RE/MAX</strong><span>Rete internazionale</span></div>
     </div>
@@ -425,7 +425,7 @@ def patch_hub() -> None:
     hub_stats_en = """  <section class="hub-stats-bar seller-stats-strip" aria-label="RE/MAX highlights">
     <div class="container seller-stats-grid">
       <div class="seller-stat"><strong>12</strong><span>Lombard provinces</span></div>
-      <div class="seller-stat"><strong>OMI</strong><span>Official Revenue Agency data</span></div>
+      <div class="seller-stat"><strong>OMI</strong><span>Official market data</span></div>
       <div class="seller-stat"><strong>24h</strong><span>Reply to your request</span></div>
       <div class="seller-stat"><strong>RE/MAX</strong><span>International network</span></div>
     </div>

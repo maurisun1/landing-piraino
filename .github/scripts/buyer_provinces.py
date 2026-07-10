@@ -42,12 +42,12 @@ FOOTER_AFFILIATION_EN = (
 )
 
 ABOUT_AGENCY_IT = (
-    "Opero come consulente immobiliare con RE/MAX Associati Real Estate, agenzia con "
+    "Opero come consulente immobiliare con RE/MAX Associati Real Estate a Milano, agenzia con "
     "oltre 25 anni di attività sul mercato e tra le prime 30 RE/MAX in Italia. Questo mi "
     "permette di unire un metodo consulenziale personale alla forza di una rete internazionale."
 )
 ABOUT_AGENCY_EN = (
-    "I work as a real estate consultant with RE/MAX Associati Real Estate, an agency with "
+    "I work as a real estate consultant with RE/MAX Associati Real Estate in Milan, an agency with "
     "over 25 years on the market and among the top 30 RE/MAX offices in Italy. This lets me "
     "combine a personal advisory approach with the strength of an international network."
 )
