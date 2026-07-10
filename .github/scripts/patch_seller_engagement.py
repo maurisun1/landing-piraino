@@ -16,7 +16,7 @@ from seller_footer_geo import patch_seller as patch_footer_geo
 from seller_localize import SELLER_LOCALIZE, build_testimonials_html
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE = "20260724"
+CACHE = "20260725"
 
 SELLER_PAGES = ["index.html"] + [
     f"{slug}/index.html" for slug, _, _ in LOMBARD_PROVINCES if slug != "milano"
