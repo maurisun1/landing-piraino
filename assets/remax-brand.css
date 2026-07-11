@@ -226,7 +226,6 @@ section.hero:not(#contatto):not(.buyer-hero-pro) h1,
 .buyer-form-section,
 .seller-form-section,
 section#contatto.seller-form-section {
-section#come {
   color: #fff;
 }
 
@@ -240,20 +239,14 @@ section#come {
 .buyer-market h2,
 .buyer-form-section .buyer-form-aside h2,
 .seller-form-section .seller-form-aside h2,
-section#contatto.seller-form-section .seller-form-aside h2,
-section#come .section-head h2,
-section#come h2,
-section#come h3 {
+section#contatto.seller-form-section .seller-form-aside h2 {
   color: #fff !important;
 }
 
 .network .section-head p,
 .network .section-kicker,
 .market .section-head p,
-.market .section-kicker,
-section#come .section-head p,
-section#come p,
-section#come .lead {
+.market .section-kicker {
   color: rgba(255, 255, 255, .85) !important;
 }
 
@@ -287,26 +280,6 @@ section#come .lead {
 }
 
 .buyer-market-card p {
-  color: rgba(255, 255, 255, .88) !important;
-}
-
-section#come .num {
-  color: var(--remax-red, #dc1c2e) !important;
-}
-
-section#come h3 {
-  color: #fff !important;
-}
-
-section#come p {
-  color: rgba(255, 255, 255, .88) !important;
-}
-
-section#come .steps-buy h3 {
-  color: #fff !important;
-}
-
-section#come .steps-buy p {
   color: rgba(255, 255, 255, .88) !important;
 }
 
@@ -445,7 +418,7 @@ h2.serif,
 .final-cta .btn-outline,
 .seller-mid-cta .btn-outline,
 .buyer-final-cta .btn-outline,
-.buyer-form-section .btn-outline,
+.buyer-form-section .btn-outline:not(.buyer-form-wa),
 .seller-form-section .btn-outline:not(.seller-form-wa) {
   border-color: rgba(255, 255, 255, .45) !important;
   color: #fff !important;
@@ -456,7 +429,7 @@ h2.serif,
 .final-cta .btn-outline:hover,
 .seller-mid-cta .btn-outline:hover,
 .buyer-final-cta .btn-outline:hover,
-.buyer-form-section .btn-outline:hover,
+.buyer-form-section .btn-outline:hover:not(.buyer-form-wa),
 .seller-form-section .btn-outline:hover:not(.seller-form-wa) {
   background: rgba(255, 255, 255, .16) !important;
   color: #fff !important;
@@ -663,15 +636,6 @@ section.hub-stats-bar .seller-stat span {
 }
 
 /* ── Buyer landing ── */
-.buyer-hero-pro::before {
-  background: linear-gradient(
-    105deg,
-    rgba(12, 39, 73, .94) 0%,
-    rgba(0, 61, 165, .78) 45%,
-    rgba(0, 0, 0, .62) 100%
-  ) !important;
-}
-
 .section-kicker[style*="gold"],
 .section-kicker[style*="003da5"] {
   color: var(--remax-red) !important;

@@ -6,15 +6,19 @@
   align-items: center;
   color: #fff;
   overflow: hidden;
-  background: var(--black);
+  background: #0c2749;
 }
 .buyer-hero-pro::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
-  background:
-    linear-gradient(105deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.72) 48%, rgba(0,0,0,.55) 100%);
+  background: linear-gradient(
+    105deg,
+    rgba(0, 61, 165, .78) 0%,
+    rgba(12, 39, 73, .62) 42%,
+    rgba(0, 61, 165, .48) 100%
+  );
   pointer-events: none;
 }
 .buyer-hero-pro::after {
@@ -22,7 +26,9 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: radial-gradient(circle at 18% 28%, rgba(0, 61, 165, .18), transparent 38%);
+  background:
+    radial-gradient(circle at 12% 22%, rgba(255, 255, 255, .08), transparent 36%),
+    radial-gradient(circle at 82% 68%, rgba(220, 28, 46, .12), transparent 32%);
   pointer-events: none;
 }
 @keyframes buyerHeroZoom {
@@ -271,7 +277,7 @@
   object-fit: cover;
 }
 .buyer-portrait-meta {
-  background: var(--dark);
+  background: linear-gradient(180deg, #0c2749 0%, var(--remax-blue, #003da5) 100%);
   color: #fff;
   padding: 18px 20px;
 }
@@ -358,54 +364,132 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+/* Form section: city background + blue overlay (like seller-form-section) */
 .buyer-form-section {
-  background: var(--black);
+  display: block;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(72px, 7vw, 92px) 0;
+  min-height: auto;
+  width: 100%;
+  background: #0c2749;
   color: #fff;
-  padding: 64px 0;
+  border-top: 5px solid var(--remax-red, #dc1c2e);
+}
+
+.buyer-form-section::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: linear-gradient(
+    105deg,
+    rgba(0, 61, 165, .78) 0%,
+    rgba(12, 39, 73, .62) 42%,
+    rgba(0, 61, 165, .48) 100%
+  ), var(--buyer-city-bg, url(/milano.jpg));
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+}
+
+.buyer-form-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 12% 22%, rgba(255, 255, 255, .08), transparent 36%),
+    radial-gradient(circle at 82% 68%, rgba(220, 28, 46, .12), transparent 32%);
+  pointer-events: none;
 }
 
 .buyer-form-layout {
+  position: relative;
+  z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
-  gap: 32px;
-  align-items: start;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(32px, 4vw, 48px);
+  align-items: center;
+}
+
+.buyer-form-aside {
+  max-width: 620px;
+  padding: clamp(8px, 1.5vw, 16px) 0;
 }
 
 .buyer-form-aside h2 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(24px, 2.6vw, 32px);
-  margin: 0 0 12px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(30px, 3.8vw, 46px);
+  line-height: 1.08;
+  margin: 0 0 18px;
   color: #fff;
+  letter-spacing: -.02em;
 }
 
 .buyer-form-aside > p {
-  color: rgba(255,255,255,.88);
-  margin: 0 0 18px;
-  font-size: 15px;
+  color: rgba(255, 255, 255, .92);
+  margin: 0 0 26px;
+  font-size: clamp(16px, 1.5vw, 19px);
+  line-height: 1.62;
+  max-width: 560px;
+}
+
+.buyer-form-aside > p strong {
+  color: #fff;
 }
 
 .buyer-form-benefits {
   list-style: none;
-  margin: 0 0 22px;
+  margin: 0 0 28px;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .buyer-form-benefits li {
-  padding-left: 28px;
+  padding-left: 0;
   position: relative;
-  color: rgba(255,255,255,.86);
+  color: rgba(255, 255, 255, .9);
   font-weight: 600;
-  font-size: 14px;
+  font-size: clamp(15px, 1.35vw, 17px);
+  line-height: 1.45;
 }
 
 .buyer-form-benefits li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: var(--remax-red);
+  content: none;
+  display: none;
+}
+
+.buyer-form-aside .buyer-form-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 0 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 900;
+  background: #25d366 !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, .2) !important;
+  box-shadow: 0 16px 36px rgba(37, 211, 102, .35);
+  width: fit-content;
+  max-width: 100%;
+}
+
+.buyer-form-aside .buyer-form-wa:hover {
+  background: #1ebe57 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 20px 42px rgba(37, 211, 102, .42);
+}
+
+.buyer-form-aside .buyer-form-wa svg {
+  flex-shrink: 0;
 }
 
 .buyer-form {
@@ -414,8 +498,38 @@
   border-radius: 16px;
   padding: clamp(24px, 2.8vw, 30px) !important;
   max-width: 520px !important;
-  margin: 0 auto;
-  box-shadow: 0 20px 52px rgba(0,0,0,.32);
+  margin: 0 0 0 auto;
+  box-shadow: 0 20px 52px rgba(0, 0, 0, .34);
+  border-top: 5px solid var(--remax-red, #dc1c2e);
+}
+
+section#come.steps {
+  background: var(--cream);
+  color: var(--text);
+  padding: 74px 0;
+}
+
+.steps-buy {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 26px;
+  margin-top: 40px;
+}
+
+.steps-buy h3 {
+  margin: 6px 0 8px;
+  color: var(--dark, #191919);
+  font-family: Inter, Arial, sans-serif;
+  font-size: 20px;
+}
+
+.steps-buy p {
+  color: var(--muted);
+  margin: 0;
+}
+
+section#come.steps .num {
+  color: var(--remax-red, #dc1c2e) !important;
 }
 
 .buyer-form h2 {
@@ -456,12 +570,13 @@
   gap: 12px !important;
 }
 .buyer-final-cta {
-  background: linear-gradient(135deg, #0b0b0b, #1b1b1b);
+  background: linear-gradient(145deg, #0c2749 0%, var(--remax-blue, #003da5) 55%, #0a3d8f 100%);
   color: #fff;
   text-align: center;
   padding: 88px 0;
   position: relative;
   overflow: hidden;
+  border-top: 5px solid var(--remax-red, #dc1c2e);
 }
 .buyer-final-cta::before {
   content: "";

@@ -597,10 +597,10 @@ def build_body(cfg):
       </div>
     </section>
 
-    <section id="come" style="background:var(--dark);color:#fff;padding:74px 0">
+    <section id="come" class="steps" style="padding:74px 0">
       <div class="container">
         <div class="section-head"><span class="section-kicker" style="color:var(--gold)">{steps_kicker}</span>
-        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0;color:#fff">{steps_h2}</h2></div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0">{steps_h2}</h2></div>
         <div class="steps-buy">{steps_html}</div>
       </div>
     </section>
@@ -621,13 +621,13 @@ def build_body(cfg):
       </div>
     </section>
 
-    <section id="contatto" class="buyer-form-section">
+    <section id="contatto" class="buyer-form-section" style="--buyer-city-bg: url('{cfg['hero_img']}')">
       <div class="container buyer-form-layout">
         <div class="buyer-form-aside reveal">
           <h2>{form_aside_h}</h2>
           <p>{form_aside_p}</p>
           <ul class="buyer-form-benefits">{form_benefits}</ul>
-          <a class="btn btn-outline" href="{wa_url}">{card_wa}</a>
+          <a class="btn btn-wa buyer-form-wa" href="{wa_url}">{wa_icon} {card_wa}</a>
         </div>
         <form class="buyer-form reveal" action="{COMMON['formspree']}" method="POST" id="buyerForm">
           <h2>{form_h2}</h2>
