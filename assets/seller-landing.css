@@ -6,10 +6,10 @@ section.hero#contatto.seller-form-section {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: 64px 0;
+  padding: clamp(72px, 7vw, 92px) 0;
   min-height: auto;
   width: 100%;
-  background: var(--black, #111);
+  background: #0c2749;
   border-top: 5px solid var(--remax-red, #dc1c2e);
 }
 
@@ -21,9 +21,9 @@ section.hero#contatto.seller-form-section::before {
   z-index: 0;
   background-image: linear-gradient(
     105deg,
-    rgba(0, 0, 0, .9) 0%,
-    rgba(0, 0, 0, .74) 48%,
-    rgba(0, 0, 0, .58) 100%
+    rgba(0, 61, 165, .78) 0%,
+    rgba(12, 39, 73, .62) 42%,
+    rgba(0, 61, 165, .48) 100%
   ), var(--seller-city-bg, url(/milano.jpg));
   background-size: cover;
   background-position: center;
@@ -35,7 +35,9 @@ section.hero#contatto.seller-form-section::after {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: radial-gradient(circle at 18% 28%, rgba(0, 61, 165, .2), transparent 40%);
+  background:
+    radial-gradient(circle at 12% 22%, rgba(255, 255, 255, .08), transparent 36%),
+    radial-gradient(circle at 82% 68%, rgba(220, 28, 46, .12), transparent 32%);
   pointer-events: none;
 }
 
@@ -43,67 +45,108 @@ section.hero#contatto.seller-form-section::after {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
-  gap: 32px;
-  align-items: start;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(32px, 4vw, 48px);
+  align-items: center;
+}
+
+.seller-form-aside {
+  max-width: 620px;
+  padding: clamp(8px, 1.5vw, 16px) 0;
 }
 
 .seller-form-aside h2 {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(24px, 2.6vw, 34px);
-  line-height: 1.12;
-  margin: 0 0 12px;
+  font-size: clamp(30px, 3.8vw, 46px);
+  line-height: 1.08;
+  margin: 0 0 18px;
   color: #fff;
+  letter-spacing: -.02em;
 }
 
 .seller-form-aside > p {
-  color: rgba(255, 255, 255, .88);
-  margin: 0 0 18px;
-  font-size: 15px;
-  line-height: 1.55;
+  color: rgba(255, 255, 255, .92);
+  margin: 0 0 26px;
+  font-size: clamp(16px, 1.5vw, 19px);
+  line-height: 1.62;
+  max-width: 560px;
+}
+
+.seller-form-aside > p strong {
+  color: #fff;
 }
 
 .seller-form-aside .eyebrow {
-  color: rgba(255, 255, 255, .82) !important;
-  margin-bottom: 16px;
+  color: rgba(255, 255, 255, .9) !important;
+  margin-bottom: 20px;
+  font-size: 12px !important;
+  letter-spacing: .2em !important;
+  display: block !important;
+}
+
+/* Una sola riga rossa: sotto l'eyebrow */
+.seller-form-aside .eyebrow::before {
+  display: block !important;
+  content: "" !important;
+  width: 40px !important;
+  height: 3px !important;
+  background: var(--remax-red, #dc1c2e) !important;
+  margin-bottom: 14px !important;
 }
 
 .seller-form-aside .hero-agent {
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 
 .seller-form-benefits {
   list-style: none;
-  margin: 0 0 22px;
+  margin: 0 0 28px;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .seller-form-benefits li {
-  padding-left: 28px;
+  padding-left: 0;
   position: relative;
-  color: rgba(255, 255, 255, .86);
+  color: rgba(255, 255, 255, .9);
   font-weight: 600;
-  font-size: 14px;
+  font-size: clamp(15px, 1.35vw, 17px);
+  line-height: 1.45;
 }
 
 .seller-form-benefits li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: var(--remax-red, #dc1c2e);
+  content: none !important;
+  display: none !important;
 }
 
-.seller-form-aside .btn-outline {
-  color: #fff;
-  border-color: rgba(255, 255, 255, .34);
-  background: rgba(255, 255, 255, .06);
+.seller-form-aside .seller-form-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 0 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 900;
+  background: #25d366 !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, .2) !important;
+  box-shadow: 0 16px 36px rgba(37, 211, 102, .35);
+  width: fit-content;
+  max-width: 100%;
 }
 
-.seller-form-aside .btn-outline:hover {
-  background: rgba(255, 255, 255, .13);
+.seller-form-aside .seller-form-wa:hover {
+  background: #1ebe57 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 20px 42px rgba(37, 211, 102, .42);
+}
+
+.seller-form-aside .seller-form-wa svg {
+  flex-shrink: 0;
 }
 
 /* Form panel: white card on dark city background */

@@ -446,7 +446,7 @@ h2.serif,
 .seller-mid-cta .btn-outline,
 .buyer-final-cta .btn-outline,
 .buyer-form-section .btn-outline,
-.seller-form-section .btn-outline {
+.seller-form-section .btn-outline:not(.seller-form-wa) {
   border-color: rgba(255, 255, 255, .45) !important;
   color: #fff !important;
   background: rgba(255, 255, 255, .08) !important;
@@ -528,6 +528,12 @@ h2.serif,
 }
 
 /* ── Seller hero & form ── */
+/* Eyebrow red line only in seller form aside — not on list items */
+.seller-form-aside .eyebrow::before {
+  background: var(--remax-red) !important;
+  height: 3px !important;
+}
+
 .eyebrow::before {
   background: var(--remax-red) !important;
   height: 3px !important;
