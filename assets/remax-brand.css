@@ -457,7 +457,7 @@ h2.serif,
 .seller-mid-cta .btn-outline:hover,
 .buyer-final-cta .btn-outline:hover,
 .buyer-form-section .btn-outline:hover,
-.seller-form-section .btn-outline:hover {
+.seller-form-section .btn-outline:hover:not(.seller-form-wa) {
   background: rgba(255, 255, 255, .16) !important;
   color: #fff !important;
 }
