@@ -855,12 +855,12 @@
       .type-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
-<link rel="stylesheet" href="/assets/site-base.css?v=20260729" />
-  <link rel="stylesheet" href="/assets/dual-path.css?v=20260729" />
-  <link rel="stylesheet" href="/assets/remax-brand.css?v=20260729" />
-  <link rel="stylesheet" href="/assets/seller-landing.css?v=20260729" />
+<link rel="stylesheet" href="/assets/site-base.css?v=20260730" />
+  <link rel="stylesheet" href="/assets/dual-path.css?v=20260730" />
+  <link rel="stylesheet" href="/assets/remax-brand.css?v=20260730" />
+  <link rel="stylesheet" href="/assets/seller-landing.css?v=20260730" />
   <link rel="preload" as="image" href="/milano.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="/assets/site-nav.css?v=20260729" />
+  <link rel="stylesheet" href="/assets/site-nav.css?v=20260730" />
 </head>
 <body>
   <a class="skip-link" href="#main">Salta al contenuto</a>
@@ -926,10 +926,10 @@
   <div class="remax-stripe" aria-hidden="true"></div>
 </div>
   <main id="main">
-    <section class="hero" id="contatto">
-      <div class="hero-left">
-        <div class="hero-content reveal">
-                    <div class="hero-agent reveal">
+    <section class="hero seller-form-section" id="contatto" style="--seller-city-bg: url('/milano.jpg')">
+      <div class="container seller-form-layout">
+        <div class="seller-form-aside reveal">
+<div class="hero-agent reveal">
             <img src="foto.jpg" alt="Maurizio Piraino" width="56" height="56" decoding="async" />
             <div>
               <strong>Maurizio Piraino</strong>
@@ -937,23 +937,20 @@
             </div>
           </div>
 <div class="eyebrow">Milano · Analisi immobiliare riservata</div>
-          <h1>A Milano, vendere bene non è fortuna. È strategia.</h1>
+          <h2>A Milano, vendere bene non è fortuna. È strategia.</h2>
           <p>
             Ogni quartiere ha dinamiche diverse. <strong>Un prezzo sbagliato può costarti mesi sul mercato</strong> o migliaia di euro nella trattativa. Prima della vendita, servono dati reali, metodo e posizionamento corretto.
           </p>
-          <div class="hero-actions">
-            <a class="btn btn-red" href="#form">Ricevi l’analisi del tuo immobile</a>
-            <a class="btn btn-outline" href="https://wa.me/393514581993?text=Ciao%20Maurizio%2C%20vorrei%20parlare%20direttamente%20con%20te%20per%20un%20immobile%20a%20Milano.">Parla direttamente con me</a>
+          <ul class="seller-form-benefits">
+            <li>Risposta entro 24 ore, nessun obbligo di incarico</li>
+            <li>Analisi OMI per zona e tipologia</li>
+            <li>Posizionamento prezzo basato su dati reali</li>
+            <li>Supporto in trattativa fino al rogito</li>
+          </ul>
+          <a class="btn btn-outline" href="https://wa.me/393514581993?text=Ciao%20Maurizio%2C%20vorrei%20parlare%20direttamente%20con%20te%20per%20un%20immobile%20a%20Milano.">Scrivimi su WhatsApp</a>
           </div>
-          <div class="trust-row">
-            <div class="trust"><strong>RE/MAX</strong><span>Network internazionale</span></div>
-            <div class="trust"><strong>24h</strong><span>Risposta garantita</span></div>
-            <div class="trust"><strong>Riservata</strong><span>Analisi iniziale</span></div>
-          </div>
-        </div>
-      </div>
-      <aside class="hero-form-wrap" id="form">
-        <form class="form-card reveal" action="https://formspree.io/f/mvzlgeqb" method="POST" id="leadForm">
+        <aside class="hero-form-wrap seller-form-panel" id="form">
+        <form class="form-card seller-form-card reveal" action="https://formspree.io/f/mvzlgeqb" method="POST" id="leadForm">
           <h2>Ricevi una consulenza immobiliare riservata</h2>
           <p>Nessuna stima automatica. Solo analisi reale basata sul mercato della tua zona.</p>
           <div class="divider"></div>
@@ -1155,7 +1152,8 @@
 
           <div class="microcopy">Dati riservati · Nessun obbligo di incarico · Risposta personale<br><small style="font-size:11px;margin-top:8px;display:block;line-height:1.5">Inviando il form acconsenti al trattamento dei dati per essere ricontattato. <a href="/privacy/" style="color:inherit;text-decoration:underline">Informativa privacy</a>.</small></div>
         </form>
-      </aside>
+            </aside>
+      </div>
     </section>
     <section class="dual-path" aria-label="Scegli il tuo percorso">
       <div class="container dual-path-grid">
@@ -1463,6 +1461,6 @@
     </div>
   </div>
   <script src="/assets/seller-sticky.js?v=20260724" defer></script>
-  <script src="/assets/site-nav.js?v=20260729" defer></script>
+  <script src="/assets/site-nav.js?v=20260730" defer></script>
 </body>
 </html>
