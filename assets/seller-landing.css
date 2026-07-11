@@ -4,7 +4,7 @@
 section.hero#contatto {
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-  min-height: calc(100vh - 118px);
+  min-height: auto;
   background: #0c2749;
   width: 100%;
 }
@@ -17,7 +17,7 @@ section.hero#contatto::after {
 }
 
 .hero-left {
-  min-height: min(88vh, 820px);
+  min-height: min(78vh, 700px);
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -40,13 +40,13 @@ section.hero#contatto::after {
   background: var(--remax-red, #dc1c2e) !important;
 }
 
-/* ── Form column: single white panel, no nested card ── */
+/* ── Form column: compact centered panel ── */
 .hero-form-wrap {
   display: flex !important;
   flex-direction: column !important;
-  align-items: stretch !important;
+  align-items: center !important;
   justify-content: center !important;
-  padding: clamp(36px, 4vw, 56px) clamp(32px, 4vw, 52px) !important;
+  padding: clamp(24px, 3vw, 36px) clamp(20px, 3vw, 32px) !important;
   background: #fff !important;
   border-left: 5px solid var(--remax-red, #dc1c2e);
   min-height: 100%;
@@ -56,12 +56,12 @@ section.hero#contatto::after {
   content: "Consulenza riservata · RE/MAX";
   display: block;
   width: fit-content;
-  margin-bottom: 16px;
-  padding: 6px 14px;
+  margin-bottom: 12px;
+  padding: 5px 12px;
   border-radius: 999px;
   background: rgba(0, 61, 165, .08);
   color: var(--remax-blue, #003da5);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 900;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -69,13 +69,13 @@ section.hero#contatto::after {
 
 .form-card {
   width: 100% !important;
-  max-width: none !important;
-  flex: 1;
+  max-width: 380px !important;
+  margin: 0 auto !important;
+  flex: 0 1 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0 !important;
-  margin: 0 !important;
   border: none !important;
   border-radius: 0 !important;
   border-top: none !important;
@@ -88,33 +88,33 @@ section.hero#contatto::after {
 }
 
 .form-card h2 {
-  font-size: clamp(1.55rem, 2.4vw, 2.05rem) !important;
-  line-height: 1.18 !important;
-  margin-bottom: 10px !important;
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem) !important;
+  line-height: 1.2 !important;
+  margin-bottom: 8px !important;
   color: var(--remax-blue, #003da5) !important;
 }
 
 .form-card > p {
-  font-size: 15px !important;
-  line-height: 1.6 !important;
-  margin-bottom: 24px !important;
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+  margin-bottom: 18px !important;
   color: #555 !important;
 }
 
 .form-card label {
-  font-size: 11px !important;
+  font-size: 10px !important;
   letter-spacing: .08em !important;
   color: var(--remax-blue, #003da5) !important;
-  margin-top: 18px !important;
+  margin-top: 12px !important;
 }
 
 .form-card input,
 .form-card select,
 .form-card textarea {
-  min-height: 56px !important;
+  min-height: 46px !important;
   border-radius: 8px !important;
   border-color: rgba(0, 61, 165, .18) !important;
-  font-size: 15px !important;
+  font-size: 14px !important;
 }
 
 .form-card input:focus,
@@ -125,31 +125,36 @@ section.hero#contatto::after {
 }
 
 .form-card .btn {
-  min-height: 56px !important;
-  font-size: 15px !important;
+  min-height: 48px !important;
+  font-size: 14px !important;
   border-radius: 8px !important;
-  margin-top: 24px !important;
+  margin-top: 18px !important;
 }
 
 .form-card .microcopy {
-  margin-top: 16px !important;
-  font-size: 12px !important;
-  line-height: 1.5 !important;
+  margin-top: 12px !important;
+  font-size: 11px !important;
+  line-height: 1.45 !important;
   color: #5c5c5c !important;
 }
 
-.form-progress {
-  margin: 8px 0 12px !important;
+.form-card .divider {
+  margin: 14px 0 !important;
+}
+
+.form-card .step-note {
+  font-size: 12px !important;
+  margin: 10px 0 2px !important;
 }
 
 .fp-dot {
-  width: 36px !important;
-  height: 36px !important;
-  font-size: 14px !important;
+  width: 30px !important;
+  height: 30px !important;
+  font-size: 12px !important;
 }
 
 .fp-line {
-  width: 72px !important;
+  width: 56px !important;
 }
 
 .fp-dot.active {
@@ -162,8 +167,8 @@ section.hero#contatto::after {
 }
 
 .tcard {
-  padding: 16px 10px !important;
-  font-size: 14px !important;
+  padding: 12px 8px !important;
+  font-size: 13px !important;
   border-radius: 8px !important;
 }
 

@@ -70,10 +70,12 @@
   background: #fff;
   border: 1px solid rgba(0, 61, 165, .14);
   border-top: 5px solid var(--remax-red);
-  box-shadow: 0 28px 72px rgba(0, 0, 0, .32);
-  border-radius: 18px;
-  padding: clamp(32px, 3.5vw, 44px) clamp(28px, 3vw, 40px);
+  box-shadow: 0 20px 52px rgba(0, 0, 0, .28);
+  border-radius: 16px;
+  padding: clamp(24px, 2.8vw, 32px) clamp(22px, 2.5vw, 30px);
   width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
   position: relative;
 }
 .buyer-hero-card::before {
@@ -94,16 +96,17 @@
 .buyer-hero-card h2,
 .buyer-hero-card h3 {
   font-family: "Playfair Display", serif;
-  font-size: clamp(1.45rem, 2.2vw, 1.9rem);
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
   line-height: 1.2;
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   color: var(--remax-blue);
 }
+
 .buyer-hero-card > p {
   color: #555;
-  margin: 0 0 20px;
-  font-size: 16px;
-  line-height: 1.55;
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.5;
 }
 .buyer-hero-list {
   list-style: none;
@@ -132,7 +135,7 @@
   flex-direction: column;
   gap: 10px;
 }
-.buyer-hero-card .btn { width: 100%; min-height: 54px; font-size: 15px; }
+.buyer-hero-card .btn { width: 100%; min-height: 46px; font-size: 14px; }
 .buyer-hero-card .btn-outline {
   color: var(--remax-blue);
   border-color: rgba(0, 61, 165, .35);
@@ -358,47 +361,99 @@
 .buyer-form-section {
   background: var(--black);
   color: #fff;
-  padding: 86px 0;
+  padding: 64px 0;
 }
+
 .buyer-form-layout {
   display: grid;
-  grid-template-columns: 1fr 1.05fr;
-  gap: 42px;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+  gap: 32px;
   align-items: start;
 }
+
 .buyer-form-aside h2 {
   font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 3vw, 38px);
-  margin: 0 0 14px;
+  font-size: clamp(24px, 2.6vw, 32px);
+  margin: 0 0 12px;
   color: #fff;
 }
+
 .buyer-form-aside > p {
   color: rgba(255,255,255,.88);
-  margin: 0 0 24px;
-  font-size: 17px;
+  margin: 0 0 18px;
+  font-size: 15px;
 }
+
 .buyer-form-benefits {
   list-style: none;
-  margin: 0 0 28px;
+  margin: 0 0 22px;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
+
 .buyer-form-benefits li {
   padding-left: 28px;
   position: relative;
   color: rgba(255,255,255,.86);
   font-weight: 600;
+  font-size: 14px;
 }
+
 .buyer-form-benefits li::before {
   content: "→";
   position: absolute;
   left: 0;
   color: var(--remax-red);
 }
+
 .buyer-form {
-  box-shadow: 0 28px 70px rgba(0,0,0,.35);
+  background: #fff;
+  color: var(--text, #222);
+  border-radius: 16px;
+  padding: clamp(24px, 2.8vw, 30px) !important;
+  max-width: 520px !important;
+  margin: 0 auto;
+  box-shadow: 0 20px 52px rgba(0,0,0,.32);
+}
+
+.buyer-form h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem) !important;
+  margin: 0 0 8px !important;
+  color: var(--remax-blue, #003da5) !important;
+}
+
+.buyer-form > p {
+  font-size: 14px !important;
+  margin: 0 0 16px !important;
+}
+
+.buyer-form label.field {
+  font-weight: 600;
+  font-size: 13px !important;
+}
+
+.buyer-form input,
+.buyer-form select,
+.buyer-form textarea {
+  min-height: 44px !important;
+  font-size: 14px !important;
+  border-radius: 8px !important;
+}
+
+.buyer-form textarea {
+  min-height: 88px !important;
+}
+
+.buyer-form .btn {
+  min-height: 46px !important;
+  font-size: 14px !important;
+}
+
+.buyer-grid {
+  gap: 12px !important;
 }
 .buyer-final-cta {
   background: linear-gradient(135deg, #0b0b0b, #1b1b1b);

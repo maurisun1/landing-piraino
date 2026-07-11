@@ -28,12 +28,18 @@
 .topbar-phone {
   display: inline-flex;
   align-items: center;
+  gap: 7px;
   color: #fff !important;
   font-weight: 900;
   font-size: 14px;
   letter-spacing: .02em;
   white-space: nowrap;
   text-decoration: none;
+}
+
+.topbar-phone svg {
+  flex-shrink: 0;
+  opacity: .95;
 }
 
 .topbar-phone:hover {
