@@ -810,8 +810,8 @@
     .adv-card h3 { color: var(--red); font-size: 1.1rem; margin: 0 0 10px; font-family: Inter, Arial, sans-serif; }
     .adv-card p { color: var(--muted); margin: 0; }
     .steps-buy { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 26px; margin-top: 40px; }
-    .steps-buy h3 { margin: 6px 0 8px; color: #fff; font-family: Inter, Arial, sans-serif; font-size: 20px; }
-    .steps-buy p { color: rgba(255,255,255,.72); margin: 0; }
+    .steps-buy h3 { margin: 6px 0 8px; color: var(--dark); font-family: Inter, Arial, sans-serif; font-size: 20px; }
+    .steps-buy p { color: var(--muted); margin: 0; }
     .faq-buy { max-width: 760px; margin: 32px auto 0; display: flex; flex-direction: column; gap: 14px; }
     .faq-buy details { background: #fff; border: 1px solid #e6ddcf; border-radius: 12px; padding: 18px 20px; }
     .faq-buy summary { font-weight: 700; cursor: pointer; color: var(--dark); }
@@ -820,29 +820,22 @@
     @media (max-width: 560px) { .buyer-grid { grid-template-columns: 1fr; } }
 
 </style>
-<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260732" />
-<link rel="stylesheet" href="/assets/site-base.css?v=20260732" />
-  <link rel="stylesheet" href="/assets/remax-brand.css?v=20260732" />
+<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260733" />
+<link rel="stylesheet" href="/assets/site-base.css?v=20260733" />
+  <link rel="stylesheet" href="/assets/remax-brand.css?v=20260733" />
   <link rel="preload" as="image" href="/brescia.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="/assets/site-nav.css?v=20260732" />
+  <link rel="stylesheet" href="/assets/site-nav.css?v=20260733" />
 </head>
 <body>
-      <div class="site-chrome">
   <div class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-tagline">Buyer advisory <strong>RE/MAX</strong> · Brescia · Reply within 24 hours</div>
-      <div class="topbar-contact">
-        <a class="topbar-phone" href="tel:+393514581993"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.85 21 3 13.15 3 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.21 2.2z"/></svg> 351 458 1993</a>
-        <a class="topbar-wa topbar-wa-desktop" href="https://wa.me/393514581993?text=Hi%20Maurizio%2C%20I%20am%20looking%20to%20buy%20in%20Brescia%20and%20would%20like%20buyer%20advisory."><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
-      </div>
+      <a class="topbar-wa topbar-wa-desktop" href="https://wa.me/393514581993?text=Hi%20Maurizio%2C%20I%20am%20looking%20to%20buy%20in%20Brescia%20and%20would%20like%20buyer%20advisory."><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
     </div>
   </div>
   <header class="site-header">
     <div class="container site-nav">
-      <div class="brand-wrap">
-        <a class="brand" href="/">Maurizio Piraino</a>
-        <span class="remax-nav-badge">RE/MAX</span>
-      </div>
+      <a class="brand" href="/">Maurizio Piraino <span>·</span> RE/MAX Real Estate Agent</a>
       <div class="site-nav-actions">
         <a class="btn btn-wa nav-wa-compact" href="https://wa.me/393514581993?text=Hi%20Maurizio%2C%20I%20am%20looking%20to%20buy%20in%20Brescia%20and%20would%20like%20buyer%20advisory." aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="nav-wa-label">WA</span></a>
         <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav-panel">
@@ -853,32 +846,16 @@
       </div>
       <div class="nav-panel" id="site-nav-panel">
         <nav class="nav-links" aria-label="Main menu">
-          <div class="nav-group nav-group-path">
-            <span class="nav-group-label">Path</span>
-            <div class="nav-group-links">
-              <a href="/comprare-casa/" class="nav-link-primary">Buy</a>
-              <a href="/brescia/">Sell</a>
-            </div>
-          </div>
-          <div class="nav-group nav-group-info">
-            <span class="nav-group-label">About</span>
-            <div class="nav-group-links">
-              <a href="#metodo">About me</a>
-              <a href="#remax">RE/MAX</a>
-              <a href="/guida-prezzi-mq-brescia/">OMI prices</a>
-            </div>
-          </div>
-          <div class="nav-group nav-group-lang">
-            <a href="/comprare-casa-brescia/" class="lang-link">IT</a>
-          </div>
+          <a href="#metodo">Method</a>
+          <a href="#remax">RE/MAX</a>
+          <a href="/guida-prezzi-mq-brescia/">OMI prices</a>
+          <a href="/comprare-casa-brescia/" class="lang-link">IT</a>
           <a class="btn btn-red nav-cta" href="#contatto">Tell me what you need</a>
         </nav>
       </div>
       <div class="nav-backdrop" hidden></div>
     </div>
   </header>
-  <div class="remax-stripe" aria-hidden="true"></div>
-</div>
 
   <main id="main">
     <section class="buyer-hero-pro">
@@ -949,16 +926,16 @@
     <section id="remax" class="buyer-market">
       <div class="container">
         <div class="section-head"><span class="section-kicker" style="color:var(--gold)">Brescia market</span>
-        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0;color:#fff">Each area has different rules. Numbers come before emotion.</h2></div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0">Each area has different rules. Numbers come before emotion.</h2></div>
         <div class="buyer-market-grid"><div class="buyer-market-card reveal"><span>City</span><h3>Brescia centre</h3><p>Stable demand, prices that change neighbourhood by neighbourhood.</p></div><div class="buyer-market-card reveal"><span>Franciacorta</span><h3>Hills and villages</h3><p>Premium market: you need to know if the price fits the micro-area.</p></div><div class="buyer-market-card reveal"><span>Lakes</span><h3>Garda and Iseo</h3><p>High competition, including international buyers — analysis before the offer is decisive.</p></div></div>
         <p style="text-align:center"><a class="buyer-omi-link" href="/guida-prezzi-mq-brescia/">See OMI values by area →</a></p>
       </div>
     </section>
 
-    <section id="come" style="background:var(--dark);color:#fff;padding:74px 0">
+    <section id="come" class="steps" style="padding:74px 0">
       <div class="container">
         <div class="section-head"><span class="section-kicker" style="color:var(--gold)">How it works</span>
-        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0;color:#fff">Three steps. No pressure.</h2></div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);margin:10px 0 0">Three steps. No pressure.</h2></div>
         <div class="steps-buy"><div class="reveal"><div class="num" style="color:var(--gold);font-size:2rem;font-family:'Playfair Display',serif">1</div><h3>You tell me what you need</h3><p>Area, property type, budget and timing. Two minutes using the form.</p></div><div class="reveal"><div class="num" style="color:var(--gold);font-size:2rem;font-family:'Playfair Display',serif">2</div><h3>Analysis and targeted selection</h3><p>I search, filter, verify fair price and documents. I only propose what truly makes sense.</p></div><div class="reveal"><div class="num" style="color:var(--gold);font-size:2rem;font-family:'Playfair Display',serif">3</div><h3>Negotiation and purchase</h3><p>I support you through negotiation and closing, so you buy at the right price and with confidence.</p></div></div>
       </div>
     </section>
@@ -979,13 +956,13 @@
       </div>
     </section>
 
-    <section id="contatto" class="buyer-form-section">
+    <section id="contatto" class="buyer-form-section" style="--buyer-city-bg: url('/brescia.jpg')">
       <div class="container buyer-form-layout">
         <div class="buyer-form-aside reveal">
           <h2>Buy with the right numbers, not with anxiety.</h2>
           <p>Fill in the form: it is the first step toward a targeted search and a serious price assessment.</p>
           <ul class="buyer-form-benefits"><li>Reply within 24 hours, no obligation to appoint</li><li>Price analysis for the area you want</li><li>Alert when I find something relevant</li><li>Support through negotiation and closing</li></ul>
-          <a class="btn btn-outline" href="https://wa.me/393514581993?text=Hi%20Maurizio%2C%20I%20am%20looking%20to%20buy%20in%20Brescia%20and%20would%20like%20buyer%20advisory.">Message me on WhatsApp</a>
+          <a class="btn btn-wa buyer-form-wa" href="https://wa.me/393514581993?text=Hi%20Maurizio%2C%20I%20am%20looking%20to%20buy%20in%20Brescia%20and%20would%20like%20buyer%20advisory."><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Message me on WhatsApp</a>
         </div>
         <form class="buyer-form reveal" action="https://formspree.io/f/mvzlgeqb" method="POST" id="buyerForm">
           <h2>Tell me what you need</h2>
@@ -1049,12 +1026,12 @@
         <a href="https://wa.me/393514581993">WhatsApp</a>
         <a href="mailto:maurizio.piraino@remax.it">Email</a>
         <a href="https://www.instagram.com/mauriziopiraino.immobiliare">Instagram</a>
-        <a class="footer-phone" href="tel:+393514581993"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.85 21 3 13.15 3 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.21 2.2z"/></svg> +39 351 458 1993</a>
+        <a href="tel:+393514581993">+39 351 458 1993</a>
       </div>
     </div>
     <div class="container footer-secondary">Selling instead? <a href="/brescia/" style="color:inherit;text-decoration:underline">Seller analysis Brescia</a> · Buy: <a href="/en/buy-home-milan/" style="color:inherit;text-decoration:underline">Milan</a> · <a href="/en/buy-home-monza/" style="color:inherit;text-decoration:underline">Monza and Brianza</a> · <a href="/en/buy-home-bergamo/" style="color:inherit;text-decoration:underline">Bergamo</a> · <strong>Brescia</strong> · <a href="/en/buy-home-como/" style="color:inherit;text-decoration:underline">Como</a> · <a href="/en/buy-home-varese/" style="color:inherit;text-decoration:underline">Varese</a> · <a href="/en/buy-home-lecco/" style="color:inherit;text-decoration:underline">Lecco</a> · <a href="/en/buy-home-sondrio/" style="color:inherit;text-decoration:underline">Sondrio</a> · <a href="/en/buy-home-cremona/" style="color:inherit;text-decoration:underline">Cremona</a> · <a href="/en/buy-home-lodi/" style="color:inherit;text-decoration:underline">Lodi</a> · <a href="/en/buy-home-mantova/" style="color:inherit;text-decoration:underline">Mantova</a> · <a href="/en/buy-home-pavia/" style="color:inherit;text-decoration:underline">Pavia</a> · <a href="/privacy/" style="color:inherit;text-decoration:underline">Privacy</a></div>
   </footer>
   <script src="/assets/buyer-landing.js" defer></script>
-  <script src="/assets/site-nav.js?v=20260732" defer></script>
+  <script src="/assets/site-nav.js?v=20260733" defer></script>
 </body>
 </html>
