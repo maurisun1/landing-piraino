@@ -1,7 +1,140 @@
 /* Seller landing — hero + lead form layout (index, bergamo, brescia) */
 
-/* ── Hero grid: balanced 50/50, centered on wide screens ── */
-section.hero#contatto {
+/* ── Seller form section: city background + aside + floating card (like buyer) ── */
+section.hero#contatto.seller-form-section {
+  display: block !important;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 64px 0;
+  min-height: auto;
+  width: 100%;
+  background: var(--black, #111);
+  border-top: 5px solid var(--remax-red, #dc1c2e);
+}
+
+section.hero#contatto.seller-form-section::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: linear-gradient(
+    105deg,
+    rgba(0, 0, 0, .9) 0%,
+    rgba(0, 0, 0, .74) 48%,
+    rgba(0, 0, 0, .58) 100%
+  ), var(--seller-city-bg, url(/milano.jpg));
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+}
+
+section.hero#contatto.seller-form-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(circle at 18% 28%, rgba(0, 61, 165, .2), transparent 40%);
+  pointer-events: none;
+}
+
+.seller-form-layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.seller-form-aside h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.12;
+  margin: 0 0 12px;
+  color: #fff;
+}
+
+.seller-form-aside > p {
+  color: rgba(255, 255, 255, .88);
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.seller-form-aside .eyebrow {
+  color: rgba(255, 255, 255, .82) !important;
+  margin-bottom: 16px;
+}
+
+.seller-form-aside .hero-agent {
+  margin-bottom: 18px;
+}
+
+.seller-form-benefits {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.seller-form-benefits li {
+  padding-left: 28px;
+  position: relative;
+  color: rgba(255, 255, 255, .86);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.seller-form-benefits li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--remax-red, #dc1c2e);
+}
+
+.seller-form-aside .btn-outline {
+  color: #fff;
+  border-color: rgba(255, 255, 255, .34);
+  background: rgba(255, 255, 255, .06);
+}
+
+.seller-form-aside .btn-outline:hover {
+  background: rgba(255, 255, 255, .13);
+}
+
+/* Form panel: white card on dark city background */
+.hero-form-wrap.seller-form-panel {
+  display: block !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  min-height: auto !important;
+}
+
+.hero-form-wrap.seller-form-panel::before {
+  display: none !important;
+}
+
+.form-card.seller-form-card,
+.hero-form-wrap.seller-form-panel .form-card {
+  width: 100% !important;
+  max-width: 520px !important;
+  margin: 0 0 0 auto !important;
+  background: #fff !important;
+  border-radius: 16px !important;
+  padding: clamp(24px, 2.8vw, 30px) !important;
+  box-shadow: 0 20px 52px rgba(0, 0, 0, .34);
+  border-top: 5px solid var(--remax-red, #dc1c2e) !important;
+}
+
+/* Legacy hero-left (if still present on old markup) */
+section.hero#contatto:not(.seller-form-section) {
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
   min-height: auto;
@@ -10,8 +143,8 @@ section.hero#contatto {
 }
 
 /* Blue overlay only on photo side, not the form column */
-section.hero#contatto::before,
-section.hero#contatto::after {
+section.hero#contatto:not(.seller-form-section)::before,
+section.hero#contatto:not(.seller-form-section)::after {
   content: none !important;
   display: none !important;
 }
@@ -40,8 +173,8 @@ section.hero#contatto::after {
   background: var(--remax-red, #dc1c2e) !important;
 }
 
-/* ── Form column: compact centered panel ── */
-.hero-form-wrap {
+/* ── Form column: compact centered panel (legacy split hero) ── */
+.hero-form-wrap:not(.seller-form-panel) {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -52,7 +185,7 @@ section.hero#contatto::after {
   min-height: 100%;
 }
 
-.hero-form-wrap::before {
+.hero-form-wrap:not(.seller-form-panel)::before {
   content: "Consulenza riservata · RE/MAX";
   display: block;
   width: fit-content;
@@ -222,7 +355,21 @@ main > section {
 
 /* ── Responsive ── */
 @media (max-width: 980px) {
-  section.hero#contatto {
+  section.hero#contatto.seller-form-section {
+    padding: 48px 0;
+  }
+
+  .seller-form-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .form-card.seller-form-card,
+  .hero-form-wrap.seller-form-panel .form-card {
+    margin: 0 auto !important;
+  }
+
+  section.hero#contatto:not(.seller-form-section) {
     grid-template-columns: 1fr !important;
   }
 

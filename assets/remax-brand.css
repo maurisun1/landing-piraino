@@ -224,6 +224,8 @@ section.hero:not(#contatto):not(.buyer-hero-pro) h1,
 .seller-mid-cta,
 .buyer-market,
 .buyer-form-section,
+.seller-form-section,
+section#contatto.seller-form-section {
 section#come {
   color: #fff;
 }
@@ -237,6 +239,8 @@ section#come {
 .buyer-market .section-head h2,
 .buyer-market h2,
 .buyer-form-section .buyer-form-aside h2,
+.seller-form-section .seller-form-aside h2,
+section#contatto.seller-form-section .seller-form-aside h2,
 section#come .section-head h2,
 section#come h2,
 section#come h3 {
@@ -441,7 +445,8 @@ h2.serif,
 .final-cta .btn-outline,
 .seller-mid-cta .btn-outline,
 .buyer-final-cta .btn-outline,
-.buyer-form-section .btn-outline {
+.buyer-form-section .btn-outline,
+.seller-form-section .btn-outline {
   border-color: rgba(255, 255, 255, .45) !important;
   color: #fff !important;
   background: rgba(255, 255, 255, .08) !important;
@@ -451,7 +456,8 @@ h2.serif,
 .final-cta .btn-outline:hover,
 .seller-mid-cta .btn-outline:hover,
 .buyer-final-cta .btn-outline:hover,
-.buyer-form-section .btn-outline:hover {
+.buyer-form-section .btn-outline:hover,
+.seller-form-section .btn-outline:hover {
   background: rgba(255, 255, 255, .16) !important;
   color: #fff !important;
 }
@@ -696,6 +702,10 @@ section.hub-stats-bar .seller-stat span {
 }
 
 .buyer-form-section {
+  border-top: 5px solid var(--remax-red);
+}
+
+.seller-form-section {
   border-top: 5px solid var(--remax-red);
 }
 
