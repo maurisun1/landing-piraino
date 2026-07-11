@@ -118,6 +118,19 @@
   text-underline-offset: 2px;
 }
 
+.footer-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: inherit !important;
+  text-decoration: underline;
+}
+
+.footer-phone svg {
+  flex-shrink: 0;
+  opacity: .92;
+}
+
 .footer-geo a:hover {
   color: #fff;
 }

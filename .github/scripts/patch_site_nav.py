@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE = "20260728"
+CACHE = "20260729"
 
 WA_ICON = (
     '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
@@ -20,6 +20,11 @@ NAV_JS = f'<script src="/assets/site-nav.js?v={CACHE}" defer></script>'
 
 PHONE_HREF = "tel:+393514581993"
 PHONE_LABEL = "351 458 1993"
+PHONE_ICON = (
+    '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">'
+    '<path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.85 21 3 13.15 3 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.21 2.2z"/>'
+    "</svg>"
+)
 
 TOPBAR_RE = re.compile(
     r'<div class="topbar">\s*<div class="container topbar-inner">.*?</div>\s*</div>\s*',
@@ -127,7 +132,7 @@ def render_nav(
     <div class="container topbar-inner">
       <div class="topbar-tagline">{tagline}</div>
       <div class="topbar-contact">
-        <a class="topbar-phone" href="{PHONE_HREF}">{PHONE_LABEL}</a>
+        <a class="topbar-phone" href="{PHONE_HREF}">{PHONE_ICON} {PHONE_LABEL}</a>
         <a class="topbar-wa topbar-wa-desktop" href="{wa_url}">{WA_ICON} {wa_topbar}</a>
       </div>
     </div>
@@ -451,6 +456,22 @@ def buyer_omi_href(slug: str) -> str:
     return "#contatto"
 
 
+def patch_phone_links() -> None:
+    footer_link = (
+        f'<a class="footer-phone" href="{PHONE_HREF}">{PHONE_ICON} +39 351 458 1993</a>'
+    )
+    for path in sorted(ROOT.rglob("*.html")):
+        html = path.read_text(encoding="utf-8")
+        updated = re.sub(
+            r'<a href="tel:\+393514581993">\+39 351 458 1993</a>',
+            footer_link,
+            html,
+        )
+        if updated != html:
+            path.write_text(updated, encoding="utf-8")
+            print(f"  phone footer: {path.relative_to(ROOT)}")
+
+
 def main() -> None:
     print("Patching seller pages...")
     for rel, sell, en_link in seller_page_paths():
@@ -568,6 +589,9 @@ def main() -> None:
             cta_label="Richiedi analisi",
             lang="it",
         )
+
+    print("Patching phone links...")
+    patch_phone_links()
 
     print("Done.")
 
