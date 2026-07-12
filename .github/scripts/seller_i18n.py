@@ -2,11 +2,17 @@
 
 from __future__ import annotations
 
+import json
 import re
-from typing import Callable
+from urllib.parse import quote
 
 from buyer_provinces import LOMBARD_PROVINCES
 from locales import buyer_hub_url, buyer_province_url, city_label, seller_url
+from seller_localize import SELLER_LOCALIZE
+from seller_localize_i18n import get_localize_block
+from seller_phrases_bergamo import PHRASES_BERGAMO_DE, PHRASES_BERGAMO_FR
+from seller_phrases_brescia import PHRASES_BRESCIA_DE, PHRASES_BRESCIA_FR
+from seller_phrases_fr_gap import PHRASES_FR_GAP
 
 # Full-phrase replacements only — never single-word swaps.
 PHRASES_DE: list[tuple[str, str]] = [
@@ -455,13 +461,263 @@ META_FR = {
 }
 
 
+_ENTITY_MAP = (
+    ("à", "&agrave;"), ("è", "&egrave;"), ("é", "&eacute;"),
+    ("ì", "&igrave;"), ("ò", "&ograve;"), ("ù", "&ugrave;"),
+    ("—", "&mdash;"), ("·", "&middot;"),
+)
+
+
+def _to_entities(text: str) -> str:
+    out = text
+    for char, ent in _ENTITY_MAP:
+        out = out.replace(char, ent)
+    return out
+
+
+def _merge_phrases(*lists: list[tuple[str, str]]) -> list[tuple[str, str]]:
+    seen: set[str] = set()
+    merged: list[tuple[str, str]] = []
+    for phrases in lists:
+        for src, dst in phrases:
+            if src in seen:
+                continue
+            seen.add(src)
+            merged.append((src, dst))
+    return merged
+
+
+def _expand_entity_variants(phrases: list[tuple[str, str]]) -> list[tuple[str, str]]:
+    extra: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    for src, dst in phrases:
+        for variant_src, variant_dst in (
+            (src, dst),
+            (_to_entities(src), _to_entities(dst)),
+            (src.replace("'", "'"), dst),
+            (src.replace("'", "'"), dst),
+        ):
+            if variant_src not in seen:
+                seen.add(variant_src)
+                extra.append((variant_src, variant_dst))
+    return extra
+
+
 def _sorted_phrases(phrases: list[tuple[str, str]]) -> list[tuple[str, str]]:
     return sorted(phrases, key=lambda p: len(p[0]), reverse=True)
 
 
+def _phrases_for(lang: str) -> list[tuple[str, str]]:
+    if lang == "de":
+        base = _merge_phrases(PHRASES_DE, PHRASES_BERGAMO_DE, PHRASES_BRESCIA_DE)
+    else:
+        base = _merge_phrases(PHRASES_FR, PHRASES_BERGAMO_FR, PHRASES_BRESCIA_FR, PHRASES_FR_GAP)
+    return _expand_entity_variants(base)
+
+
 def _apply_phrases(html: str, phrases: list[tuple[str, str]]) -> str:
     for src, dst in _sorted_phrases(phrases):
-        html = html.replace(src, dst)
+        if src and src in html:
+            html = html.replace(src, dst)
+    return html
+
+
+def _apply_localize(html: str, lang: str, slug: str) -> str:
+    it_data = SELLER_LOCALIZE.get(slug)
+    loc_data = get_localize_block(slug, lang)
+    if not it_data or not loc_data:
+        return html
+    for key, it_val in it_data.items():
+        loc_val = loc_data.get(key)
+        if loc_val is None:
+            continue
+        if key == "testimonials" and isinstance(it_val, list) and isinstance(loc_val, list):
+            for it_tup, loc_tup in zip(it_val, loc_val):
+                for it_part, loc_part in zip(it_tup, loc_tup):
+                    if it_part and it_part in html:
+                        html = html.replace(it_part, loc_part)
+        elif isinstance(it_val, str) and isinstance(loc_val, str) and it_val in html:
+            html = html.replace(it_val, loc_val)
+    return html
+
+
+def _apply_province_templates(html: str, lang: str, slug: str) -> str:
+    city_it = city_label(slug, "it")
+    city = city_label(slug, lang)
+    if lang == "de":
+        pairs = [
+            (
+                f"Opero su {city_it} e provincia, con attenzione alle micro-zone e alle dinamiche locali del mercato immobiliare.",
+                f"Ich arbeite in {city} und Provinz mit Fokus auf Mikrozonen und lokale Marktdynamiken.",
+            ),
+            (
+                f"Opero su {city_it} città e provincia e, tramite RE/MAX, posso coordinarmi anche con colleghi nelle altre province lombarde se il tuo immobile o il tuo obiettivo lo richiede.",
+                f"Ich arbeite in {city} und Provinz und kann über RE/MAX auch mit Kollegen in anderen Provinzen der Lombardei koordinieren, wenn Ihre Immobilie oder Ihr Ziel es erfordert.",
+            ),
+            (
+                f"Lavori solo su {city_it} o anche in provincia?",
+                f"Arbeiten Sie nur in {city} oder auch in der Provinz?",
+            ),
+            (
+                f"A {city_it} ogni comune e quartiere ha dinamiche proprie che incidono in modo significativo sul valore reale.",
+                f"In {city} hat jede Gemeinde und jedes Viertel eigene Dynamiken, die den realen Wert erheblich beeinflussen.",
+            ),
+            (
+                f"Le stime automatiche non vedono stato interno, piano, affaccio, criticità documentali e domanda reale della zona. A {city_it} ogni comune e quartiere ha dinamiche proprie che incidono in modo significativo sul valore reale.",
+                f"Automatische Schätzungen berücksichtigen weder Innenzustand, Etage, Ausrichtung, dokumentarische Risiken noch die reale Nachfrage. In {city} beeinflussen Gemeinde und Viertel den Wert erheblich.",
+            ),
+            (
+                f"Mesi online, poche visite, offerte basse: spesso il problema non è la casa, ma il posizionamento sbagliato per quella zona — che a {city_it} cambia significativamente da una micro-zona all'altra.",
+                f"Monate online, wenige Besichtigungen, niedrige Angebote: oft liegt es nicht an der Immobilie, sondern an der falschen Positionierung — in {city} ändert sich der Markt von Mikrozone zu Mikrozone.",
+            ),
+            (
+                f"Dalla prima analisi alla possibile strategia di vendita: ogni fase è chiara, definita e concordata con te — ovunque si trovi il tuo immobile a {city_it} e in provincia.",
+                f"Von der Erstanalyse bis zur möglichen Verkaufsstrategie: jede Phase ist klar, definiert und mit Ihnen abgestimmt — wo auch immer Ihre Immobilie in {city} und Provinz liegt.",
+            ),
+            (
+                f"Prima di vendere casa a {city_it} o in provincia, serve capire davvero quanto vale.",
+                f"Bevor Sie in {city} oder in der Provinz verkaufen, müssen Sie den realen Wert kennen.",
+            ),
+            (
+                f"È un confronto strutturato sul tuo immobile, sulla micro-zona e sulla strategia di vendita più adatta a {city_it}.",
+                f"Es ist ein strukturierter Vergleich Ihrer Immobilie, der Mikrozone und der für {city} passendsten Verkaufsstrategie.",
+            ),
+            (
+                f"Valutazione riservata su {city_it} e provincia. Nessun obbligo di incarico.",
+                f"Vertrauliche Bewertung in {city} und Provinz. Keine Verpflichtung zum Mandat.",
+            ),
+            (
+                "Sì. Sapere oggi quanto vale il tuo immobile ti permette di pianificare senza pressione, scegliere il momento migliore e non farti trovare impreparato quando decidi di procedere.",
+                "Ja. Den heutigen Wert Ihrer Immobilie zu kennen ermöglicht Planung ohne Druck, die Wahl des besten Zeitpunkts — und Sie sind vorbereitet, wenn Sie verkaufen möchten.",
+            ),
+            (
+                f"La maggior parte degli agenti tratta tutto allo stesso modo. Io costruisco una strategia su misura per la zona specifica del tuo immobile, prima ancora di pubblicare la prima foto.",
+                "Die meisten Makler behandeln alles gleich. Ich entwickle eine maßgeschneiderte Strategie für die konkrete Zone Ihrer Immobilie — noch bevor das erste Foto veröffentlicht wird.",
+            ),
+            (
+                "Agente Immobiliare affiliato RE/MAX. Consulenza per venditori e acquirenti in Lombardia.",
+                "RE/MAX-Immobilienberater. Beratung für Verkäufer und Käufer in der Lombardei.",
+            ),
+        ]
+    else:
+        pairs = [
+            (
+                f"Opero su {city_it} e provincia, con attenzione alle micro-zone e alle dinamiche locali del mercato immobiliare.",
+                f"J'interviens à {city} et en province, en tenant compte des micro-zones et des dynamiques locales du marché.",
+            ),
+            (
+                f"Opero su {city_it} città e provincia e, tramite RE/MAX, posso coordinarmi anche con colleghi nelle altre province lombarde se il tuo immobile o il tuo obiettivo lo richiede.",
+                f"J'interviens à {city} et en province et, via RE/MAX, je peux coordonner avec des collègues dans d'autres provinces lombardes si votre bien ou votre objectif l'exige.",
+            ),
+            (
+                f"Lavori solo su {city_it} o anche in provincia?",
+                f"Intervenez-vous uniquement à {city} ou aussi en province ?",
+            ),
+            (
+                f"A {city_it} ogni comune e quartiere ha dinamiche proprie che incidono in modo significativo sul valore reale.",
+                f"À {city}, chaque commune et quartier a ses propres dynamiques qui influencent significativement la valeur réelle.",
+            ),
+            (
+                f"Le stime automatiche non vedono stato interno, piano, affaccio, criticità documentali e domanda reale della zona. A {city_it} ogni comune e quartiere ha dinamiche proprie che incidono in modo significativo sul valore reale.",
+                f"Les estimations automatiques ne voient ni l'état intérieur, l'étage, l'exposition, les risques documentaires ni la demande réelle. À {city}, commune et quartier influencent fortement la valeur.",
+            ),
+            (
+                f"Mesi online, poche visite, offerte basse: spesso il problema non è la casa, ma il posizionamento sbagliato per quella zona — che a {city_it} cambia significativamente da una micro-zona all'altra.",
+                f"Mois en ligne, peu de visites, offres basses : souvent le problème n'est pas le bien, mais un mauvais positionnement — à {city}, le marché change nettement d'une micro-zone à l'autre.",
+            ),
+            (
+                f"Dalla prima analisi alla possibile strategia di vendita: ogni fase è chiara, definita e concordata con te — ovunque si trovi il tuo immobile a {city_it} e in provincia.",
+                f"De la première analyse à la stratégie de vente : chaque étape est claire, définie et convenue avec vous — où que se trouve votre bien à {city} et en province.",
+            ),
+            (
+                f"Prima di vendere casa a {city_it} o in provincia, serve capire davvero quanto vale.",
+                f"Avant de vendre à {city} ou en province, il faut connaître la vraie valeur.",
+            ),
+            (
+                f"È un confronto strutturato sul tuo immobile, sulla micro-zona e sulla strategia di vendita più adatta a {city_it}.",
+                f"C'est une analyse structurée de votre bien, de la micro-zone et de la stratégie de vente la plus adaptée à {city}.",
+            ),
+            (
+                f"Valutazione riservata su {city_it} e provincia. Nessun obbligo di incarico.",
+                f"Évaluation confidentielle à {city} et en province. Aucune obligation de mandat.",
+            ),
+            (
+                "Sì. Sapere oggi quanto vale il tuo immobile ti permette di pianificare senza pressione, scegliere il momento migliore e non farti trovare impreparato quando decidi di procedere.",
+                "Oui. Connaître aujourd'hui la valeur de votre bien permet de planifier sans pression, de choisir le bon moment — et d'être prêt quand vous décidez de vendre.",
+            ),
+            (
+                f"La maggior parte degli agenti tratta tutto allo stesso modo. Io costruisco una strategia su misura per la zona specifica del tuo immobile, prima ancora di pubblicare la prima foto.",
+                "La plupart des agents traitent tout de la même façon. Je construis une stratégie sur mesure pour la zone de votre bien — avant même la première photo.",
+            ),
+            (
+                "Agente Immobiliare affiliato RE/MAX. Consulenza per venditori e acquirenti in Lombardia.",
+                "Agent immobilier RE/MAX. Conseil pour vendeurs et acheteurs en Lombardie.",
+            ),
+        ]
+    return _apply_phrases(html, _expand_entity_variants(pairs))
+
+
+def _fix_wa_urls(html: str, lang: str, slug: str) -> str:
+    city = city_label(slug, lang)
+    if lang == "de":
+        msg = f"Hallo Maurizio, ich möchte eine vertrauliche Analyse meiner Immobilie in {city} erhalten."
+    else:
+        msg = f"Bonjour Maurizio, je souhaite recevoir une analyse confidentielle de mon bien à {city}."
+    encoded = quote(msg)
+    html = re.sub(
+        r'href="https://wa\.me/393514581993\?text=[^"]*"',
+        f'href="https://wa.me/393514581993?text={encoded}"',
+        html,
+    )
+    return html
+
+
+def _fix_schema(html: str, lang: str) -> str:
+    locale = "de-DE" if lang == "de" else "fr-FR"
+    html = html.replace('"inLanguage": "it-IT"', f'"inLanguage": "{locale}"')
+    html = html.replace('"inLanguage":"it-IT"', f'"inLanguage":"{locale}"')
+    if lang == "de":
+        html = html.replace("Lombardia", "Lombardei")
+        html = html.replace("Consulenza per venditori e acquirenti in Lombardia.", "Beratung für Verkäufer und Käufer in der Lombardei.")
+    else:
+        html = html.replace("Consulenza per venditori e acquirenti in Lombardia.", "Conseil pour vendeurs et acheteurs en Lombardie.")
+    return html
+
+
+def _fix_titles(html: str, lang: str, slug: str) -> str:
+    city = city_label(slug, lang)
+    if lang == "de":
+        title = f"Immobilienberater {city} | Immobilienbewertung &middot; Piraino"
+        og_title = f"RE/MAX-Immobilienberater {city} | Immobilienbewertung"
+        html = re.sub(r"<title>[^<]+</title>", f"<title>{title}</title>", html, count=1)
+        html = re.sub(
+            r'<meta property="og:title" content="[^"]+" */>',
+            f'<meta property="og:title" content="{og_title}" />',
+            html,
+            count=1,
+        )
+        html = re.sub(
+            r'<meta name="twitter:title" content="[^"]+" */>',
+            f'<meta name="twitter:title" content="{og_title}" />',
+            html,
+            count=1,
+        )
+    else:
+        title = f"Agent immobilier {city} | Estimation immobilière &middot; Piraino"
+        og_title = f"Agent immobilier RE/MAX {city} | Estimation immobilière"
+        html = re.sub(r"<title>[^<]+</title>", f"<title>{title}</title>", html, count=1)
+        html = re.sub(
+            r'<meta property="og:title" content="[^"]+" */>',
+            f'<meta property="og:title" content="{og_title}" />',
+            html,
+            count=1,
+        )
+        html = re.sub(
+            r'<meta name="twitter:title" content="[^"]+" */>',
+            f'<meta name="twitter:title" content="{og_title}" />',
+            html,
+            count=1,
+        )
     return html
 
 
@@ -582,9 +838,15 @@ def _replace_cities(html: str, lang: str) -> str:
 
 
 def apply_seller_locale(html: str, lang: str, slug: str) -> str:
-    phrases = PHRASES_DE if lang == "de" else PHRASES_FR
+    phrases = _phrases_for(lang)
+    html = _apply_localize(html, lang, slug)
     html = _apply_phrases(html, phrases)
+    html = _apply_province_templates(html, lang, slug)
     html = _replace_cities(html, lang)
+    html = _apply_phrases(html, phrases)
     html = _fix_links(html, lang, slug)
     html = _fix_meta(html, lang, slug)
+    html = _fix_titles(html, lang, slug)
+    html = _fix_wa_urls(html, lang, slug)
+    html = _fix_schema(html, lang)
     return html
