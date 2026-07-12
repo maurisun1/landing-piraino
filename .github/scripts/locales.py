@@ -11,6 +11,54 @@ LANG_LABELS = {
     "fr": "FR",
 }
 
+LANG_NAMES = {
+    "it": "Italiano",
+    "en": "English",
+    "de": "Deutsch",
+    "fr": "Français",
+}
+
+SWITCHER_ARIA = {
+    "it": "Seleziona lingua",
+    "en": "Choose language",
+    "de": "Sprache wählen",
+    "fr": "Choisir la langue",
+}
+
+# Compact SVG flags (3:2 ratio)
+FLAGS = {
+    "it": (
+        '<svg class="lang-flag" viewBox="0 0 18 12" aria-hidden="true">'
+        '<rect width="6" height="12" fill="#009246"/>'
+        '<rect x="6" width="6" height="12" fill="#fff"/>'
+        '<rect x="12" width="6" height="12" fill="#CE2B37"/>'
+        "</svg>"
+    ),
+    "en": (
+        '<svg class="lang-flag" viewBox="0 0 18 12" aria-hidden="true">'
+        '<rect width="18" height="12" fill="#012169"/>'
+        '<path fill="#fff" d="M0 0l18 12M18 0L0 12" stroke="#fff" stroke-width="2.2"/>'
+        '<path fill="none" stroke="#C8102E" stroke-width="1.2" d="M0 0l18 12M18 0L0 12"/>'
+        '<path fill="#fff" d="M8 0h2v12H8zM0 5h18v2H0z"/>'
+        '<path fill="#C8102E" d="M9 0h1v12H9zM0 5.5h18v1H0z"/>'
+        "</svg>"
+    ),
+    "de": (
+        '<svg class="lang-flag" viewBox="0 0 18 12" aria-hidden="true">'
+        '<rect width="18" height="4" fill="#000"/>'
+        '<rect y="4" width="18" height="4" fill="#DD0000"/>'
+        '<rect y="8" width="18" height="4" fill="#FFCE00"/>'
+        "</svg>"
+    ),
+    "fr": (
+        '<svg class="lang-flag" viewBox="0 0 18 12" aria-hidden="true">'
+        '<rect width="6" height="12" fill="#002395"/>'
+        '<rect x="6" width="6" height="12" fill="#fff"/>'
+        '<rect x="12" width="6" height="12" fill="#ED2939"/>'
+        "</svg>"
+    ),
+}
+
 OG_LOCALE = {
     "it": "it_IT",
     "en": "en_GB",
@@ -131,15 +179,24 @@ def alternate_urls(slug: str, *, hub: bool = False) -> dict[str, str]:
     return {lang: f"{base}{buyer_province_url(slug, lang)}" for lang in LANGS}
 
 
-def render_lang_links(current: str, urls: dict[str, str]) -> str:
-    parts = []
+def render_lang_links(current: str, urls: dict[str, str], *, aria_lang: str = "it") -> str:
+    aria = SWITCHER_ARIA.get(aria_lang, SWITCHER_ARIA["en"])
+    parts = [f'<div class="lang-switcher" role="group" aria-label="{aria}">']
     for lang in LANGS:
         label = LANG_LABELS[lang]
-        href = urls[lang]
+        name = LANG_NAMES[lang]
+        flag = FLAGS[lang]
         if lang == current:
-            parts.append(f'<span class="lang-link lang-link-active" aria-current="true">{label}</span>')
+            parts.append(
+                f'<span class="lang-option lang-option-active" aria-current="true" title="{name}">'
+                f'{flag}<span class="lang-code">{label}</span></span>'
+            )
         else:
-            parts.append(f'<a href="{href}" class="lang-link" hreflang="{lang}">{label}</a>')
+            parts.append(
+                f'<a href="{urls[lang]}" class="lang-option" hreflang="{lang}" title="{name}">'
+                f'{flag}<span class="lang-code">{label}</span></a>'
+            )
+    parts.append("</div>")
     return "\n            ".join(parts)
 
 

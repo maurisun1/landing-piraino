@@ -20,7 +20,7 @@ from locales import (
     seller_lang_urls,
     seller_url,
 )
-CACHE = "20260734"
+CACHE = "20260735"
 
 WA_ICON = (
     '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
@@ -137,9 +137,7 @@ def render_nav(
     if lang_link:
         lang_block = f"""
           <div class="nav-group nav-group-lang">
-            <div class="nav-group-links nav-group-lang-links">
             {lang_link}
-            </div>
           </div>"""
     topbar = ""
     chrome_open = ""
@@ -511,7 +509,7 @@ def main() -> None:
             tagline=extract_tagline(block) or infer_tagline(path, "it"),
             brand=SHORT_BRAND,
             groups=seller_nav_groups(sell_href=seller_url(slug, "it"), buy_href=buyer_hub_url("it"), lang="it"),
-            lang_link=render_lang_links("it", seller_lang_urls(slug)),
+            lang_link=render_lang_links("it", seller_lang_urls(slug), aria_lang="it"),
             wa_url=extract_wa_url(block),
             wa_topbar="WhatsApp",
             wa_short="WA",
@@ -534,7 +532,7 @@ def main() -> None:
                 tagline=f"Immobilienberatung <strong>RE/MAX</strong> · {city}" if lang == "de" else f"Conseil immobilier <strong>RE/MAX</strong> · {city}",
                 brand=SHORT_BRAND,
                 groups=seller_nav_groups(sell_href=seller_url(slug, lang), buy_href=buyer_hub_url(lang), lang=lang),
-                lang_link=render_lang_links(lang, seller_lang_urls(slug)),
+                lang_link=render_lang_links(lang, seller_lang_urls(slug), aria_lang=lang),
                 wa_url=extract_wa_url(block),
                 wa_topbar="WhatsApp",
                 wa_short="WA",
@@ -575,7 +573,7 @@ def main() -> None:
                     buy_href=buyer_hub_url(lang),
                     lang=lang,
                 ),
-                lang_link=render_lang_links(lang, buyer_lang_urls(slug)),
+                lang_link=render_lang_links(lang, buyer_lang_urls(slug), aria_lang=lang),
                 wa_url=extract_wa_url(block),
                 wa_topbar="WhatsApp",
                 wa_short="WA",
@@ -602,7 +600,7 @@ def main() -> None:
             tagline=extract_tagline(block) or hub_taglines[lang],
             brand=SHORT_BRAND,
             groups=hub_nav_groups(lang=lang),
-            lang_link=render_lang_links(lang, hub_lang_urls()),
+            lang_link=render_lang_links(lang, hub_lang_urls(), aria_lang=lang),
             wa_url=extract_wa_url(block)
             or "https://wa.me/393514581993?text=Ciao%20Maurizio%2C%20sto%20cercando%20casa%20in%20Lombardia.",
             wa_topbar=hub_wa[lang],
@@ -625,7 +623,7 @@ def main() -> None:
             tagline=f"Guida prezzi OMI · <strong>{city}</strong> · Dati Agenzia Entrate",
             brand="Maurizio Piraino",
             groups=guide_nav_groups(city=city, seller_href=seller),
-            lang_link=render_lang_links("it", hub_lang_urls()),
+            lang_link=render_lang_links("it", hub_lang_urls(), aria_lang="it"),
             wa_url=wa_url,
             wa_topbar="WhatsApp",
             wa_short="WA",
