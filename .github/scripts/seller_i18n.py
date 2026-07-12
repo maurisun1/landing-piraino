@@ -13,6 +13,7 @@ from seller_localize_i18n import get_localize_block
 from seller_phrases_bergamo import PHRASES_BERGAMO_DE, PHRASES_BERGAMO_FR
 from seller_phrases_brescia import PHRASES_BRESCIA_DE, PHRASES_BRESCIA_FR
 from seller_phrases_fr_gap import PHRASES_FR_GAP
+from seller_province_templates import apply_province_all
 
 # Full-phrase replacements only — never single-word swaps.
 PHRASES_DE: list[tuple[str, str]] = [
@@ -77,6 +78,7 @@ PHRASES_DE: list[tuple[str, str]] = [
     ("Stai cercando casa? →", "Suchen Sie eine Immobilie? →"),
     ("Paesi con RE/MAX nel mondo", "Länder mit RE/MAX weltweit"),
     ("Province lombarde seguite", "Betreute Provinzen der Lombardei"),
+    ("Provincia MI", "Provinz MI"),
     ("Risposta alla tua richiesta", "Antwort auf Ihre Anfrage"),
     ("Analisi iniziale · nessun obbligo", "Erstanalyse · keine Verpflichtung"),
     ("Cosa ricevi", "Was Sie erhalten"),
@@ -378,6 +380,7 @@ PHRASES_FR: list[tuple[str, str]] = [
     ("Stai cercando casa? →", "Vous cherchez un bien ? →"),
     ("Paesi con RE/MAX nel mondo", "Pays avec RE/MAX dans le monde"),
     ("Province lombarde seguite", "Provinces lombardes couvertes"),
+    ("Provincia MI", "Province MI"),
     ("Risposta alla tua richiesta", "Réponse à votre demande"),
     ("Analisi iniziale · nessun obbligo", "Analyse initiale · sans obligation"),
     ("Cosa ricevi", "Ce que vous recevez"),
@@ -462,9 +465,18 @@ META_FR = {
 
 
 _ENTITY_MAP = (
-    ("à", "&agrave;"), ("è", "&egrave;"), ("é", "&eacute;"),
-    ("ì", "&igrave;"), ("ò", "&ograve;"), ("ù", "&ugrave;"),
+    ("À", "&Agrave;"), ("à", "&agrave;"),
+    ("È", "&Egrave;"), ("è", "&egrave;"),
+    ("É", "&Eacute;"), ("é", "&eacute;"),
+    ("Ì", "&Igrave;"), ("ì", "&igrave;"),
+    ("Ò", "&Ograve;"), ("ò", "&ograve;"),
+    ("Ù", "&Ugrave;"), ("ù", "&ugrave;"),
     ("—", "&mdash;"), ("·", "&middot;"),
+)
+
+_CURVY_APOSTROPHES = (
+    ("\u2019", "'"),
+    ("\u2018", "'"),
 )
 
 
@@ -487,16 +499,29 @@ def _merge_phrases(*lists: list[tuple[str, str]]) -> list[tuple[str, str]]:
     return merged
 
 
+def _text_variants(text: str) -> list[str]:
+    seen: set[str] = set()
+    variants = [text, _to_entities(text)]
+    for cur, repl in _CURVY_APOSTROPHES:
+        for base in list(variants):
+            if cur in base:
+                variants.append(base.replace(cur, repl))
+            if repl in base:
+                variants.append(base.replace(repl, cur))
+    out: list[str] = []
+    for v in variants:
+        if v not in seen:
+            seen.add(v)
+            out.append(v)
+    return out
+
+
 def _expand_entity_variants(phrases: list[tuple[str, str]]) -> list[tuple[str, str]]:
     extra: list[tuple[str, str]] = []
     seen: set[str] = set()
     for src, dst in phrases:
-        for variant_src, variant_dst in (
-            (src, dst),
-            (_to_entities(src), _to_entities(dst)),
-            (src.replace("'", "'"), dst),
-            (src.replace("'", "'"), dst),
-        ):
+        for variant_src in _text_variants(src):
+            variant_dst = _to_entities(dst) if "&" in variant_src else dst
             if variant_src not in seen:
                 seen.add(variant_src)
                 extra.append((variant_src, variant_dst))
@@ -910,8 +935,11 @@ def apply_seller_locale(html: str, lang: str, slug: str) -> str:
     html = _apply_localize(html, lang, slug)
     html = _apply_phrases(html, phrases)
     html = _apply_province_templates(html, lang, slug)
+    html = apply_province_all(html, lang, slug)
     html = _replace_cities(html, lang)
     html = _apply_phrases(html, phrases)
+    html = _apply_province_templates(html, lang, slug)
+    html = apply_province_all(html, lang, slug)
     html = _fix_links(html, lang, slug)
     html = _fix_meta(html, lang, slug)
     html = _fix_titles(html, lang, slug)
