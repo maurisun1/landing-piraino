@@ -154,13 +154,13 @@ _UI: dict[str, dict[str, str]] = {
     },
     "kicker": {
         "it": "Comprare casa a {city}", "en": "Buy a home in {city}",
-        "de": "Haus kaufen in {city}", "fr": "Acheter une maison à {city}",
+        "de": "Immobilie kaufen in {city}", "fr": "Acheter un bien à {city}",
     },
     "h1": {
         "it": "Comprare bene a {city} non è trovare una casa.<br>È non pagarla troppo.",
         "en": "Buying well in {city} is not about finding a home.<br>It is about not overpaying.",
-        "de": "Gut kaufen in {city} heißt nicht, ein Haus zu finden.<br>Es heißt, nicht zu viel zu zahlen.",
-        "fr": "Bien acheter à {city}, ce n'est pas trouver une maison.<br>C'est ne pas la payer trop cher.",
+        "de": "Gut kaufen in {city} bedeutet nicht, die richtige Immobilie zu finden.<br>Es bedeutet, nicht zu viel zu zahlen.",
+        "fr": "Bien acheter à {city}, ce n'est pas trouver le bon bien.<br>C'est ne pas le payer trop cher.",
     },
     "lead_strong": {
         "it": "Prima l'analisi. Poi la scelta giusta.",

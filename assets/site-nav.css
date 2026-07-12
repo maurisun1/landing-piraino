@@ -251,6 +251,64 @@ header.site-header {
   flex-wrap: nowrap;
 }
 
+/* Language switcher — segmented control with flags */
+.lang-switcher {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 0;
+  padding: 3px;
+  background: rgba(0, 61, 165, .06);
+  border: 1px solid rgba(0, 61, 165, .18);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 2px rgba(0, 61, 165, .06);
+}
+
+.lang-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 9px 5px 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--remax-blue, #003da5) !important;
+  background: transparent;
+  border: none;
+  line-height: 1;
+  transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+  white-space: nowrap;
+}
+
+.lang-option:hover {
+  background: rgba(255, 255, 255, .85);
+  color: var(--remax-red, #dc1c2e) !important;
+}
+
+.lang-option-active {
+  background: var(--remax-blue, #003da5) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(0, 61, 165, .28);
+  cursor: default;
+}
+
+.lang-flag {
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .12);
+  display: block;
+}
+
+.lang-code {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+/* Legacy single lang-link (buyer inline nav fallback) */
 .nav-links .lang-link {
   min-width: 34px;
   text-align: center;
@@ -348,6 +406,11 @@ body.nav-open {
   .nav-group-lang {
     display: flex;
     align-items: center;
+    margin-left: 6px;
+  }
+
+  .lang-switcher {
+    flex-shrink: 0;
   }
 
   .nav-toggle {
@@ -474,6 +537,24 @@ body.nav-open {
     padding: 12px 0;
     border-bottom: none;
     margin-bottom: 0;
+  }
+
+  .lang-switcher {
+    width: 100%;
+    justify-content: center;
+    padding: 4px;
+  }
+
+  .lang-option {
+    flex: 1;
+    justify-content: center;
+    padding: 10px 8px;
+    font-size: 11px;
+  }
+
+  .lang-flag {
+    width: 20px;
+    height: 13px;
   }
 
   .nav-links .lang-link {

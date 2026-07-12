@@ -6,6 +6,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from buyer_provinces_i18n import budget_labels, get_block, get_new_block
 from buyer_i18n import (
     ABOUT_AGENCY_DE,
     ABOUT_AGENCY_FR,
@@ -989,6 +990,12 @@ def make_locale(cfg_it, lang):
             .replace("would like buyer advisory", "souhaite un conseil acheteur")
         )
     base["omi_text"] = ui(lang, "omi")
+    block = get_block(slug, lang)
+    if block:
+        base.update(block)
+    base["budget"] = budget_labels(
+        lang, milano_budget=slug in ("milano", "monza")
+    )
     return base
 
 
@@ -1091,7 +1098,10 @@ def build_new_cfg(slug, lang):
     meta = NEW_PROVINCES[slug]
     city_it = next(c[1] for c in LOMBARD_PROVINCES if c[0] == slug)
     city_en = next(c[2] for c in LOMBARD_PROVINCES if c[0] == slug)
-    content = meta["it" if lang == "it" else "en"]
+    if lang in ("de", "fr"):
+        content = get_new_block(slug, lang, meta)
+    else:
+        content = meta["it" if lang == "it" else "en"]
     is_foreign = lang != "it"
     omi = OMI_LINKS.get(slug, "#contatto")
     budget = meta.get("budget", MILANO_BUDGET if slug in ("milano", "monza") else DEFAULT_BUDGET_PROVINCE)
