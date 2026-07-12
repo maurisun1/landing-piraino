@@ -4,10 +4,23 @@
 from __future__ import annotations
 
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE = "20260729"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from locales import (
+    LANGS,
+    buyer_hub_url,
+    buyer_lang_urls,
+    city_label,
+    hub_lang_urls,
+    render_lang_links,
+    seller_lang_urls,
+    seller_url,
+)
+CACHE = "20260734"
 
 WA_ICON = (
     '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
@@ -113,14 +126,20 @@ def render_nav(
     cta_label: str,
     lang: str = "it",
 ) -> str:
-    menu_label = "Apri menu" if lang == "it" else "Open menu"
-    aria_nav = "Menu principale" if lang == "it" else "Main menu"
+    menu_label = {
+        "it": "Apri menu", "en": "Open menu", "de": "Menü öffnen", "fr": "Ouvrir le menu",
+    }.get(lang, "Open menu")
+    aria_nav = {
+        "it": "Menu principale", "en": "Main menu", "de": "Hauptmenü", "fr": "Menu principal",
+    }.get(lang, "Main menu")
     groups_html = "\n".join(groups)
     lang_block = ""
     if lang_link:
         lang_block = f"""
           <div class="nav-group nav-group-lang">
+            <div class="nav-group-links nav-group-lang-links">
             {lang_link}
+            </div>
           </div>"""
     topbar = ""
     chrome_open = ""
@@ -263,42 +282,50 @@ def infer_tagline(path: Path, lang: str) -> str | None:
         slug = rel.split("/")[1].replace("buy-home-", "")
         city = CITY_LABELS_EN.get(slug, slug.title())
         return f"Buyer advisory <strong>RE/MAX</strong> · {city} · Reply within 24h"
+    if rel.startswith("de/haus-kaufen-"):
+        slug = rel.split("/")[1].replace("haus-kaufen-", "")
+        city = city_label("milano" if slug == "milan" else slug, "de")
+        return f"Käuferberatung <strong>RE/MAX</strong> · {city} · Antwort innerhalb von 24h"
+    if rel.startswith("fr/acheter-maison-"):
+        slug = rel.split("/")[1].replace("acheter-maison-", "")
+        city = city_label("milano" if slug == "milan" else slug, "fr")
+        return f"Conseil acheteurs <strong>RE/MAX</strong> · {city} · Réponse sous 24h"
+    if rel.startswith("de/") and rel.endswith("/index.html") and "/" in rel:
+        slug = rel.split("/")[1]
+        city = city_label(slug, "de")
+        return f"Immobilienberatung <strong>RE/MAX</strong> · {city}"
+    if rel.startswith("fr/") and rel.endswith("/index.html") and "/" in rel:
+        slug = rel.split("/")[1]
+        city = city_label(slug, "fr")
+        return f"Conseil immobilier <strong>RE/MAX</strong> · {city}"
+    if rel == "de/index.html":
+        return "Immobilienberatung <strong>RE/MAX</strong> · Mailand"
+    if rel == "fr/index.html":
+        return "Conseil immobilier <strong>RE/MAX</strong> · Milan"
     return None
 
 
 def seller_nav_groups(*, sell_href: str, buy_href: str, lang: str = "it") -> list[str]:
-    if lang == "en":
-        return [
-            render_nav_group(
-                "Path",
-                [
-                    f'<a href="{sell_href}" class="nav-link-primary">Sell</a>',
-                    f'<a href="{buy_href}">Buy</a>',
-                ],
-                extra_class="nav-group-path",
-            ),
-            render_nav_group(
-                "About",
-                [
-                    '<a href="#metodo">About me</a>',
-                    '<a href="#remax">RE/MAX</a>',
-                ],
-                extra_class="nav-group-info",
-            ),
-        ]
+    labels = {
+        "it": ("Percorso", "Vendere", "Comprare", "Info", "Chi sono"),
+        "en": ("Path", "Sell", "Buy", "About", "About me"),
+        "de": ("Weg", "Verkaufen", "Kaufen", "Info", "Über mich"),
+        "fr": ("Parcours", "Vendre", "Acheter", "Info", "Qui je suis"),
+    }
+    path_l, sell_l, buy_l, info_l, about_l = labels.get(lang, labels["en"])
     return [
         render_nav_group(
-            "Percorso",
+            path_l,
             [
-                f'<a href="{sell_href}" class="nav-link-primary">Vendere</a>',
-                f'<a href="{buy_href}">Comprare</a>',
+                f'<a href="{sell_href}" class="nav-link-primary">{sell_l}</a>',
+                f'<a href="{buy_href}">{buy_l}</a>',
             ],
             extra_class="nav-group-path",
         ),
         render_nav_group(
-            "Info",
+            info_l,
             [
-                '<a href="#metodo">Chi sono</a>',
+                f'<a href="#metodo">{about_l}</a>',
                 '<a href="#remax">RE/MAX</a>',
             ],
             extra_class="nav-group-info",
@@ -310,43 +337,31 @@ def buyer_nav_groups(
     *,
     sell_href: str,
     omi_href: str,
+    buy_href: str,
     lang: str = "it",
 ) -> list[str]:
-    if lang == "en":
-        return [
-            render_nav_group(
-                "Path",
-                [
-                    '<a href="/comprare-casa/" class="nav-link-primary">Buy</a>',
-                    f'<a href="{sell_href}">Sell</a>',
-                ],
-                extra_class="nav-group-path",
-            ),
-            render_nav_group(
-                "About",
-                [
-                    '<a href="#metodo">About me</a>',
-                    '<a href="#remax">RE/MAX</a>',
-                    f'<a href="{omi_href}">OMI prices</a>',
-                ],
-                extra_class="nav-group-info",
-            ),
-        ]
+    labels = {
+        "it": ("Percorso", "Comprare", "Vendere", "Info", "Chi sono", "Prezzi OMI"),
+        "en": ("Path", "Buy", "Sell", "About", "About me", "OMI prices"),
+        "de": ("Weg", "Kaufen", "Verkaufen", "Info", "Über mich", "OMI-Preise"),
+        "fr": ("Parcours", "Acheter", "Vendre", "Info", "Qui je suis", "Prix OMI"),
+    }
+    path_l, buy_l, sell_l, info_l, about_l, omi_l = labels.get(lang, labels["en"])
     return [
         render_nav_group(
-            "Percorso",
+            path_l,
             [
-                '<a href="/comprare-casa/" class="nav-link-primary">Comprare</a>',
-                f'<a href="{sell_href}">Vendere</a>',
+                f'<a href="{buy_href}" class="nav-link-primary">{buy_l}</a>',
+                f'<a href="{sell_href}">{sell_l}</a>',
             ],
             extra_class="nav-group-path",
         ),
         render_nav_group(
-            "Info",
+            info_l,
             [
-                '<a href="#metodo">Chi sono</a>',
+                f'<a href="#metodo">{about_l}</a>',
                 '<a href="#remax">RE/MAX</a>',
-                f'<a href="{omi_href}">Prezzi OMI</a>',
+                f'<a href="{omi_href}">{omi_l}</a>',
             ],
             extra_class="nav-group-info",
         ),
@@ -354,41 +369,36 @@ def buyer_nav_groups(
 
 
 def hub_nav_groups(*, lang: str) -> list[str]:
-    if lang == "en":
-        return [
-            render_nav_group(
-                "Path",
-                [
-                    '<a href="/en/buy-home/" class="nav-link-primary">Buy</a>',
-                    '<a href="/">Sell</a>',
-                ],
-                extra_class="nav-group-path",
-            ),
-            render_nav_group(
-                "About",
-                [
-                    '<a href="/#metodo">About me</a>',
-                    '<a href="#remax">RE/MAX</a>',
-                    '<a href="/comprare-casa/">Provinces IT</a>',
-                ],
-                extra_class="nav-group-info",
-            ),
-        ]
+    labels = {
+        "it": ("Percorso", "Comprare", "Vendere", "Info", "Chi sono", "English"),
+        "en": ("Path", "Buy", "Sell", "About", "About me", "Italiano"),
+        "de": ("Weg", "Kaufen", "Verkaufen", "Info", "Über mich", "Italiano"),
+        "fr": ("Parcours", "Acheter", "Vendre", "Info", "Qui je suis", "Italiano"),
+    }
+    path_l, buy_l, sell_l, info_l, about_l, alt_l = labels.get(lang, labels["en"])
+    buy_hub = buyer_hub_url(lang)
+    metodo = "/#metodo" if lang == "it" else "/#metodo"
+    alt_links = {
+        "it": '<a href="/en/buy-home/">English</a>',
+        "en": '<a href="/comprare-casa/">Italiano</a>',
+        "de": '<a href="/comprare-casa/">Italiano</a>',
+        "fr": '<a href="/comprare-casa/">Italiano</a>',
+    }
     return [
         render_nav_group(
-            "Percorso",
+            path_l,
             [
-                '<a href="/comprare-casa/" class="nav-link-primary">Comprare</a>',
-                '<a href="/">Vendere</a>',
+                f'<a href="{buy_hub}" class="nav-link-primary">{buy_l}</a>',
+                f'<a href="/">{sell_l}</a>',
             ],
             extra_class="nav-group-path",
         ),
         render_nav_group(
-            "Info",
+            info_l,
             [
-                '<a href="/#metodo">Chi sono</a>',
+                f'<a href="{metodo}">{about_l}</a>',
                 '<a href="#remax">RE/MAX</a>',
-                '<a href="/en/buy-home/">English</a>',
+                alt_links[lang],
             ],
             extra_class="nav-group-info",
         ),
@@ -473,8 +483,24 @@ def patch_phone_links() -> None:
 
 
 def main() -> None:
-    print("Patching seller pages...")
-    for rel, sell, en_link in seller_page_paths():
+    from buyer_provinces import LOMBARD_PROVINCES
+
+    hub_taglines = {
+        "it": "Consulenza acquirenti <strong>RE/MAX</strong> · Lombardia · Risposta entro 24h",
+        "en": "Buyer advisory <strong>RE/MAX</strong> · Lombardy · Reply within 24h",
+        "de": "Käuferberatung <strong>RE/MAX</strong> · Lombardei · Antwort innerhalb von 24h",
+        "fr": "Conseil acheteurs <strong>RE/MAX</strong> · Lombardie · Réponse sous 24h",
+    }
+    hub_wa = {
+        "it": "Scrivimi su WhatsApp",
+        "en": "Message on WhatsApp",
+        "de": "WhatsApp-Nachricht",
+        "fr": "Message WhatsApp",
+    }
+
+    print("Patching seller pages (IT)...")
+    for slug, _name, _en in LOMBARD_PROVINCES:
+        rel = "index.html" if slug == "milano" else f"{slug}/index.html"
         path = ROOT / rel
         if not path.exists():
             print(f"  skip (missing): {rel}")
@@ -484,8 +510,8 @@ def main() -> None:
             path,
             tagline=extract_tagline(block) or infer_tagline(path, "it"),
             brand=SHORT_BRAND,
-            groups=seller_nav_groups(sell_href=sell, buy_href="/comprare-casa/"),
-            lang_link=f'<a href="{en_link}" class="lang-link">EN</a>',
+            groups=seller_nav_groups(sell_href=seller_url(slug, "it"), buy_href=buyer_hub_url("it"), lang="it"),
+            lang_link=render_lang_links("it", seller_lang_urls(slug)),
             wa_url=extract_wa_url(block),
             wa_topbar="WhatsApp",
             wa_short="WA",
@@ -493,75 +519,93 @@ def main() -> None:
             cta_label=extract_cta(block)[1],
             lang="it",
         )
+
+    print("Patching seller pages (DE/FR)...")
+    for lang in ("de", "fr"):
+        for slug, _name, _en in LOMBARD_PROVINCES:
+            rel = f"{lang}/index.html" if slug == "milano" else f"{lang}/{slug}/index.html"
+            path = ROOT / rel
+            if not path.exists():
+                continue
+            block = extract_header_block(path.read_text(encoding="utf-8"))
+            city = city_label(slug, lang)
+            patch_page(
+                path,
+                tagline=f"Immobilienberatung <strong>RE/MAX</strong> · {city}" if lang == "de" else f"Conseil immobilier <strong>RE/MAX</strong> · {city}",
+                brand=SHORT_BRAND,
+                groups=seller_nav_groups(sell_href=seller_url(slug, lang), buy_href=buyer_hub_url(lang), lang=lang),
+                lang_link=render_lang_links(lang, seller_lang_urls(slug)),
+                wa_url=extract_wa_url(block),
+                wa_topbar="WhatsApp",
+                wa_short="WA",
+                cta_href=extract_cta(block)[0],
+                cta_label=extract_cta(block)[1],
+                lang=lang,
+            )
 
     print("Patching buyer province pages...")
-    for path in sorted(ROOT.glob("comprare-casa-*/index.html")):
-        slug = path.parent.name.replace("comprare-casa-", "")
-        block = extract_header_block(path.read_text(encoding="utf-8"))
-        en_slug = "milan" if slug == "milano" else slug
-        patch_page(
-            path,
-            tagline=extract_tagline(block) or infer_tagline(path, "it"),
-            brand=SHORT_BRAND,
-            groups=buyer_nav_groups(
-                sell_href=seller_href_for_city(slug),
-                omi_href=buyer_omi_href(slug),
-            ),
-            lang_link=f'<a href="/en/buy-home-{en_slug}/" class="lang-link">EN</a>',
-            wa_url=extract_wa_url(block),
-            wa_topbar="WhatsApp",
-            wa_short="WA",
-            cta_href=extract_cta(block)[0],
-            cta_label=extract_cta(block)[1],
-            lang="it",
-        )
-
-    for path in sorted(ROOT.glob("en/buy-home-*/index.html")):
-        slug = path.parent.name.replace("buy-home-", "")
-        it_slug = "milano" if slug == "milan" else slug
-        block = extract_header_block(path.read_text(encoding="utf-8"))
-        patch_page(
-            path,
-            tagline=extract_tagline(block) or infer_tagline(path, "en"),
-            brand=SHORT_BRAND,
-            groups=buyer_nav_groups(
-                sell_href=seller_href_for_city(it_slug),
-                omi_href=buyer_omi_href(it_slug),
-                lang="en",
-            ),
-            lang_link=f'<a href="/comprare-casa-{it_slug}/" class="lang-link">IT</a>',
-            wa_url=extract_wa_url(block),
-            wa_topbar="WhatsApp",
-            wa_short="WA",
-            cta_href=extract_cta(block)[0],
-            cta_label=extract_cta(block)[1],
-            lang="en",
-        )
+    buyer_globs = [
+        ("it", "comprare-casa-*"),
+        ("en", "en/buy-home-*"),
+        ("de", "de/haus-kaufen-*"),
+        ("fr", "fr/acheter-maison-*"),
+    ]
+    prefix_map = {
+        "it": "comprare-casa-",
+        "en": "buy-home-",
+        "de": "haus-kaufen-",
+        "fr": "acheter-maison-",
+    }
+    for lang, pattern in buyer_globs:
+        for path in sorted(ROOT.glob(f"{pattern}/index.html")):
+            raw = path.parent.name
+            if lang == "it":
+                slug = raw.replace("comprare-casa-", "")
+            else:
+                part = raw.replace(prefix_map[lang], "")
+                slug = "milano" if part == "milan" else part
+            block = extract_header_block(path.read_text(encoding="utf-8"))
+            patch_page(
+                path,
+                tagline=extract_tagline(block) or infer_tagline(path, lang),
+                brand=SHORT_BRAND,
+                groups=buyer_nav_groups(
+                    sell_href=seller_url(slug, lang),
+                    omi_href=buyer_omi_href(slug),
+                    buy_href=buyer_hub_url(lang),
+                    lang=lang,
+                ),
+                lang_link=render_lang_links(lang, buyer_lang_urls(slug)),
+                wa_url=extract_wa_url(block),
+                wa_topbar="WhatsApp",
+                wa_short="WA",
+                cta_href=extract_cta(block)[0],
+                cta_label=extract_cta(block)[1],
+                lang=lang,
+            )
 
     print("Patching hub pages...")
-    for rel, lang in [("comprare-casa/index.html", "it"), ("en/buy-home/index.html", "en")]:
+    hub_paths = {
+        "it": "comprare-casa/index.html",
+        "en": "en/buy-home/index.html",
+        "de": "de/haus-kaufen/index.html",
+        "fr": "fr/acheter-maison/index.html",
+    }
+    for lang, rel in hub_paths.items():
         path = ROOT / rel
+        if not path.exists():
+            print(f"  skip hub (missing): {rel}")
+            continue
         block = extract_header_block(path.read_text(encoding="utf-8"))
-        if lang == "en":
-            lang_link = '<a href="/comprare-casa/" class="lang-link">IT</a>'
-            wa_text = "Message on WhatsApp"
-        else:
-            lang_link = '<a href="/en/buy-home/" class="lang-link">EN</a>'
-            wa_text = "Scrivimi su WhatsApp"
         patch_page(
             path,
-            tagline=extract_tagline(block)
-            or (
-                "Consulenza acquirenti <strong>RE/MAX</strong> · Lombardia · Risposta entro 24h"
-                if lang == "it"
-                else "Buyer advisory <strong>RE/MAX</strong> · Lombardy · Reply within 24h"
-            ),
+            tagline=extract_tagline(block) or hub_taglines[lang],
             brand=SHORT_BRAND,
             groups=hub_nav_groups(lang=lang),
-            lang_link=lang_link,
+            lang_link=render_lang_links(lang, hub_lang_urls()),
             wa_url=extract_wa_url(block)
             or "https://wa.me/393514581993?text=Ciao%20Maurizio%2C%20sto%20cercando%20casa%20in%20Lombardia.",
-            wa_topbar=wa_text,
+            wa_topbar=hub_wa[lang],
             wa_short="WhatsApp",
             cta_href=extract_cta(block)[0],
             cta_label=extract_cta(block)[1],
@@ -581,7 +625,7 @@ def main() -> None:
             tagline=f"Guida prezzi OMI · <strong>{city}</strong> · Dati Agenzia Entrate",
             brand="Maurizio Piraino",
             groups=guide_nav_groups(city=city, seller_href=seller),
-            lang_link=None,
+            lang_link=render_lang_links("it", hub_lang_urls()),
             wa_url=wa_url,
             wa_topbar="WhatsApp",
             wa_short="WA",

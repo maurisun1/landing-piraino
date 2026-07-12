@@ -6,6 +6,40 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from buyer_i18n import (
+    ABOUT_AGENCY_DE,
+    ABOUT_AGENCY_FR,
+    DEFAULT_BUYER_TESTIMONIALS_DE,
+    DEFAULT_BUYER_TESTIMONIALS_FR,
+    DEFAULT_FAQ_WORK_A_DE,
+    DEFAULT_FAQ_WORK_A_FR,
+    DEFAULT_FAQ_WORK_DE,
+    DEFAULT_FAQ_WORK_FR,
+    DEFAULT_FORM_BENEFITS_DE,
+    DEFAULT_FORM_BENEFITS_FR,
+    DEFAULT_HERO_LIST_DE,
+    DEFAULT_HERO_LIST_FR,
+    DEFAULT_PAIN_DE,
+    DEFAULT_PAIN_FR,
+    DEFAULT_STATS_DE,
+    DEFAULT_STATS_FR,
+    DEFAULT_TRUST_DE,
+    DEFAULT_TRUST_FR,
+    FOOTER_AFFILIATION_DE,
+    FOOTER_AFFILIATION_FR,
+    ui,
+    _UI,
+)
+from locales import (
+    LANGS,
+    OG_LOCALE,
+    HTML_LANG,
+    alternate_urls,
+    buyer_page_path,
+    buyer_province_url,
+    city_label,
+    seller_url,
+)
 from buyer_provinces import (
     DEFAULT_BUDGET_PROVINCE,
     DEFAULT_FAQ_WORK_A_IT,
@@ -246,42 +280,53 @@ PAGES = [
 ]
 
 
-def t(cfg, key, it, en):
-    if cfg["lang"] == "en":
-        return en
+def t(cfg, key, it="", en=None):
+    lang = cfg["lang"]
+    special = {
+        "footer_aff": {
+            "it": FOOTER_AFFILIATION_IT, "en": FOOTER_AFFILIATION_EN,
+            "de": FOOTER_AFFILIATION_DE, "fr": FOOTER_AFFILIATION_FR,
+        },
+        "agency_bio": {
+            "it": ABOUT_AGENCY_IT, "en": ABOUT_AGENCY_EN,
+            "de": ABOUT_AGENCY_DE, "fr": ABOUT_AGENCY_FR,
+        },
+    }
+    if key in special:
+        return special[key].get(lang, special[key]["it"])
+    if key in _UI:
+        kwargs = {}
+        if any("{city}" in _UI[key].get(l, "") for l in ("it", "en", "de", "fr")):
+            kwargs["city"] = cfg["city"]
+        return ui(lang, key, **kwargs)
+    if lang == "en":
+        return en or it
+    if lang in ("de", "fr"):
+        return en or it
     return it
 
 
 def province_urls(slug, lang):
-    en_slug = "milan" if slug == "milano" else slug
-    if lang == "en":
-        return f"/en/buy-home-{en_slug}/"
-    return "/comprare-casa-milano/" if slug == "milano" else f"/comprare-casa-{slug}/"
+    return buyer_province_url(slug, lang)
 
 
 def footer_links(cfg):
     slug = cfg["city_slug"]
-    is_en = cfg["lang"] == "en"
+    lang = cfg["lang"]
     parts = []
     for s, it_name, en_name in LOMBARD_PROVINCES:
-        name = en_name if is_en else it_name
-        url = province_urls(s, cfg["lang"])
+        name = city_label(s, lang)
+        url = province_urls(s, lang)
         if s == slug:
             parts.append(f"<strong>{name}</strong>")
         else:
             parts.append(f'<a href="{url}" style="color:inherit;text-decoration:underline">{name}</a>')
-    buy_label = "Buy" if is_en else "Comprare"
-    sell_label = "Selling instead?" if is_en else "Vuoi vendere?"
-    sell_map = {
-        "milano": ("Milan seller analysis", "Analisi vendita Milano"),
-        "brescia": ("Seller analysis Brescia", "Analisi vendita Brescia"),
-        "bergamo": ("Seller analysis Bergamo", "Analisi vendita Bergamo"),
-    }
-    st = sell_map.get(slug, ("Seller advisory", "Consulenza vendita"))
-    st = st[1] if cfg["lang"] == "it" else st[0]
+    sell_label = ui(lang, "sell_label")
+    buy_label = ui(lang, "buy_label")
+    st = ui(lang, "sell_st")
     joined = " · ".join(parts)
     return (
-        f'{sell_label} <a href="{cfg["seller_link"]}" style="color:inherit;text-decoration:underline">{st}</a> '
+        f'{sell_label} <a href="{seller_url(slug, lang)}" style="color:inherit;text-decoration:underline">{st}</a> '
         f'· {buy_label}: {joined} · '
         f'<a href="/privacy/" style="color:inherit;text-decoration:underline">Privacy</a>'
     )
@@ -289,7 +334,7 @@ def footer_links(cfg):
 
 def build_body(cfg):
     lang = cfg["lang"]
-    is_en = lang == "en"
+    is_foreign = lang != "it"
     brand = t(cfg, "brand",
               "Maurizio Piraino <span>·</span> Agente Immobiliare affiliato RE/MAX",
               "Maurizio Piraino <span>·</span> RE/MAX Real Estate Agent")
@@ -297,7 +342,7 @@ def build_body(cfg):
                     f'Consulenza acquirenti <strong>RE/MAX</strong> · {cfg["city"]} · Risposta entro 24h',
                     f'Buyer advisory <strong>RE/MAX</strong> · {cfg["city"]} · Reply within 24 hours')
     topbar_wa = t(cfg, "topbar_wa", "Scrivimi su WhatsApp", "Message me on WhatsApp")
-    nav_method = t(cfg, "nav", "Metodo", "Method")
+    nav_method = t(cfg, "nav_method", "Metodo", "Method")
     nav_remax = "RE/MAX"
     nav_omi = t(cfg, "nav_omi", "Prezzi OMI", "OMI prices")
     nav_cta = t(cfg, "nav_cta", "Dimmi cosa cerchi", "Tell me what you need")
@@ -319,7 +364,7 @@ def build_body(cfg):
             "Milan's market is competitive and opaque: it is easy to overpay, lose a property to another buyer, or buy a home with hidden issues. My role is to help you avoid that.",
         ),
     }
-    lead = cfg.get("lead") or leads[cfg["city_slug"]][1 if is_en else 0]
+    lead = cfg.get("lead") or leads[cfg["city_slug"]][1 if is_foreign else 0]
     lead_strong = t(cfg, "lead_strong", "Prima l'analisi. Poi la scelta giusta.", "Analysis first. Then the right choice.")
     cta1 = t(cfg, "cta1", "Dimmi cosa cerchi →", "Tell me what you need →")
     cta2 = t(cfg, "cta2", "Come funziona", "How it works")
@@ -381,7 +426,10 @@ def build_body(cfg):
     exp_kicker = t(cfg, "exp_k", "Esperienze", "Experiences")
     exp_h2 = t(cfg, "exp_h", "Chi ha comprato con metodo, non a caso.", "People who bought with a method, not by chance.")
     testimonials = cfg.get("testimonials") or (
-        DEFAULT_BUYER_TESTIMONIALS_EN if is_en else DEFAULT_BUYER_TESTIMONIALS_IT
+        DEFAULT_BUYER_TESTIMONIALS_EN if lang == "en"
+        else DEFAULT_BUYER_TESTIMONIALS_DE if lang == "de"
+        else DEFAULT_BUYER_TESTIMONIALS_FR if lang == "fr"
+        else DEFAULT_BUYER_TESTIMONIALS_IT
     )
     testimonial_cards = "".join(
         f'<article class="buyer-testimonial-card reveal"><div class="buyer-testimonial-stars">★★★★★</div>'
@@ -427,8 +475,8 @@ def build_body(cfg):
         ("3-6", t(cfg, "time2", "Entro 3-6 mesi", "Within 3-6 months")),
         ("valuto", t(cfg, "time3", "Sto solo valutando", "Just exploring")),
     ]
-    ph_name = "e.g. Marco Rossi" if is_en else "Es. Marco Rossi"
-    ph_phone = "e.g. +39 348 000 0000" if is_en else "Es. 348 000 0000"
+    ph_name = ui(lang, "ph_name")
+    ph_phone = ui(lang, "ph_phone")
     privacy = t(cfg, "privacy",
                 'Ho letto l\'<a href="/privacy/" style="color:inherit;text-decoration:underline">informativa privacy</a> e acconsento ad essere ricontattato.',
                 'I have read the <a href="/privacy/" style="color:inherit;text-decoration:underline">privacy policy</a> and agree to be contacted.')
@@ -486,8 +534,8 @@ def build_body(cfg):
         '<path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>'
         "</svg>"
     )
-    menu_label = "Open menu" if is_en else "Apri menu"
-    aria_nav = "Main menu" if is_en else "Menu principale"
+    menu_label = ui(lang, "menu")
+    aria_nav = ui(lang, "aria_nav")
     wa_topbar = "WhatsApp"
     wa_nav = topbar_wa
     wa_short = "WA"
@@ -666,7 +714,7 @@ def build_body(cfg):
     {{DATALIST}}
   </datalist>
 
-  <div class="buyer-sticky-bar" role="region" aria-label="{'Quick actions' if is_en else 'Azioni rapide'}">
+  <div class="buyer-sticky-bar" role="region" aria-label="{ui(lang, 'sticky_region')}">
     <div class="buyer-sticky-inner">
       <a class="btn btn-red" href="#contatto">{sticky}</a>
       <a class="btn btn-outline" href="{wa_url}" aria-label="WhatsApp">WA</a>
@@ -837,6 +885,13 @@ def make_en(cfg_it):
         en["faq_work"] = "Do you work only in Brescia?"
         en["faq_work_a"] = "Brescia, Franciacorta, lakes and province are the focus, but I also support buyers in Milan and Bergamo."
     else:
+        en["datalist"] = cfg_it.get("datalist") or []
+        if not en["datalist"] and cfg_it.get("datalist_id"):
+            src = ROOT / cfg_it["path"]
+            if src.exists():
+                inner = extract_datalist(src.read_text(encoding="utf-8"), cfg_it["datalist_id"])
+                if inner:
+                    en["datalist_raw"] = inner
         en["zone_placeholder"] = "e.g. Navigli, Sesto San Giovanni..."
         en["msg_placeholder"] = "e.g. bright three-bedroom with balcony, near metro, max 3rd floor..."
         en["footer_geo"] = "Milan · Province · Navigli · Isola"
@@ -872,6 +927,7 @@ def make_en(cfg_it):
         ]
         en["faq_work"] = "Do you work only in Milan?"
         en["faq_work_a"] = "Milan and province are the focus, but I also support buyers in Brescia and Bergamo."
+    en["city"] = city_label(cfg_it["city_slug"], "en")
     en["budget"] = [
         ("", "Prefer not to say"),
         ("150000", "Up to €150,000"),
@@ -890,6 +946,52 @@ def make_en(cfg_it):
     return en
 
 
+def make_locale(cfg_it, lang):
+    if lang == "en":
+        return make_en(cfg_it)
+    base = make_en(cfg_it)
+    slug = cfg_it["city_slug"]
+    base["lang"] = lang
+    base["path"] = buyer_page_path(slug, lang)
+    base["city"] = city_label(slug, lang)
+    if lang == "de":
+        base["faq_work"] = DEFAULT_FAQ_WORK_DE.format(city=base["city"])
+        base["faq_work_a"] = DEFAULT_FAQ_WORK_A_DE.format(city=base["city"])
+        base["stats"] = DEFAULT_STATS_DE
+        base["trust_row"] = DEFAULT_TRUST_DE
+        base["form_benefits"] = DEFAULT_FORM_BENEFITS_DE
+        base["hero_list"] = DEFAULT_HERO_LIST_DE
+        base["pain"] = base.get("pain") or DEFAULT_PAIN_DE
+        base["form_hidden"] = f"Haus kaufen {base['city']} - buyer DE"
+        base["form_subject"] = f"Käuferanfrage - {base['city']} DE"
+    else:
+        base["faq_work"] = DEFAULT_FAQ_WORK_FR.format(city=base["city"])
+        base["faq_work_a"] = DEFAULT_FAQ_WORK_A_FR.format(city=base["city"])
+        base["stats"] = DEFAULT_STATS_FR
+        base["trust_row"] = DEFAULT_TRUST_FR
+        base["form_benefits"] = DEFAULT_FORM_BENEFITS_FR
+        base["hero_list"] = DEFAULT_HERO_LIST_FR
+        base["pain"] = base.get("pain") or DEFAULT_PAIN_FR
+        base["form_hidden"] = f"Acheter maison {base['city']} - buyer FR"
+        base["form_subject"] = f"Demande acheteur - {base['city']} FR"
+    wt = base.get("wa_text", "")
+    if lang == "de":
+        base["wa_text"] = (
+            wt.replace("Hi Maurizio", "Hallo Maurizio")
+            .replace("I am looking to buy in", "Ich suche eine Immobilie in")
+            .replace("I am looking to buy", "Ich suche eine Immobilie in")
+            .replace("would like buyer advisory", "möchte Käuferberatung")
+        )
+    else:
+        base["wa_text"] = (
+            wt.replace("Hi Maurizio", "Bonjour Maurizio")
+            .replace("I am looking to buy in", "Je cherche à acheter en")
+            .replace("would like buyer advisory", "souhaite un conseil acheteur")
+        )
+    base["omi_text"] = ui(lang, "omi")
+    return base
+
+
 def get_styles():
     html = STYLE_TEMPLATE.read_text(encoding="utf-8")
     start = html.index("<style>")
@@ -898,42 +1000,51 @@ def get_styles():
 
 
 def build_head(cfg):
-    is_en = cfg["lang"] == "en"
+    lang = cfg["lang"]
     slug = cfg["city_slug"]
-    canonical = f"https://mauriziopiraino.it{province_urls(slug, cfg['lang'])}"
-    it_url = f"https://mauriziopiraino.it{province_urls(slug, 'it')}"
-    en_url = f"https://mauriziopiraino.it{province_urls(slug, 'en')}"
-    city = cfg["city_en"] if is_en else cfg["city_it"]
+    urls = alternate_urls(slug)
+    canonical = urls[lang]
+    city = cfg["city"]
     img = f"https://mauriziopiraino.it{cfg['hero_img']}"
 
-    if is_en:
-        title = f"Buy a home in {city}: buyer advisory | Piraino"
-        desc = cfg.get(
-            "meta_desc",
-            f"Want to buy in {city} without overpaying? Fair price analysis, technical checks and targeted RE/MAX search.",
-        )
-        service = f"Home buying advisory in {city}"
-        service_type = "Real estate buyer advisory"
-        locale = "en_GB"
-        faq_work = cfg["faq_work"]
-        faq_work_a = cfg["faq_work_a"]
-    else:
-        title = f"Comprare casa a {city}: consulenza per acquirenti | Piraino"
-        desc = cfg.get(
-            "meta_desc",
-            f"Vuoi comprare casa a {city} senza pagarla troppo? Analisi del prezzo giusto, verifica tecnica e ricerca mirata RE/MAX.",
-        )
-        service = f"Consulenza per l'acquisto di casa a {city}"
-        service_type = "Consulenza immobiliare per acquirenti"
-        locale = "it_IT"
-        faq_work = cfg["faq_work"]
-        faq_work_a = cfg["faq_work_a"]
+    meta_titles = {
+        "it": f"Comprare casa a {city}: consulenza per acquirenti | Piraino",
+        "en": f"Buy a home in {city}: buyer advisory | Piraino",
+        "de": f"Haus kaufen in {city}: Käuferberatung | Piraino",
+        "fr": f"Acheter une maison à {city}: conseil acheteurs | Piraino",
+    }
+    meta_descs = {
+        "it": f"Vuoi comprare casa a {city} senza pagarla troppo? Analisi del prezzo giusto, verifica tecnica e ricerca mirata RE/MAX.",
+        "en": f"Want to buy in {city} without overpaying? Fair price analysis, technical checks and targeted RE/MAX search.",
+        "de": f"Möchten Sie in {city} kaufen, ohne zu viel zu zahlen? OMI-Preisanalyse, technische Prüfung und gezielte RE/MAX-Suche.",
+        "fr": f"Vous voulez acheter à {city} sans payer trop cher ? Analyse OMI, vérification technique et recherche ciblée RE/MAX.",
+    }
+    title = cfg.get("meta_title", meta_titles[lang])
+    desc = cfg.get("meta_desc", meta_descs[lang])
+    service_types = {
+        "it": "Consulenza immobiliare per acquirenti",
+        "en": "Real estate buyer advisory",
+        "de": "Immobilien-Käuferberatung",
+        "fr": "Conseil immobilier pour acheteurs",
+    }
+    service_names = {
+        "it": f"Consulenza per l'acquisto di casa a {city}",
+        "en": f"Home buying advisory in {city}",
+        "de": f"Käuferberatung in {city}",
+        "fr": f"Conseil achat immobilier à {city}",
+    }
+    faq_work = cfg["faq_work"]
+    faq_work_a = cfg["faq_work_a"]
+    lang_attr = HTML_LANG[lang]
+    locale = OG_LOCALE[lang]
+    hreflang_links = "\n".join(
+        f'<link rel="alternate" hreflang="{l}" href="{urls[l]}" />' for l in LANGS
+    )
 
-    lang_attr = "en" if is_en else "it"
     schema = (
         '{"@context":"https://schema.org","@graph":['
         '{"@type":"RealEstateAgent","@id":"https://mauriziopiraino.it/#agent","name":"Maurizio Piraino","url":"https://mauriziopiraino.it/","areaServed":["Milano","Provincia di Milano","Brescia","Bergamo","Lombardia"],"telephone":"+39 351 458 1993"},'
-        f'{{"@type":"Service","name":"{service}","serviceType":"{service_type}","provider":{{"@id":"https://mauriziopiraino.it/#agent"}},"areaServed":"{city}","url":"{canonical}"}},'
+        f'{{"@type":"Service","name":"{service_names[lang]}","serviceType":"{service_types[lang]}","provider":{{"@id":"https://mauriziopiraino.it/#agent"}},"areaServed":"{city}","url":"{canonical}"}},'
         '{"@type":"FAQPage","mainEntity":['
         '{"@type":"Question","name":"Quanto costa il servizio per chi compra?","acceptedAnswer":{"@type":"Answer","text":"Ne parliamo con chiarezza fin dal primo contatto, senza sorprese."}},'
         f'{{"@type":"Question","name":"{faq_work}","acceptedAnswer":{{"@type":"Answer","text":"{faq_work_a}"}}}}'
@@ -951,9 +1062,8 @@ def build_head(cfg):
 <title>{title}</title>
 <meta name="description" content="{desc}" />
 <link rel="canonical" href="{canonical}" />
-<link rel="alternate" hreflang="it" href="{it_url}" />
-<link rel="alternate" hreflang="en" href="{en_url}" />
-<link rel="alternate" hreflang="x-default" href="{it_url}" />
+{hreflang_links}
+<link rel="alternate" hreflang="x-default" href="{urls['it']}" />
 <meta property="og:title" content="{title}" />
 <meta property="og:description" content="{desc}" />
 <meta property="og:type" content="website" />
@@ -973,7 +1083,7 @@ def build_head(cfg):
 <link rel="stylesheet" href="/assets/remax-brand.css?v=20260712" />
 </head>
 <body>
-  <a class="skip-link" href="#main">{'Skip to content' if is_en else 'Salta al contenuto'}</a>
+  <a class="skip-link" href="#main">{ui(lang, 'skip')}</a>
 """
 
 
@@ -982,10 +1092,10 @@ def build_new_cfg(slug, lang):
     city_it = next(c[1] for c in LOMBARD_PROVINCES if c[0] == slug)
     city_en = next(c[2] for c in LOMBARD_PROVINCES if c[0] == slug)
     content = meta["it" if lang == "it" else "en"]
-    is_en = lang == "en"
+    is_foreign = lang != "it"
     omi = OMI_LINKS.get(slug, "#contatto")
     budget = meta.get("budget", MILANO_BUDGET if slug in ("milano", "monza") else DEFAULT_BUDGET_PROVINCE)
-    if is_en and slug not in ("milano", "monza"):
+    if is_foreign and slug not in ("milano", "monza"):
         budget = [
             ("", "Prefer not to say"),
             ("150000", "Up to €150,000"),
@@ -994,7 +1104,7 @@ def build_new_cfg(slug, lang):
             ("400000-600000", "€400,000 - €600,000"),
             ("600000+", "Over €600,000"),
         ]
-    elif is_en:
+    elif is_foreign:
         budget = [
             ("", "Prefer not to say"),
             ("200000", "Up to €200,000"),
@@ -1004,47 +1114,70 @@ def build_new_cfg(slug, lang):
             ("800000+", "Over €800,000"),
         ]
 
-    city_label = city_en if is_en else city_it
-    faq_work = content.get("faq_work", DEFAULT_FAQ_WORK_IT.format(city=city_label))
-    faq_work_a = content.get("faq_work_a", DEFAULT_FAQ_WORK_A_IT.format(city=city_label))
+    city_display = city_label(slug, lang)
+    faq_work = content.get("faq_work", DEFAULT_FAQ_WORK_IT.format(city=city_display))
+    faq_work_a = content.get("faq_work_a", DEFAULT_FAQ_WORK_A_IT.format(city=city_display))
 
-    if is_en:
-        faq_work = content.get("faq_work", f"Do you work only in {city_en}?")
-        faq_work_a = content.get(
-            "faq_work_a",
-            f"I support buyers across Lombardy, with particular focus on {city_en} and neighbouring provinces.",
-        )
-        trust_row = [
-            ("OMI", "Price based on official data"),
-            ("RE/MAX", "Access to the MLS network"),
-            ("Surveyor", "Real technical checks"),
-        ]
-        stats = [
-            ("OMI", "Official Revenue Agency data"),
-            ("24h", "Reply to your request"),
-            ("✓", "No obligation to appoint"),
-            ("RE/MAX", "International network"),
-        ]
-        form_benefits = content.get("form_benefits", [
-            "Reply within 24 hours, no obligation to appoint",
-            "Fair price analysis for the area you want",
-            "Alert when something truly relevant appears",
-            "Support through negotiation and closing",
-        ])
-        hero_list = content.get("hero_list", [
-            "Price analysis based on OMI data for your area",
-            "Technical checks before you offer",
-            "Targeted search, no listing spam",
-        ])
-        pain = content.get("pain", [
-            ("01", "You fear overpaying", "You find a home you like and cannot tell if the asking price is realistic."),
-            ("02", "You lose out with the wrong offer", "A poorly calibrated offer makes you lose the home or overpay."),
-            ("03", "You have no time for dozens of listings", "Without a filter you waste weeks on the wrong homes."),
-            ("04", "You worry about hidden issues", "Discovering problems after closing is too late — and expensive."),
-        ])
-        omi_text = "Request OMI area analysis →" if omi == "#contatto" else "See OMI values by area →"
-        footer_geo = meta["footer_geo_en"]
-        datalist = meta["datalist_en"]
+    if is_foreign:
+        if lang == "de":
+            faq_work = DEFAULT_FAQ_WORK_DE.format(city=city_display)
+            faq_work_a = DEFAULT_FAQ_WORK_A_DE.format(city=city_display)
+            trust_row = DEFAULT_TRUST_DE
+            stats = DEFAULT_STATS_DE
+            form_benefits = DEFAULT_FORM_BENEFITS_DE
+            hero_list = DEFAULT_HERO_LIST_DE
+            pain = content.get("pain", DEFAULT_PAIN_DE)
+            omi_text = ui("de", "omi")
+            footer_geo = meta["footer_geo_en"]
+            datalist = meta["datalist_en"]
+        elif lang == "fr":
+            faq_work = DEFAULT_FAQ_WORK_FR.format(city=city_display)
+            faq_work_a = DEFAULT_FAQ_WORK_A_FR.format(city=city_display)
+            trust_row = DEFAULT_TRUST_FR
+            stats = DEFAULT_STATS_FR
+            form_benefits = DEFAULT_FORM_BENEFITS_FR
+            hero_list = DEFAULT_HERO_LIST_FR
+            pain = content.get("pain", DEFAULT_PAIN_FR)
+            omi_text = ui("fr", "omi")
+            footer_geo = meta["footer_geo_en"]
+            datalist = meta["datalist_en"]
+        else:
+            faq_work = content.get("faq_work", f"Do you work only in {city_en}?")
+            faq_work_a = content.get(
+                "faq_work_a",
+                f"I support buyers across Lombardy, with particular focus on {city_en} and neighbouring provinces.",
+            )
+            trust_row = [
+                ("OMI", "Price based on official data"),
+                ("RE/MAX", "Access to the MLS network"),
+                ("Surveyor", "Real technical checks"),
+            ]
+            stats = [
+                ("OMI", "Official Revenue Agency data"),
+                ("24h", "Reply to your request"),
+                ("✓", "No obligation to appoint"),
+                ("RE/MAX", "International network"),
+            ]
+            form_benefits = content.get("form_benefits", [
+                "Reply within 24 hours, no obligation to appoint",
+                "Fair price analysis for the area you want",
+                "Alert when something truly relevant appears",
+                "Support through negotiation and closing",
+            ])
+            hero_list = content.get("hero_list", [
+                "Price analysis based on OMI data for your area",
+                "Technical checks before you offer",
+                "Targeted search, no listing spam",
+            ])
+            pain = content.get("pain", [
+                ("01", "You fear overpaying", "You find a home you like and cannot tell if the asking price is realistic."),
+                ("02", "You lose out with the wrong offer", "A poorly calibrated offer makes you lose the home or overpay."),
+                ("03", "You have no time for dozens of listings", "Without a filter you waste weeks on the wrong homes."),
+                ("04", "You worry about hidden issues", "Discovering problems after closing is too late — and expensive."),
+            ])
+            omi_text = "Request OMI area analysis →" if omi == "#contatto" else "See OMI values by area →"
+            footer_geo = meta["footer_geo_en"]
+            datalist = meta["datalist_en"]
     else:
         trust_row = DEFAULT_TRUST_IT
         stats = DEFAULT_STATS_IT
@@ -1055,28 +1188,29 @@ def build_new_cfg(slug, lang):
         footer_geo = meta["footer_geo_it"]
         datalist = meta["datalist_it"]
 
-    en_slug = "milan" if slug == "milano" else slug
-    path = (
-        f"en/buy-home-{en_slug}/index.html"
-        if is_en
-        else ("comprare-casa-milano/index.html" if slug == "milano" else f"comprare-casa-{slug}/index.html")
-    )
+    path = buyer_page_path(slug, lang)
+
+    form_labels = {
+        "it": ("Comprare casa", "Richiesta acquirente", "acquirente", ""),
+        "en": ("Buy home", "Buyer request", "buyer EN", " EN"),
+        "de": ("Haus kaufen", "Käuferanfrage", "buyer DE", " DE"),
+        "fr": ("Acheter maison", "Demande acheteur", "buyer FR", " FR"),
+    }
+    fl = form_labels[lang]
 
     return {
         "path": path,
         "lang": lang,
         "hero_img": meta["hero_img"],
-        "city": city_label,
+        "city": city_display,
         "city_it": city_it,
         "city_en": city_en,
         "city_slug": slug,
         "omi": omi,
         "omi_text": omi_text,
         "seller_link": seller_link_for(slug),
-        "lang_link": province_urls(slug, "en" if lang == "it" else "it"),
-        "lang_label": "EN" if lang == "it" else "IT",
-        "form_hidden": f"{'Comprare casa' if lang == 'it' else 'Buy home'} {city_label} - {'acquirente' if lang == 'it' else 'buyer EN'}",
-        "form_subject": f"{'Richiesta acquirente' if lang == 'it' else 'Buyer request'} - {city_label}{'' if lang == 'it' else ' EN'}",
+        "form_hidden": f"{fl[0]} {city_display} - {fl[2]}",
+        "form_subject": f"{fl[1]} - {city_display}{fl[3]}",
         "datalist_id": meta["datalist_id"],
         "datalist": datalist,
         "budget": budget,
@@ -1095,11 +1229,24 @@ def build_new_cfg(slug, lang):
         "form_benefits": form_benefits,
         "faq_work": faq_work,
         "faq_work_a": faq_work_a,
+        "lang_link": buyer_province_url(slug, "en" if lang == "it" else "it"),
+        "lang_label": "EN" if lang == "it" else "IT",
     }
 
 
 def write_page(cfg):
-    datalist = "\n".join(f"              <option>{o}</option>" for o in cfg["datalist"])
+    if "datalist_raw" in cfg:
+        datalist = cfg["datalist_raw"]
+    elif "datalist" in cfg:
+        datalist = "\n".join(f"              <option>{o}</option>" for o in cfg["datalist"])
+    elif cfg.get("datalist_id"):
+        it_path = ROOT / buyer_page_path(cfg["city_slug"], "it")
+        if it_path.exists():
+            datalist = extract_datalist(it_path.read_text(encoding="utf-8"), cfg["datalist_id"])
+        else:
+            datalist = ""
+    else:
+        datalist = ""
     body = build_body(cfg).replace("{DATALIST}", datalist)
     html = build_head(cfg) + body + "\n</body>\n</html>\n"
     path = ROOT / cfg["path"]
@@ -1111,11 +1258,12 @@ def write_page(cfg):
 def main():
     for cfg in PAGES:
         patch_page(cfg)
-        patch_page(make_en(cfg))
+        for lang in ("en", "de", "fr"):
+            write_page(make_locale(cfg, lang))
 
     for slug in NEW_PROVINCES:
-        write_page(build_new_cfg(slug, "it"))
-        write_page(build_new_cfg(slug, "en"))
+        for lang in LANGS:
+            write_page(build_new_cfg(slug, lang))
 
 
 if __name__ == "__main__":
