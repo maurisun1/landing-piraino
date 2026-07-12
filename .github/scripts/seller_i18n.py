@@ -555,6 +555,42 @@ def _apply_province_templates(html: str, lang: str, slug: str) -> str:
                 f"Ich arbeite in {city} und Provinz und kann über RE/MAX auch mit Kollegen in anderen Provinzen der Lombardei koordinieren, wenn Ihre Immobilie oder Ihr Ziel es erfordert.",
             ),
             (
+                f"Opero su {city_it} e provincia e, tramite RE/MAX, posso coordinarmi anche con colleghi nelle altre province lombarde se il tuo immobile o il tuo obiettivo lo richiede.",
+                f"Ich arbeite in {city} und Provinz und kann über RE/MAX auch mit Kollegen in anderen Provinzen der Lombardei koordinieren, wenn Ihre Immobilie oder Ihr Ziel es erfordert.",
+            ),
+            (
+                f"Definiamo prezzo, timing, comunicazione e profilo dell'acquirente più adatto alla tua zona specifica — {city_it} e provincia.",
+                f"Wir definieren Preis, Timing, Kommunikation und das passende Käuferprofil für Ihre konkrete Zone — {city} und Provinz.",
+            ),
+            (
+                "Ogni vendita ha criticità diverse. Il primo passo è capire cosa può rallentare, svalutare o valorizzare il tuo immobile.",
+                "Jeder Verkauf hat andere Herausforderungen. Der erste Schritt: verstehen, was Ihre Immobilie verzögern, entwerten oder aufwerten kann.",
+            ),
+            (
+                "Eravamo indecisi se vendere ora o aspettare. L'analisi sui dati OMI e sulle compravendite recenti in zona ci ha dato chiarezza senza pressioni commerciali.",
+                "Wir waren unsicher, ob wir jetzt verkaufen oder warten sollten. Die Analyse auf OMI-Daten und jüngsten Transaktionen in der Zone gab uns Klarheit ohne Verkaufsdruck.",
+            ),
+            (
+                "Durante le visite è stato fondamentale avere risposte tecniche chiare su documentazione, stato dell'immobile e strategia di vendita. Questo ha reso la trattativa più fluida.",
+                "Bei Besichtigungen waren klare technische Antworten zu Dokumentation, Zustand und Verkaufsstrategie entscheidend. Das machte die Verhandlung reibungsloser.",
+            ),
+            (
+                "Prima della pubblicazione sono state individuate alcune criticità che avrebbero potuto rallentare la trattativa. Risolverle in anticipo ha migliorato la presentazione e il risultato finale.",
+                "Vor der Veröffentlichung wurden Schwachstellen erkannt, die die Verhandlung verzögert hätten. Die frühzeitige Lösung verbesserte Präsentation und Endergebnis.",
+            ),
+            (
+                "Prima della pubblicazione sono state individuate alcune criticità che avrebbero potuto rallentare la trattativa. Risolverle in anticipo ha migliorato la presentazione dell'immobile.",
+                "Vor der Veröffentlichung wurden Schwachstellen erkannt, die die Verhandlung verzögert hätten. Die frühzeitige Lösung verbesserte die Präsentation der Immobilie.",
+            ),
+            (
+                "Per trasparenza e fiducia. La consulenza resta personale, ma l'affiliazione al network RE/MAX aggiunge riconoscibilità e supporto commerciale.",
+                "Aus Transparenz und Vertrauen. Die Beratung bleibt persönlich, die RE/MAX-Affiliation verleiht aber Wiedererkennung und kommerzielle Unterstützung.",
+            ),
+            (
+                "Per trasparenza e fiducia. La consulenza resta personale, ma l'affiliazione al network RE/MAX aggiunge riconoscibilità e supporto commerciale.",
+                "Aus Transparenz und Vertrauen. Die Beratung bleibt persönlich, die RE/MAX-Affiliation verleiht aber Wiedererkennung und kommerzielle Unterstützung.",
+            ),
+            (
                 f"Lavori solo su {city_it} o anche in provincia?",
                 f"Arbeiten Sie nur in {city} oder auch in der Provinz?",
             ),
@@ -608,6 +644,38 @@ def _apply_province_templates(html: str, lang: str, slug: str) -> str:
             (
                 f"Opero su {city_it} città e provincia e, tramite RE/MAX, posso coordinarmi anche con colleghi nelle altre province lombarde se il tuo immobile o il tuo obiettivo lo richiede.",
                 f"J'interviens à {city} et en province et, via RE/MAX, je peux coordonner avec des collègues dans d'autres provinces lombardes si votre bien ou votre objectif l'exige.",
+            ),
+            (
+                f"Opero su {city_it} e provincia e, tramite RE/MAX, posso coordinarmi anche con colleghi nelle altre province lombarde se il tuo immobile o il tuo obiettivo lo richiede.",
+                f"J'interviens à {city} et en province et, via RE/MAX, je peux coordonner avec des collègues dans d'autres provinces lombardes si votre bien ou votre objectif l'exige.",
+            ),
+            (
+                f"Definiamo prezzo, timing, comunicazione e profilo dell'acquirente più adatto alla tua zona specifica — {city_it} e provincia.",
+                f"Nous définissons le prix, le timing, la communication et le profil acheteur adapté à votre zone — {city} et province.",
+            ),
+            (
+                "Ogni vendita ha criticità diverse. Il primo passo è capire cosa può rallentare, svalutare o valorizzare il tuo immobile.",
+                "Chaque vente a ses propres enjeux. La première étape : comprendre ce qui peut ralentir, dévaloriser ou valoriser votre bien.",
+            ),
+            (
+                "Eravamo indecisi se vendere ora o aspettare. L'analisi sui dati OMI e sulle compravendite recenti in zona ci ha dato chiarezza senza pressioni commerciali.",
+                "Nous hésitions à vendre maintenant ou à attendre. L'analyse des données OMI et des transactions récentes dans la zone nous a éclairés sans pression commerciale.",
+            ),
+            (
+                "Durante le visite è stato fondamentale avere risposte tecniche chiare su documentazione, stato dell'immobile e strategia di vendita. Questo ha reso la trattativa più fluida.",
+                "Lors des visites, des réponses techniques claires sur la documentation, l'état du bien et la stratégie de vente ont été essentielles. La négociation s'est déroulée plus facilement.",
+            ),
+            (
+                "Prima della pubblicazione sono state individuate alcune criticità che avrebbero potuto rallentare la trattativa. Risolverle in anticipo ha migliorato la presentazione dell'immobile.",
+                "Avant la publication, des points sensibles susceptibles de ralentir la négociation ont été identifiés. Les résoudre à l'avance a amélioré la présentation du bien.",
+            ),
+            (
+                "Prima della pubblicazione sono state individuate alcune criticità che avrebbero potuto rallentare la trattativa. Risolverle in anticipo ha migliorato la presentazione e il risultato finale.",
+                "Avant la publication, des points sensibles susceptibles de ralentir la négociation ont été identifiés. Les résoudre à l'avance a amélioré la présentation et le résultat final.",
+            ),
+            (
+                "Per trasparenza e fiducia. La consulenza resta personale, ma l'affiliazione al network RE/MAX aggiunge riconoscibilità e supporto commerciale.",
+                "Par transparence et confiance. Le conseil reste personnel, mais l'affiliation au réseau RE/MAX apporte reconnaissance et soutien commercial.",
             ),
             (
                 f"Lavori solo su {city_it} o anche in provincia?",

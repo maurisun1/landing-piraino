@@ -1048,12 +1048,24 @@ def build_head(cfg):
         f'<link rel="alternate" hreflang="{l}" href="{urls[l]}" />' for l in LANGS
     )
 
+    faq_cost_q = {
+        "it": "Quanto costa il servizio per chi compra?",
+        "en": "How much does the buyer service cost?",
+        "de": "Was kostet die Käuferberatung?",
+        "fr": "Combien coûte le conseil acheteurs ?",
+    }
+    faq_cost_a = {
+        "it": "Ne parliamo con chiarezza fin dal primo contatto, senza sorprese.",
+        "en": "We discuss it clearly from the first contact, without surprises.",
+        "de": "Wir besprechen das klar vom ersten Kontakt an — ohne Überraschungen.",
+        "fr": "Nous en parlons clairement dès le premier contact, sans surprise.",
+    }
     schema = (
         '{"@context":"https://schema.org","@graph":['
         '{"@type":"RealEstateAgent","@id":"https://mauriziopiraino.it/#agent","name":"Maurizio Piraino","url":"https://mauriziopiraino.it/","areaServed":["Milano","Provincia di Milano","Brescia","Bergamo","Lombardia"],"telephone":"+39 351 458 1993"},'
         f'{{"@type":"Service","name":"{service_names[lang]}","serviceType":"{service_types[lang]}","provider":{{"@id":"https://mauriziopiraino.it/#agent"}},"areaServed":"{city}","url":"{canonical}"}},'
         '{"@type":"FAQPage","mainEntity":['
-        '{"@type":"Question","name":"Quanto costa il servizio per chi compra?","acceptedAnswer":{"@type":"Answer","text":"Ne parliamo con chiarezza fin dal primo contatto, senza sorprese."}},'
+        f'{{"@type":"Question","name":"{faq_cost_q[lang]}","acceptedAnswer":{{"@type":"Answer","text":"{faq_cost_a[lang]}"}}}},'
         f'{{"@type":"Question","name":"{faq_work}","acceptedAnswer":{{"@type":"Answer","text":"{faq_work_a}"}}}}'
         "]}]}"
     )
