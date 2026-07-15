@@ -130,6 +130,15 @@ def buyer_hub_url(lang: str) -> str:
     }[lang]
 
 
+def seller_hub_url(lang: str) -> str:
+    return {
+        "it": "/vendere-casa/",
+        "en": "/vendere-casa/",  # no EN seller hub yet — share IT hub
+        "de": "/de/haus-verkaufen/",
+        "fr": "/fr/vendre-maison/",
+    }[lang]
+
+
 def buyer_province_url(slug: str, lang: str) -> str:
     es = en_slug(slug)
     if lang == "it":
