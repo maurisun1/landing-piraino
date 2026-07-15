@@ -85,21 +85,21 @@ DEFAULT_TRUST_IT = [
 
 DEFAULT_PAIN_IT = [
     ("01", "Hai paura di pagare troppo", "Vedi una casa che ti piace e non sai se il prezzo richiesto è realistico per quella zona."),
-    ("02", "Perdi l'occasione per un'offerta sbagliata", "Mercato competitivo: un'offerta bassa ti esclude, una troppo alta ti costa per anni."),
-    ("03", "Non hai tempo per decine di annunci", "Portali, visite, trattative: senza filtro perdi settimane su immobili che non erano per te."),
+    ("02", "Investi senza numeri chiari", "Redditività, rischio e valorizzazione restano nebulosi: serve analisi prima del capitale."),
+    ("03", "Perdi tempo tra annunci inutili", "Portali e visite senza Property Finding: settimane su immobili che non erano per te."),
     ("04", "Temi problemi nascosti", "Difformità, documenti, vincoli: scoprirli dopo il rogito è troppo tardi — e costoso."),
 ]
 
 DEFAULT_HERO_LIST_IT = [
-    "Analisi prezzo su dati OMI della tua zona",
-    "Verifica tecnica prima dell'offerta",
-    "Ricerca mirata, senza spam di annunci",
+    "Property Finding anche off-market",
+    "Verifica documentale prima dell'offerta",
+    "Consulenza per casa o investimento",
 ]
 
 DEFAULT_FORM_BENEFITS_IT = [
     "Ti richiamo entro 24 ore, nessun obbligo di incarico",
-    "Analisi del prezzo giusto per la zona che cerchi",
-    "Alert quando esce qualcosa davvero in linea",
+    "Property Finding personalizzato per zona e obiettivo",
+    "Analisi prezzo e redditività quando investi",
     "Supporto in trattativa fino al rogito",
 ]
 

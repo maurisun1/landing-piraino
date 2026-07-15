@@ -149,19 +149,18 @@ def render_enrichment(cfg: dict) -> str:
       </div>
     </section>
 
-    <section class="seller-services">
+    <section class="seller-services consultant-services" id="servizi">
       <div class="container">
         <div class="section-head reveal">
           <div class="section-kicker">Servizi</div>
-          <h2>Tutto ciò che serve per vendere con metodo.</h2>
-          <p>Dalla prima analisi alla firma dal notaio: un percorso chiaro, senza improvvisazione.</p>
+          <h2>Consulenza completa: compra, investi o vendi.</h2>
+          <p>Property Finding e investitori in primo piano. La vendita resta un percorso strutturato se ti serve.</p>
         </div>
         <div class="seller-services-grid">
-          <article class="seller-service-card reveal"><div class="seller-service-num">A</div><h3>Analisi e valutazione</h3><p>Studio del mercato locale, comparables, OMI e posizionamento prezzo iniziale.</p></article>
-          <article class="seller-service-card reveal"><div class="seller-service-num">B</div><h3>Preparazione immobile</h3><p>Home staging consigliato, documenti in ordine, presentazione che valorizza i punti di forza.</p></article>
-          <article class="seller-service-card reveal"><div class="seller-service-num">C</div><h3>Marketing RE/MAX</h3><p>Foto professionali, portali, rete MLS e visibilità internazionale del brand.</p></article>
-          <article class="seller-service-card reveal"><div class="seller-service-num">D</div><h3>Open House</h3><p>Porte aperte organizzate per attrarre più acquirenti qualificati in poche ore, con gestione professionale delle visite.</p></article>
-          <article class="seller-service-card reveal"><div class="seller-service-num">E</div><h3>Trattativa e rogito</h3><p>Gestione offerte, negoziazione e affiancamento fino al passaggio definitivo.</p></article>
+          <article class="seller-service-card featured reveal"><div class="seller-service-num">01</div><h3>Property Finding</h3><p>Ricerca personalizzata anche off-market, visite, negoziazione e tutela fino al rogito.</p></article>
+          <article class="seller-service-card reveal"><div class="seller-service-num">02</div><h3>Consulenza per investitori</h3><p>Opportunità a reddito, valorizzazione e analisi della redditività con numeri chiari.</p></article>
+          <article class="seller-service-card reveal"><div class="seller-service-num">03</div><h3>Chi compra casa</h3><p>Prima casa o cambio abitazione: verifica documentale e supporto in trattativa.</p></article>
+          <article class="seller-service-card secondary reveal"><div class="seller-service-num">04</div><h3>Valutazione e vendita</h3><p>Analisi OMI, strategia di prezzo, marketing RE/MAX e affiancamento fino al rogito.</p></article>
         </div>
       </div>
     </section>
@@ -171,12 +170,12 @@ def render_enrichment(cfg: dict) -> str:
         <div class="seller-mid-cta-inner">
           <div>
             <p class="seller-mid-kicker">RE/MAX · {city}</p>
-            <h2>Scopri quanto vale davvero il tuo immobile.</h2>
-            <p>Analisi riservata basata su dati reali. Nessun obbligo di incarico, risposta entro 24 ore.</p>
+            <h2>Cerchi casa, investi o vendi a {city}?</h2>
+            <p>Consulenza riservata su dati reali. Nessun obbligo, risposta entro 24 ore.</p>
           </div>
           <div class="seller-mid-actions">
-            <a class="btn btn-red" href="#form">Richiedi l'analisi gratuita</a>
-            <a class="btn btn-light" href="{cfg["buy"]}">Stai cercando casa? →</a>
+            <a class="btn btn-red" href="{cfg["buy"]}">Property Finding →</a>
+            <a class="btn btn-light" href="#form">Analisi vendita →</a>
           </div>
         </div>
       </div>

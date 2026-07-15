@@ -24,7 +24,7 @@ def apply_locale(path: Path, L: dict) -> None:
         re.DOTALL,
     )
     hero = f"""<div class="hero-agent reveal">
-            <img src="/foto.jpg" alt="Maurizio Piraino" width="56" height="56" decoding="async" />
+            <img src="foto.jpg" alt="Maurizio Piraino" width="56" height="56" decoding="async" />
             <div>
               <strong>Maurizio Piraino</strong>
               <span>{L['agent_span']}</span>
