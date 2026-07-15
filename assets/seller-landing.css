@@ -55,6 +55,7 @@ section.hero#contatto.seller-form-section::after {
   padding: clamp(8px, 1.5vw, 16px) 0;
 }
 
+.seller-form-aside h1,
 .seller-form-aside h2 {
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(30px, 3.8vw, 46px);
