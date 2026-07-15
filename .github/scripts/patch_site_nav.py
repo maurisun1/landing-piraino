@@ -263,7 +263,7 @@ def extract_cta(block: str) -> tuple[str, str]:
 def infer_tagline(path: Path, lang: str) -> str | None:
     rel = path.relative_to(ROOT).as_posix()
     if rel == "index.html":
-        return "Agente Immobiliare affiliato <strong>RE/MAX</strong> · Milano"
+        return "Consulente <strong>RE/MAX</strong> · Acquirenti e investitori"
     if rel == "bergamo/index.html":
         return "Agente Immobiliare affiliato <strong>RE/MAX</strong> · Bergamo · Città Alta · Provincia"
     if rel == "brescia/index.html":
@@ -317,6 +317,36 @@ def seller_nav_groups(*, sell_href: str, buy_href: str, lang: str = "it") -> lis
             [
                 f'<a href="{sell_href}" class="nav-link-primary">{sell_l}</a>',
                 f'<a href="{buy_href}">{buy_l}</a>',
+            ],
+            extra_class="nav-group-path",
+        ),
+        render_nav_group(
+            info_l,
+            [
+                f'<a href="#metodo">{about_l}</a>',
+                '<a href="#remax">RE/MAX</a>',
+            ],
+            extra_class="nav-group-info",
+        ),
+    ]
+
+
+def consultant_home_nav_groups(*, buy_href: str, lang: str = "it") -> list[str]:
+    """Homepage personal-brand nav: Comprare / Investire first, Vendere secondary."""
+    labels = {
+        "it": ("Percorso", "Comprare", "Investire", "Vendere", "Info", "Chi sono"),
+        "de": ("Weg", "Kaufen", "Investieren", "Verkaufen", "Info", "Über mich"),
+        "fr": ("Parcours", "Acheter", "Investir", "Vendre", "Info", "Qui je suis"),
+        "en": ("Path", "Buy", "Invest", "Sell", "About", "About me"),
+    }
+    path_l, buy_l, inv_l, sell_l, info_l, about_l = labels.get(lang, labels["en"])
+    return [
+        render_nav_group(
+            path_l,
+            [
+                f'<a href="{buy_href}" class="nav-link-primary">{buy_l}</a>',
+                f'<a href="#servizi">{inv_l}</a>',
+                f'<a href="#form">{sell_l}</a>',
             ],
             extra_class="nav-group-path",
         ),
@@ -504,21 +534,36 @@ def main() -> None:
             print(f"  skip (missing): {rel}")
             continue
         block = extract_header_block(path.read_text(encoding="utf-8"))
+        is_home = slug == "milano"
+        groups = (
+            consultant_home_nav_groups(buy_href=buyer_hub_url("it"), lang="it")
+            if is_home
+            else seller_nav_groups(sell_href=seller_url(slug, "it"), buy_href=buyer_hub_url("it"), lang="it")
+        )
+        cta_href, cta_label = extract_cta(block)
+        if is_home:
+            cta_href, cta_label = "#contatto", "Prenota consulenza"
+        tagline = (
+            "Consulente <strong>RE/MAX</strong> · Acquirenti e investitori"
+            if is_home
+            else (extract_tagline(block) or infer_tagline(path, "it"))
+        )
         patch_page(
             path,
-            tagline=extract_tagline(block) or infer_tagline(path, "it"),
+            tagline=tagline,
             brand=SHORT_BRAND,
-            groups=seller_nav_groups(sell_href=seller_url(slug, "it"), buy_href=buyer_hub_url("it"), lang="it"),
+            groups=groups,
             lang_link=render_lang_links("it", seller_lang_urls(slug), aria_lang="it"),
             wa_url=extract_wa_url(block),
             wa_topbar="WhatsApp",
             wa_short="WA",
-            cta_href=extract_cta(block)[0],
-            cta_label=extract_cta(block)[1],
+            cta_href=cta_href,
+            cta_label=cta_label,
             lang="it",
         )
 
     print("Patching seller pages (DE/FR)...")
+    home_cta = {"de": "Beratung vereinbaren", "fr": "Réserver une consultation"}
     for lang in ("de", "fr"):
         for slug, _name, _en in LOMBARD_PROVINCES:
             rel = f"{lang}/index.html" if slug == "milano" else f"{lang}/{slug}/index.html"
@@ -527,17 +572,38 @@ def main() -> None:
                 continue
             block = extract_header_block(path.read_text(encoding="utf-8"))
             city = city_label(slug, lang)
+            is_home = slug == "milano"
+            groups = (
+                consultant_home_nav_groups(buy_href=buyer_hub_url(lang), lang=lang)
+                if is_home
+                else seller_nav_groups(sell_href=seller_url(slug, lang), buy_href=buyer_hub_url(lang), lang=lang)
+            )
+            cta_href, cta_label = extract_cta(block)
+            if is_home:
+                cta_href, cta_label = "#contatto", home_cta[lang]
+            if is_home:
+                tagline = (
+                    "Berater <strong>RE/MAX</strong> · Käufer und Investoren"
+                    if lang == "de"
+                    else "Conseiller <strong>RE/MAX</strong> · Acheteurs et investisseurs"
+                )
+            else:
+                tagline = (
+                    f"Immobilienberatung <strong>RE/MAX</strong> · {city}"
+                    if lang == "de"
+                    else f"Conseil immobilier <strong>RE/MAX</strong> · {city}"
+                )
             patch_page(
                 path,
-                tagline=f"Immobilienberatung <strong>RE/MAX</strong> · {city}" if lang == "de" else f"Conseil immobilier <strong>RE/MAX</strong> · {city}",
+                tagline=tagline,
                 brand=SHORT_BRAND,
-                groups=seller_nav_groups(sell_href=seller_url(slug, lang), buy_href=buyer_hub_url(lang), lang=lang),
+                groups=groups,
                 lang_link=render_lang_links(lang, seller_lang_urls(slug), aria_lang=lang),
                 wa_url=extract_wa_url(block),
                 wa_topbar="WhatsApp",
                 wa_short="WA",
-                cta_href=extract_cta(block)[0],
-                cta_label=extract_cta(block)[1],
+                cta_href=cta_href,
+                cta_label=cta_label,
                 lang=lang,
             )
 

@@ -1,0 +1,213 @@
+/* Homepage repositioning — consultant for buyers & investors */
+
+.consultant-path {
+  background: linear-gradient(180deg, #e8eef8 0%, var(--remax-cream, #f7f5ee) 55%, var(--cream, #f6f1e9) 100%);
+  border-bottom: 2px solid rgba(0, 61, 165, .14);
+  padding: 32px 0 40px;
+}
+
+.consultant-path-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.consultant-path-intro {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--remax-blue, #003da5);
+}
+
+.consultant-path-intro em {
+  font-style: normal;
+  color: var(--remax-red, #dc1c2e);
+}
+
+.consultant-path-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 22px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 61, 165, .12);
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 61, 165, .08);
+  transition: transform .2s ease, box-shadow .2s ease;
+  min-height: 100%;
+}
+
+.consultant-path-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, .08);
+}
+
+.consultant-path-primary { border-top: 3px solid var(--remax-blue, #003da5); }
+.consultant-path-invest { border-top: 3px solid #0c2749; }
+.consultant-path-sell { border-top: 3px solid var(--remax-red, #dc1c2e); opacity: .96; }
+
+.consultant-path-label {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted, #707070);
+}
+
+.consultant-path-card strong {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  color: var(--text, #222);
+  line-height: 1.25;
+}
+
+.consultant-path-card p {
+  margin: 0;
+  color: var(--muted, #707070);
+  font-size: 14px;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.consultant-path-cta {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--remax-blue, #003da5);
+  margin-top: 6px;
+}
+
+.consultant-path-sell .consultant-path-cta {
+  color: var(--remax-red, #dc1c2e);
+}
+
+.consultant-services .seller-services-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.consultant-services .seller-service-card.featured {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #0c2749 0%, #003da5 100%);
+  color: #fff;
+  border: none;
+}
+
+.consultant-services .seller-service-card.featured h3,
+.consultant-services .seller-service-card.featured p {
+  color: #fff;
+}
+
+.consultant-services .seller-service-card.featured .seller-service-num {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+}
+
+.consultant-services .seller-service-card.secondary {
+  opacity: .92;
+  border-style: dashed;
+}
+
+.consultant-services .service-list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.consultant-services .service-list li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 13px;
+  color: inherit;
+  opacity: .88;
+}
+
+.consultant-services .service-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--remax-red, #dc1c2e);
+}
+
+.consultant-services .seller-service-card.featured .service-list li::before {
+  background: #fff;
+}
+
+.editorial-bridge {
+  padding: 48px 0;
+  background: #fff;
+  border-top: 1px solid rgba(0,0,0,.06);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+
+.editorial-bridge-inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 32px 36px;
+  border-radius: 18px;
+  background: var(--remax-cream, #f7f5ee);
+  border: 1px solid rgba(0, 61, 165, .1);
+}
+
+.editorial-bridge .section-kicker { margin-bottom: 8px; }
+.editorial-bridge h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(24px, 3vw, 32px);
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+.editorial-bridge p {
+  margin: 0;
+  color: var(--muted, #707070);
+  font-size: 16px;
+}
+.editorial-bridge-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.intent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.intent-card {
+  border: 1.5px solid rgba(0,0,0,.12);
+  border-radius: 10px;
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  background: #fff;
+  line-height: 1.3;
+  transition: border-color .15s, background .15s, color .15s;
+}
+
+.intent-card.on {
+  border-color: var(--remax-blue, #003da5);
+  background: rgba(0, 61, 165, .06);
+  color: var(--remax-blue, #003da5);
+}
+
+@media (max-width: 900px) {
+  .consultant-path-grid { grid-template-columns: 1fr; }
+  .consultant-services .seller-services-grid { grid-template-columns: 1fr; }
+  .consultant-services .seller-service-card.featured { grid-column: auto; }
+  .editorial-bridge-inner { grid-template-columns: 1fr; }
+  .intent-grid { grid-template-columns: 1fr; }
+}
