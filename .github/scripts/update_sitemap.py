@@ -10,7 +10,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from buyer_provinces import LOMBARD_PROVINCES
-from locales import buyer_hub_url, buyer_province_url, seller_url
+from locales import buyer_hub_url, buyer_province_url, seller_hub_url, seller_url
 
 ROOT = Path(__file__).resolve().parents[2]
 BASE = "https://mauriziopiraino.it"
@@ -50,6 +50,9 @@ def main() -> None:
 
     for lang in ("it", "en", "de", "fr"):
         entries.append(url_entry(f"{BASE}{buyer_hub_url(lang)}", priority="0.95" if lang == "it" else "0.85"))
+
+    for lang in ("it", "de", "fr"):
+        entries.append(url_entry(f"{BASE}{seller_hub_url(lang)}", priority="0.95" if lang == "it" else "0.85"))
 
     for slug, _it, _en in LOMBARD_PROVINCES:
         for lang in ("it", "en", "de", "fr"):

@@ -756,12 +756,21 @@ def patch_page(cfg):
     path = ROOT / cfg["path"]
     html = path.read_text(encoding="utf-8")
 
-    if 'href="/assets/buyer-landing.css?v=20260712"' not in html:
-        html = html.replace("</style>\n</head>", '</style>\n<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260712" />\n</head>')
-    if 'href="/assets/site-nav.css?v=20260712"' not in html:
-        html = html.replace(
-            '<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260712" />',
-            '<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260712" />\n<link rel="stylesheet" href="/assets/site-nav.css?v=20260712" />',
+    if 'href="/assets/buyer-landing.css' not in html:
+        html = html.replace("</style>\n</head>", '</style>\n<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260715b" />\n</head>')
+    if 'consultant-home.css' not in html:
+        html = re.sub(
+            r'(<link rel="stylesheet" href="/assets/buyer-landing\.css[^"]*"\s*/?>)',
+            r'\1\n<link rel="stylesheet" href="/assets/consultant-home.css?v=20260715b" />',
+            html,
+            count=1,
+        )
+    if 'href="/assets/site-nav.css' not in html:
+        html = re.sub(
+            r'(<link rel="stylesheet" href="/assets/buyer-landing\.css[^"]*"\s*/?>)',
+            r'\1\n<link rel="stylesheet" href="/assets/site-nav.css?v=20260712" />',
+            html,
+            count=1,
         )
 
     datalist = extract_datalist(html, cfg["datalist_id"])

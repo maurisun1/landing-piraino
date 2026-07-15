@@ -17,6 +17,7 @@ from locales import (
     city_label,
     hub_lang_urls,
     render_lang_links,
+    seller_hub_url,
     seller_lang_urls,
     seller_url,
 )
@@ -331,8 +332,8 @@ def seller_nav_groups(*, sell_href: str, buy_href: str, lang: str = "it") -> lis
     ]
 
 
-def consultant_home_nav_groups(*, buy_href: str, lang: str = "it") -> list[str]:
-    """Homepage personal-brand nav: Comprare / Investire first, Vendere secondary."""
+def consultant_home_nav_groups(*, buy_href: str, sell_href: str, lang: str = "it") -> list[str]:
+    """Homepage personal-brand nav: Comprare / Investire / Vendere hubs."""
     labels = {
         "it": ("Percorso", "Comprare", "Investire", "Vendere", "Info", "Chi sono"),
         "de": ("Weg", "Kaufen", "Investieren", "Verkaufen", "Info", "Über mich"),
@@ -346,7 +347,7 @@ def consultant_home_nav_groups(*, buy_href: str, lang: str = "it") -> list[str]:
             [
                 f'<a href="{buy_href}" class="nav-link-primary">{buy_l}</a>',
                 f'<a href="#servizi">{inv_l}</a>',
-                f'<a href="#form">{sell_l}</a>',
+                f'<a href="{sell_href}">{sell_l}</a>',
             ],
             extra_class="nav-group-path",
         ),
@@ -405,6 +406,7 @@ def hub_nav_groups(*, lang: str) -> list[str]:
     }
     path_l, buy_l, sell_l, info_l, about_l, alt_l = labels.get(lang, labels["en"])
     buy_hub = buyer_hub_url(lang)
+    sell_hub = seller_hub_url(lang)
     metodo = "/#metodo" if lang == "it" else "/#metodo"
     alt_links = {
         "it": '<a href="/en/buy-home/">English</a>',
@@ -417,7 +419,7 @@ def hub_nav_groups(*, lang: str) -> list[str]:
             path_l,
             [
                 f'<a href="{buy_hub}" class="nav-link-primary">{buy_l}</a>',
-                f'<a href="/">{sell_l}</a>',
+                f'<a href="{sell_hub}">{sell_l}</a>',
             ],
             extra_class="nav-group-path",
         ),
@@ -536,9 +538,17 @@ def main() -> None:
         block = extract_header_block(path.read_text(encoding="utf-8"))
         is_home = slug == "milano"
         groups = (
-            consultant_home_nav_groups(buy_href=buyer_hub_url("it"), lang="it")
+            consultant_home_nav_groups(
+                buy_href=buyer_hub_url("it"),
+                sell_href=seller_hub_url("it"),
+                lang="it",
+            )
             if is_home
-            else seller_nav_groups(sell_href=seller_url(slug, "it"), buy_href=buyer_hub_url("it"), lang="it")
+            else seller_nav_groups(
+                sell_href=seller_hub_url("it"),
+                buy_href=buyer_hub_url("it"),
+                lang="it",
+            )
         )
         cta_href, cta_label = extract_cta(block)
         if is_home:
@@ -574,9 +584,17 @@ def main() -> None:
             city = city_label(slug, lang)
             is_home = slug == "milano"
             groups = (
-                consultant_home_nav_groups(buy_href=buyer_hub_url(lang), lang=lang)
+                consultant_home_nav_groups(
+                    buy_href=buyer_hub_url(lang),
+                    sell_href=seller_hub_url(lang),
+                    lang=lang,
+                )
                 if is_home
-                else seller_nav_groups(sell_href=seller_url(slug, lang), buy_href=buyer_hub_url(lang), lang=lang)
+                else seller_nav_groups(
+                    sell_href=seller_hub_url(lang),
+                    buy_href=buyer_hub_url(lang),
+                    lang=lang,
+                )
             )
             cta_href, cta_label = extract_cta(block)
             if is_home:
@@ -634,7 +652,7 @@ def main() -> None:
                 tagline=extract_tagline(block) or infer_tagline(path, lang),
                 brand=SHORT_BRAND,
                 groups=buyer_nav_groups(
-                    sell_href=seller_url(slug, lang),
+                    sell_href=seller_hub_url(lang),
                     omi_href=buyer_omi_href(slug),
                     buy_href=buyer_hub_url(lang),
                     lang=lang,
@@ -688,7 +706,7 @@ def main() -> None:
             path,
             tagline=f"Guida prezzi OMI · <strong>{city}</strong> · Dati Agenzia Entrate",
             brand="Maurizio Piraino",
-            groups=guide_nav_groups(city=city, seller_href=seller),
+            groups=guide_nav_groups(city=city, seller_href="/vendere-casa/"),
             lang_link=render_lang_links("it", hub_lang_urls(), aria_lang="it"),
             wa_url=wa_url,
             wa_topbar="WhatsApp",
