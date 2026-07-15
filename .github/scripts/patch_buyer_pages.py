@@ -492,7 +492,7 @@ def build_body(cfg):
     footer_note = t(cfg, "footer_n",
                     "La consulenza iniziale non costituisce obbligo di conferimento incarico.",
                     "The initial consultation does not create an obligation to appoint an agent.")
-    agent_label = t(cfg, "agent", "Agente Immobiliare affiliato RE/MAX", "RE/MAX Real Estate Agent")
+    agent_label = t(cfg, "agent", "Consulente per acquirenti e investitori · RE/MAX", "Buyer & investor advisor · RE/MAX")
     footer_affiliation = t(cfg, "footer_aff", FOOTER_AFFILIATION_IT, FOOTER_AFFILIATION_EN)
     agency_bio = t(cfg, "agency_bio", ABOUT_AGENCY_IT, ABOUT_AGENCY_EN)
 
@@ -501,8 +501,8 @@ def build_body(cfg):
         for n, h, p in cfg["pain"]
     )
     adv_cards = "".join(
-        f'<div class="adv-card reveal"><div class="buyer-adv-icon">{icon}</div><h3>{h}</h3><p>{p}</p></div>'
-        for icon, (h, p) in zip(icons, advantages)
+        f'<div class="adv-card{" featured-adv" if i == 0 else ""} reveal"><div class="buyer-adv-icon">{icon}</div><h3>{h}</h3><p>{p}</p></div>'
+        for i, (icon, (h, p)) in enumerate(zip(icons, advantages))
     )
     market_cards = "".join(
         f'<div class="buyer-market-card reveal"><span>{s}</span><h3>{h}</h3><p>{p}</p></div>'
@@ -1015,30 +1015,30 @@ def build_head(cfg):
     img = f"https://mauriziopiraino.it{cfg['hero_img']}"
 
     meta_titles = {
-        "it": f"Comprare casa a {city}: consulenza per acquirenti | Piraino",
-        "en": f"Buy a home in {city}: buyer advisory | Piraino",
-        "de": f"Haus kaufen in {city}: Käuferberatung | Piraino",
-        "fr": f"Acheter une maison à {city}: conseil acheteurs | Piraino",
+        "it": f"Property Finding {city}: consulenza acquirenti e investitori | Piraino",
+        "en": f"Property Finding {city}: buyer & investor advisory | Piraino",
+        "de": f"Property Finding {city}: Beratung für Käufer und Investoren | Piraino",
+        "fr": f"Property Finding {city}: conseil acheteurs et investisseurs | Piraino",
     }
     meta_descs = {
-        "it": f"Vuoi comprare casa a {city} senza pagarla troppo? Analisi del prezzo giusto, verifica tecnica e ricerca mirata RE/MAX.",
-        "en": f"Want to buy in {city} without overpaying? Fair price analysis, technical checks and targeted RE/MAX search.",
-        "de": f"Möchten Sie in {city} kaufen, ohne zu viel zu zahlen? OMI-Preisanalyse, technische Prüfung und gezielte RE/MAX-Suche.",
-        "fr": f"Vous voulez acheter à {city} sans payer trop cher ? Analyse OMI, vérification technique et recherche ciblée RE/MAX.",
+        "it": f"Property Finding a {city}: ricerca anche off-market, verifica documentale, negoziazione e tutela fino al rogito. Consulenza per acquirenti e investitori RE/MAX.",
+        "en": f"Property Finding in {city}: off-market search, document checks, negotiation and support to completion. Buyer and investor advisory with RE/MAX.",
+        "de": f"Property Finding in {city}: Suche auch off-market, Dokumentenprüfung, Verhandlung und Schutz bis zum Notartermin. Beratung für Käufer und Investoren RE/MAX.",
+        "fr": f"Property Finding à {city}: recherche aussi hors marché, contrôle documentaire, négociation et protection jusqu'à l'acte. Conseil acheteurs et investisseurs RE/MAX.",
     }
     title = cfg.get("meta_title", meta_titles[lang])
     desc = cfg.get("meta_desc", meta_descs[lang])
     service_types = {
-        "it": "Consulenza immobiliare per acquirenti",
-        "en": "Real estate buyer advisory",
-        "de": "Immobilien-Käuferberatung",
-        "fr": "Conseil immobilier pour acheteurs",
+        "it": "Property Finding e consulenza per acquirenti e investitori",
+        "en": "Property Finding and buyer & investor advisory",
+        "de": "Property Finding und Beratung für Käufer und Investoren",
+        "fr": "Property Finding et conseil acheteurs et investisseurs",
     }
     service_names = {
-        "it": f"Consulenza per l'acquisto di casa a {city}",
-        "en": f"Home buying advisory in {city}",
-        "de": f"Käuferberatung in {city}",
-        "fr": f"Conseil achat immobilier à {city}",
+        "it": f"Property Finding e consulenza immobiliare a {city}",
+        "en": f"Property Finding and real estate advisory in {city}",
+        "de": f"Property Finding und Immobilienberatung in {city}",
+        "fr": f"Property Finding et conseil immobilier à {city}",
     }
     faq_work = cfg["faq_work"]
     faq_work_a = cfg["faq_work_a"]
@@ -1096,7 +1096,8 @@ def build_head(cfg):
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">{schema}</script>
 {get_styles()}
-<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260712" />
+<link rel="stylesheet" href="/assets/buyer-landing.css?v=20260715b" />
+<link rel="stylesheet" href="/assets/consultant-home.css?v=20260715b" />
 <link rel="stylesheet" href="/assets/site-nav.css?v=20260712" />
 <link rel="stylesheet" href="/assets/site-base.css?v=20260712" />
 <link rel="stylesheet" href="/assets/remax-brand.css?v=20260712" />

@@ -211,3 +211,66 @@
   .editorial-bridge-inner { grid-template-columns: 1fr; }
   .intent-grid { grid-template-columns: 1fr; }
 }
+
+/* Premium consulting visual upgrades */
+.consultant-path-lite .dual-path-buy {
+  order: -1;
+}
+
+.buyer-hero-pro .hero-portrait-float,
+.consultant-portrait-band {
+  position: relative;
+}
+
+.consultant-portrait-band {
+  padding: 56px 0;
+  background: linear-gradient(180deg, #fff 0%, var(--remax-cream, #f7f5ee) 100%);
+}
+
+.consultant-portrait-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.consultant-portrait-grid img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 24px 48px rgba(12, 39, 73, .18);
+  object-fit: cover;
+  aspect-ratio: 4/5;
+}
+
+.consultant-portrait-grid .section-kicker { margin-bottom: 10px; }
+.consultant-portrait-grid h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(26px, 3vw, 36px);
+  margin: 0 0 14px;
+  line-height: 1.15;
+}
+.consultant-portrait-grid p {
+  color: var(--muted, #707070);
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0 0 18px;
+}
+.consultant-portrait-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.adv-card.featured-adv {
+  background: linear-gradient(135deg, #0c2749 0%, #003da5 100%);
+  color: #fff;
+  border: none;
+}
+.adv-card.featured-adv h3,
+.adv-card.featured-adv p { color: #fff; }
+.adv-card.featured-adv .adv-num { background: rgba(255,255,255,.15); color: #fff; }
+
+@media (max-width: 800px) {
+  .consultant-portrait-grid { grid-template-columns: 1fr; }
+  .consultant-portrait-grid img { max-width: 280px; margin: 0 auto; }
+}
