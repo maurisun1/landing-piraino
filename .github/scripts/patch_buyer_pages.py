@@ -346,7 +346,7 @@ def build_body(cfg):
     nav_method = t(cfg, "nav_method", "Metodo", "Method")
     nav_remax = "RE/MAX"
     nav_omi = t(cfg, "nav_omi", "Prezzi OMI", "OMI prices")
-    nav_cta = t(cfg, "nav_cta", "Dimmi cosa cerchi", "Tell me what you need")
+    nav_cta = t(cfg, "nav_cta", "Prenota una consulenza", "Book a consultation")
     kicker = t(cfg, "kicker", f'Comprare casa a {cfg["city"]}', f'Buy a home in {cfg["city"]}')
     h1 = t(cfg, "h1",
            f'Comprare bene a {cfg["city"]} non è trovare una casa.<br>È non pagarla troppo.',
@@ -367,7 +367,7 @@ def build_body(cfg):
     }
     lead = cfg.get("lead") or leads[cfg["city_slug"]][1 if is_foreign else 0]
     lead_strong = t(cfg, "lead_strong", "Prima l'analisi. Poi la scelta giusta.", "Analysis first. Then the right choice.")
-    cta1 = t(cfg, "cta1", "Dimmi cosa cerchi →", "Tell me what you need →")
+    cta1 = t(cfg, "cta1", "Prenota una consulenza →", "Book a consultation →")
     cta2 = t(cfg, "cta2", "Come funziona", "How it works")
     card_h = t(cfg, "card_h", "Registra la ricerca", "Register your search")
     card_p = t(cfg, "card_p", "Due minuti. Ti richiamo entro 24 ore.", "Two minutes. I will call you back within 24 hours.")
@@ -451,7 +451,7 @@ def build_body(cfg):
         (cfg["faq_work"], cfg["faq_work_a"]),
     ]
 
-    form_h2 = t(cfg, "form_h", "Dimmi cosa cerchi", "Tell me what you need")
+    form_h2 = t(cfg, "form_h", "Prenota una consulenza", "Book a consultation")
     form_p = t(cfg, "form_p", "Registra la tua ricerca: ti avviso quando trovo qualcosa in linea, e ti dico se il prezzo è giusto.", "Register your search: I will alert you when I find something relevant, and tell you whether the price is fair.")
     form_aside_h = t(cfg, "form_aside_h", "Compra con i numeri giusti, non con l'ansia.", "Buy with the right numbers, not with anxiety.")
     form_aside_p = t(cfg, "form_aside_p", "Compila il modulo: è il primo passo per una ricerca mirata e una valutazione seria del prezzo.", "Fill in the form: it is the first step toward a targeted search and a serious price assessment.")
@@ -486,7 +486,7 @@ def build_body(cfg):
 
     final_h2 = t(cfg, "final_h", "Pronto a cercare casa con un metodo, non a caso?", "Ready to search with a method, not by chance?")
     final_p = t(cfg, "final_p", "Registra cosa cerchi. Ti richiamo entro 24 ore con un approccio chiaro — nessun obbligo di incarico.", "Tell me what you need. I will call you back within 24 hours with a clear approach — no obligation to appoint.")
-    sticky = t(cfg, "sticky", "Dimmi cosa cerchi", "Tell me what you need")
+    sticky = t(cfg, "sticky", "Prenota consulenza", "Book consultation")
 
     footer_strong = t(cfg, "footer_s", "Prima l'analisi. Poi la scelta giusta.", "Analysis first. Then the right choice.")
     footer_note = t(cfg, "footer_n",

@@ -288,7 +288,7 @@ def build_hub(lang: str) -> str:
     html = html.replace('class="nav-link-primary">Comprare</a>', f'class="nav-link-primary">{m["nav_buy"]}</a>')
     html = html.replace('href="/">Vendere</a>', f'href="/{lang}/">{m["nav_sell"]}</a>' if lang == "de" else f'href="/fr/">{m["nav_sell"]}</a>')
     html = html.replace('href="/#metodo">Chi sono</a>', f'href="/{lang}/#metodo">{m["nav_about"]}</a>' if lang == "de" else f'href="/fr/#metodo">{m["nav_about"]}</a>')
-    html = html.replace("Dimmi cosa cerchi", m["cta_nav"])
+    html = html.replace("Prenota consulenza", m["cta_nav"])
 
     html = re.sub(
         r'<div class="kicker">Property Finding · Lombardia</div>',
