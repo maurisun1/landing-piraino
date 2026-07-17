@@ -104,7 +104,7 @@ def apply_locale(path: Path, L: dict) -> None:
           <p>{L['path2_p']}</p>
           <span class="consultant-path-cta">{L['path2_cta']}</span>
         </a>
-        <a class="consultant-path-card consultant-path-sell" href="#form">
+        <a class="consultant-path-card consultant-path-sell" href="{L['sell_url']}">
           <span class="consultant-path-label">03 · {L['path3_label']}</span>
           <strong>{L['path3_h']}</strong>
           <p>{L['path3_p']}</p>
@@ -257,6 +257,7 @@ DE = {
     "path3_p": "Vorhanden, aber nicht dominant: Bewertung, Strategie und Vermarktung.",
     "path3_cta": "Analyse anfordern →",
     "buy_hub": "/de/haus-kaufen/",
+    "sell_url": "/de/haus-verkaufen-milan/",
     "serv_kicker": "Professionelle Leistungen",
     "serv_h2": "Ich verkaufe keine Anzeigen. Ich helfe bei besseren Entscheidungen.",
     "serv_p": "Schutz von Käufern und Investoren — von der Suche bis zum Notartermin.",
@@ -311,6 +312,7 @@ FR = {
     "path3_p": "Présente mais non dominante : estimation, stratégie et commercialisation.",
     "path3_cta": "Demander une analyse →",
     "buy_hub": "/fr/acheter-maison/",
+    "sell_url": "/fr/vendre-maison-milan/",
     "serv_kicker": "Services professionnels",
     "serv_h2": "Je ne vends pas des annonces. Je vous aide à mieux décider.",
     "serv_p": "Protection de l'acheteur et de l'investisseur — de la recherche à l'acte.",

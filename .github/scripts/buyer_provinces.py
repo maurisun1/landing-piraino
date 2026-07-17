@@ -16,7 +16,9 @@ LOMBARD_PROVINCES = [
 ]
 
 def seller_link_for(slug: str) -> str:
-    return "/" if slug == "milano" else f"/{slug}/"
+    from locales import seller_url
+
+    return seller_url(slug, "it")
 
 
 SELLER_LINKS = {slug: seller_link_for(slug) for slug, _name, _en in LOMBARD_PROVINCES}

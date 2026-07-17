@@ -81,7 +81,7 @@ PATH_IT = """\
           <p>Opportunità a reddito, valorizzazione, analisi economica e stima della redditività — con supporto in trattativa.</p>
           <span class="consultant-path-cta">Analizziamo il tuo investimento →</span>
         </a>
-        <a class="consultant-path-card consultant-path-sell" href="#form">
+        <a class="consultant-path-card consultant-path-sell" href="/vendere-casa-milano/">
           <span class="consultant-path-label">03 · Venditori</span>
           <strong>Valutazione e vendita</strong>
           <p>Presente ma non predominante: valutazione, strategia e commercializzazione se stai vendendo.</p>
@@ -462,7 +462,7 @@ def patch_css_link(html: str) -> str:
 def patch_nav(html: str) -> str:
     html = html.replace(
         '<a href="/" class="nav-link-primary">Vendere</a>\n              <a href="/comprare-casa/">Comprare</a>',
-        '<a href="/comprare-casa/" class="nav-link-primary">Comprare</a>\n              <a href="#servizi">Investire</a>\n              <a href="#form">Vendere</a>',
+        '<a href="/comprare-casa/" class="nav-link-primary">Comprare</a>\n              <a href="#servizi">Investire</a>\n              <a href="/vendere-casa-milano/">Vendere</a>',
     )
     html = html.replace(
         '<a class="btn btn-red nav-cta" href="#contatto">Richiedi Analisi</a>',

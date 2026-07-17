@@ -153,12 +153,25 @@ def buyer_province_url(slug: str, lang: str) -> str:
 
 
 def seller_url(slug: str, lang: str) -> str:
+    """Province seller landing URL.
+
+    Milano no longer lives at ``/`` / ``/de/`` / ``/fr/`` (those are the
+    consultant homepage). Dedicated seller pages keep the sell form + hero.
+    """
+    if slug == "milano":
+        return {
+            "it": "/vendere-casa-milano/",
+            "de": "/de/haus-verkaufen-milan/",
+            "fr": "/fr/vendre-maison-milan/",
+            # No EN seller page yet — share IT Milan seller.
+            "en": "/vendere-casa-milano/",
+        }[lang]
     if lang == "it":
-        return "/" if slug == "milano" else f"/{slug}/"
+        return f"/{slug}/"
     if lang == "de":
-        return "/de/" if slug == "milano" else f"/de/{slug}/"
+        return f"/de/{slug}/"
     if lang == "fr":
-        return "/fr/" if slug == "milano" else f"/fr/{slug}/"
+        return f"/fr/{slug}/"
     # No dedicated EN seller pages — link to EN buyer for same province.
     return buyer_province_url(slug, "en")
 
@@ -169,11 +182,16 @@ def buyer_page_path(slug: str, lang: str) -> str:
 
 
 def seller_page_path(slug: str, lang: str) -> str:
+    if slug == "milano":
+        return {
+            "it": "vendere-casa-milano/index.html",
+            "de": "de/haus-verkaufen-milan/index.html",
+            "fr": "fr/vendre-maison-milan/index.html",
+        }[lang]
     if lang == "it":
-        return "index.html" if slug == "milano" else f"{slug}/index.html"
+        return f"{slug}/index.html"
     if lang in ("de", "fr"):
-        prefix = lang
-        return f"{prefix}/index.html" if slug == "milano" else f"{prefix}/{slug}/index.html"
+        return f"{lang}/{slug}/index.html"
     raise ValueError(f"No seller page path for lang={lang}")
 
 

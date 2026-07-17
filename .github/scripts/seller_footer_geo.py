@@ -24,7 +24,9 @@ PROVINCES = [
 ]
 
 def seller_href(slug: str) -> str:
-    return "/" if slug == "milano" else f"/{slug}/"
+    from locales import seller_url
+
+    return seller_url(slug, "it")
 
 OMI_HREF = {
     "milano": "/guida-prezzi-mq-milano/",
@@ -86,8 +88,10 @@ def patch_seller(path: Path, current: str) -> None:
 
 
 def main() -> None:
+    from locales import seller_page_path
+
     for slug, _name in PROVINCES:
-        rel = "index.html" if slug == "milano" else f"{slug}/index.html"
+        rel = seller_page_path(slug, "it")
         path = ROOT / rel
         if path.exists():
             patch_seller(path, slug)

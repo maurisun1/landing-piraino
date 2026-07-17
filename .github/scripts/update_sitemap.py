@@ -30,8 +30,9 @@ def main() -> None:
     entries: list[str] = []
 
     entries.append(url_entry(f"{BASE}/", priority="1.0"))
-    for lang in ("de", "fr"):
-        entries.append(url_entry(f"{BASE}{seller_url('milano', lang)}", priority="0.85"))
+    # Dedicated Milan seller landings (homepage is consultant, not sell)
+    for lang in ("it", "de", "fr"):
+        entries.append(url_entry(f"{BASE}{seller_url('milano', lang)}", priority="0.9" if lang == "it" else "0.85"))
 
     for slug, _it, _en in LOMBARD_PROVINCES:
         if slug == "milano":
