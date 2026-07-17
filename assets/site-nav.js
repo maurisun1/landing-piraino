@@ -42,7 +42,20 @@
   }
 
   panel.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', closeMenu);
+    link.addEventListener('click', function () {
+      var href = link.getAttribute('href') || '';
+      // Same-page anchors: close immediately for visual feedback.
+      if (href.charAt(0) === '#' && href.length > 1) {
+        closeMenu();
+        return;
+      }
+      // Cross-page links: do not close synchronously — on mobile that can
+      // cancel navigation and force a second tap.
+      if (href && href.charAt(0) !== '#') {
+        return;
+      }
+      closeMenu();
+    });
   });
 
   document.addEventListener('keydown', function (event) {

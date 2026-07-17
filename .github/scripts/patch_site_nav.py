@@ -21,7 +21,7 @@ from locales import (
     seller_lang_urls,
     seller_url,
 )
-CACHE = "20260735"
+CACHE = "20260736"
 
 WA_ICON = (
     '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
@@ -44,8 +44,12 @@ TOPBAR_RE = re.compile(
     r'<div class="topbar">\s*<div class="container topbar-inner">.*?</div>\s*</div>\s*',
     re.DOTALL,
 )
+CHROME_TAIL_RE = re.compile(
+    r'</header>\s*(?:\s*<div class="remax-stripe" aria-hidden="true"></div>\s*</div>\s*)+',
+    re.DOTALL,
+)
 CHROME_HEADER_RE = re.compile(
-    r'(?:<div class="site-chrome">\s*)?(?:<div class="topbar">\s*<div class="container topbar-inner">.*?</div>\s*</div>\s*)?<header class="site-header">.*?</header>(?:\s*</div>)?',
+    r'(?:<div class="site-chrome">\s*)?(?:<div class="topbar">\s*<div class="container topbar-inner">.*?</div>\s*</div>\s*)?<header class="site-header">.*?</header>(?:\s*<div class="remax-stripe" aria-hidden="true"></div>\s*</div>\s*)*',
     re.DOTALL,
 )
 HEADER_RE = re.compile(
@@ -181,13 +185,27 @@ def render_nav(
   </header>{chrome_close}"""
 
 
+def normalize_chrome_tail(html: str) -> str:
+    """Remove duplicated site-chrome closing blocks left by repeated header patches."""
+    match = CHROME_TAIL_RE.search(html)
+    if not match:
+        return html
+    if match.group(0).count("remax-stripe") <= 1:
+        return html
+    prefix = html[: match.start()]
+    if 'class="site-chrome"' in prefix:
+        replacement = '</header>\n  <div class="remax-stripe" aria-hidden="true"></div>\n</div>\n'
+    else:
+        replacement = "</header>\n"
+    return html[: match.start()] + replacement + html[match.end() :]
+
+
 def ensure_assets(html: str) -> str:
     html = re.sub(
         r'\s*<script src="/assets/site-nav\.js[^"]*" defer></script>',
         "",
         html,
     )
-    # Keep a single site-nav.css link (avoid duplicates from cache bumps / re-runs)
     html = re.sub(
         r'\s*<link rel="stylesheet" href="/assets/site-nav\.css\?v=\d+" />\s*',
         "\n",
@@ -195,7 +213,7 @@ def ensure_assets(html: str) -> str:
     )
     if "</head>" in html:
         html = html.replace("</head>", f"  {NAV_CSS}\n</head>", 1)
-    if NAV_JS not in html and "</body>" in html:
+    if "</body>" in html:
         html = html.replace("</body>", f"  {NAV_JS}\n</body>", 1)
     return html
 
@@ -212,6 +230,7 @@ def strip_nav_hide_rules(html: str) -> str:
 
 
 def replace_header(html: str, new_header: str) -> str:
+    html = normalize_chrome_tail(html)
     if CHROME_HEADER_RE.search(html):
         return CHROME_HEADER_RE.sub(new_header, html, count=1)
     html = TOPBAR_RE.sub("", html)
@@ -449,6 +468,16 @@ def guide_nav_groups(*, city: str, seller_href: str) -> list[str]:
     ]
 
 
+def cleanup_chrome_tails() -> None:
+    print("Cleaning duplicated site-chrome tails...")
+    for path in sorted(ROOT.rglob("*.html")):
+        html = path.read_text(encoding="utf-8")
+        cleaned = normalize_chrome_tail(html)
+        if cleaned != html:
+            path.write_text(cleaned, encoding="utf-8")
+            print(f"  cleaned: {path.relative_to(ROOT)}")
+
+
 def patch_page(path: Path, **nav_kwargs) -> bool:
     html = path.read_text(encoding="utf-8")
     block = extract_header_block(html)
@@ -514,6 +543,8 @@ def patch_phone_links() -> None:
 
 def main() -> None:
     from buyer_provinces import LOMBARD_PROVINCES
+
+    cleanup_chrome_tails()
 
     hub_taglines = {
         "it": "Consulenza acquirenti <strong>RE/MAX</strong> · Lombardia · Risposta entro 24h",

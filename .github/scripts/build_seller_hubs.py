@@ -331,9 +331,9 @@ def build(lang: str) -> str:
 @media(max-width:800px){{.seller-stats-grid,.editorial-bridge-inner{{grid-template-columns:1fr 1fr}}.editorial-bridge-inner{{grid-template-columns:1fr}}}}
 @media(max-width:520px){{.seller-stats-grid{{grid-template-columns:1fr}}}}
 </style>
-<link rel="stylesheet" href="/assets/site-nav.css?v=20260735" />
-<link rel="stylesheet" href="/assets/site-base.css?v=20260735" />
-<link rel="stylesheet" href="/assets/remax-brand.css?v=20260735" />
+<link rel="stylesheet" href="/assets/site-nav.css?v=20260736" />
+<link rel="stylesheet" href="/assets/site-base.css?v=20260736" />
+<link rel="stylesheet" href="/assets/remax-brand.css?v=20260736" />
 <link rel="stylesheet" href="/assets/consultant-home.css?v=20260715b" />
 </head>
 <body>
