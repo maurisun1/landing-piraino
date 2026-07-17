@@ -439,7 +439,7 @@ def build(lang: str) -> str:
     </div>
   </div>
 </footer>
-<script src="/assets/site-nav.js?v=20260735" defer></script>
+<script src="/assets/site-nav.js?v=20260736" defer></script>
 </body>
 </html>
 """

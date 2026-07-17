@@ -19,6 +19,7 @@ from locales import (
     render_lang_links,
     seller_hub_url,
     seller_lang_urls,
+    seller_page_path,
     seller_url,
 )
 CACHE = "20260736"
@@ -425,8 +426,8 @@ def hub_nav_groups(*, lang: str) -> list[str]:
     }
     path_l, buy_l, sell_l, info_l, about_l, alt_l = labels.get(lang, labels["en"])
     buy_hub = buyer_hub_url(lang)
-    sell_hub = seller_hub_url(lang)
-    metodo = "/#metodo" if lang == "it" else "/#metodo"
+    sell_page = seller_url("milano", lang)
+    metodo = "/#metodo" if lang == "it" else f"/{lang}/#metodo" if lang in ("de", "fr") else "/#metodo"
     alt_links = {
         "it": '<a href="/en/buy-home/">English</a>',
         "en": '<a href="/comprare-casa/">Italiano</a>',
@@ -438,7 +439,7 @@ def hub_nav_groups(*, lang: str) -> list[str]:
             path_l,
             [
                 f'<a href="{buy_hub}" class="nav-link-primary">{buy_l}</a>',
-                f'<a href="{sell_hub}">{sell_l}</a>',
+                f'<a href="{sell_page}">{sell_l}</a>',
             ],
             extra_class="nav-group-path",
         ),
@@ -495,7 +496,7 @@ def patch_page(path: Path, **nav_kwargs) -> bool:
 
 
 def seller_href_for_city(slug: str) -> str:
-    return "/" if slug == "milano" else f"/{slug}/"
+    return seller_url(slug, "it")
 
 
 def en_buyer_slug(slug: str) -> str:
@@ -503,16 +504,14 @@ def en_buyer_slug(slug: str) -> str:
 
 
 def seller_page_paths() -> list[tuple[str, str, str]]:
-    pages = [("index.html", "/", "/en/buy-home-milan/")]
+    pages = []
     for slug, _name, _en in __import__(
         "buyer_provinces", fromlist=["LOMBARD_PROVINCES"]
     ).LOMBARD_PROVINCES:
-        if slug == "milano":
-            continue
         pages.append(
             (
-                f"{slug}/index.html",
-                seller_href_for_city(slug),
+                seller_page_path(slug, "it") if slug != "milano" else "vendere-casa-milano/index.html",
+                seller_url(slug, "it"),
                 f"/en/buy-home-{en_buyer_slug(slug)}/",
             )
         )
@@ -559,41 +558,63 @@ def main() -> None:
         "fr": "Message WhatsApp",
     }
 
-    print("Patching seller pages (IT)...")
-    for slug, _name, _en in LOMBARD_PROVINCES:
-        rel = "index.html" if slug == "milano" else f"{slug}/index.html"
+    print("Patching consultant homepage (IT/DE/FR)...")
+    home_pages = {
+        "it": ("index.html", "Prenota consulenza", "Consulente <strong>RE/MAX</strong> · Acquirenti e investitori"),
+        "de": ("de/index.html", "Beratung vereinbaren", "Berater <strong>RE/MAX</strong> · Käufer und Investoren"),
+        "fr": ("fr/index.html", "Réserver une consultation", "Conseiller <strong>RE/MAX</strong> · Acheteurs et investisseurs"),
+    }
+    for lang, (rel, cta_label, tagline) in home_pages.items():
         path = ROOT / rel
         if not path.exists():
             print(f"  skip (missing): {rel}")
             continue
         block = extract_header_block(path.read_text(encoding="utf-8"))
-        is_home = slug == "milano"
-        groups = (
-            consultant_home_nav_groups(
-                buy_href=buyer_hub_url("it"),
-                sell_href=seller_hub_url("it"),
-                lang="it",
-            )
-            if is_home
-            else seller_nav_groups(
-                sell_href=seller_hub_url("it"),
-                buy_href=buyer_hub_url("it"),
-                lang="it",
-            )
-        )
-        cta_href, cta_label = extract_cta(block)
-        if is_home:
-            cta_href, cta_label = "#contatto", "Prenota consulenza"
-        tagline = (
-            "Consulente <strong>RE/MAX</strong> · Acquirenti e investitori"
-            if is_home
-            else (extract_tagline(block) or infer_tagline(path, "it"))
-        )
         patch_page(
             path,
             tagline=tagline,
             brand=SHORT_BRAND,
-            groups=groups,
+            groups=consultant_home_nav_groups(
+                buy_href=buyer_hub_url(lang),
+                sell_href=seller_url("milano", lang),
+                lang=lang,
+            ),
+            lang_link=render_lang_links(
+                lang,
+                {
+                    "it": "/",
+                    "en": "/en/buy-home-milan/",
+                    "de": "/de/",
+                    "fr": "/fr/",
+                },
+                aria_lang=lang,
+            ),
+            wa_url=extract_wa_url(block),
+            wa_topbar="WhatsApp",
+            wa_short="WA",
+            cta_href="#contatto",
+            cta_label=cta_label,
+            lang=lang,
+        )
+
+    print("Patching seller pages (IT)...")
+    for slug, _name, _en in LOMBARD_PROVINCES:
+        rel = seller_page_path(slug, "it")
+        path = ROOT / rel
+        if not path.exists():
+            print(f"  skip (missing): {rel}")
+            continue
+        block = extract_header_block(path.read_text(encoding="utf-8"))
+        cta_href, cta_label = extract_cta(block)
+        patch_page(
+            path,
+            tagline=extract_tagline(block) or infer_tagline(path, "it"),
+            brand=SHORT_BRAND,
+            groups=seller_nav_groups(
+                sell_href=seller_hub_url("it"),
+                buy_href=buyer_hub_url("it"),
+                lang="it",
+            ),
             lang_link=render_lang_links("it", seller_lang_urls(slug), aria_lang="it"),
             wa_url=extract_wa_url(block),
             wa_topbar="WhatsApp",
@@ -604,49 +625,35 @@ def main() -> None:
         )
 
     print("Patching seller pages (DE/FR)...")
-    home_cta = {"de": "Beratung vereinbaren", "fr": "Réserver une consultation"}
     for lang in ("de", "fr"):
         for slug, _name, _en in LOMBARD_PROVINCES:
-            rel = f"{lang}/index.html" if slug == "milano" else f"{lang}/{slug}/index.html"
+            rel = seller_page_path(slug, lang)
             path = ROOT / rel
             if not path.exists():
                 continue
             block = extract_header_block(path.read_text(encoding="utf-8"))
             city = city_label(slug, lang)
-            is_home = slug == "milano"
-            groups = (
-                consultant_home_nav_groups(
-                    buy_href=buyer_hub_url(lang),
-                    sell_href=seller_hub_url(lang),
-                    lang=lang,
-                )
-                if is_home
-                else seller_nav_groups(
-                    sell_href=seller_hub_url(lang),
-                    buy_href=buyer_hub_url(lang),
-                    lang=lang,
-                )
+            tagline = (
+                f"Immobilienberatung <strong>RE/MAX</strong> · {city}"
+                if lang == "de"
+                else f"Conseil immobilier <strong>RE/MAX</strong> · {city}"
             )
+            if slug == "milano":
+                tagline = (
+                    "Verkaufsanalyse <strong>RE/MAX</strong> · Mailand"
+                    if lang == "de"
+                    else "Analyse vente <strong>RE/MAX</strong> · Milan"
+                )
             cta_href, cta_label = extract_cta(block)
-            if is_home:
-                cta_href, cta_label = "#contatto", home_cta[lang]
-            if is_home:
-                tagline = (
-                    "Berater <strong>RE/MAX</strong> · Käufer und Investoren"
-                    if lang == "de"
-                    else "Conseiller <strong>RE/MAX</strong> · Acheteurs et investisseurs"
-                )
-            else:
-                tagline = (
-                    f"Immobilienberatung <strong>RE/MAX</strong> · {city}"
-                    if lang == "de"
-                    else f"Conseil immobilier <strong>RE/MAX</strong> · {city}"
-                )
             patch_page(
                 path,
-                tagline=tagline,
+                tagline=extract_tagline(block) or tagline,
                 brand=SHORT_BRAND,
-                groups=groups,
+                groups=seller_nav_groups(
+                    sell_href=seller_hub_url(lang),
+                    buy_href=buyer_hub_url(lang),
+                    lang=lang,
+                ),
                 lang_link=render_lang_links(lang, seller_lang_urls(slug), aria_lang=lang),
                 wa_url=extract_wa_url(block),
                 wa_topbar="WhatsApp",
@@ -683,7 +690,7 @@ def main() -> None:
                 tagline=extract_tagline(block) or infer_tagline(path, lang),
                 brand=SHORT_BRAND,
                 groups=buyer_nav_groups(
-                    sell_href=seller_hub_url(lang),
+                    sell_href=seller_url("milano", lang),
                     omi_href=buyer_omi_href(slug),
                     buy_href=buyer_hub_url(lang),
                     lang=lang,
@@ -737,7 +744,7 @@ def main() -> None:
             path,
             tagline=f"Guida prezzi OMI · <strong>{city}</strong> · Dati Agenzia Entrate",
             brand="Maurizio Piraino",
-            groups=guide_nav_groups(city=city, seller_href="/vendere-casa/"),
+            groups=guide_nav_groups(city=city, seller_href="/vendere-casa-milano/"),
             lang_link=render_lang_links("it", hub_lang_urls(), aria_lang="it"),
             wa_url=wa_url,
             wa_topbar="WhatsApp",

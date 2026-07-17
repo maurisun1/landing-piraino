@@ -246,28 +246,15 @@ def patch_file(path: Path, city: str, buy: str, lang: str) -> bool:
 
 def main() -> None:
     count = 0
-    # IT provinces (skip milano homepage — already consultant home)
-    for slug, name, _en in LOMBARD_PROVINCES:
-        if slug == "milano":
-            continue
-        rel = f"{slug}/index.html"
-        path = ROOT / rel
-        if not path.exists():
-            continue
-        buy = buyer_province_url(slug, "it")
-        if patch_file(path, name, buy, "it"):
-            print(f"  patched {rel}")
-            count += 1
-    for lang in ("de", "fr"):
+    from locales import city_label, seller_page_path
+
+    for lang in ("it", "de", "fr"):
         for slug, name, _en in LOMBARD_PROVINCES:
-            if slug == "milano":
-                continue
-            rel = f"{lang}/{slug}/index.html"
+            rel = seller_page_path(slug, lang)
             path = ROOT / rel
             if not path.exists():
                 continue
-            from locales import city_label
-            city = city_label(slug, lang)
+            city = name if lang == "it" else city_label(slug, lang)
             buy = buyer_province_url(slug, lang)
             if patch_file(path, city, buy, lang):
                 print(f"  patched {rel}")
