@@ -28,6 +28,8 @@
 ### Comprare casa (hub 12 province)
 - Italiano: https://mauriziopiraino.it/comprare-casa/
 - English: https://mauriziopiraino.it/en/buy-home/
+- 中文: https://mauriziopiraino.it/zh/mai-fang/
+- 中文首页: https://mauriziopiraino.it/zh/
 
 ### Guide prezzi OMI (dati ufficiali per zona)
 - Milano: https://mauriziopiraino.it/guida-prezzi-mq-milano/
@@ -37,6 +39,7 @@
 ### Landing acquirente per provincia (esempi)
 - Milano IT: https://mauriziopiraino.it/comprare-casa-milano/
 - Milano EN: https://mauriziopiraino.it/en/buy-home-milan/
+- 米兰 中文: https://mauriziopiraino.it/zh/mai-fang-milan/
 - Como IT: https://mauriziopiraino.it/comprare-casa-como/
 - Bergamo IT: https://mauriziopiraino.it/comprare-casa-bergamo/
 
