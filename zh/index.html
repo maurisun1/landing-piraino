@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>买房与卖房顾问 | Maurizio Piraino</title>
   <meta name="description" content="米兰与伦巴第房产顾问：买房、投资与卖房。通过 RE/MAX 网络亦可服务意大利其他地区。专属寻盘、销售分析与过户协助。" />
-  <meta name="keywords" content="consulente immobiliare 米兰, property finding 米兰, consulenza acquirenti, investitori immobiliari 伦巴第, RE/MAX 米兰, Maurizio Piraino" />
+  <meta name="keywords" content="米兰房产顾问, 米兰寻盘, 购房顾问, 伦巴第房产投资, RE/MAX 米兰, Maurizio Piraino" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Maurizio Piraino" />
   <link rel="canonical" href="https://mauriziopiraino.it/zh/" />
@@ -66,7 +66,7 @@
       },
       {
         "@type": "Question",
-        "name": "什么是 Property Finding（专属寻盘）？",
+        "name": "什么是专属寻盘？",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "根据您的需求量身寻盘：需求分析、含非公开盘源筛选、看房、谈判并协调直至过户。"
@@ -873,7 +873,7 @@
   <link rel="stylesheet" href="/assets/site-nav.css?v=20260736" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Salta al contenuto</a>
+  <a class="skip-link" href="#main">跳到主要内容</a>
       
     
     
@@ -905,7 +905,7 @@
         </button>
       </div>
       <div class="nav-panel" id="site-nav-panel">
-        <nav class="nav-links" aria-label="Menu principale">
+        <nav class="nav-links" aria-label="主导航">
           <div class="nav-group nav-group-path">
             <span class="nav-group-label">路径</span>
             <div class="nav-group-links">
@@ -955,7 +955,7 @@
             <strong>先分析，再决定是否购买</strong>, 量身寻盘、文件核查与过户全程协助。
           </p>
           <ul class="seller-form-benefits">
-            <li>Property Finding：含非公开盘源</li>
+            <li>专属寻盘：含非公开盘源</li>
             <li>投资者专属顾问</li>
             <li>文件核查与价格谈判</li>
             <li>陪同至过户——初次沟通无义务</li>
@@ -980,7 +980,7 @@
           <div class="form-step active" id="formStep1">
             <p class="step-note">首先：您需要什么？</p>
             <label>您的目标</label>
-            <div class="intent-grid" role="group" aria-label="Tipo di richiesta">
+            <div class="intent-grid" role="group" aria-label="请求类型">
               <div class="intent-card on" data-v="我想买房" onclick="setIntent(this)">我想买房</div>
               <div class="intent-card" data-v="投资" onclick="setIntent(this)">投资</div>
               <div class="intent-card" data-v="我要卖房" onclick="setIntent(this)">我要卖房</div>
@@ -1131,19 +1131,19 @@
               <option>Zibido San Giacomo</option>
             </datalist>
 
-            <label>Superficie — <span id="mqShow">90 mq</span></label>
+            <label>面积 — <span id="mqShow">90 mq</span></label>
             <div class="slider-wrap">
               <input type="range" min="20" max="300" step="5" value="90" id="mqR" oninput="onMqChange(this.value)" />
               <span class="sv" id="mqV">90 mq</span>
             </div>
             <input type="hidden" name="superficie" id="mqVal" value="90 mq" />
 
-            <label>Tipologia immobile</label>
-            <input type="hidden" name="tipologia" id="tipologiaVal" value="Appartamento" />
+            <label>房产类型</label>
+            <input type="hidden" name="tipologia" id="tipologiaVal" value="公寓" />
             <div class="type-grid">
-              <div class="tcard on" data-v="Appartamento" onclick="setTipo(this)">Appartamento</div>
-              <div class="tcard" data-v="Attico / Mansarda" onclick="setTipo(this)">Attico / Mansarda</div>
-              <div class="tcard" data-v="Villa / 住宅 indipendente" onclick="setTipo(this)">Villa / 住宅</div>
+              <div class="tcard on" data-v="公寓" onclick="setTipo(this)">公寓</div>
+              <div class="tcard" data-v="顶层公寓 / 阁楼" onclick="setTipo(this)">顶层公寓 / 阁楼</div>
+              <div class="tcard" data-v="别墅 / 住宅 indipendente" onclick="setTipo(this)">别墅 / 住宅</div>
               <div class="tcard" data-v="Locale commerciale" onclick="setTipo(this)">Locale comm.</div>
             </div>
 
@@ -1156,14 +1156,14 @@
           <div class="form-step" id="formStep2">
             <p class="step-note">最后一步：告诉我如何联系您。</p>
 
-            <label for="nome">Nome e Cognome</label>
-            <input id="nome" name="nome" type="text" placeholder="Il tuo nome" required />
+            <label for="nome">姓名</label>
+            <input id="nome" name="nome" type="text" placeholder="您的姓名" required />
 
-            <label for="telefono">Telefono</label>
-            <input id="telefono" name="telefono" type="tel" placeholder="Numero di telefono" required />
+            <label for="telefono">电话</label>
+            <input id="telefono" name="telefono" type="tel" placeholder="电话号码" required />
 
             <label for="messaggio">Note facoltative</label>
-            <textarea id="messaggio" name="messaggio" placeholder="Es. budget, tempistiche, requisiti o note sull'immobile"></textarea>
+            <textarea id="messaggio" name="messaggio" placeholder="例如：预算、时间、要求或房产备注"></textarea>
 
             <div class="step-actions">
               <button class="btn btn-outline-dark" type="button" onclick="prevFormStep()">返回</button>
@@ -1171,19 +1171,19 @@
             </div>
           </div>
 
-          <div class="microcopy">Dati riservati · Nessun obbligo di incarico · Risposta personale<br><small style="font-size:11px;margin-top:8px;display:block;line-height:1.5">提交表单即表示您同意为回访目的处理您的数据。 <a href="/privacy/" style="color:inherit;text-decoration:underline">Informativa privacy</a>.</small></div>
+          <div class="microcopy">数据保密 · 无委托义务 · 亲自回复<br><small style="font-size:11px;margin-top:8px;display:block;line-height:1.5">提交表单即表示您同意为回访目的处理您的数据。 <a href="/privacy/" style="color:inherit;text-decoration:underline">隐私说明</a>.</small></div>
         </form>
                   </aside>
       </div>
     </section>
-        <section class="consultant-path" aria-label="Scegli il tuo percorso">
+        <section class="consultant-path" aria-label="选择您的路径">
       <div class="container consultant-path-grid">
         <p class="consultant-path-intro"><em>RE/MAX</em> · 我能如何帮助您</p>
         <a class="consultant-path-card consultant-path-primary" href="/zh/mai-fang/">
-          <span class="consultant-path-label">01 · 服务o principale</span>
-          <strong>Property Finding</strong>
+          <span class="consultant-path-label">01 · 主要服务</span>
+          <strong>专属寻盘</strong>
           <p>量身寻找理想房产，含非公开盘源。筛选、看房、谈判并协调直至过户。</p>
-          <span class="consultant-path-cta">Iniziamo la ricerca →</span>
+          <span class="consultant-path-cta">开始寻盘 →</span>
         </a>
         <a class="consultant-path-card consultant-path-invest" href="#servizi">
           <span class="consultant-path-label">02 · 投资者</span>
@@ -1202,7 +1202,7 @@
 
     <section class="seller-stats-strip" aria-label="关键数字">
       <div class="container seller-stats-grid">
-        <div class="seller-stat"><strong>01</strong><span>以 Property Finding 为优先</span></div>
+        <div class="seller-stat"><strong>01</strong><span>以专属寻盘为优先</span></div>
         <div class="seller-stat"><strong>12</strong><span>伦巴第 12 省 · 意大利网络</span></div>
         <div class="seller-stat"><strong>24h</strong><span>咨询回复时效</span></div>
         <div class="seller-stat"><strong>0 €</strong><span>首次沟通 · 无义务</span></div>
@@ -1230,19 +1230,19 @@
     <section class="seller-compare">
       <div class="container">
         <div class="section-head reveal">
-          <div class="section-kicker">Perché un consulente</div>
-          <h2>Portale annunci vs consulenza dedicata.</h2>
-          <p>Sfogliare annunci non tutela il tuo interesse. Serve qualcuno che ti accompagni nelle scelte, non che ti spinga a comprare.</p>
+          <div class="section-kicker">为什么需要顾问</div>
+          <h2>房源门户 vs 专属顾问。</h2>
+          <p>刷广告并不能保护您的利益。您需要有人陪您做选择，而不是催您购买。</p>
         </div>
         <div class="seller-compare-table reveal">
           <div class="seller-compare-row seller-compare-head">
-            <span>Aspetto</span><span>Fai da te / portale</span><span>Consulenza Piraino</span>
+            <span>方面</span><span>自己做 / 门户</span><span>Piraino 顾问</span>
           </div>
-          <div class="seller-compare-row"><span>Ricerca</span><span class="no">Solo publicly listed</span><span class="yes">亦含非公开盘源</span></div>
-          <div class="seller-compare-row"><span>Selezione</span><span class="no">Troppi annunci</span><span class="yes">Filtro su misura</span></div>
-          <div class="seller-compare-row"><span>Documenti</span><span class="no">A tuo rischio</span><span class="yes">Verifica tecnica</span></div>
-          <div class="seller-compare-row"><span>Prezzo</span><span class="no">Emotività</span><span class="yes">谈判 strutturata</span></div>
-          <div class="seller-compare-row"><span>角色</span><span class="no">您独自面对</span><span class="yes">保护 acquirente / investitore</span></div>
+          <div class="seller-compare-row"><span>搜索</span><span class="no">仅公开挂牌</span><span class="yes">亦含非公开盘源</span></div>
+          <div class="seller-compare-row"><span>筛选</span><span class="no">广告过多</span><span class="yes">量身筛选</span></div>
+          <div class="seller-compare-row"><span>文件</span><span class="no">风险自负</span><span class="yes">技术核查</span></div>
+          <div class="seller-compare-row"><span>价格</span><span class="no">凭感觉</span><span class="yes">结构化谈判</span></div>
+          <div class="seller-compare-row"><span>角色</span><span class="no">您独自面对</span><span class="yes">保护购房者 / 投资者</span></div>
         </div>
       </div>
     </section>
@@ -1269,7 +1269,7 @@
         <div class="seller-services-grid">
           <article class="seller-service-card featured reveal">
             <div class="seller-service-num">01</div>
-            <h3>Property Finding</h3>
+            <h3>专属寻盘</h3>
             <p>核心服务：为您量身寻找理想房产。</p>
             <ul class="service-list">
               <li>需求分析</li>
@@ -1318,7 +1318,7 @@
       <div class="container reveal">
         <div class="seller-mid-cta-inner">
           <div>
-            <p class="seller-mid-kicker">RE/MAX · Consulenza</p>
+            <p class="seller-mid-kicker">RE/MAX · 顾问</p>
             <h2>一起找到合适的房产。</h2>
             <p>告诉我您在找什么——自住或投资。24 小时内亲自回复，无义务。</p>
           </div>
@@ -1370,7 +1370,7 @@
           <p class="lead">ValoreCasaTua.it 提供内容与专业权威。在 MaurizioPiraino.it，我们把认知转化为具体顾问服务。</p>
           <div class="method-grid">
             <div class="card"><div class="num">1</div><h3>倾听与分析</h3><p>需求、预算、居住或投资目标：从数据与优先级出发。</p></div>
-            <div class="card"><div class="num">2</div><h3>寻盘与筛选</h3><p>量身 Property Finding，含非公开盘源，清晰筛选并安排看房。</p></div>
+            <div class="card"><div class="num">2</div><h3>寻盘与筛选</h3><p>量身专属寻盘，含非公开盘源，清晰筛选并安排看房。</p></div>
             <div class="card"><div class="num">3</div><h3>保护直至过户</h3><p>文件、谈判、银行与公证：全程引导，绝不临时凑合。</p></div>
           </div>
 
@@ -1446,7 +1446,7 @@
         </div>
                 <div class="faq-grid">
           <details open><summary>您是房产中介，还是购房顾问？</summary><p>我是 RE/MAX 附属房产经纪人。本站定位为顾问服务：买房、投资与卖房——寻盘、分析、谈判、销售策略与过户协助。</p></details>
-          <details><summary>什么是 Property Finding（专属寻盘）？</summary><p>根据您的需求量身寻盘：需求分析、筛选（含非公开盘源）、看房、谈判并协调直至过户。</p></details>
+          <details><summary>什么是专属寻盘？</summary><p>根据您的需求量身寻盘：需求分析、筛选（含非公开盘源）、看房、谈判并协调直至过户。</p></details>
           <details><summary>您也服务投资者吗？</summary><p>是的。收租机会、增值项目、经济分析与收益率评估，并协助谈判直至成交。</p></details>
           <details><summary>首次咨询会产生委托义务吗？</summary><p>不会。第一次沟通只是判断是否适合合作。不会自动产生委托。</p></details>
           <details><summary>ValoreCasaTua.it 是什么关系？</summary><p>ValoreCasaTua.it 是内容门户：指南与专业权威。MaurizioPiraino.it 是个人站点，专注专业服务与咨询转化。</p></details>
@@ -1460,7 +1460,7 @@
       <div class="container">
         <div class="editorial-bridge-inner reveal">
           <div>
-            <div class="section-kicker">Editoriale</div>
+            <div class="section-kicker">编辑内容e</div>
             <h2>ValoreCasaTua.it 提供信息。这里我们把信息转化为顾问服务。</h2>
             <p>指南、价格与深度内容仍在内容门户。 在 MaurizioPiraino.it 您会找到专业路径：专属寻盘、投资者服务与过户保护。</p>
           </div>
@@ -1478,7 +1478,7 @@
         <p>告诉我您在找什么——自住或投资。分析、寻盘与过户保护，绝非门户式随意推荐。</p>
         <div class="hero-actions" style="justify-content:center">
           <a class="btn btn-red" href="#form">预约咨询</a>
-          <a class="btn btn-wa" href="https://wa.me/393514581993?text=%E4%BD%A0%E5%A5%BD%20Maurizio%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2.%20Sto%20cercando%20casa%20%2F%20un%20investimento%20immobiliare."><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Contattami su WhatsApp</a>
+          <a class="btn btn-wa" href="https://wa.me/393514581993?text=%E4%BD%A0%E5%A5%BD%20Maurizio%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2.%20Sto%20cercando%20casa%20%2F%20un%20investimento%20immobiliare."><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> 通过 WhatsApp 联系我</a>
         </div>
       </div>
     </section>
@@ -1499,10 +1499,10 @@
       </div>
     </div>
     <div class="container footer-geo">
-      <p class="footer-geo-row"><span class="footer-geo-label">运营基地：</span> <strong>米兰</strong> &middot; <a href="/monza/">Monza e Brianza</a> &middot; <a href="/bergamo/">Bergamo</a> &middot; <a href="/brescia/">Brescia</a> &middot; <a href="/como/">Como</a> &middot; <a href="/varese/">Varese</a> &middot; <a href="/lecco/">Lecco</a> &middot; <a href="/sondrio/">Sondrio</a> &middot; <a href="/cremona/">Cremona</a> &middot; <a href="/lodi/">Lodi</a> &middot; <a href="/mantova/">Mantova</a> &middot; <a href="/pavia/">Pavia</a> &middot; <em>其他大区通过 RE/MAX 网络</em></p>
-      <p class="footer-geo-row"><span class="footer-geo-label">OMI 价格指南：</span> <a href="/guida-prezzi-mq-milano/">米兰</a> &middot; <a href="/zh/mai-fang/">Monza e Brianza</a> &middot; <a href="/guida-prezzi-mq-bergamo/">Bergamo</a> &middot; <a href="/guida-prezzi-mq-brescia/">Brescia</a> &middot; <a href="/zh/mai-fang/">Como</a> &middot; <a href="/zh/mai-fang/">Varese</a> &middot; <a href="/zh/mai-fang/">Lecco</a> &middot; <a href="/zh/mai-fang/">Sondrio</a> &middot; <a href="/zh/mai-fang/">Cremona</a> &middot; <a href="/zh/mai-fang/">Lodi</a> &middot; <a href="/zh/mai-fang/">Mantova</a> &middot; <a href="/zh/mai-fang/">Pavia</a></p>
+      <p class="footer-geo-row"><span class="footer-geo-label">运营基地：</span> <strong>米兰</strong> &middot; <a href="/monza/">蒙扎与布里安扎</a> &middot; <a href="/bergamo/">贝加莫</a> &middot; <a href="/brescia/">布雷西亚</a> &middot; <a href="/como/">科莫</a> &middot; <a href="/varese/">瓦雷泽</a> &middot; <a href="/lecco/">莱科</a> &middot; <a href="/sondrio/">松德里奥</a> &middot; <a href="/cremona/">克雷莫纳</a> &middot; <a href="/lodi/">洛迪</a> &middot; <a href="/mantova/">曼托瓦</a> &middot; <a href="/pavia/">帕维亚</a> &middot; <em>其他大区通过 RE/MAX 网络</em></p>
+      <p class="footer-geo-row"><span class="footer-geo-label">OMI 价格指南：</span> <a href="/guida-prezzi-mq-milano/">米兰</a> &middot; <a href="/zh/mai-fang/">蒙扎与布里安扎</a> &middot; <a href="/guida-prezzi-mq-bergamo/">贝加莫</a> &middot; <a href="/guida-prezzi-mq-brescia/">布雷西亚</a> &middot; <a href="/zh/mai-fang/">科莫</a> &middot; <a href="/zh/mai-fang/">瓦雷泽</a> &middot; <a href="/zh/mai-fang/">莱科</a> &middot; <a href="/zh/mai-fang/">松德里奥</a> &middot; <a href="/zh/mai-fang/">克雷莫纳</a> &middot; <a href="/zh/mai-fang/">洛迪</a> &middot; <a href="/zh/mai-fang/">曼托瓦</a> &middot; <a href="/zh/mai-fang/">帕维亚</a></p>
       <p class="footer-geo-row"><span class="footer-geo-label">想卖房？</span> <a href="/zh/chu-shou/"><strong>伦巴第销售分析</strong></a> &middot; <a href="/zh/chu-shou-milan/">米兰</a></p>
-      <p class="footer-geo-row"><span class="footer-geo-label">想买房？</span> <a href="/zh/mai-fang/"><strong>伦巴第全部 12 省</strong></a> &middot; <a href="/zh/mai-fang-milan/">米兰</a> &middot; <a href="/zh/mai-fang/">Monza e Brianza</a> &middot; <a href="/zh/mai-fang/">Bergamo</a> &middot; <a href="/zh/mai-fang/">Brescia</a> &middot; <a href="/zh/mai-fang/">Como</a> &middot; <a href="/zh/mai-fang/">Varese</a> &middot; <a href="/zh/mai-fang/">Lecco</a> &middot; <a href="/zh/mai-fang/">Sondrio</a> &middot; <a href="/zh/mai-fang/">Cremona</a> &middot; <a href="/zh/mai-fang/">Lodi</a> &middot; <a href="/zh/mai-fang/">Mantova</a> &middot; <a href="/zh/mai-fang/">Pavia</a></p>
+      <p class="footer-geo-row"><span class="footer-geo-label">想买房？</span> <a href="/zh/mai-fang/"><strong>伦巴第全部 12 省</strong></a> &middot; <a href="/zh/mai-fang-milan/">米兰</a> &middot; <a href="/zh/mai-fang/">蒙扎与布里安扎</a> &middot; <a href="/zh/mai-fang/">贝加莫</a> &middot; <a href="/zh/mai-fang/">布雷西亚</a> &middot; <a href="/zh/mai-fang/">科莫</a> &middot; <a href="/zh/mai-fang/">瓦雷泽</a> &middot; <a href="/zh/mai-fang/">莱科</a> &middot; <a href="/zh/mai-fang/">松德里奥</a> &middot; <a href="/zh/mai-fang/">克雷莫纳</a> &middot; <a href="/zh/mai-fang/">洛迪</a> &middot; <a href="/zh/mai-fang/">曼托瓦</a> &middot; <a href="/zh/mai-fang/">帕维亚</a></p>
       <p class="footer-geo-row"><a href="/privacy/">隐私政策</a></p>
     </div>
 </footer>
@@ -1552,7 +1552,7 @@
     }
   </script>
 </div>
-<div class="seller-sticky-bar" role="region" aria-label="Azioni rapide">
+<div class="seller-sticky-bar" role="region" aria-label="快捷操作">
     <div class="seller-sticky-inner">
       <a class="btn btn-red" href="#form">预约咨询</a>
       <a class="btn btn-outline" href="https://wa.me/393514581993?text=%E4%BD%A0%E5%A5%BD%20Maurizio%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E7%B1%B3%E5%85%B0%E6%88%BF%E4%BA%A7%E5%88%86%E6%9E%90%E3%80%82" aria-label="WhatsApp">WA</a>
