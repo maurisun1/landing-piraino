@@ -1,0 +1,215 @@
+/* Shared base — RE/MAX brand palette + a11y utilities */
+
+:root {
+  --red: #dc1c2e;
+  --red-dark: #b01828;
+  --blue: #003da5;
+  --blue-dark: #0c2749;
+  --gold: #003da5;
+  --remax-red: #dc1c2e;
+  --remax-blue: #003da5;
+  --remax-cream: #f7f5ee;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 12px 18px;
+  background: var(--remax-red);
+  color: #fff;
+  font-weight: 800;
+  border-radius: 0 0 8px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* RE/MAX topbar — blu brand + striscia tricolore full-width */
+.topbar {
+  background: var(--remax-blue) !important;
+  color: rgba(255, 255, 255, .92) !important;
+  display: block;
+  width: 100%;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+}
+
+.topbar a {
+  color: #fff !important;
+}
+
+.topbar-tagline strong {
+  display: inline-block;
+  background: var(--remax-red);
+  color: #fff !important;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: .06em;
+}
+
+/* Singola linea rossa RE/MAX sotto la nav */
+.topbar::after {
+  display: none;
+}
+
+.site-chrome .remax-stripe,
+.remax-stripe {
+  display: block;
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 0;
+  border: 0;
+  height: 3px;
+  flex-shrink: 0;
+  background: var(--remax-red);
+}
+
+.site-header {
+  border-bottom: none !important;
+}
+
+.brand span {
+  color: var(--remax-red) !important;
+}
+
+.section-kicker {
+  color: var(--remax-red) !important;
+}
+
+.footer {
+  background: var(--blue-dark) !important;
+  border-top: 5px solid var(--remax-red);
+}
+
+.footer-geo {
+  border-top: 1px solid rgba(255, 255, 255, .16);
+  margin-top: 18px;
+  padding-top: 18px;
+  text-align: center;
+  font-size: .88rem;
+  line-height: 1.9;
+}
+
+.footer-geo-row {
+  margin: 0 0 12px;
+  color: rgba(255, 255, 255, .78);
+}
+
+.footer-geo-label {
+  color: #fff;
+  font-weight: 800;
+  margin-right: 4px;
+}
+
+.footer-geo a {
+  color: rgba(255, 255, 255, .86);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: inherit !important;
+  text-decoration: underline;
+}
+
+.footer-phone svg {
+  flex-shrink: 0;
+  opacity: .92;
+}
+
+.footer-geo a:hover {
+  color: #fff;
+}
+
+.footer-geo strong {
+  color: #fff;
+  font-weight: 800;
+}
+
+.footer-affiliation {
+  margin: 8px 0 10px;
+  font-size: .92rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, .88);
+}
+
+footer.footer .footer-affiliation,
+.footer .footer-affiliation {
+  color: rgba(255, 255, 255, .88);
+}
+
+/* ── Global layout: centered page shell ── */
+.container {
+  width: min(1240px, calc(100% - 48px)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.section-head {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* ── Contrast: light surfaces → dark text ── */
+.microcopy,
+.form-card .microcopy {
+  color: #5c5c5c !important;
+}
+
+/* ── Contrast: dark footer strips without container opacity ── */
+.footer-secondary {
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  margin-top: 18px;
+  padding-top: 16px;
+  text-align: center;
+  font-size: .9rem;
+  color: rgba(255, 255, 255, .88);
+}
+
+.footer-secondary a {
+  color: rgba(255, 255, 255, .92);
+}
+
+.footer-secondary a:hover {
+  color: #fff;
+}
+
+/* Warm standalone footers (OMI guides, privacy) */
+footer:not(.footer) {
+  color: #555 !important;
+}
+
+footer:not(.footer) strong {
+  color: #222 !important;
+}
+
+footer:not(.footer) a {
+  color: #003da5;
+}
+
+footer:not(.footer) .disc {
+  color: #555 !important;
+  opacity: 1 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,103 @@
+/* Dual path — Vendere / Comprare sotto l'hero */
+
+.dual-path {
+  background: linear-gradient(180deg, #e8eef8 0%, var(--remax-cream, #f7f5ee) 55%, var(--cream, #f6f1e9) 100%);
+  border-bottom: 2px solid rgba(0, 61, 165, .14);
+  padding: 28px 0 32px;
+}
+
+.dual-path-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.dual-path-intro {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--remax-blue, #003da5);
+}
+
+.dual-path-intro em {
+  font-style: normal;
+  color: var(--remax-red, #dc1c2e);
+}
+
+.dual-path-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 26px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 61, 165, .12);
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 61, 165, .08);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  min-height: 100%;
+}
+
+.dual-path-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, .08);
+}
+
+.dual-path-sell {
+  border-top: 3px solid var(--remax-red, #dc1c2e);
+}
+
+.dual-path-sell:hover {
+  border-color: rgba(220, 28, 46, .35);
+}
+
+.dual-path-buy {
+  border-top: 3px solid var(--remax-blue, #003da5);
+}
+
+.dual-path-buy:hover {
+  border-color: rgba(0, 61, 165, .35);
+}
+
+.dual-path-label {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted, #707070);
+}
+
+.dual-path-card strong {
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  color: var(--text, #222);
+  line-height: 1.2;
+}
+
+.dual-path-card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted, #707070);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.dual-path-cta {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--remax-red, #dc1c2e);
+}
+
+.dual-path-buy .dual-path-cta {
+  color: var(--remax-blue, #003da5);
+}
+
+@media (max-width: 720px) {
+  .dual-path-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -31,3 +31,6 @@ User-agent: Bingbot
 Allow: /
 
 Sitemap: https://mauriziopiraino.it/sitemap.xml
+
+# AI context file (llms.txt standard)
+# https://mauriziopiraino.it/llms.txt
