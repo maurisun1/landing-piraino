@@ -8,6 +8,25 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
+GSC_VERIFICATION = "A7fuWLqdkZhTWFfUNnXfO3fv9eOlLUYDwBsjkG3UL9o"
+GSC_META = f'<meta name="google-site-verification" content="{GSC_VERIFICATION}" />'
+
+
+def ensure_gsc_verification(html: str) -> str:
+    if "google-site-verification" in html:
+        html = re.sub(
+            r'<meta name="google-site-verification" content="[^"]+"\s*/?>',
+            GSC_META,
+            html,
+            count=1,
+        )
+        return html
+    return html.replace(
+        '<meta name="author" content="Maurizio Piraino" />',
+        f'<meta name="author" content="Maurizio Piraino" />\n  {GSC_META}',
+        1,
+    )
+
 
 # ---------------------------------------------------------------------------
 # Italian content blocks

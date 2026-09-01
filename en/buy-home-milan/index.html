@@ -25,7 +25,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"RealEstateAgent","@id":"https://mauriziopiraino.it/#agent","name":"Maurizio Piraino","url":"https://mauriziopiraino.it/","areaServed":["Milano","Provincia di Milano","Brescia","Bergamo","Lombardia"],"telephone":"+39 351 458 1993"},{"@type":"Service","name":"Property Finding and real estate advisory in Milan","serviceType":"Property Finding and buyer & investor advisory","provider":{"@id":"https://mauriziopiraino.it/#agent"},"areaServed":"Milan","url":"https://mauriziopiraino.it/en/buy-home-milan/"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does the buyer service cost?","acceptedAnswer":{"@type":"Answer","text":"We discuss it clearly from the first contact, without surprises."}},{"@type":"Question","name":"Do you work only in Milan?","acceptedAnswer":{"@type":"Answer","text":"Milan and Lombardy are my operating base. If you are looking outside the region, I support you and activate the RE/MAX network locally."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":"RealEstateAgent","@id":"https://mauriziopiraino.it/#agent","name":"Maurizio Piraino","url":"https://mauriziopiraino.it/","areaServed":["Milan","Milan province","Brescia","Bergamo"],"telephone":"+39 351 458 1993"},
+{"@type":"Service","name":"Home buying advisory in Milan","serviceType":"Real estate buyer advisory","provider":{"@id":"https://mauriziopiraino.it/#agent"},"areaServed":"Milano","url":"https://mauriziopiraino.it/en/buy-home-milan/"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How much does the buyer service cost?","acceptedAnswer":{"@type":"Answer","text":"We discuss it clearly from the first contact, with no surprises. The goal is to help you buy well: the value you save by avoiding overpaying matters more than the fee."}},
+{"@type":"Question","name":"Do you only show your own listings?","acceptedAnswer":{"@type":"Answer","text":"No. The goal is to find the right home for you, not to push a property. Through the RE/MAX network, it is sometimes possible to see homes before they hit the portals."}},
+{"@type":"Question","name":"How do you know if the price is fair?","acceptedAnswer":{"@type":"Answer","text":"With a micro-area analysis based on official OMI data from the Italian Revenue Agency and the property's real characteristics, not listing prices."}},
+{"@type":"Question","name":"Can I buy before selling my current home?","acceptedAnswer":{"@type":"Answer","text":"Yes, and it is a common situation. It needs to be planned with the right timing and numbers: we discuss it in the initial analysis."}},
+{"@type":"Question","name":"Do you work only in Milan?","acceptedAnswer":{"@type":"Answer","text":"Milan and its province are the core focus, but I also support buyers in Brescia and Bergamo."}}
+]}
+]}</script>
 <style>
 
     :root {
@@ -994,6 +1004,7 @@
             <div><label class="field" for="b_nome">Name *</label><input id="b_nome" name="nome" type="text" required placeholder="e.g. Marco Rossi"></div>
             <div><label class="field" for="b_tel">Phone / WhatsApp *</label><input id="b_tel" name="telefono" type="tel" required placeholder="e.g. +39 348 000 0000"></div>
             <div><label class="field" for="b_zona">Area or municipality *</label><input id="b_zona" name="zona" type="text" list="comuniMI" required placeholder="e.g. Navigli, Sesto San Giovanni..." autocomplete="off"></div>
+            <div><label class="field" for="b_tip">Property type</label><select id="b_tip" name="tipologia"><option value="">No preference</option><option>Two-bedroom</option><option>Three-bedroom</option><option>Four bedrooms or more</option><option>Villa / detached house</option><option>Other</option></select></div>
             <div><label class="field" for="b_tip">Property type</label><select id="b_tip" name="tipologia"><option value="">No preference</option><option value="bilocale">Two-bedroom</option><option value="trilocale">Three-bedroom</option><option value="quattro">Four bedrooms or more</option><option value="villa">Villa / detached house</option><option value="altro">Other</option></select></div>
             <div><label class="field" for="b_budget">Indicative budget</label><select id="b_budget" name="budget"><option value="">Prefer not to say</option><option value="200000">Up to €200,000</option><option value="200000-350000">€200,000 - €350,000</option><option value="350000-500000">€350,000 - €500,000</option><option value="500000-800000">€500,000 - €800,000</option><option value="800000+">Over €800,000</option></select></div>
             <div><label class="field" for="b_tempi">Timing</label><select id="b_tempi" name="tempistiche"><option value="">—</option><option value="attivo">Actively searching</option><option value="3-6">Within 3-6 months</option><option value="valuto">Just exploring</option></select></div>
@@ -1024,8 +1035,8 @@
               <option>Navigli / Ticinese</option>
               <option>Isola / Porta Nuova</option>
               <option>Porta Romana / Crocetta</option>
-              <option>Zona Est / Lambrate</option>
-              <option>Altra zona di Milano</option>
+              <option>East Milan / Lambrate</option>
+              <option>Other area in Milan</option>
               <option>Abbiategrasso</option>
               <option>Albairate</option>
               <option>Arconate</option>
