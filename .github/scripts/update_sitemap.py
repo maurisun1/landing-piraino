@@ -30,6 +30,9 @@ def main() -> None:
     entries: list[str] = []
 
     entries.append(url_entry(f"{BASE}/", priority="1.0"))
+    # Consultant homes DE/FR (were missing from sitemap)
+    entries.append(url_entry(f"{BASE}/de/", priority="0.95"))
+    entries.append(url_entry(f"{BASE}/fr/", priority="0.95"))
     # Dedicated Milan seller landings (homepage is consultant, not sell)
     for lang in ("it", "de", "fr"):
         entries.append(url_entry(f"{BASE}{seller_url('milano', lang)}", priority="0.9" if lang == "it" else "0.85"))

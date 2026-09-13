@@ -213,3 +213,12 @@ footer:not(.footer) .disc {
     scroll-behavior: auto !important;
   }
 }
+
+/* SEO audit: internal mesh + related guides */
+.seo-internal-mesh{padding:48px 0;background:#f4f7fc;border-top:1px solid rgba(0,61,165,.08)}
+.seo-internal-mesh h2{font-size:clamp(22px,3vw,30px);margin:0 0 16px;color:#003da5}
+.seo-mesh-links,.seo-mesh-guides,.seo-mesh-buy{margin:0 0 12px;line-height:1.9;color:#333}
+.seo-mesh-links a,.seo-mesh-guides a,.seo-mesh-buy a{color:#003da5;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.guide-related,.guide-cta-links{max-width:1100px;margin:28px auto;padding:0 20px}
+.guide-related p,.guide-cta-links p{margin:0;padding:16px 18px;background:#f4f7fc;border:1px solid rgba(0,61,165,.1);border-radius:12px;line-height:1.7}
+.guide-related a,.guide-cta-links a{color:#003da5;font-weight:700}
