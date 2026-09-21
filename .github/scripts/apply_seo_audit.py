@@ -98,10 +98,9 @@ def fix_seller_h1(html: str) -> tuple[str, bool]:
 
 
 def seller_hreflang_urls(slug: str) -> dict[str, str]:
-    """IT/DE/FR seller pages; EN points to buyer province (no EN seller)."""
+    """Only same-intent seller pages (IT/DE/FR). No EN buy-home mismatch."""
     return {
         "it": abs_url(seller_url(slug, "it")),
-        "en": abs_url(buyer_province_url(slug, "en")),
         "de": abs_url(seller_url(slug, "de")),
         "fr": abs_url(seller_url(slug, "fr")),
     }
@@ -132,8 +131,6 @@ def seller_hub_hreflang_urls() -> dict[str, str]:
         "it": abs_url(seller_hub_url("it")),
         "de": abs_url(seller_hub_url("de")),
         "fr": abs_url(seller_hub_url("fr")),
-        # EN has no seller hub — share IT
-        "en": abs_url(seller_hub_url("it")),
     }
 
 
