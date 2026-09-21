@@ -228,6 +228,7 @@ footer:not(.footer) .disc {
 .seo-related-title{font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#dc1c2e;margin:0 0 12px}
 .seo-related ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .seo-related a{color:#003da5;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.seo-related-provinces{line-height:1.9;margin:0 0 8px;color:#333}
 .seo-home-mesh{padding:56px 0;background:#f4f7fc;border-top:1px solid rgba(0,61,165,.08)}
 .seo-home-mesh h2{font-size:clamp(24px,3vw,34px);margin:0 0 12px;color:#003da5}
 .seo-home-mesh > .container > p{margin:0 0 18px;color:#444;max-width:720px}
