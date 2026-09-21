@@ -58,6 +58,7 @@ RELATED_COPY = {
         "buy": "Comprare casa a {city}",
         "sell_hub": "Vendere casa in Lombardia",
         "buy_hub": "Property Finding in Lombardia",
+        "other_provinces": "Altre province — vendere casa",
     },
     "de": {
         "aria": "Verwandte Seiten",
@@ -66,6 +67,7 @@ RELATED_COPY = {
         "buy": "Haus kaufen in {city}",
         "sell_hub": "Haus verkaufen in der Lombardei",
         "buy_hub": "Property Finding in der Lombardei",
+        "other_provinces": "Andere Provinzen — Haus verkaufen",
     },
     "fr": {
         "aria": "Pages liées",
@@ -74,6 +76,7 @@ RELATED_COPY = {
         "buy": "Acheter une maison à {city}",
         "sell_hub": "Vendre en Lombardie",
         "buy_hub": "Property Finding en Lombardie",
+        "other_provinces": "Autres provinces — vendre",
     },
 }
 
@@ -133,11 +136,24 @@ def related_block(slug: str, lang: str) -> str:
     }[lang]
     links.append(f'<a href="{buy_hub}">{c["buy_hub"]}</a>')
     items = "\n    ".join(f"<li>{link}</li>" for link in links)
+
+    # Full province mesh: every seller page links all others (discoverability for Brescia, Sondrio, …)
+    other = []
+    for other_slug, _it, _en in LOMBARD_PROVINCES:
+        if other_slug == slug:
+            continue
+        other.append(
+            f'<a href="{seller_url(other_slug, lang)}">{city_label(other_slug, lang)}</a>'
+        )
+    other_html = " · ".join(other)
+
     return (
         f'<nav class="seo-related" aria-label="{c["aria"]}">\n'
         f'  <div class="container">\n'
         f'    <p class="seo-related-title">{c["title"]}</p>\n'
         f"    <ul>\n    {items}\n    </ul>\n"
+        f'    <p class="seo-related-title">{c["other_provinces"]}</p>\n'
+        f'    <p class="seo-related-provinces">{other_html}</p>\n'
         f"  </div>\n"
         f"</nav>\n"
     )
@@ -334,6 +350,7 @@ def ensure_css() -> None:
 .seo-related-title{font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#dc1c2e;margin:0 0 12px}
 .seo-related ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .seo-related a{color:#003da5;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.seo-related-provinces{line-height:1.9;margin:0 0 8px;color:#333}
 .seo-home-mesh{padding:56px 0;background:#f4f7fc;border-top:1px solid rgba(0,61,165,.08)}
 .seo-home-mesh h2{font-size:clamp(24px,3vw,34px);margin:0 0 12px;color:#003da5}
 .seo-home-mesh > .container > p{margin:0 0 18px;color:#444;max-width:720px}
@@ -342,8 +359,17 @@ def ensure_css() -> None:
 .seo-home-mesh-links a{color:#003da5;font-weight:700;text-decoration:underline;text-underline-offset:2px}
 """
     text = css_path.read_text(encoding="utf-8")
-    if "seo-home-mesh" not in text:
-        css_path.write_text(text + snippet, encoding="utf-8")
+    if "seo-related-provinces" not in text:
+        # Replace older block or append
+        if "seo-home-mesh{" in text and "seo-related-provinces" not in text:
+            text = text.replace(
+                ".seo-related a{color:#003da5;font-weight:700;text-decoration:underline;text-underline-offset:2px}",
+                ".seo-related a{color:#003da5;font-weight:700;text-decoration:underline;text-underline-offset:2px}\n"
+                ".seo-related-provinces{line-height:1.9;margin:0 0 8px;color:#333}",
+            )
+        else:
+            text = text + snippet
+        css_path.write_text(text, encoding="utf-8")
         print("  css: site-base.css")
 
 
@@ -391,12 +417,45 @@ def sync_audit_helper() -> None:
         print("  synced apply_seo_audit.py")
 
 
+def patch_buyer_hub_sell_links() -> None:
+    """Buyer hub should also deep-link to seller province pages (Brescia discoverability)."""
+    path = ROOT / "comprare-casa" / "index.html"
+    if not path.exists():
+        return
+    html = path.read_text(encoding="utf-8")
+    if 'class="seo-mesh-sell-provinces"' in html:
+        print("  buyer hub sell links: already present")
+        return
+    sell_links = []
+    for slug, name, _en in LOMBARD_PROVINCES:
+        sell_links.append(f'<a href="{seller_url(slug, "it")}">{name}</a>')
+    block = (
+        '<p class="seo-mesh-guides seo-mesh-sell-provinces">Vendere per provincia: '
+        + " · ".join(sell_links)
+        + "</p>"
+    )
+    # Insert after existing mesh guides line if present
+    if 'class="seo-mesh-buy"' in html:
+        html = html.replace(
+            '<p class="seo-mesh-buy">',
+            block + '<p class="seo-mesh-buy">',
+            1,
+        )
+    elif 'class="seo-internal-mesh"' in html:
+        html = html.replace("</div></section>", block + "</div></section>", 1)
+    else:
+        return
+    path.write_text(html, encoding="utf-8")
+    print("  buyer hub: sell province links added")
+
+
 def main() -> None:
     print("1) Seller hreflang (drop EN buy-home) + related links…")
     fix_seller_hreflang_and_related()
     print("2) Homepage + buyer related links…")
     patch_homepage_mesh()
     patch_buyer_related()
+    patch_buyer_hub_sell_links()
     print("3) Milano OMI guide title/meta/schema…")
     patch_milano_guide()
     print("4) CSS + sync audit helper…")
