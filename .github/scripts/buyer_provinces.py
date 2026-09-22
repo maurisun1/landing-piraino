@@ -24,9 +24,18 @@ def seller_link_for(slug: str) -> str:
 SELLER_LINKS = {slug: seller_link_for(slug) for slug, _name, _en in LOMBARD_PROVINCES}
 
 OMI_LINKS = {
-    "milano": "/guida-prezzi-mq-milano/",
-    "brescia": "/guida-prezzi-mq-brescia/",
-    "bergamo": "/guida-prezzi-mq-bergamo/",
+    "milano": "https://valorecasatua.it/guide/prezzi-mq-milano/",
+    "brescia": "https://valorecasatua.it/guide/prezzi-mq-brescia/",
+    "bergamo": "https://valorecasatua.it/guide/prezzi-mq-bergamo/",
+    "como": "https://valorecasatua.it/guide/prezzi-mq-como/",
+    "monza": "https://valorecasatua.it/guide/prezzi-mq-monza-brianza/",
+    "varese": "https://valorecasatua.it/guide/prezzi-mq-varese/",
+    "lecco": "https://valorecasatua.it/guide/prezzi-mq-lecco/",
+    "lodi": "https://valorecasatua.it/guide/prezzi-mq-lodi/",
+    "mantova": "https://valorecasatua.it/guide/prezzi-mq-mantova/",
+    "pavia": "https://valorecasatua.it/guide/prezzi-mq-pavia/",
+    "sondrio": "https://valorecasatua.it/guide/prezzi-mq-sondrio/",
+    "cremona": "https://valorecasatua.it/guide/prezzi-mq-cremona/",
 }
 
 AGENCY_NAME = "RE/MAX Associati Real Estate"

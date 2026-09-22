@@ -99,9 +99,18 @@ CITY_LABELS_EN = {
 }
 
 GUIDE_OMI = {
-    "milano": "/guida-prezzi-mq-milano/",
-    "bergamo": "/guida-prezzi-mq-bergamo/",
-    "brescia": "/guida-prezzi-mq-brescia/",
+    "milano": "https://valorecasatua.it/guide/prezzi-mq-milano/",
+    "bergamo": "https://valorecasatua.it/guide/prezzi-mq-bergamo/",
+    "brescia": "https://valorecasatua.it/guide/prezzi-mq-brescia/",
+    "como": "https://valorecasatua.it/guide/prezzi-mq-como/",
+    "monza": "https://valorecasatua.it/guide/prezzi-mq-monza-brianza/",
+    "varese": "https://valorecasatua.it/guide/prezzi-mq-varese/",
+    "lecco": "https://valorecasatua.it/guide/prezzi-mq-lecco/",
+    "lodi": "https://valorecasatua.it/guide/prezzi-mq-lodi/",
+    "mantova": "https://valorecasatua.it/guide/prezzi-mq-mantova/",
+    "pavia": "https://valorecasatua.it/guide/prezzi-mq-pavia/",
+    "sondrio": "https://valorecasatua.it/guide/prezzi-mq-sondrio/",
+    "cremona": "https://valorecasatua.it/guide/prezzi-mq-cremona/",
 }
 
 

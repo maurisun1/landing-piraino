@@ -45,9 +45,9 @@ HOME_MESH_RE = re.compile(
 )
 
 OMI_GUIDES = {
-    "milano": "/guida-prezzi-mq-milano/",
-    "bergamo": "/guida-prezzi-mq-bergamo/",
-    "brescia": "/guida-prezzi-mq-brescia/",
+    "milano": "https://valorecasatua.it/guide/prezzi-mq-milano/",
+    "bergamo": "https://valorecasatua.it/guide/prezzi-mq-bergamo/",
+    "brescia": "https://valorecasatua.it/guide/prezzi-mq-brescia/",
 }
 
 RELATED_COPY = {
@@ -211,9 +211,9 @@ def patch_homepage_mesh() -> bool:
         f'<p class="seo-home-mesh-links">{" · ".join(province_links)}</p>'
         '<p class="seo-home-mesh-label">Guide prezzi al mq (OMI)</p>'
         '<p class="seo-home-mesh-links">'
-        '<a href="/guida-prezzi-mq-milano/">Milano</a> · '
-        '<a href="/guida-prezzi-mq-bergamo/">Bergamo</a> · '
-        '<a href="/guida-prezzi-mq-brescia/">Brescia</a></p>'
+        '<a href="https://valorecasatua.it/guide/prezzi-mq-milano/">Milano</a> · '
+        '<a href="https://valorecasatua.it/guide/prezzi-mq-bergamo/">Bergamo</a> · '
+        '<a href="https://valorecasatua.it/guide/prezzi-mq-brescia/">Brescia</a></p>'
         '<p class="seo-home-mesh-label">Comprare casa</p>'
         f'<p class="seo-home-mesh-links"><a href="/comprare-casa/"><strong>Tutte le province</strong></a> · '
         f'{" · ".join(buy_links)}</p>'
@@ -260,71 +260,12 @@ def patch_buyer_related() -> int:
 
 
 def patch_milano_guide() -> None:
-    path = ROOT / "guida-prezzi-mq-milano" / "index.html"
-    html = path.read_text(encoding="utf-8")
+    """No-op: anti-cannibalizzazione VCT owns guide pages (canonical → ValoreCasaTua).
 
-    new_title = "Valori OMI Milano 2026: prezzi al mq per zona (tabella aggiornata)"
-    new_desc = (
-        "Valori OMI Milano 2026 e prezzi al mq per zona (2° sem. 2025): "
-        "da 1.850 a 16.000 €/mq. Tabella aggiornata e analisi micro-zona prima di vendere o comprare."
-    )
-    new_og = "Valori OMI Milano 2026: prezzi al mq per zona"
-
-    html = re.sub(r"<title>[^<]*</title>", f"<title>{new_title}</title>", html, count=1)
-    html = re.sub(
-        r'<meta name="description" content="[^"]*"\s*/?>',
-        f'<meta name="description" content="{new_desc}" />',
-        html,
-        count=1,
-    )
-    html = re.sub(
-        r'<meta property="og:title" content="[^"]*"\s*/?>',
-        f'<meta property="og:title" content="{new_og}" />',
-        html,
-        count=1,
-    )
-    html = re.sub(
-        r'<meta property="og:description" content="[^"]*"\s*/?>',
-        f'<meta property="og:description" content="{new_desc}" />',
-        html,
-        count=1,
-    )
-    # Fix broken schema absolute URLs (missing slash after domain)
-    html = html.replace(
-        "https://mauriziopiraino.itguida-prezzi-mq-milano/",
-        "https://mauriziopiraino.it/guida-prezzi-mq-milano/",
-    )
-    html = html.replace(
-        '"headline": "Prezzi al mq per zona a Milano: i valori OMI aggiornati"',
-        f'"headline": "{new_title}"',
-    )
-    html = html.replace(
-        '"dateModified": "2026-06-09"',
-        '"dateModified": "2026-09-21"',
-    )
-
-    # Add Dataset schema once (supports rich results / clarity for OMI table queries)
-    if '"@type": "Dataset"' not in html and '"@type":"Dataset"' not in html:
-        dataset = """<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Dataset",
-  "name": "Valori OMI Milano 2026 — prezzi al mq per zona",
-  "description": "Tabella dei valori OMI (Agenzia delle Entrate) per zone di Milano, 2° semestre 2025 / riferimento 2026.",
-  "url": "https://mauriziopiraino.it/guida-prezzi-mq-milano/",
-  "creator": {"@type": "Person", "name": "Maurizio Piraino"},
-  "license": "https://www.agenziaentrate.gov.it/",
-  "keywords": ["OMI Milano 2026", "valori OMI Milano", "prezzi al mq Milano"],
-  "spatialCoverage": "Milano, Lombardia, Italia",
-  "temporalCoverage": "2025-07/2025-12"
-}
-</script>
-"""
-        html = html.replace("</head>", dataset + "</head>", 1)
-
-    path.write_text(html, encoding="utf-8")
-    print("  guide title/meta/schema: guida-prezzi-mq-milano/")
-
+    Do not restore competitive OMI title/table/Dataset schema on MP.
+    See apply_anti_cannibal_vct.py and docs/anti-cannibal-vct-*.md.
+    """
+    print("  guide title/meta: skipped (anti-cannibal VCT — use apply_anti_cannibal_vct.py)")
 
 def ensure_css() -> None:
     css_path = ROOT / "assets" / "site-base.css"

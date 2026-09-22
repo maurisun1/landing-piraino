@@ -12,7 +12,7 @@ CITIES = {
     "index.html": {
         "city": "Milano",
         "area": "Milano e provincia",
-        "omi": "/guida-prezzi-mq-milano/",
+        "omi": "https://valorecasatua.it/guide/prezzi-mq-milano/",
         "buy": "/comprare-casa-milano/",
         "market_lead": "Milano cambia quartiere per quartiere. Un appartamento a Porta Romana non segue le stesse dinamiche di Lambrate, Isola o Navigli.",
         "zones": [
@@ -35,7 +35,7 @@ CITIES = {
     "bergamo/index.html": {
         "city": "Bergamo",
         "area": "Bergamo città e provincia",
-        "omi": "/guida-prezzi-mq-bergamo/",
+        "omi": "https://valorecasatua.it/guide/prezzi-mq-bergamo/",
         "buy": "/comprare-casa-bergamo/",
         "market_lead": "Bergamo Alta, Borgo Palazzo, Val Seriana e i comuni della provincia hanno dinamiche di prezzo molto diverse tra loro.",
         "zones": [
@@ -58,7 +58,7 @@ CITIES = {
     "brescia/index.html": {
         "city": "Brescia",
         "area": "Brescia città e provincia",
-        "omi": "/guida-prezzi-mq-brescia/",
+        "omi": "https://valorecasatua.it/guide/prezzi-mq-brescia/",
         "buy": "/comprare-casa-brescia/",
         "market_lead": "Brescia centro, la Franciacorta, il Garda bresciano e le valli hanno domanda, prezzi e tempi di vendita completamente diversi.",
         "zones": [
