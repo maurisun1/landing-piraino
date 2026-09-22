@@ -29,9 +29,18 @@ def seller_href(slug: str) -> str:
     return seller_url(slug, "it")
 
 OMI_HREF = {
-    "milano": "/guida-prezzi-mq-milano/",
-    "bergamo": "/guida-prezzi-mq-bergamo/",
-    "brescia": "/guida-prezzi-mq-brescia/",
+    "milano": "https://valorecasatua.it/guide/prezzi-mq-milano/",
+    "monza": "https://valorecasatua.it/guide/prezzi-mq-monza-brianza/",
+    "bergamo": "https://valorecasatua.it/guide/prezzi-mq-bergamo/",
+    "brescia": "https://valorecasatua.it/guide/prezzi-mq-brescia/",
+    "como": "https://valorecasatua.it/guide/prezzi-mq-como/",
+    "varese": "https://valorecasatua.it/guide/prezzi-mq-varese/",
+    "lecco": "https://valorecasatua.it/guide/prezzi-mq-lecco/",
+    "sondrio": "https://valorecasatua.it/guide/prezzi-mq-sondrio/",
+    "cremona": "https://valorecasatua.it/guide/prezzi-mq-cremona/",
+    "lodi": "https://valorecasatua.it/guide/prezzi-mq-lodi/",
+    "mantova": "https://valorecasatua.it/guide/prezzi-mq-mantova/",
+    "pavia": "https://valorecasatua.it/guide/prezzi-mq-pavia/",
 }
 
 
@@ -52,10 +61,7 @@ def build_footer_geo(current: str) -> str:
 
     omi = []
     for slug, name in PROVINCES:
-        if slug in OMI_HREF:
-            omi.append(link(name, OMI_HREF[slug]))
-        else:
-            omi.append(link(name, f"/comprare-casa-{slug}/"))
+        omi.append(link(name, OMI_HREF[slug]))
 
     buy = [
         '<a href="/comprare-casa/"><strong>Tutte le province lombarde (12)</strong></a>',

@@ -44,9 +44,9 @@ HERO_H2_RE = re.compile(
     re.DOTALL,
 )
 GUIDE_RELATED = {
-    "milano": ("/guida-prezzi-mq-milano/", "Milano"),
-    "bergamo": ("/guida-prezzi-mq-bergamo/", "Bergamo"),
-    "brescia": ("/guida-prezzi-mq-brescia/", "Brescia"),
+    "milano": ("https://valorecasatua.it/guide/prezzi-mq-milano/", "Milano"),
+    "bergamo": ("https://valorecasatua.it/guide/prezzi-mq-bergamo/", "Bergamo"),
+    "brescia": ("https://valorecasatua.it/guide/prezzi-mq-brescia/", "Brescia"),
 }
 
 
@@ -322,9 +322,9 @@ def strengthen_seller_hub_internal_links() -> int:
         "<h2>Vendere casa in Lombardia — scegli la provincia</h2>"
         f'<p class="seo-mesh-links">{links}</p>'
         '<p class="seo-mesh-guides">Guide prezzi OMI: '
-        '<a href="/guida-prezzi-mq-milano/">Milano</a> · '
-        '<a href="/guida-prezzi-mq-bergamo/">Bergamo</a> · '
-        '<a href="/guida-prezzi-mq-brescia/">Brescia</a></p>'
+        '<a href="https://valorecasatua.it/guide/prezzi-mq-milano/">Milano</a> · '
+        '<a href="https://valorecasatua.it/guide/prezzi-mq-bergamo/">Bergamo</a> · '
+        '<a href="https://valorecasatua.it/guide/prezzi-mq-brescia/">Brescia</a></p>'
         '<p class="seo-mesh-buy">Stai cercando casa? '
         '<a href="/comprare-casa/">Property Finding in Lombardia →</a></p>'
         "</div></section>\n"
@@ -352,9 +352,9 @@ def strengthen_seller_hub_internal_links() -> int:
         "<h2>Comprare casa in Lombardia — scegli la provincia</h2>"
         f'<p class="seo-mesh-links">{buy_links}</p>'
         '<p class="seo-mesh-guides">Guide prezzi OMI: '
-        '<a href="/guida-prezzi-mq-milano/">Milano</a> · '
-        '<a href="/guida-prezzi-mq-bergamo/">Bergamo</a> · '
-        '<a href="/guida-prezzi-mq-brescia/">Brescia</a></p>'
+        '<a href="https://valorecasatua.it/guide/prezzi-mq-milano/">Milano</a> · '
+        '<a href="https://valorecasatua.it/guide/prezzi-mq-bergamo/">Bergamo</a> · '
+        '<a href="https://valorecasatua.it/guide/prezzi-mq-brescia/">Brescia</a></p>'
         '<p class="seo-mesh-buy">Devi vendere? '
         '<a href="/vendere-casa/">Analisi di vendita →</a></p>'
         "</div></section>\n"

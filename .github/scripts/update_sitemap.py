@@ -45,9 +45,9 @@ def main() -> None:
             entries.append(url_entry(f"{BASE}{seller_url(slug, lang)}", priority="0.75"))
 
     for path, priority in (
-        ("/guida-prezzi-mq-milano/", "0.8"),
-        ("/guida-prezzi-mq-brescia/", "0.8"),
-        ("/guida-prezzi-mq-bergamo/", "0.8"),
+        ("/guida-prezzi-mq-milano/", "0.5"),
+        ("/guida-prezzi-mq-brescia/", "0.5"),
+        ("/guida-prezzi-mq-bergamo/", "0.5"),
         ("/privacy/", "0.3"),
     ):
         entries.append(url_entry(f"{BASE}{path}", priority=priority, changefreq="yearly" if path == "/privacy/" else "monthly"))
