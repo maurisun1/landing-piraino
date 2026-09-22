@@ -196,12 +196,10 @@ def rewrite_guide(slug: str) -> None:
 <meta name="description" content="{desc}" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="{vct_url}" />
-<link rel="alternate" hreflang="it" href="{mp_url}" />
-<link rel="alternate" hreflang="x-default" href="{mp_url}" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="{title}" />
 <meta property="og:description" content="{desc}" />
-<meta property="og:url" content="{mp_url}" />
+<meta property="og:url" content="{vct_url}" />
 <meta property="og:image" content="https://mauriziopiraino.it{stats['image']}" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
