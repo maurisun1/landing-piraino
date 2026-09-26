@@ -1088,3 +1088,116 @@ section.network a:hover {
     padding-bottom: 78px;
   }
 }
+
+/* Piano di marketing + home staging (servizio agente, non guida editoriale) */
+.seller-marketing-plan {
+  padding: 72px 0;
+  background: #fff;
+}
+
+.seller-mkt-phases {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 8px;
+}
+
+.seller-mkt-phase {
+  background: #f4f7fc;
+  border: 1px solid rgba(0, 61, 165, .12);
+  border-radius: 14px;
+  padding: 26px 22px;
+}
+
+.seller-mkt-num {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--remax-red, #dc1c2e);
+  margin-bottom: 10px;
+}
+
+.seller-mkt-phase h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.2rem;
+  color: var(--remax-blue, #003da5);
+  margin: 0 0 14px;
+}
+
+.seller-mkt-phase ul {
+  margin: 0;
+  padding: 0 0 0 18px;
+  color: #333;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.seller-mkt-phase li + li {
+  margin-top: 8px;
+}
+
+.seller-mkt-bridge {
+  margin: 28px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+  max-width: 820px;
+}
+
+.seller-mkt-bridge a {
+  color: var(--remax-blue, #003da5);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.seller-mkt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.seller-rebuy {
+  padding: 48px 0;
+  background: #f4f7fc;
+}
+
+.seller-rebuy-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  background: #fff;
+  border: 1px solid rgba(0, 61, 165, .12);
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 8px 28px rgba(0, 61, 165, .06);
+}
+
+.seller-rebuy-inner h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  color: var(--remax-blue, #003da5);
+  margin: 0 0 10px;
+}
+
+.seller-rebuy-inner p {
+  margin: 0;
+  max-width: 560px;
+  color: #444;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .seller-mkt-phases {
+    grid-template-columns: 1fr;
+  }
+
+  .seller-rebuy-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
