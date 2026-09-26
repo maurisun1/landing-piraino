@@ -5,10 +5,14 @@
   --red-dark: #b01828;
   --blue: #003da5;
   --blue-dark: #0c2749;
-  --gold: #003da5;
+  --gold: #003da5; /* accent tipografico = blu brand (no crema/terracotta) */
   --remax-red: #dc1c2e;
   --remax-blue: #003da5;
-  --remax-cream: #f7f5ee;
+  --remax-cream: #f3f6fb; /* cool surface, non warm-cream AI default */
+  --ink: #0f1c2e;
+  --muted: #5c6775;
+  --surface: #ffffff;
+  --surface-soft: #f3f6fb;
 }
 
 .skip-link {

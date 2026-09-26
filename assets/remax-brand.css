@@ -2,8 +2,8 @@
 
 /* ── Global palette override ── */
 body {
-  background: #eef3fb !important;
-  color: #1a1a1a;
+  background: #f3f6fb !important;
+  color: var(--ink, #0f1c2e);
 }
 
 .topbar {
