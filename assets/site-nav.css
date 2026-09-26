@@ -103,20 +103,21 @@ header.site-header {
 .remax-nav-badge {
   display: inline-flex;
   align-items: center;
-  padding: 3px 8px;
-  border-radius: 5px;
-  background: var(--remax-red, #dc1c2e);
-  color: #fff !important;
-  opacity: .92;
-  transform: scale(.92);
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--remax-red, #dc1c2e) !important;
+  border: 1px solid rgba(220, 28, 46, .45);
+  opacity: .9;
+  transform: scale(.9);
   transform-origin: left center;
-  font-family: Inter, Arial, sans-serif;
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
   font-size: 9px;
-  font-weight: 900;
-  letter-spacing: .14em;
+  font-weight: 800;
+  letter-spacing: .12em;
   text-transform: uppercase;
   white-space: nowrap;
-  box-shadow: 0 3px 10px rgba(220, 28, 46, .25);
+  box-shadow: none;
   flex-shrink: 0;
 }
 
@@ -360,16 +361,18 @@ body.nav-open {
   align-items: center;
   gap: 8px;
   color: #fff !important;
-  background: #25d366;
-  padding: 7px 14px;
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .35);
+  padding: 6px 12px;
   border-radius: 999px;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 12px;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, .22);
+  box-shadow: none;
 }
 
 .topbar-wa:hover {
-  background: #1ebe57;
+  background: rgba(37, 211, 102, .22);
+  border-color: rgba(37, 211, 102, .55);
 }
 
 /* ── Desktop ── */

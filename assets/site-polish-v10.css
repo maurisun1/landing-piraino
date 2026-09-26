@@ -165,10 +165,10 @@ section.hero.seller-form-section .tcard.on {
 
 .hero-form-trust li::before {
   content: "";
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: var(--remax-red, #dc1c2e);
+  background: var(--remax-blue, #003da5);
   flex-shrink: 0;
 }
 
@@ -407,4 +407,137 @@ section.hero.seller-form-section .tcard.on {
   .pb-engage-inner { padding: 22px; }
   .pb-engage-inner .seller-mid-actions { width: 100%; }
   .pb-engage-inner .btn { flex: 1; justify-content: center; }
+}
+
+/* ═══════════════════════════════════════════
+   Elegance pass — rosso solo sulle CTA primarie
+   Navy = fiducia / struttura; rosso = azione
+   ═══════════════════════════════════════════ */
+
+.section-kicker,
+.buyer-hero-pro-copy .section-kicker {
+  color: var(--remax-blue, #003da5) !important;
+}
+
+.hero .section-kicker,
+.buyer-hero-pro .section-kicker[style*="gold"],
+.buyer-hero-pro-copy .section-kicker {
+  color: rgba(255, 255, 255, .78) !important;
+}
+
+.eyebrow {
+  color: var(--remax-blue, #003da5) !important;
+  font-weight: 700 !important;
+}
+
+.card .num,
+.situations-grid .num,
+.method-grid .num,
+.steps-grid .num,
+.seller-service-num,
+.step-time {
+  color: var(--remax-blue, #003da5) !important;
+}
+
+.card:hover,
+.situations-grid .card:hover,
+.testimonial-card:hover,
+.seller-service-card:hover {
+  border-top-color: var(--remax-blue, #003da5) !important;
+}
+
+/* Bordi sezione: meno “nastro rosso” */
+.dual-path,
+.consultant-path {
+  border-top: 1px solid rgba(15, 28, 46, .08) !important;
+  border-bottom: 1px solid rgba(15, 28, 46, .08) !important;
+}
+
+.form-card,
+.hero-form-wrap .form-card,
+.form-card.seller-form-card,
+.buyer-hero-card,
+.testimonial-card,
+.seller-service-card.featured,
+.adv-card.featured-adv {
+  border-top-width: 2px !important;
+  border-top-color: var(--remax-blue, #003da5) !important;
+}
+
+section.hero#contatto.seller-form-section {
+  border-top: 2px solid var(--remax-red, #dc1c2e) !important;
+}
+
+.final-cta,
+.buyer-final-cta,
+.footer {
+  border-top-width: 2px !important;
+}
+
+/* CTA rossa: una voce chiara, ombra meno aggressiva */
+.btn-red,
+.nav-links .btn-red.nav-cta {
+  box-shadow: 0 8px 22px rgba(220, 28, 46, .18) !important;
+}
+
+.btn-red:hover {
+  box-shadow: 0 12px 28px rgba(220, 28, 46, .26) !important;
+}
+
+/* Form: step attivo resta rosso (unico accento interattivo) */
+.fp-dot.active {
+  background: var(--remax-red, #dc1c2e) !important;
+  border-color: var(--remax-red, #dc1c2e) !important;
+}
+
+.fp-dot:not(.active) {
+  border-color: rgba(15, 28, 46, .2) !important;
+  color: var(--muted, #5c6775) !important;
+}
+
+/* Selezioni form: navy di default, rosso solo tipologia selezionata leggera */
+section.hero.seller-form-section .intent-card.on {
+  border-color: var(--remax-blue, #003da5) !important;
+}
+
+section.hero.seller-form-section .tcard.on {
+  border-color: var(--remax-blue, #003da5) !important;
+  color: var(--remax-blue, #003da5) !important;
+  background: rgba(0, 61, 165, .06) !important;
+}
+
+/* Strip accent: navy line instead of red */
+.pb-strip-grid > div::before {
+  background: rgba(255, 255, 255, .35) !important;
+}
+
+/* Sticky: bordo rosso sottile ok (CTA zona) */
+.seller-sticky-bar,
+.buyer-sticky-bar {
+  border-top-width: 2px !important;
+}
+
+/* Engage band: CTA rossa resta (azione primaria mid-page) */
+.pb-engage-inner .btn-red {
+  box-shadow: 0 8px 20px rgba(220, 28, 46, .22) !important;
+}
+
+/* Nav link pill highlight meno rosa/rosso aggressivo */
+.nav-link-primary,
+.nav-group-links a.nav-link-primary {
+  background: rgba(0, 61, 165, .06) !important;
+  color: var(--remax-blue, #003da5) !important;
+}
+
+.portrait-card {
+  border: 1px solid rgba(15, 28, 46, .08) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+.dual-path-sell,
+.consultant-path-sell {
+  border-top-color: var(--remax-blue, #003da5) !important;
+}
+.dual-path-sell .dual-path-cta,
+.consultant-path-sell .consultant-path-cta {
+  color: var(--remax-blue, #003da5) !important;
 }

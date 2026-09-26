@@ -48,14 +48,15 @@
 
 .topbar-tagline strong {
   display: inline-block;
-  background: var(--remax-red);
+  background: transparent;
   color: #fff !important;
-  padding: 2px 8px;
-  border-radius: 4px;
-  letter-spacing: .06em;
+  padding: 0;
+  border-radius: 0;
+  letter-spacing: .04em;
+  font-weight: 800;
 }
 
-/* Singola linea rossa RE/MAX sotto la nav */
+/* Accento RE/MAX sottile sotto la nav — proporzione ridotta */
 .topbar::after {
   display: none;
 }
@@ -70,9 +71,10 @@
   margin-right: calc(50% - 50vw);
   padding: 0;
   border: 0;
-  height: 3px;
+  height: 1px;
   flex-shrink: 0;
   background: var(--remax-red);
+  opacity: .85;
 }
 
 .site-header {
@@ -83,13 +85,14 @@
   color: var(--remax-red) !important;
 }
 
+/* Kickers: navy = fiducia; rosso solo sulle CTA */
 .section-kicker {
-  color: var(--remax-red) !important;
+  color: var(--remax-blue) !important;
 }
 
 .footer {
   background: var(--blue-dark) !important;
-  border-top: 5px solid var(--remax-red);
+  border-top: 2px solid var(--remax-red);
 }
 
 .footer-geo {
