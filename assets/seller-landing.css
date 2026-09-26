@@ -174,7 +174,7 @@ section.hero#contatto.seller-form-section::after {
   border-radius: 16px !important;
   padding: clamp(24px, 2.8vw, 30px) !important;
   box-shadow: 0 20px 52px rgba(0, 0, 0, .34);
-  border-top: 5px solid var(--remax-red, #dc1c2e) !important;
+  border-top: 2px solid var(--remax-blue, #003da5) !important;
 }
 
 /* Legacy hero-left (if still present on old markup) */
@@ -806,11 +806,11 @@ main > section {
   border-radius: 16px !important;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 61, 165, .14) !important;
-  border: 3px solid var(--remax-red, #dc1c2e) !important;
+  border: 1px solid rgba(15, 28, 46, .1) !important;
 }
 
 .quote {
-  border-left: 4px solid var(--remax-red, #dc1c2e) !important;
+  border-left: 4px solid var(--remax-blue, #003da5) !important;
   padding-left: 20px !important;
   font-style: italic;
   color: var(--remax-blue, #003da5) !important;
@@ -821,7 +821,7 @@ main > section {
 .testimonial-card {
   background: #fff !important;
   border-radius: 14px !important;
-  border-top: 4px solid var(--remax-red, #dc1c2e) !important;
+  border-top: 2px solid var(--remax-blue, #003da5) !important;
   padding: 28px !important;
   box-shadow: 0 12px 36px rgba(0, 61, 165, .1) !important;
 }
@@ -839,7 +839,7 @@ main > section {
 }
 
 .stars {
-  color: var(--remax-red, #dc1c2e) !important;
+  color: #c4a35a !important;
   margin-bottom: 12px;
 }
 
