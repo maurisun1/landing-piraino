@@ -10,33 +10,32 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def remove_sections_by_class(html: str, class_names: list[str]) -> str:
     """Remove top-level <section> elements whose class token matches any name."""
-    # Token match: avoid "market" deleting "seller-marketing-plan"
-    alts = "|".join(rf"(?:^|\s){re.escape(c)}(?:\s|$)" for c in class_names)
-    pattern = re.compile(
-        rf'<section\b[^>]*\bclass="(?=[^"]*(?:{alts}))[^"]*"[^>]*>',
-        re.I,
-    )
-    while True:
-        m = pattern.search(html)
-        if not m:
-            break
-        start = m.start()
-        # walk to matching close, respecting nested sections
-        i = m.end()
-        depth = 1
-        while depth and i < len(html):
-            nxt_open = html.find("<section", i)
-            nxt_close = html.find("</section>", i)
-            if nxt_close == -1:
+    for c in class_names:
+        pattern = re.compile(
+            rf'<section[^>]*class="[^"]*{re.escape(c)}[^"]*"[^>]*>',
+            re.I,
+        )
+        while True:
+            m = pattern.search(html)
+            if not m:
                 break
-            if nxt_open != -1 and nxt_open < nxt_close:
-                depth += 1
-                i = nxt_open + 8
-            else:
-                depth -= 1
-                i = nxt_close + len("</section>")
-        html = html[:start] + html[i:]
+            start = m.start()
+            i = m.end()
+            depth = 1
+            while depth and i < len(html):
+                nxt_open = html.find("<section", i)
+                nxt_close = html.find("</section>", i)
+                if nxt_close == -1:
+                    break
+                if nxt_open != -1 and nxt_open < nxt_close:
+                    depth += 1
+                    i = nxt_open + 8
+                else:
+                    depth -= 1
+                    i = nxt_close + len("</section>")
+            html = html[:start] + html[i:]
     return html
+
 
 
 def slim_hero_benefits(html: str, lang: str) -> str:
