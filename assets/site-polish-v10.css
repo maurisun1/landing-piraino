@@ -1,0 +1,410 @@
+/* Site polish v10 — elegante, professionale, engage
+   Loaded after remax-brand / consultant-home. Keeps RE/MAX red+blue. */
+
+:root {
+  --ink: #0f1c2e;
+  --ink-soft: #243044;
+  --muted: #5c6775;
+  --surface: #ffffff;
+  --surface-soft: #f3f6fb;
+  --surface-tint: #e8eef8;
+  --line: rgba(15, 28, 46, .08);
+  --shadow-soft: 0 10px 36px rgba(12, 39, 73, .08);
+  --shadow-card: 0 18px 48px rgba(12, 39, 73, .12);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --font-display: "Playfair Display", "Times New Roman", serif;
+  --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+}
+
+/* —— Typography —— */
+body {
+  font-family: var(--font-body) !important;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 480px at 8% -10%, rgba(0, 61, 165, .07), transparent 55%),
+    radial-gradient(900px 420px at 92% 0%, rgba(220, 28, 46, .05), transparent 50%),
+    var(--surface-soft) !important;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3,
+.brand,
+.hero-brand-mark,
+.section-head h2,
+.seller-form-aside h1,
+.buyer-hero-pro-copy h1 {
+  font-family: var(--font-display) !important;
+}
+
+.section-kicker {
+  font-family: var(--font-body) !important;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+/* —— Header / nav polish —— */
+.site-header {
+  box-shadow: 0 1px 0 var(--line), 0 8px 24px rgba(12, 39, 73, .04) !important;
+}
+
+.brand {
+  letter-spacing: -.01em;
+}
+
+.remax-nav-badge {
+  letter-spacing: .04em;
+}
+
+/* —— Hero atmosphere —— */
+section.hero#contatto.seller-form-section::before {
+  background-image: linear-gradient(
+    112deg,
+    rgba(12, 39, 73, .88) 0%,
+    rgba(0, 61, 165, .62) 46%,
+    rgba(12, 39, 73, .55) 100%
+  ), var(--seller-city-bg, url(/milano.jpg)) !important;
+}
+
+section.hero#contatto.seller-form-section::after {
+  background:
+    linear-gradient(180deg, rgba(12, 39, 73, .18) 0%, transparent 28%, rgba(12, 39, 73, .35) 100%),
+    radial-gradient(circle at 18% 20%, rgba(255, 255, 255, .1), transparent 34%),
+    radial-gradient(circle at 86% 72%, rgba(220, 28, 46, .14), transparent 30%) !important;
+}
+
+.hero-brand-mark {
+  animation: pbBrandIn .9s var(--ease-out) both;
+}
+
+.hero-role-line {
+  animation: pbFadeUp .8s var(--ease-out) .12s both;
+}
+
+.seller-form-aside .hero-agent,
+.seller-form-aside h1,
+.seller-form-aside > p,
+.seller-form-benefits,
+.seller-form-wa {
+  animation: pbFadeUp .85s var(--ease-out) both;
+}
+
+.seller-form-aside .hero-agent { animation-delay: .16s; }
+.seller-form-aside h1 { animation-delay: .22s; }
+.seller-form-aside > p { animation-delay: .28s; }
+.seller-form-benefits { animation-delay: .34s; }
+.seller-form-wa { animation-delay: .4s; }
+
+.seller-form-panel .form-card,
+.hero-form-wrap .form-card {
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-card) !important;
+  border: 1px solid rgba(255, 255, 255, .65) !important;
+  animation: pbCardIn .9s var(--ease-out) .18s both;
+  color: var(--ink, #0f1c2e) !important;
+}
+
+/* Form lives inside white hero section — do not inherit hero white text */
+section.hero.seller-form-section .form-card,
+section.hero.seller-form-section .form-card p,
+section.hero.seller-form-section .form-card label,
+section.hero.seller-form-section .form-card .step-note,
+section.hero.seller-form-section .form-card .microcopy {
+  color: var(--ink, #0f1c2e) !important;
+}
+
+section.hero.seller-form-section .form-card h2 {
+  color: var(--blue-dark, #0c2749) !important;
+}
+
+section.hero.seller-form-section .intent-card,
+section.hero.seller-form-section .tcard {
+  color: var(--ink, #0f1c2e) !important;
+  background: #fff;
+}
+
+section.hero.seller-form-section .intent-card.on {
+  color: var(--remax-blue, #003da5) !important;
+  background: rgba(0, 61, 165, .06);
+}
+
+section.hero.seller-form-section .tcard.on {
+  color: var(--remax-red, #dc1c2e) !important;
+  background: rgba(220, 28, 46, .07);
+}
+
+.hero-form-trust {
+  color: var(--muted, #5c6775) !important;
+}
+
+.seller-form-panel .form-card h2,
+.hero-form-wrap .form-card h2 {
+  font-family: var(--font-display) !important;
+  letter-spacing: -.015em;
+}
+
+.hero-form-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.hero-form-trust li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-form-trust li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--remax-red, #dc1c2e);
+  flex-shrink: 0;
+}
+
+/* —— Path / dual-path engage —— */
+.consultant-path-card,
+.dual-path-card {
+  transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out), border-color .35s ease;
+}
+
+.consultant-path-card:hover,
+.dual-path-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+}
+
+.consultant-path-cta,
+.dual-path-cta {
+  transition: letter-spacing .25s ease, color .25s ease;
+}
+
+.consultant-path-card:hover .consultant-path-cta,
+.dual-path-card:hover .dual-path-cta {
+  letter-spacing: .02em;
+}
+
+/* —— Strip —— */
+.pb-strip {
+  background: linear-gradient(90deg, #0c2749 0%, #12345a 50%, #0c2749 100%) !important;
+  border-top: 1px solid rgba(255, 255, 255, .06);
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
+}
+
+.pb-strip-grid > div {
+  position: relative;
+  padding-left: 14px;
+}
+
+.pb-strip-grid > div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--remax-red, #dc1c2e);
+  border-radius: 2px;
+  opacity: .85;
+}
+
+/* —— Sections —— */
+.about.pb-about,
+.seller-services.pb-services,
+.situations.pb-situations,
+.testimonials,
+.faq.pb-faq,
+.editorial-bridge {
+  padding-top: clamp(56px, 7vw, 88px);
+  padding-bottom: clamp(56px, 7vw, 88px);
+}
+
+.situations.pb-situations {
+  background: var(--surface-tint) !important;
+}
+
+.testimonials {
+  background: var(--surface) !important;
+}
+
+.portrait-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.seller-service-card,
+.situations .card,
+.testimonial-card {
+  transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
+}
+
+.seller-service-card:hover,
+.situations .card:hover,
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+}
+
+.seller-compare-table {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+/* —— Editorial bridge —— */
+.editorial-bridge-inner {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: linear-gradient(135deg, #fff 0%, var(--surface-tint) 100%);
+  box-shadow: var(--shadow-soft);
+}
+
+/* —— Final CTA —— */
+.final-cta {
+  background: linear-gradient(145deg, #0c2749 0%, #003da5 58%, #0c2749 100%) !important;
+}
+
+.final-cta h2 {
+  letter-spacing: -.02em;
+}
+
+/* —— Sticky engage bar —— */
+.seller-sticky-bar,
+.buyer-sticky-bar {
+  background: rgba(12, 39, 73, .94) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 2px solid var(--remax-red, #dc1c2e) !important;
+  box-shadow: 0 -8px 28px rgba(0, 0, 0, .18);
+}
+
+/* —— Buyer hero brand —— */
+.buyer-hero-pro .hero-brand-mark {
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, .35);
+  animation: pbBrandIn .9s var(--ease-out) both;
+}
+
+.buyer-hero-card {
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+/* —— Footer —— */
+.footer-affiliation {
+  margin-top: 8px;
+  font-size: .92rem;
+  opacity: .92;
+}
+
+/* —— Motion keyframes —— */
+@keyframes pbBrandIn {
+  from { opacity: 0; transform: translateY(14px); filter: blur(2px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+@keyframes pbFadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes pbCardIn {
+  from { opacity: 0; transform: translateY(22px) scale(.985); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-brand-mark,
+  .hero-role-line,
+  .seller-form-aside .hero-agent,
+  .seller-form-aside h1,
+  .seller-form-aside > p,
+  .seller-form-benefits,
+  .seller-form-wa,
+  .seller-form-panel .form-card,
+  .hero-form-wrap .form-card,
+  .buyer-hero-pro .hero-brand-mark {
+    animation: none !important;
+  }
+
+  .consultant-path-card:hover,
+  .dual-path-card:hover,
+  .seller-service-card:hover,
+  .situations .card:hover,
+  .testimonial-card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-form-trust {
+    margin-bottom: 12px;
+  }
+
+  .pb-strip-grid > div {
+    padding-left: 12px;
+  }
+}
+
+/* Engage band */
+.pb-engage-band {
+  padding: 48px 0;
+  background: linear-gradient(180deg, #fff 0%, var(--surface-tint, #e8eef8) 100%);
+}
+.pb-engage-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 32px;
+  border-radius: 14px;
+  background: #0c2749;
+  color: #fff;
+  box-shadow: 0 18px 48px rgba(12, 39, 73, .14);
+}
+.pb-engage-inner h2 {
+  margin: 6px 0 8px;
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  color: #fff !important;
+}
+.pb-engage-inner p {
+  margin: 0;
+  color: rgba(255,255,255,.82);
+  max-width: 42ch;
+}
+.pb-engage-inner .seller-mid-kicker {
+  color: rgba(255,255,255,.7);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0;
+}
+.pb-engage-inner .seller-mid-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pb-engage-inner .btn-light {
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.35);
+}
+@media (max-width: 700px) {
+  .pb-engage-inner { padding: 22px; }
+  .pb-engage-inner .seller-mid-actions { width: 100%; }
+  .pb-engage-inner .btn { flex: 1; justify-content: center; }
+}
