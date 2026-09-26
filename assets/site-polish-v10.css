@@ -103,6 +103,40 @@ section.hero#contatto.seller-form-section::after {
   box-shadow: var(--shadow-card) !important;
   border: 1px solid rgba(255, 255, 255, .65) !important;
   animation: pbCardIn .9s var(--ease-out) .18s both;
+  color: var(--ink, #0f1c2e) !important;
+}
+
+/* Form lives inside white hero section — do not inherit hero white text */
+section.hero.seller-form-section .form-card,
+section.hero.seller-form-section .form-card p,
+section.hero.seller-form-section .form-card label,
+section.hero.seller-form-section .form-card .step-note,
+section.hero.seller-form-section .form-card .microcopy {
+  color: var(--ink, #0f1c2e) !important;
+}
+
+section.hero.seller-form-section .form-card h2 {
+  color: var(--blue-dark, #0c2749) !important;
+}
+
+section.hero.seller-form-section .intent-card,
+section.hero.seller-form-section .tcard {
+  color: var(--ink, #0f1c2e) !important;
+  background: #fff;
+}
+
+section.hero.seller-form-section .intent-card.on {
+  color: var(--remax-blue, #003da5) !important;
+  background: rgba(0, 61, 165, .06);
+}
+
+section.hero.seller-form-section .tcard.on {
+  color: var(--remax-red, #dc1c2e) !important;
+  background: rgba(220, 28, 46, .07);
+}
+
+.hero-form-trust {
+  color: var(--muted, #5c6775) !important;
 }
 
 .seller-form-panel .form-card h2,
