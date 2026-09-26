@@ -274,3 +274,118 @@
   .consultant-portrait-grid { grid-template-columns: 1fr; }
   .consultant-portrait-grid img { max-width: 280px; margin: 0 auto; }
 }
+
+/* Personal brand home — Maurizio first, leaner rhythm */
+.hero-brand-mark {
+  margin: 0 0 6px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, .35);
+}
+
+.hero-role-line {
+  margin: 0 0 18px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .82);
+}
+
+.seller-form-aside .hero-agent {
+  margin-bottom: 18px;
+}
+
+.seller-form-aside h1 {
+  font-size: clamp(1.55rem, 3.2vw, 2.15rem) !important;
+  max-width: 16ch;
+  line-height: 1.15 !important;
+}
+
+.pb-strip {
+  background: #0c2749;
+  color: #fff;
+  padding: 22px 0;
+}
+
+.pb-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.pb-strip-grid strong {
+  display: block;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+}
+
+.pb-strip-grid span {
+  font-size: 13px;
+  opacity: .78;
+  line-height: 1.35;
+}
+
+.pb-about {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.pb-method {
+  margin-top: 22px;
+}
+
+.pb-services .seller-services-grid {
+  margin-bottom: 28px;
+}
+
+.pb-compare {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.pb-situations-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+.pb-testimonials {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pb-faq .faq-grid {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.consultant-path-intro {
+  color: var(--muted, #707070);
+}
+
+.consultant-path-intro em {
+  color: var(--remax-red, #dc1c2e);
+}
+
+@media (max-width: 900px) {
+  .pb-strip-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .pb-situations-grid,
+  .pb-testimonials {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-brand-mark {
+    font-size: clamp(1.75rem, 8vw, 2.4rem);
+  }
+
+  .seller-form-aside h1 {
+    max-width: none;
+  }
+}

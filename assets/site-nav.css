@@ -93,7 +93,7 @@ header.site-header {
 .brand {
   font-family: "Playfair Display", Georgia, serif;
   font-weight: 800;
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: -.02em;
   line-height: 1.1;
   color: var(--remax-blue, #003da5) !important;
@@ -103,10 +103,13 @@ header.site-header {
 .remax-nav-badge {
   display: inline-flex;
   align-items: center;
-  padding: 4px 9px;
+  padding: 3px 8px;
   border-radius: 5px;
   background: var(--remax-red, #dc1c2e);
   color: #fff !important;
+  opacity: .92;
+  transform: scale(.92);
+  transform-origin: left center;
   font-family: Inter, Arial, sans-serif;
   font-size: 9px;
   font-weight: 900;
