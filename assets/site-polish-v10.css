@@ -410,12 +410,14 @@ section.hero.seller-form-section .tcard.on {
 }
 
 /* ═══════════════════════════════════════════
-   Elegance pass — rosso solo sulle CTA primarie
-   Navy = fiducia / struttura; rosso = azione
+   Elegance v10 — rosso SOLO su CTA .btn-red + badge RE/MAX
+   Navy = struttura / fiducia / form / bordi
    ═══════════════════════════════════════════ */
 
 .section-kicker,
-.buyer-hero-pro-copy .section-kicker {
+.buyer-hero-pro-copy .section-kicker,
+.seo-related-title,
+.seo-home-mesh-label {
   color: var(--remax-blue, #003da5) !important;
 }
 
@@ -428,6 +430,11 @@ section.hero.seller-form-section .tcard.on {
 .eyebrow {
   color: var(--remax-blue, #003da5) !important;
   font-weight: 700 !important;
+}
+
+.eyebrow::before,
+.seller-form-aside .eyebrow::before {
+  background: var(--remax-blue, #003da5) !important;
 }
 
 .card .num,
@@ -446,7 +453,7 @@ section.hero.seller-form-section .tcard.on {
   border-top-color: var(--remax-blue, #003da5) !important;
 }
 
-/* Bordi sezione: meno “nastro rosso” */
+/* Bordi sezione: hairline navy, non nastro rosso */
 .dual-path,
 .consultant-path {
   border-top: 1px solid rgba(15, 28, 46, .08) !important;
@@ -456,25 +463,52 @@ section.hero.seller-form-section .tcard.on {
 .form-card,
 .hero-form-wrap .form-card,
 .form-card.seller-form-card,
+.hero-form-wrap.seller-form-panel .form-card,
+.hero-form-wrap.seller-form-panel .form-card.seller-form-card,
 .buyer-hero-card,
 .testimonial-card,
 .seller-service-card.featured,
 .adv-card.featured-adv {
-  border-top-width: 2px !important;
-  border-top-color: var(--remax-blue, #003da5) !important;
+  border-top: 2px solid var(--remax-blue, #003da5) !important;
 }
 
-section.hero#contatto.seller-form-section {
-  border-top: 2px solid var(--remax-red, #dc1c2e) !important;
+section.hero#contatto.seller-form-section,
+section.hero.seller-form-section {
+  border-top: 2px solid var(--remax-blue, #003da5) !important;
 }
 
 .final-cta,
-.buyer-final-cta,
-.footer {
-  border-top-width: 2px !important;
+.buyer-final-cta {
+  border-top: 2px solid var(--remax-blue, #003da5) !important;
 }
 
-/* CTA rossa: una voce chiara, ombra meno aggressiva */
+.footer {
+  border-top: 2px solid var(--remax-blue, #003da5) !important;
+}
+
+.quote {
+  border-left-color: var(--remax-blue, #003da5) !important;
+}
+
+.trust-row .trust,
+.hero .trust-row .trust {
+  border-left-color: rgba(255, 255, 255, .45) !important;
+}
+
+.stars,
+.buyer-testimonial-stars {
+  color: #c4a35a !important; /* soft gold, non rosso RE/MAX */
+}
+
+/* Stripe sotto nav: navy quasi invisibile (identità senza urlare) */
+.site-chrome .remax-stripe,
+.remax-stripe {
+  height: 1px !important;
+  background: var(--remax-blue, #003da5) !important;
+  opacity: .35 !important;
+}
+
+/* CTA rossa: unica voce d’azione, ombra contenuta */
 .btn-red,
 .nav-links .btn-red.nav-cta {
   box-shadow: 0 8px 22px rgba(220, 28, 46, .18) !important;
@@ -484,10 +518,11 @@ section.hero#contatto.seller-form-section {
   box-shadow: 0 12px 28px rgba(220, 28, 46, .26) !important;
 }
 
-/* Form: step attivo resta rosso (unico accento interattivo) */
+/* Form: step + slider in navy (interazione = fiducia, non allarme) */
 .fp-dot.active {
-  background: var(--remax-red, #dc1c2e) !important;
-  border-color: var(--remax-red, #dc1c2e) !important;
+  background: var(--remax-blue, #003da5) !important;
+  border-color: var(--remax-blue, #003da5) !important;
+  color: #fff !important;
 }
 
 .fp-dot:not(.active) {
@@ -495,7 +530,36 @@ section.hero#contatto.seller-form-section {
   color: var(--muted, #5c6775) !important;
 }
 
-/* Selezioni form: navy di default, rosso solo tipologia selezionata leggera */
+input[type="range"]::-webkit-slider-thumb {
+  background: var(--remax-blue, #003da5) !important;
+  border-color: var(--remax-blue, #003da5) !important;
+}
+input[type="range"]::-moz-range-thumb {
+  background: var(--remax-blue, #003da5) !important;
+  border-color: var(--remax-blue, #003da5) !important;
+}
+.range-value,
+.mq-tag,
+.seller-mq-value,
+.sv,
+span.sv,
+#mqV {
+  background: var(--remax-blue, #003da5) !important;
+  border-color: var(--remax-blue, #003da5) !important;
+  color: #fff !important;
+}
+
+/* Range thumb: override inline var(--red) */
+input[type="range"]::-webkit-slider-thumb {
+  background: var(--remax-blue, #003da5) !important;
+}
+input[type="range"]::-moz-range-thumb {
+  background: var(--remax-blue, #003da5) !important;
+}
+input[type="range"] {
+  accent-color: var(--remax-blue, #003da5);
+}
+
 section.hero.seller-form-section .intent-card.on {
   border-color: var(--remax-blue, #003da5) !important;
 }
@@ -506,23 +570,19 @@ section.hero.seller-form-section .tcard.on {
   background: rgba(0, 61, 165, .06) !important;
 }
 
-/* Strip accent: navy line instead of red */
 .pb-strip-grid > div::before {
   background: rgba(255, 255, 255, .35) !important;
 }
 
-/* Sticky: bordo rosso sottile ok (CTA zona) */
 .seller-sticky-bar,
 .buyer-sticky-bar {
-  border-top-width: 2px !important;
+  border-top: 2px solid var(--remax-blue, #003da5) !important;
 }
 
-/* Engage band: CTA rossa resta (azione primaria mid-page) */
 .pb-engage-inner .btn-red {
   box-shadow: 0 8px 20px rgba(220, 28, 46, .22) !important;
 }
 
-/* Nav link pill highlight meno rosa/rosso aggressivo */
 .nav-link-primary,
 .nav-group-links a.nav-link-primary {
   background: rgba(0, 61, 165, .06) !important;
@@ -530,14 +590,24 @@ section.hero.seller-form-section .tcard.on {
 }
 
 .portrait-card {
-  border: 1px solid rgba(15, 28, 46, .08) !important;
-  box-shadow: var(--shadow-soft) !important;
+  border: 1px solid rgba(15, 28, 46, .1) !important;
+  box-shadow: 0 16px 40px rgba(12, 39, 73, .1) !important;
 }
+
 .dual-path-sell,
-.consultant-path-sell {
-  border-top-color: var(--remax-blue, #003da5) !important;
+.consultant-path-sell,
+a.consultant-path-sell,
+a.dual-path-sell {
+  border-top: 2px solid var(--remax-blue, #003da5) !important;
 }
+
 .dual-path-sell .dual-path-cta,
 .consultant-path-sell .consultant-path-cta {
   color: var(--remax-blue, #003da5) !important;
+}
+
+/* Mobile menu open: navy, non rosso */
+.site-header.menu-open .nav-toggle-bar:nth-child(1),
+.site-header.menu-open .nav-toggle-bar:nth-child(3) {
+  background: var(--remax-blue, #003da5) !important;
 }

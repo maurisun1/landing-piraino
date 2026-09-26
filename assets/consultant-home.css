@@ -48,7 +48,7 @@
 
 .consultant-path-primary { border-top: 3px solid var(--remax-blue, #003da5); }
 .consultant-path-invest { border-top: 3px solid #0c2749; }
-.consultant-path-sell { border-top: 3px solid var(--remax-red, #dc1c2e); opacity: .96; }
+.consultant-path-sell { border-top: 3px solid var(--remax-blue, #003da5); opacity: .96; }
 
 .consultant-path-label {
   font-size: 11px;
@@ -81,7 +81,7 @@
 }
 
 .consultant-path-sell .consultant-path-cta {
-  color: var(--remax-red, #dc1c2e);
+  color: var(--remax-blue, #003da5);
 }
 
 .consultant-services .seller-services-grid {

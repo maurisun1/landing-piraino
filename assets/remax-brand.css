@@ -368,7 +368,7 @@ h2.serif,
 /* h2 on dark sections overridden above */
 
 .eyebrow {
-  color: var(--remax-red) !important;
+  color: var(--remax-blue) !important;
   font-weight: 900;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -503,21 +503,21 @@ h2.serif,
 /* ── Seller hero & form ── */
 /* Eyebrow red line only in seller form aside — not on list items */
 .seller-form-aside .eyebrow::before {
-  background: var(--remax-red) !important;
+  background: var(--remax-blue) !important;
   height: 3px !important;
 }
 
 .eyebrow::before {
-  background: var(--remax-red) !important;
+  background: var(--remax-blue) !important;
   height: 3px !important;
 }
 
 .form-card {
-  border-top: 5px solid var(--remax-red) !important;
+  border-top: 2px solid var(--remax-blue) !important;
 }
 
 .hero-form-wrap .form-card {
-  border-top: none !important;
+  border-top: 2px solid var(--remax-blue) !important;
 }
 
 .trust-row .trust {

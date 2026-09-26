@@ -47,11 +47,11 @@
 }
 
 .dual-path-sell {
-  border-top: 3px solid var(--remax-red, #dc1c2e);
+  border-top: 3px solid var(--remax-blue, #003da5);
 }
 
 .dual-path-sell:hover {
-  border-color: rgba(220, 28, 46, .35);
+  border-color: rgba(0, 61, 165, .35);
 }
 
 .dual-path-buy {
@@ -89,7 +89,7 @@
   margin-top: 6px;
   font-size: 13px;
   font-weight: 900;
-  color: var(--remax-red, #dc1c2e);
+  color: var(--remax-blue, #003da5);
 }
 
 .dual-path-buy .dual-path-cta {
