@@ -249,6 +249,16 @@ section.hero.seller-form-section .tcard.on {
   transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
 }
 
+.case-meta {
+  margin: 0 0 10px !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--remax-blue, #003da5) !important;
+  line-height: 1.4 !important;
+}
+
 .seller-service-card:hover,
 .situations .card:hover,
 .testimonial-card:hover {

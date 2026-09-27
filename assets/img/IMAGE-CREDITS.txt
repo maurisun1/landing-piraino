@@ -1,0 +1,11 @@
+City hero photos refreshed from Wikimedia Commons (CC licenses on source pages).
+Processed to 16:9 JPEG for landing heroes.
+
+- pavia.jpg — Ponte Coperto / Pavia cityscape (Wikimedia)
+- lodi.jpg — Piazza Duomo, Lodi (Wikimedia)
+- cremona.jpg — View from Torrazzo / Cremona roofs (Wikimedia)
+- sondrio.jpg — Sondrio panorama with Alps (Wikimedia)
+
+Portrait variants:
+- foto-avatar.jpg / .webp — derived from /foto.jpg
+- foto-portrait.jpg / .webp — derived from /foto.jpg
