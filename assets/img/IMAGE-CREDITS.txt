@@ -1,11 +1,19 @@
-City hero photos refreshed from Wikimedia Commons (CC licenses on source pages).
-Processed to 16:9 JPEG for landing heroes.
+Province hero photos for /comprare-casa/ and city landings.
+Processed to ~16:9 JPEG. Sources: Wikimedia Commons (see file pages for licenses).
 
-- pavia.jpg — Ponte Coperto / Pavia cityscape (Wikimedia)
-- lodi.jpg — Piazza Duomo, Lodi (Wikimedia)
-- cremona.jpg — View from Torrazzo / Cremona roofs (Wikimedia)
-- sondrio.jpg — Sondrio panorama with Alps (Wikimedia)
+milano.jpg   — Milano skyline / Duomo (existing)
+monza.jpg    — Villa Reale di Monza (Wikimedia)
+bergamo.jpg  — Bergamo Città Alta (existing, verified)
+brescia.jpg  — Piazza della Loggia, Brescia (Wikimedia)
+como.jpg     — Vista su Como, Brunate e Lago di Como (Wikimedia)
+varese.jpg   — Giardini Estensi, Varese (Wikimedia)
+lecco.jpg    — Panorama Malgrate da Lecco / lago (Wikimedia)
+sondrio.jpg  — Panorama Sondrio (Wikimedia)
+cremona.jpg  — Cremona from Torrazzo / roofs (Wikimedia)
+lodi.jpg     — Piazza Duomo, Lodi (Wikimedia)
+mantova.jpg  — Piazza Sordello, Mantova (Wikimedia)
+pavia.jpg    — Ponte Coperto / Pavia (Wikimedia)
 
-Portrait variants:
-- foto-avatar.jpg / .webp — derived from /foto.jpg
-- foto-portrait.jpg / .webp — derived from /foto.jpg
+Portrait variants (from /foto.jpg):
+foto-avatar.jpg / .webp
+foto-portrait.jpg / .webp
