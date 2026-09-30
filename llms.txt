@@ -58,5 +58,7 @@
 
 ## Lingue
 
+- Cinese: hub `/zh/` + Milano buy/sell indexabili; altre province ZH in noindex fino a contenuti completi.
+
 - Italiano (primario)
 - English (buyer pages: /en/buy-home-*)
