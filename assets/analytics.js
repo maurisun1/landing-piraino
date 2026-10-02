@@ -6,8 +6,8 @@
  * - CLARITY_ID: https://clarity.microsoft.com (project settings)
  */
 (function () {
-  var GA4_MEASUREMENT_ID = '';
-  var CLARITY_ID = '';
+  var GA4_MEASUREMENT_ID = 'G-68WK7YT5CX';
+  var CLARITY_ID = 'yrmwn6l8qe';
   var STORAGE_KEY = 'mp_analytics_consent';
   var CONSENT_VERSION = '2';
 
