@@ -137,14 +137,15 @@
 
     var style = document.createElement('style');
     style.textContent =
-      '#mp-cookie-banner{position:fixed;left:12px;right:12px;bottom:12px;z-index:99999;max-width:420px;margin:0 auto;background:#111;color:#f6f1e9;border:1px solid rgba(246,241,233,.12);border-radius:12px;padding:10px 12px;box-shadow:0 10px 28px rgba(0,0,0,.28);font-family:Inter,system-ui,sans-serif;display:flex;align-items:center;gap:10px;transform:translateY(0);opacity:1;transition:opacity .25s ease,transform .25s ease}' +
+      '#mp-cookie-banner{position:fixed;left:12px;right:12px;bottom:12px;z-index:99999;max-width:720px;margin:0 auto;background:#111;color:#f6f1e9;border:1px solid rgba(246,241,233,.12);border-radius:999px;padding:8px 10px 8px 14px;box-shadow:0 10px 28px rgba(0,0,0,.28);font-family:Inter,system-ui,sans-serif;display:flex;align-items:center;gap:10px;transform:translateY(0);opacity:1;transition:opacity .25s ease,transform .25s ease}' +
       '#mp-cookie-banner.mp-cookie-hide{opacity:0;transform:translateY(10px)}' +
-      '#mp-cookie-banner p{margin:0;flex:1;min-width:0;font-size:12.5px;line-height:1.35;color:rgba(246,241,233,.92)}' +
+      '#mp-cookie-banner p{margin:0;flex:1;min-width:0;font-size:11px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:rgba(246,241,233,.92)}' +
       '#mp-cookie-banner a{color:#fff;text-decoration:underline;text-underline-offset:2px}' +
       '#mp-cookie-banner .mp-cookie-actions{display:flex;flex-shrink:0;gap:6px}' +
-      '#mp-cookie-banner button{appearance:none;border:0;cursor:pointer;border-radius:999px;padding:8px 12px;font-size:12.5px;font-weight:600;line-height:1}' +
+      '#mp-cookie-banner button{appearance:none;border:0;cursor:pointer;border-radius:999px;padding:7px 11px;font-size:11px;font-weight:600;line-height:1}' +
       '#mp-cookie-banner .mp-cookie-accept{background:#dc1c2e;color:#fff}' +
-      '#mp-cookie-banner .mp-cookie-reject{background:transparent;color:#f6f1e9;border:1px solid rgba(246,241,233,.35)}';
+      '#mp-cookie-banner .mp-cookie-reject{background:transparent;color:#f6f1e9;border:1px solid rgba(246,241,233,.35)}' +
+      '@media (max-width:560px){#mp-cookie-banner{border-radius:12px;padding:10px 12px;flex-wrap:wrap}#mp-cookie-banner p{white-space:normal;overflow:visible;text-overflow:unset;width:100%}}';
     document.head.appendChild(style);
 
     var banner = document.createElement('div');
@@ -153,7 +154,7 @@
     banner.setAttribute('aria-live', 'polite');
     banner.setAttribute('aria-label', 'Preferenze cookie');
     banner.innerHTML =
-      '<p>Utilizziamo i cookie. <a href="/privacy/">Cookie policy</a></p>' +
+      '<p>Questo sito utilizza i cookie. Continuando la navigazione accetti la <a href="/privacy/">cookie policy</a>.</p>' +
       '<div class="mp-cookie-actions">' +
       '<button type="button" class="mp-cookie-accept">Accetta</button>' +
       '<button type="button" class="mp-cookie-reject">Rifiuta</button>' +
