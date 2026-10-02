@@ -1,14 +1,26 @@
 /**
- * Microsoft Clarity + cookie consent (GDPR).
- * Set CLARITY_ID after creating a project at https://clarity.microsoft.com
+ * GA4 + Microsoft Clarity, loaded only after cookie consent (GDPR).
+ *
+ * Set IDs after creating the free properties:
+ * - GA4_MEASUREMENT_ID: https://analytics.google.com (Admin → Data streams → Web → G-XXXXXXXX)
+ * - CLARITY_ID: https://clarity.microsoft.com (project settings)
  */
 (function () {
+  var GA4_MEASUREMENT_ID = '';
   var CLARITY_ID = '';
   var STORAGE_KEY = 'mp_analytics_consent';
-  var CONSENT_VERSION = '1';
+  var CONSENT_VERSION = '2';
 
-  function hasValidId() {
+  function hasGa4() {
+    return typeof GA4_MEASUREMENT_ID === 'string' && /^G-[A-Z0-9]+$/i.test(GA4_MEASUREMENT_ID);
+  }
+
+  function hasClarity() {
     return typeof CLARITY_ID === 'string' && /^[a-zA-Z0-9]{8,}$/.test(CLARITY_ID);
+  }
+
+  function hasAnyTool() {
+    return hasGa4() || hasClarity();
   }
 
   function getConsent() {
@@ -32,8 +44,30 @@
     } catch (e) {}
   }
 
+  function loadGa4() {
+    if (!hasGa4() || window.__mpGa4Loaded) return;
+    window.__mpGa4Loaded = true;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag =
+      window.gtag ||
+      function () {
+        window.dataLayer.push(arguments);
+      };
+    window.gtag('js', new Date());
+    window.gtag('config', GA4_MEASUREMENT_ID, {
+      anonymize_ip: true,
+      send_page_view: true
+    });
+
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_MEASUREMENT_ID);
+    document.head.appendChild(s);
+  }
+
   function loadClarity() {
-    if (!hasValidId() || window.__mpClarityLoaded) return;
+    if (!hasClarity() || window.__mpClarityLoaded) return;
     window.__mpClarityLoaded = true;
     (function (c, l, a, r, i, t, y) {
       c[a] =
@@ -49,7 +83,17 @@
     })(window, document, 'clarity', 'script', CLARITY_ID);
   }
 
-  function markConversion(name) {
+  function loadAnalytics() {
+    loadGa4();
+    loadClarity();
+  }
+
+  function trackEvent(name, params) {
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, params || {});
+      }
+    } catch (e) {}
     try {
       if (typeof window.clarity === 'function') {
         window.clarity('set', name, 'true');
@@ -63,7 +107,8 @@
       function (e) {
         var form = e.target;
         if (!form || form.tagName !== 'FORM') return;
-        markConversion('lead_form_submit');
+        trackEvent('generate_lead', { method: 'form' });
+        trackEvent('lead_form_submit');
       },
       true
     );
@@ -73,7 +118,7 @@
       function (e) {
         var a = e.target && e.target.closest ? e.target.closest('a[href*="wa.me"], a[href*="whatsapp"]') : null;
         if (!a) return;
-        markConversion('whatsapp_click');
+        trackEvent('whatsapp_click', { method: 'whatsapp' });
       },
       true
     );
@@ -108,7 +153,7 @@
     banner.setAttribute('aria-live', 'polite');
     banner.setAttribute('aria-label', 'Preferenze cookie');
     banner.innerHTML =
-      '<p>Usiamo Microsoft Clarity (solo se accetti) per capire come le pagine vengono usate e migliorare il sito. Nessuna pubblicità. Dettagli nella <a href="/privacy/">privacy</a>.</p>' +
+      '<p>Usiamo Google Analytics e Microsoft Clarity (solo se accetti) per capire traffico e uso delle pagine. Nessuna pubblicità. Dettagli nella <a href="/privacy/">privacy</a>.</p>' +
       '<div class="mp-cookie-actions">' +
       '<button type="button" class="mp-cookie-accept">Accetta</button>' +
       '<button type="button" class="mp-cookie-reject">Solo necessari</button>' +
@@ -116,7 +161,7 @@
 
     banner.querySelector('.mp-cookie-accept').addEventListener('click', function () {
       setConsent('accepted');
-      loadClarity();
+      loadAnalytics();
       hideBanner(banner);
     });
     banner.querySelector('.mp-cookie-reject').addEventListener('click', function () {
@@ -128,11 +173,11 @@
   }
 
   function init() {
-    if (!hasValidId()) return;
+    if (!hasAnyTool()) return;
     bindConversionHooks();
     var consent = getConsent();
     if (consent === 'accepted') {
-      loadClarity();
+      loadAnalytics();
       return;
     }
     if (consent === 'rejected') return;
