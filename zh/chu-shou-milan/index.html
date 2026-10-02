@@ -867,7 +867,7 @@
   <link rel="stylesheet" href="/assets/remax-brand.css?v=20260735" />
   <link rel="stylesheet" href="/assets/seller-landing.css?v=20260930" />
   <link rel="preload" as="image" href="/milano.jpg?v=20260927" fetchpriority="high" />
-  <link rel="stylesheet" href="/assets/site-nav.css?v=20260738" />
+  <link rel="stylesheet" href="/assets/site-nav.css?v=20260928" />
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -890,7 +890,16 @@
   <header class="site-header">
     <div class="container site-nav">
       <div class="brand-wrap">
-        <a class="brand" href="/">Maurizio Piraino</a>
+        <a class="brand-logo" href="/" aria-label="Maurizio Piraino">
+          <picture>
+            <source srcset="/assets/brand/logo-nav.webp" type="image/webp" />
+            <img src="/assets/brand/logo-nav.jpg" alt="Maurizio Piraino — Property Finding Milano &amp; Lombardia" width="150" height="52" decoding="async" />
+          </picture>
+        </a>
+        <div class="path-switch" role="group" aria-label="Percorso">
+          <a class="path-buy" href="/zh/mai-fang/">买房</a>
+          <a class="path-sell is-active" href="/zh/chu-shou-milan/" aria-current="page">卖房</a>
+        </div>
         <span class="remax-nav-badge">RE/MAX</span>
       </div>
       <div class="site-nav-actions">

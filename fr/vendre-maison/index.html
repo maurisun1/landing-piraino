@@ -161,7 +161,7 @@
 @media(max-width:800px){.seller-stats-grid,.editorial-bridge-inner{grid-template-columns:1fr 1fr}.editorial-bridge-inner{grid-template-columns:1fr}}
 @media(max-width:520px){.seller-stats-grid{grid-template-columns:1fr}}
 </style>
-<link rel="stylesheet" href="/assets/site-nav.css?v=20260738" />
+<link rel="stylesheet" href="/assets/site-nav.css?v=20260928" />
 <link rel="stylesheet" href="/assets/site-base.css?v=20260736" />
 <link rel="stylesheet" href="/assets/remax-brand.css?v=20260736" />
 <link rel="stylesheet" href="/assets/consultant-home.css?v=20260715b" />
@@ -179,7 +179,16 @@
   <header class="site-header">
     <div class="container site-nav">
       <div class="brand-wrap">
-        <a class="brand" href="/fr/">Maurizio Piraino</a>
+        <a class="brand-logo" href="/fr/" aria-label="Maurizio Piraino">
+          <picture>
+            <source srcset="/assets/brand/logo-nav.webp" type="image/webp" />
+            <img src="/assets/brand/logo-nav.jpg" alt="Maurizio Piraino — Property Finding Milano &amp; Lombardia" width="150" height="52" decoding="async" />
+          </picture>
+        </a>
+        <div class="path-switch" role="group" aria-label="Percorso">
+          <a class="path-buy" href="/fr/acheter-maison/">Acheter</a>
+          <a class="path-sell is-active" href="/fr/vendre-maison-milan/" aria-current="page">Vendre</a>
+        </div>
         <span class="remax-nav-badge">RE/MAX</span>
       </div>
       <div class="site-nav-actions">

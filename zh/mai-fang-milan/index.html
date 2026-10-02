@@ -836,7 +836,16 @@
   <header class="site-header">
     <div class="container site-nav">
       <div class="brand-wrap">
-        <a class="brand" href="/">Maurizio Piraino</a>
+        <a class="brand-logo" href="/" aria-label="Maurizio Piraino">
+          <picture>
+            <source srcset="/assets/brand/logo-nav.webp" type="image/webp" />
+            <img src="/assets/brand/logo-nav.jpg" alt="Maurizio Piraino — Property Finding Milano &amp; Lombardia" width="150" height="52" decoding="async" />
+          </picture>
+        </a>
+        <div class="path-switch" role="group" aria-label="Percorso">
+          <a class="path-buy is-active" href="/zh/mai-fang/" aria-current="page">买房</a>
+          <a class="path-sell" href="/zh/chu-shou-milan/">卖房</a>
+        </div>
         <span class="remax-nav-badge">RE/MAX</span>
       </div>
       <div class="site-nav-actions">
