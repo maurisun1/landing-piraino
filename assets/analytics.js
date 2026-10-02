@@ -94,10 +94,11 @@
         window.gtag('event', name, params || {});
       }
     } catch (e) {}
+  }
+
+  function clarityEvent(name) {
     try {
-      if (typeof window.clarity === 'function') {
-        window.clarity('set', name, 'true');
-      }
+      window.clarity && window.clarity('event', name);
     } catch (e) {}
   }
 
@@ -109,6 +110,7 @@
         if (!form || form.tagName !== 'FORM') return;
         trackEvent('generate_lead', { method: 'form' });
         trackEvent('lead_form_submit');
+        clarityEvent('lead_form_submit');
       },
       true
     );
@@ -116,9 +118,18 @@
     document.addEventListener(
       'click',
       function (e) {
-        var a = e.target && e.target.closest ? e.target.closest('a[href*="wa.me"], a[href*="whatsapp"]') : null;
+        var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
         if (!a) return;
-        trackEvent('whatsapp_click', { method: 'whatsapp' });
+        var href = a.getAttribute('href') || '';
+        if (/wa\.me|whatsapp/i.test(href)) {
+          trackEvent('whatsapp_click', { method: 'whatsapp' });
+          clarityEvent('whatsapp_click');
+          return;
+        }
+        if (/^tel:/i.test(href)) {
+          trackEvent('phone_click', { method: 'phone' });
+          clarityEvent('phone_click');
+        }
       },
       true
     );
