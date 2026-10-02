@@ -137,12 +137,12 @@
 
     var style = document.createElement('style');
     style.textContent =
-      '#mp-cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:99999;max-width:560px;margin:0 auto;background:#111;color:#f6f1e9;border:1px solid rgba(246,241,233,.14);border-radius:14px;padding:16px 18px;box-shadow:0 18px 48px rgba(0,0,0,.35);font-family:Inter,system-ui,sans-serif;transform:translateY(0);opacity:1;transition:opacity .25s ease,transform .25s ease}' +
-      '#mp-cookie-banner.mp-cookie-hide{opacity:0;transform:translateY(12px)}' +
-      '#mp-cookie-banner p{margin:0 0 12px;font-size:13.5px;line-height:1.5;color:rgba(246,241,233,.92)}' +
+      '#mp-cookie-banner{position:fixed;left:12px;right:12px;bottom:12px;z-index:99999;max-width:420px;margin:0 auto;background:#111;color:#f6f1e9;border:1px solid rgba(246,241,233,.12);border-radius:12px;padding:10px 12px;box-shadow:0 10px 28px rgba(0,0,0,.28);font-family:Inter,system-ui,sans-serif;display:flex;align-items:center;gap:10px;transform:translateY(0);opacity:1;transition:opacity .25s ease,transform .25s ease}' +
+      '#mp-cookie-banner.mp-cookie-hide{opacity:0;transform:translateY(10px)}' +
+      '#mp-cookie-banner p{margin:0;flex:1;min-width:0;font-size:12px;line-height:1.35;color:rgba(246,241,233,.9)}' +
       '#mp-cookie-banner a{color:#fff;text-decoration:underline;text-underline-offset:2px}' +
-      '#mp-cookie-banner .mp-cookie-actions{display:flex;flex-wrap:wrap;gap:8px}' +
-      '#mp-cookie-banner button{appearance:none;border:0;cursor:pointer;border-radius:999px;padding:10px 16px;font-size:13px;font-weight:600}' +
+      '#mp-cookie-banner .mp-cookie-actions{display:flex;flex-shrink:0;gap:6px}' +
+      '#mp-cookie-banner button{appearance:none;border:0;cursor:pointer;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:600;line-height:1}' +
       '#mp-cookie-banner .mp-cookie-accept{background:#dc1c2e;color:#fff}' +
       '#mp-cookie-banner .mp-cookie-reject{background:transparent;color:#f6f1e9;border:1px solid rgba(246,241,233,.35)}';
     document.head.appendChild(style);
@@ -151,12 +151,12 @@
     banner.id = 'mp-cookie-banner';
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-live', 'polite');
-    banner.setAttribute('aria-label', 'Preferenze cookie');
+    banner.setAttribute('aria-label', 'Cookie');
     banner.innerHTML =
-      '<p>Usiamo Google Analytics e Microsoft Clarity (solo se accetti) per capire traffico e uso delle pagine. Nessuna pubblicità. Dettagli nella <a href="/privacy/">privacy</a>.</p>' +
+      '<p>Statistiche anonime. <a href="/privacy/">Info</a></p>' +
       '<div class="mp-cookie-actions">' +
-      '<button type="button" class="mp-cookie-accept">Accetta</button>' +
-      '<button type="button" class="mp-cookie-reject">Solo necessari</button>' +
+      '<button type="button" class="mp-cookie-accept">OK</button>' +
+      '<button type="button" class="mp-cookie-reject">No</button>' +
       '</div>';
 
     banner.querySelector('.mp-cookie-accept').addEventListener('click', function () {
@@ -181,7 +181,7 @@
       return;
     }
     if (consent === 'rejected') return;
-    showBanner();
+    window.setTimeout(showBanner, 2000);
   }
 
   if (document.readyState === 'loading') {
