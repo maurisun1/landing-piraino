@@ -153,7 +153,7 @@
     banner.setAttribute('aria-live', 'polite');
     banner.setAttribute('aria-label', 'Cookie');
     banner.innerHTML =
-      '<p>Statistiche anonime. <a href="/privacy/">Info</a></p>' +
+      '<p>Solo per migliorare il sito — nessuna pubblicità. <a href="/privacy/">Privacy</a></p>' +
       '<div class="mp-cookie-actions">' +
       '<button type="button" class="mp-cookie-accept">OK</button>' +
       '<button type="button" class="mp-cookie-reject">No</button>' +
