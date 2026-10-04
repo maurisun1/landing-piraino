@@ -192,6 +192,11 @@
   overflow: hidden;
   background: #1a2433;
 }
+.dmr-card-img picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 .dmr-card-img img {
   width: 100%;
   height: 100%;
