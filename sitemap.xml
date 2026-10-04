@@ -67,52 +67,16 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mauriziopiraino.it/de/monza/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/monza/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://mauriziopiraino.it/bergamo/</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mauriziopiraino.it/de/bergamo/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/bergamo/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://mauriziopiraino.it/brescia/</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/de/brescia/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/brescia/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mauriziopiraino.it/como/</loc>
@@ -175,34 +139,10 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mauriziopiraino.it/de/sondrio/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/sondrio/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://mauriziopiraino.it/cremona/</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/de/cremona/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/cremona/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mauriziopiraino.it/lodi/</loc>
@@ -211,52 +151,16 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mauriziopiraino.it/de/lodi/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/lodi/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://mauriziopiraino.it/mantova/</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mauriziopiraino.it/de/mantova/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/mantova/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://mauriziopiraino.it/pavia/</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/de/pavia/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/pavia/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://mauriziopiraino.it/guida-prezzi-mq-milano/</loc>
@@ -361,18 +265,6 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://mauriziopiraino.it/de/haus-kaufen-monza/</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/acheter-maison-monza/</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://mauriziopiraino.it/comprare-casa-bergamo/</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -385,18 +277,6 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://mauriziopiraino.it/de/haus-kaufen-bergamo/</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/acheter-maison-bergamo/</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://mauriziopiraino.it/comprare-casa-brescia/</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -405,18 +285,6 @@
   <url>
     <loc>https://mauriziopiraino.it/en/buy-home-brescia/</loc>
     <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/de/haus-kaufen-brescia/</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/acheter-maison-brescia/</loc>
-    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -505,18 +373,6 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://mauriziopiraino.it/de/haus-kaufen-sondrio/</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/acheter-maison-sondrio/</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://mauriziopiraino.it/comprare-casa-cremona/</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -525,18 +381,6 @@
   <url>
     <loc>https://mauriziopiraino.it/en/buy-home-cremona/</loc>
     <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/de/haus-kaufen-cremona/</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/acheter-maison-cremona/</loc>
-    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -553,18 +397,6 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://mauriziopiraino.it/de/haus-kaufen-lodi/</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/acheter-maison-lodi/</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://mauriziopiraino.it/comprare-casa-mantova/</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -577,18 +409,6 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://mauriziopiraino.it/de/haus-kaufen-mantova/</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/acheter-maison-mantova/</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://mauriziopiraino.it/comprare-casa-pavia/</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -597,18 +417,6 @@
   <url>
     <loc>https://mauriziopiraino.it/en/buy-home-pavia/</loc>
     <lastmod>2026-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/de/haus-kaufen-pavia/</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/fr/acheter-maison-pavia/</loc>
-    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
