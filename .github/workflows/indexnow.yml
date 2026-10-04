@@ -1,0 +1,88 @@
+name: IndexNow ping
+
+# Notifica Bing (e gli altri motori IndexNow: Yandex, Seznam, Naver...) delle
+# pagine modificate dopo ogni push su main. Avvio manuale = invia tutta la sitemap.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.html"
+      - "sitemap.xml"
+  workflow_dispatch:
+    inputs:
+      full:
+        description: "Invia tutti gli URL della sitemap"
+        type: boolean
+        default: true
+
+env:
+  HOST: mauriziopiraino.it
+  INDEXNOW_KEY: 12193938f3583db426939ae7af7825fe
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Attendi la pubblicazione su GitHub Pages
+        run: sleep 120
+
+      - name: Invia URL a IndexNow
+        env:
+          FULL: ${{ github.event_name == 'workflow_dispatch' && inputs.full }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          python3 <<'PY'
+          import json, os, re, subprocess, urllib.request
+          host = os.environ["HOST"]; key = os.environ["INDEXNOW_KEY"]
+          base = f"https://{host}"
+          sitemap_urls = re.findall(r"<loc>([^<]+)</loc>", open("sitemap.xml", encoding="utf-8").read())
+
+          if os.environ.get("FULL") == "true":
+              urls = sitemap_urls
+          else:
+              before = os.environ.get("BEFORE") or "HEAD~1"
+              if set(before) == {"0"}:
+                  before = "HEAD~1"
+              try:
+                  out = subprocess.check_output(["git", "diff", "--name-only", before, "HEAD"], text=True)
+              except subprocess.CalledProcessError:
+                  out = subprocess.check_output(["git", "diff", "--name-only", "HEAD~1", "HEAD"], text=True)
+              urls = []
+              for f in out.split():
+                  if f == "sitemap.xml":
+                      urls.append(f"{base}/sitemap.xml")
+                  elif f.endswith("index.html"):
+                      path = f[: -len("index.html")]
+                      urls.append(f"{base}/{path}")
+                  elif f.endswith(".html"):
+                      urls.append(f"{base}/{f}")
+              urls = sorted(set(urls))
+
+          if not urls:
+              print("Nessun URL da inviare"); raise SystemExit(0)
+
+          payload = {
+              "host": host,
+              "key": key,
+              "keyLocation": f"{base}/{key}.txt",
+              "urlList": urls[:10000],
+          }
+          req = urllib.request.Request(
+              "https://api.indexnow.org/indexnow",
+              data=json.dumps(payload).encode(),
+              headers={"Content-Type": "application/json; charset=utf-8"},
+          )
+          try:
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  print("IndexNow status:", r.status)
+          except urllib.error.HTTPError as e:
+              print("IndexNow status:", e.code, e.read().decode()[:300])
+              if e.code not in (200, 202):
+                  raise SystemExit(1)
+          print(f"Inviati {len(urls)} URL:"); print("\n".join(urls))
+          PY
