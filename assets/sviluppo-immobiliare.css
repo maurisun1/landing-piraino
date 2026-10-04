@@ -1,0 +1,409 @@
+/* Dalla Mappa al Rogito — sezione /sviluppo-immobiliare/ */
+:root {
+  --dmr-ink: #142033;
+  --dmr-slate: #2a3b52;
+  --dmr-line: rgba(20, 32, 51, .12);
+  --dmr-paper: #f4f6f8;
+  --dmr-accent: #c45c26;
+  --dmr-accent-dark: #a3491c;
+}
+
+.dmr-subnav {
+  background: var(--dmr-slate);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.dmr-subnav .wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  align-items: center;
+  min-height: 44px;
+}
+.dmr-subnav a {
+  color: rgba(255,255,255,.82);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 0;
+}
+.dmr-subnav a:hover,
+.dmr-subnav a[aria-current="page"] {
+  color: #fff;
+}
+.dmr-subnav .dmr-brand {
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-size: 11px;
+  margin-right: 8px;
+}
+
+.dmr-crumbs {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 14px 22px 0;
+  font-size: 12.5px;
+  color: var(--muted, #5c6775);
+}
+.dmr-crumbs a { color: inherit; }
+
+.dmr-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(20,32,51,.92), rgba(42,59,82,.78)),
+    url('/milano.jpg?v=20260930') center/cover no-repeat;
+  color: #f7f4ef;
+  padding: 54px 0 62px;
+}
+.dmr-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(255,255,255,.04) 28px),
+    repeating-linear-gradient(90deg, transparent, transparent 27px, rgba(255,255,255,.03) 28px);
+  pointer-events: none;
+}
+.dmr-hero .wrap {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+.dmr-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(247,244,239,.85);
+  margin-bottom: 14px;
+}
+.dmr-hero h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  line-height: 1.15;
+  max-width: 16ch;
+  margin: 0 0 14px;
+}
+.dmr-hero .lead {
+  max-width: 52ch;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: rgba(247,244,239,.9);
+  margin: 0 0 22px;
+}
+.dmr-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.dmr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+}
+.dmr-btn-primary {
+  background: var(--dmr-accent);
+  color: #fff;
+}
+.dmr-btn-primary:hover { background: var(--dmr-accent-dark); }
+.dmr-btn-ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.4);
+}
+.dmr-btn-ghost:hover { border-color: #fff; }
+
+.dmr-section {
+  padding: 56px 0;
+}
+.dmr-section .wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+.dmr-section h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  color: var(--dmr-ink);
+  margin: 0 0 12px;
+}
+.dmr-section .sec-lead {
+  max-width: 60ch;
+  color: var(--muted, #5c6775);
+  margin: 0 0 28px;
+  line-height: 1.55;
+}
+.dmr-section p,
+.dmr-section li {
+  color: #2b3440;
+  line-height: 1.6;
+}
+
+.dmr-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.dmr-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--dmr-line);
+  border-radius: 16px;
+  padding: 22px 20px;
+  text-decoration: none;
+  color: inherit;
+  min-height: 100%;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.dmr-card:hover {
+  border-color: rgba(196,92,38,.45);
+  transform: translateY(-2px);
+}
+.dmr-card h3 {
+  font-size: 1.15rem;
+  margin: 0 0 8px;
+  color: var(--dmr-ink);
+}
+.dmr-card p {
+  flex: 1;
+  margin: 0 0 18px;
+  font-size: 14.5px;
+  color: var(--muted, #5c6775);
+}
+.dmr-card .dmr-card-cta {
+  align-self: flex-start;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: var(--dmr-accent);
+}
+
+.dmr-steps {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+.dmr-step {
+  background: var(--dmr-paper);
+  border: 1px solid var(--dmr-line);
+  border-radius: 12px;
+  padding: 14px 12px;
+}
+.dmr-step strong {
+  display: block;
+  font-size: 13px;
+  color: var(--dmr-ink);
+  margin-bottom: 4px;
+}
+.dmr-step span {
+  font-size: 12.5px;
+  color: var(--muted, #5c6775);
+  line-height: 1.4;
+}
+
+.dmr-grid-2 {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 28px;
+  align-items: start;
+}
+.dmr-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.dmr-tile {
+  background: #fff;
+  border: 1px solid var(--dmr-line);
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--dmr-ink);
+}
+
+.dmr-faq details {
+  border-bottom: 1px solid var(--dmr-line);
+  padding: 12px 0;
+}
+.dmr-faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--dmr-ink);
+  list-style: none;
+}
+.dmr-faq summary::-webkit-details-marker { display: none; }
+.dmr-faq details p {
+  margin: 10px 0 4px;
+  font-size: 14.5px;
+  color: var(--muted, #5c6775);
+}
+
+.dmr-form-panel {
+  background: #fff;
+  border: 1px solid var(--dmr-line);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 16px 40px rgba(20,32,51,.06);
+}
+.dmr-form-panel h2,
+.dmr-form-panel h3 {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+  color: var(--dmr-ink);
+}
+.dmr-form-panel .form-note {
+  font-size: 13px;
+  color: var(--muted, #5c6775);
+  margin: 0 0 16px;
+}
+.dmr-progress {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.dmr-progress span {
+  flex: 1;
+  height: 4px;
+  border-radius: 999px;
+  background: #e5e9ef;
+}
+.dmr-progress span.on { background: var(--dmr-accent); }
+.dmr-form label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: var(--dmr-ink);
+}
+.dmr-form .field { margin-bottom: 12px; }
+.dmr-form input,
+.dmr-form select,
+.dmr-form textarea {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--dmr-line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+  background: #fff;
+}
+.dmr-form textarea { min-height: 96px; resize: vertical; }
+.dmr-form .row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.dmr-form .check {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #2b3440;
+  margin: 8px 0 14px;
+}
+.dmr-form .check input { width: auto; min-height: 0; margin-top: 3px; }
+.dmr-form .honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+.dmr-form .step { display: none; }
+.dmr-form .step.on { display: block; }
+.dmr-form .form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dmr-form .btn-secondary {
+  background: transparent;
+  color: var(--dmr-ink);
+  border: 1px solid var(--dmr-line);
+}
+.dmr-success {
+  display: none;
+  padding: 18px 0 4px;
+}
+.dmr-success.on { display: block; }
+.dmr-success h3 { margin: 0 0 8px; color: var(--dmr-ink); }
+.dmr-success p { margin: 0; color: var(--muted, #5c6775); }
+
+.dmr-trust {
+  background: var(--dmr-paper);
+}
+.dmr-list {
+  margin: 0;
+  padding-left: 18px;
+}
+.dmr-list li { margin-bottom: 8px; }
+
+.dmr-footer-col h4 {
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  color: rgba(255,255,255,.7);
+}
+.dmr-footer-col a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13.5px;
+  margin-bottom: 6px;
+}
+
+.dmr-band {
+  background: var(--dmr-ink);
+  color: #f7f4ef;
+  padding: 40px 0;
+  text-align: center;
+}
+.dmr-band h2 {
+  color: #fff;
+  margin: 0 0 10px;
+}
+.dmr-band p {
+  color: rgba(247,244,239,.85);
+  margin: 0 0 18px;
+}
+
+@media (max-width: 900px) {
+  .dmr-cards,
+  .dmr-steps,
+  .dmr-grid-2,
+  .dmr-tiles,
+  .dmr-form .row-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .dmr-steps { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .dmr-cards,
+  .dmr-steps,
+  .dmr-grid-2,
+  .dmr-tiles,
+  .dmr-form .row-2 {
+    grid-template-columns: 1fr;
+  }
+  .dmr-hero { padding: 40px 0 48px; }
+  .dmr-hero h1 { max-width: none; }
+}
