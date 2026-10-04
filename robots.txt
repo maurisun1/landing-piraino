@@ -6,29 +6,39 @@ Allow: /
 Disallow: /mauriziopiraino-sito-completo/
 
 # Crawler AI esplicitamente benvenuti (segnale chiaro, oltre al default)
+# NB: un gruppo User-agent specifico sostituisce quello generico (*),
+# quindi le regole Disallow vanno ripetute in ogni gruppo.
 User-agent: GPTBot
 Allow: /
+Disallow: /mauriziopiraino-sito-completo/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /mauriziopiraino-sito-completo/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /mauriziopiraino-sito-completo/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /mauriziopiraino-sito-completo/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /mauriziopiraino-sito-completo/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /mauriziopiraino-sito-completo/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /mauriziopiraino-sito-completo/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /mauriziopiraino-sito-completo/
 
 Sitemap: https://mauriziopiraino.it/sitemap.xml
 
