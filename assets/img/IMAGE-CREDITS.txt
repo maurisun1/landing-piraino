@@ -17,3 +17,9 @@ pavia.jpg    — Ponte Coperto / Pavia (Wikimedia)
 Portrait variants (from /foto.jpg):
 foto-avatar.jpg / .webp
 foto-portrait.jpg / .webp
+
+DMR / sviluppo immobiliare (assets/img/dmr/):
+hub.jpg/.webp       — Lombardy.satellite.jpg (Wikimedia Commons)
+terreno.jpg/.webp   — Chiari Aerial photographs 2010-by-RaBoe-77 (Wikimedia Commons)
+aree.jpg/.webp      — Bergamo Aerial photographs 2010-by-RaBoe-78 (Wikimedia Commons)
+cantiere.jpg/.webp  — Tower crane aerial 02 (Wikimedia Commons)
