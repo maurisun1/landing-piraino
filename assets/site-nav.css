@@ -85,7 +85,7 @@ header.site-header {
 .brand-wrap {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   flex-shrink: 0;
   min-width: 0;
 }
@@ -98,6 +98,106 @@ header.site-header {
   line-height: 1.1;
   color: var(--remax-blue, #003da5) !important;
   white-space: nowrap;
+}
+
+/* Logo on white header (default) */
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.brand-logo img {
+  display: block;
+  height: 46px;
+  width: auto;
+  max-width: min(220px, 42vw);
+  object-fit: contain;
+}
+
+/* White logo variant for dark surfaces (topbar/footer if used) */
+.brand-logo--on-dark img,
+.topbar .brand-logo img,
+.footer .brand-logo img {
+  filter: none;
+}
+
+/* Opzione B: switch Comprare / Vendere — blu/rosso/bianco */
+.path-switch {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1.5px solid var(--remax-blue, #003da5);
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #fff;
+}
+
+.path-switch a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 14px;
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  color: var(--remax-blue, #003da5) !important;
+  background: #fff;
+  border: 0;
+  white-space: nowrap;
+  transition: background .2s ease, color .2s ease;
+}
+
+.path-switch a + a {
+  border-left: 1.5px solid var(--remax-blue, #003da5);
+}
+
+/* Comprare attivo = blu su bianco */
+.path-switch a.path-buy.is-active,
+.path-switch a.path-buy[aria-current="page"] {
+  background: var(--remax-blue, #003da5) !important;
+  color: #fff !important;
+}
+
+/* Vendere attivo = rosso su bianco */
+.path-switch a.path-sell.is-active,
+.path-switch a.path-sell[aria-current="page"] {
+  background: var(--remax-red, #dc1c2e) !important;
+  color: #fff !important;
+  border-left-color: var(--remax-red, #dc1c2e);
+}
+
+.path-switch a:hover:not(.is-active):not([aria-current="page"]) {
+  background: rgba(0, 61, 165, .06);
+}
+
+/* Su sfondo scuro (es. overlay / topbar dark): bordo bianco, testo bianco */
+.path-switch--on-dark {
+  border-color: rgba(255, 255, 255, .85);
+  background: transparent;
+}
+.path-switch--on-dark a {
+  color: #fff !important;
+  background: transparent;
+}
+.path-switch--on-dark a + a {
+  border-left-color: rgba(255, 255, 255, .45);
+}
+.path-switch--on-dark a.path-buy.is-active,
+.path-switch--on-dark a.path-buy[aria-current="page"] {
+  background: #fff !important;
+  color: var(--remax-blue, #003da5) !important;
+}
+.path-switch--on-dark a.path-sell.is-active,
+.path-switch--on-dark a.path-sell[aria-current="page"] {
+  background: var(--remax-red, #dc1c2e) !important;
+  color: #fff !important;
 }
 
 .remax-nav-badge {
@@ -425,6 +525,16 @@ body.nav-open {
 }
 
 @media (min-width: 981px) and (max-width: 1180px) {
+  .brand-logo img {
+    height: 40px;
+    max-width: 160px;
+  }
+
+  .path-switch a {
+    padding: 0 10px;
+    font-size: 10px;
+  }
+
   .nav-group-links > a:not(.btn),
   .nav-links > a:not(.btn):not(.lang-link) {
     padding: 8px 7px;
@@ -446,6 +556,15 @@ body.nav-open {
 
   .brand {
     font-size: 18px;
+  }
+
+  .brand-logo img {
+    height: 38px;
+    max-width: 140px;
+  }
+
+  .path-switch {
+    display: none; /* on mobile use menu links; logo stays */
   }
 
   .remax-nav-badge {
