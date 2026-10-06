@@ -828,7 +828,7 @@
 <link rel="stylesheet" href="/assets/site-base.css?v=20260760" />
   <link rel="stylesheet" href="/assets/remax-brand.css?v=20260760" />
   <link rel="preload" as="image" href="/milano.jpg?v=20260927" fetchpriority="high" />
-  <link rel="stylesheet" href="/assets/site-nav.css?v=20260760" />
+  <link rel="stylesheet" href="/assets/site-nav.css?v=20261006" />
   <link rel="stylesheet" href="/assets/site-polish-v10.css?v=20260770" />
 </head>
 <body>
@@ -876,13 +876,16 @@
             </div>
           </div>
           <div class="nav-group nav-group-lang">
-            <div class="lang-switcher" role="group" aria-label="Seleziona lingua">
-            <span class="lang-option lang-option-active" aria-current="true" title="Italiano"><svg class="lang-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="6" height="12" fill="#009246"/><rect x="6" width="6" height="12" fill="#fff"/><rect x="12" width="6" height="12" fill="#CE2B37"/></svg><span class="lang-code">IT</span></span>
-            <a href="/en/" class="lang-option" hreflang="en" title="English"><svg class="lang-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="12" fill="#012169"/><path fill="#fff" d="M0 0l18 12M18 0L0 12" stroke="#fff" stroke-width="2.2"/><path fill="none" stroke="#C8102E" stroke-width="1.2" d="M0 0l18 12M18 0L0 12"/><path fill="#fff" d="M8 0h2v12H8zM0 5h18v2H0z"/><path fill="#C8102E" d="M9 0h1v12H9zM0 5.5h18v1H0z"/></svg><span class="lang-code">EN</span></a>
-            <a href="/de/haus-kaufen-milan/" class="lang-option" hreflang="de" title="Deutsch"><svg class="lang-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="4" fill="#000"/><rect y="4" width="18" height="4" fill="#DD0000"/><rect y="8" width="18" height="4" fill="#FFCE00"/></svg><span class="lang-code">DE</span></a>
-            <a href="/fr/acheter-maison-milan/" class="lang-option" hreflang="fr" title="Français"><svg class="lang-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="6" height="12" fill="#002395"/><rect x="6" width="6" height="12" fill="#fff"/><rect x="12" width="6" height="12" fill="#ED2939"/></svg><span class="lang-code">FR</span></a>
-            <a href="/zh/mai-fang-milan/" class="lang-option" hreflang="zh-Hans" title="中文"><svg class="lang-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="12" fill="#DE2910"/><polygon fill="#FFDE00" points="3.6,1.8 4.2,3.6 2.4,2.55 4.8,2.55 3.0,3.6"/></svg><span class="lang-code">中文</span></a>
-            </div>
+            <details class="lang-switcher">
+              <summary class="lang-switcher-toggle" aria-label="Seleziona lingua"><svg class="lang-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="6" height="12" fill="#009246"/><rect x="6" width="6" height="12" fill="#fff"/><rect x="12" width="6" height="12" fill="#CE2B37"/></svg><span class="lang-code">IT</span><svg class="lang-switcher-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <div class="lang-switcher-menu" role="listbox">
+              <span class="lang-option lang-option-active" aria-current="true" title="Italiano"><svg class="lang-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="6" height="12" fill="#009246"/><rect x="6" width="6" height="12" fill="#fff"/><rect x="12" width="6" height="12" fill="#CE2B37"/></svg><span class="lang-code">IT</span></span>
+              <a href="/en/" class="lang-option" hreflang="en" title="English"><svg class="lang-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="12" fill="#012169"/><path fill="#fff" d="M0 0l18 12M18 0L0 12" stroke="#fff" stroke-width="2.2"/><path fill="none" stroke="#C8102E" stroke-width="1.2" d="M0 0l18 12M18 0L0 12"/><path fill="#fff" d="M8 0h2v12H8zM0 5h18v2H0z"/><path fill="#C8102E" d="M9 0h1v12H9zM0 5.5h18v1H0z"/></svg><span class="lang-code">EN</span></a>
+              <a href="/de/haus-kaufen-milan/" class="lang-option" hreflang="de" title="Deutsch"><svg class="lang-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="4" fill="#000"/><rect y="4" width="18" height="4" fill="#DD0000"/><rect y="8" width="18" height="4" fill="#FFCE00"/></svg><span class="lang-code">DE</span></a>
+              <a href="/fr/acheter-maison-milan/" class="lang-option" hreflang="fr" title="Français"><svg class="lang-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="6" height="12" fill="#002395"/><rect x="6" width="6" height="12" fill="#fff"/><rect x="12" width="6" height="12" fill="#ED2939"/></svg><span class="lang-code">FR</span></a>
+              <a href="/zh/mai-fang-milan/" class="lang-option" hreflang="zh-Hans" title="中文"><svg class="lang-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="12" fill="#DE2910"/><polygon fill="#FFDE00" points="3.6,1.8 4.2,3.6 2.4,2.55 4.8,2.55 3.0,3.6"/></svg><span class="lang-code">中文</span></a>
+              </div>
+            </details>
           </div>
           <a class="btn btn-red nav-cta" href="#contatto">Prenota una consulenza</a>
         </nav>
@@ -1216,7 +1219,7 @@
     <div class="container footer-secondary">Vuoi vendere? <a href="/" style="color:inherit;text-decoration:underline">Consulenza vendita</a> · Comprare: <strong>Milano</strong> · <a href="/comprare-casa-monza/" style="color:inherit;text-decoration:underline">Monza e Brianza</a> · <a href="/comprare-casa-bergamo/" style="color:inherit;text-decoration:underline">Bergamo</a> · <a href="/comprare-casa-brescia/" style="color:inherit;text-decoration:underline">Brescia</a> · <a href="/comprare-casa-como/" style="color:inherit;text-decoration:underline">Como</a> · <a href="/comprare-casa-varese/" style="color:inherit;text-decoration:underline">Varese</a> · <a href="/comprare-casa-lecco/" style="color:inherit;text-decoration:underline">Lecco</a> · <a href="/comprare-casa-sondrio/" style="color:inherit;text-decoration:underline">Sondrio</a> · <a href="/comprare-casa-cremona/" style="color:inherit;text-decoration:underline">Cremona</a> · <a href="/comprare-casa-lodi/" style="color:inherit;text-decoration:underline">Lodi</a> · <a href="/comprare-casa-mantova/" style="color:inherit;text-decoration:underline">Mantova</a> · <a href="/comprare-casa-pavia/" style="color:inherit;text-decoration:underline">Pavia</a> · <a href="/privacy/" style="color:inherit;text-decoration:underline">Privacy</a></div>
   </footer>
   <script src="/assets/buyer-landing.js" defer></script>
-  <script src="/assets/site-nav.js?v=20260736" defer></script>
+  <script src="/assets/site-nav.js?v=20261006" defer></script>
   <script src="/assets/analytics.js?v=20261002i" defer></script>
 </body>
 </html>

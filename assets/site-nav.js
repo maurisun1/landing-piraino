@@ -11,7 +11,7 @@
     var topbar = document.querySelector('.topbar');
     var headerHeight = header.offsetHeight;
     var topbarHeight = topbar ? topbar.offsetHeight : 0;
-    document.documentElement.style.setProperty('--nav-top', (topbarHeight + headerHeight) + 'px');
+    document.documentElement.style.setProperty('--nav-top', topbarHeight + headerHeight + 'px');
   }
 
   function closeMenu() {
@@ -59,12 +59,35 @@
   });
 
   document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') closeMenu();
+    if (event.key === 'Escape') {
+      closeMenu();
+      closeLangMenus();
+    }
   });
 
   window.addEventListener('resize', function () {
     setNavTop();
     if (window.innerWidth > 980) closeMenu();
+  });
+
+  function closeLangMenus(except) {
+    document.querySelectorAll('details.lang-switcher[open]').forEach(function (el) {
+      if (except && el === except) return;
+      el.open = false;
+    });
+  }
+
+  document.querySelectorAll('details.lang-switcher').forEach(function (details) {
+    details.addEventListener('toggle', function () {
+      if (details.open) closeLangMenus(details);
+    });
+  });
+
+  document.addEventListener('click', function (event) {
+    var open = document.querySelector('details.lang-switcher[open]');
+    if (!open) return;
+    if (open.contains(event.target)) return;
+    open.open = false;
   });
 
   setNavTop();
