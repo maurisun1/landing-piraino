@@ -248,6 +248,60 @@ header.site-header {
   background: rgba(220, 28, 46, .14) !important;
 }
 
+/* Core paths: Comprare / Vendere — always the visual priority */
+.nav-group-links > a.nav-link-core {
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: -.01em;
+  color: var(--remax-blue, #003da5) !important;
+  background: rgba(0, 61, 165, .06);
+  box-shadow: inset 0 -2px 0 rgba(0, 61, 165, .35);
+}
+
+.nav-group-links > a.nav-link-core:hover {
+  background: rgba(0, 61, 165, .1);
+}
+
+.nav-group-links > a.nav-link-core.nav-link-primary {
+  color: var(--remax-red, #dc1c2e) !important;
+  background: rgba(220, 28, 46, .08);
+  box-shadow: inset 0 -2px 0 rgba(220, 28, 46, .45);
+}
+
+/* Secondary paths: Commerciali / Sviluppo — present but quieter */
+.nav-group-links > a.nav-link-soft {
+  font-weight: 600;
+  font-size: 12px;
+  color: rgba(0, 61, 165, .68) !important;
+}
+
+.nav-group-links > a.nav-link-soft:hover {
+  color: var(--remax-blue, #003da5) !important;
+  background: rgba(0, 61, 165, .04);
+}
+
+.nav-group-links > a.nav-link-soft.nav-link-primary {
+  color: var(--remax-red, #dc1c2e) !important;
+  font-weight: 700;
+  background: rgba(220, 28, 46, .06);
+}
+
+/* Soft divider after the core pair */
+.nav-group-links > a.nav-link-core + a.nav-link-soft,
+.nav-group-links > a.nav-link-core + a:not(.nav-link-core):not(.nav-link-soft) + a.nav-link-soft,
+.nav-group-links > a.nav-path-sep + a.nav-link-soft {
+  margin-left: 2px;
+}
+
+.nav-group-links > .nav-path-sep {
+  width: 1px;
+  align-self: stretch;
+  min-height: 18px;
+  margin: 0 4px;
+  background: rgba(0, 61, 165, .18);
+  flex-shrink: 0;
+}
+
 .nav-group-lang-links {
   display: flex;
   align-items: center;
@@ -609,6 +663,21 @@ body.nav-open {
   .nav-link-primary {
     border-left: 4px solid var(--remax-red, #dc1c2e);
     padding-left: 14px !important;
+  }
+
+  .nav-group-links > a.nav-link-core {
+    font-size: 17px;
+    font-weight: 900;
+  }
+
+  .nav-group-links > a.nav-link-soft {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0, 61, 165, .62) !important;
+  }
+
+  .nav-group-links > .nav-path-sep {
+    display: none;
   }
 
   .nav-group-lang {
