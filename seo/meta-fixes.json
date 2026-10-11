@@ -1,0 +1,249 @@
+{
+  "note": "Title max 60; description 120-155. Applied by tools/apply_meta_lengths.py",
+  "pages": {
+    "": {
+      "title": "Consulente acquirenti Milano | Maurizio Piraino",
+      "description": "Maurizio Piraino, consulente acquirenti e investitori a Milano. Property finding, analisi e tutela fino al rogito. RE/MAX."
+    },
+    "de": {
+      "title": "Immobilienmakler-Netzwerk Italien | Piraino",
+      "description": "Beratung für Käufer und Investoren in Mailand und der Lombardei: Property Finding, Preisanalyse und Begleitung bis zum Notar. RE/MAX."
+    },
+    "fr": {
+      "title": "Conseiller acheteurs Milan | Maurizio Piraino",
+      "description": "Conseil acheteurs et investisseurs à Milan et en Lombardie: recherche ciblée, analyse des prix et accompagnement jusqu’à l’acte. RE/MAX."
+    },
+    "en": {
+      "title": "Buyer & investor advisor Milan | Piraino",
+      "description": "Maurizio Piraino advises buyers and investors in Milan and Lombardy: property finding, price analysis and protection through completion. RE/MAX."
+    },
+    "vendere-casa-milano": {
+      "title": "Vendere casa a Milano: prezzo e piano | Piraino",
+      "description": "Vendi a Milano con analisi di prezzo, strategia e marketing RE/MAX. Risposta entro 24h, senza obbligo di incarico al primo contatto."
+    },
+    "fr/vendre-maison": {
+      "title": "Vendre une maison en Lombardie | Piraino",
+      "description": "Analyse immobilière confidentielle et stratégie de vente dans les provinces lombardes. OMI, micro-zone et méthode RE/MAX — sans engagement."
+    },
+    "de/haus-verkaufen": {
+      "title": "Haus verkaufen in der Lombardei | Piraino",
+      "description": "Vertrauliche Immobilienanalyse und Verkaufsstrategie in der Lombardei. OMI-Daten, Mikrozone und RE/MAX-Methode — ohne Auftragszwang."
+    },
+    "fr/acheter-maison": {
+      "title": "Acheter une maison en Lombardie | Piraino",
+      "description": "Property Finding en Lombardie: recherche ciblée, contrôle documentaire et négociation jusqu’à l’acte. Conseil acheteurs RE/MAX."
+    },
+    "immobili-commerciali": {
+      "title": "Immobili commerciali Lombardia | Piraino",
+      "description": "Mediazione per negozi, uffici, locali, capannoni e immobili a reddito in Lombardia. Analisi e rete RE/MAX — consulenza senza obbligo."
+    },
+    "vendere-casa/casa-invenduta": {
+      "title": "Casa invenduta: piano per ripartire | Piraino",
+      "description": "Casa in vendita da mesi senza offerte? Cause tipiche e piano in 4 passi per riposizionare prezzo, annuncio e strategia. Consulenza RE/MAX."
+    },
+    "valutazione-casa-brescia": {
+      "title": "Valutazione casa Brescia: stima gratuita | Piraino",
+      "description": "Valutazione casa a Brescia: stima gratuita basata su OMI, listini e mercato reale. Per proprietari in città, Franciacorta, Garda e Iseo."
+    },
+    "privacy": {
+      "title": "Privacy | Maurizio Piraino",
+      "description": "Informativa sul trattamento dei dati personali per richieste di consulenza immobiliare a Maurizio Piraino — agente affiliato RE/MAX a Milano."
+    },
+    "de/cremona": {
+      "description": "Verkaufen in Cremona oder Provinz mit Preisstrategie auf der realen Zone. Vertrauliche Analyse — Antwort in 24h, ohne Auftragsverpflichtung."
+    },
+    "de/lodi": {
+      "description": "Verkaufen in Lodi oder der Lodigiana ohne Online-Schätzung. Vertrauliche Analyse auf realen Daten — Antwort in 24h, ohne Auftragszwang."
+    },
+    "de/mantova": {
+      "description": "Verkaufen in Mantova oder Provinz mit Preisstrategie auf der realen Zone. Vertrauliche Analyse — Antwort in 24h, ohne Auftragsverpflichtung."
+    },
+    "de/pavia": {
+      "description": "Verkaufen in Pavia oder Provinz mit Preisstrategie auf der realen Zone. Vertrauliche Analyse — Antwort in 24h, ohne Auftragsverpflichtung."
+    },
+    "fr/lodi": {
+      "description": "Vendez à Lodi ou en plaine lodigiane avec une analyse confidentielle sur données réelles. Réponse sous 24h — sans obligation de mandat."
+    },
+    "de/haus-kaufen-milan": {
+      "title": "Haus kaufen Mailand: Beratung & Analyse | Piraino",
+      "description": "Property Finding in Mailand: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX."
+    },
+    "de/haus-kaufen-bergamo": {
+      "title": "Haus kaufen Bergamo: Beratung & Analyse | Piraino",
+      "description": "Property Finding in Bergamo: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX."
+    },
+    "de/haus-kaufen-brescia": {
+      "title": "Haus kaufen Brescia: Beratung & Analyse | Piraino",
+      "description": "Property Finding in Brescia: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX."
+    },
+    "de/haus-kaufen-como": {
+      "title": "Haus kaufen Como: Beratung & Analyse | Piraino",
+      "description": "Property Finding in Como: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX."
+    },
+    "de/haus-kaufen-varese": {
+      "title": "Haus kaufen Varese: Beratung & Analyse | Piraino",
+      "description": "Property Finding in Varese: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX."
+    },
+    "de/haus-kaufen-lecco": {
+      "title": "Haus kaufen Lecco: Beratung & Analyse | Piraino",
+      "description": "Property Finding in Lecco: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX."
+    },
+    "de/haus-kaufen-monza": {
+      "title": "Haus kaufen Monza: Beratung & Analyse | Piraino",
+      "description": "Property Finding in Monza: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX."
+    },
+    "de/haus-kaufen-sondrio": {
+      "title": "Haus kaufen Sondrio: Beratung & Analyse | Piraino",
+      "description": "Property Finding in Sondrio: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX."
+    },
+    "de/haus-kaufen-cremona": {
+      "title": "Haus kaufen Cremona: Beratung & Analyse | Piraino",
+      "description": "Property Finding in Cremona: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX."
+    },
+    "de/haus-kaufen-lodi": {
+      "title": "Haus kaufen Lodi: Beratung & Analyse | Piraino",
+      "description": "Property Finding in Lodi: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX."
+    },
+    "de/haus-kaufen-mantova": {
+      "title": "Haus kaufen Mantova: Beratung & Analyse | Piraino",
+      "description": "Property Finding in Mantova: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX."
+    },
+    "de/haus-kaufen-pavia": {
+      "title": "Haus kaufen Pavia: Beratung & Analyse | Piraino",
+      "description": "Property Finding in Pavia: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX."
+    },
+    "fr/acheter-maison-milan": {
+      "title": "Chasseur immobilier à Milan : achat | Piraino",
+      "description": "Chasseur immobilier à Milan : recherche ciblée, analyse et accompagnement jusqu’à l’acte. Conseil acheteurs et investisseurs RE/MAX."
+    },
+    "fr/acheter-maison-bergamo": {
+      "title": "Acheter à Bergame : conseil acheteurs | Piraino",
+      "description": "Property Finding à Bergame: recherche aussi hors marché, contrôle documentaire et négociation jusqu’à l’acte. Conseil RE/MAX."
+    },
+    "fr/acheter-maison-brescia": {
+      "title": "Acheter à Brescia : conseil acheteurs | Piraino",
+      "description": "Property Finding à Brescia: recherche aussi hors marché, contrôle documentaire et négociation jusqu’à l’acte. Conseil RE/MAX."
+    },
+    "fr/acheter-maison-como": {
+      "title": "Acheter à Côme : conseil acheteurs | Piraino",
+      "description": "Property Finding à Côme: recherche aussi hors marché, contrôle documentaire et négociation jusqu’à l’acte. Conseil RE/MAX."
+    },
+    "fr/acheter-maison-varese": {
+      "title": "Acheter à Varèse : conseil acheteurs | Piraino",
+      "description": "Property Finding à Varèse: recherche aussi hors marché, contrôle documentaire et négociation jusqu’à l’acte. Conseil RE/MAX."
+    },
+    "fr/acheter-maison-lecco": {
+      "title": "Acheter à Lecco : conseil acheteurs | Piraino",
+      "description": "Property Finding à Lecco: recherche aussi hors marché, contrôle documentaire et négociation jusqu’à l’acte. Conseil RE/MAX."
+    },
+    "fr/acheter-maison-monza": {
+      "title": "Acheter à Monza : conseil acheteurs | Piraino",
+      "description": "Property Finding à Monza: recherche aussi hors marché, contrôle documentaire et négociation jusqu’à l’acte. Conseil RE/MAX."
+    },
+    "fr/acheter-maison-sondrio": {
+      "title": "Acheter à Sondrio : conseil acheteurs | Piraino",
+      "description": "Property Finding à Sondrio: recherche aussi hors marché, contrôle documentaire et négociation jusqu’à l’acte. Conseil RE/MAX."
+    },
+    "fr/acheter-maison-cremona": {
+      "title": "Acheter à Crémone : conseil acheteurs | Piraino",
+      "description": "Property Finding à Crémone: recherche aussi hors marché, contrôle documentaire et négociation jusqu’à l’acte. Conseil RE/MAX."
+    },
+    "fr/acheter-maison-lodi": {
+      "title": "Acheter à Lodi : conseil acheteurs | Piraino",
+      "description": "Property Finding à Lodi: recherche aussi hors marché, contrôle documentaire et négociation jusqu’à l’acte. Conseil RE/MAX."
+    },
+    "fr/acheter-maison-mantova": {
+      "title": "Acheter à Mantoue : conseil acheteurs | Piraino",
+      "description": "Property Finding à Mantoue: recherche aussi hors marché, contrôle documentaire et négociation jusqu’à l’acte. Conseil RE/MAX."
+    },
+    "fr/acheter-maison-pavia": {
+      "title": "Acheter à Pavie : conseil acheteurs | Piraino",
+      "description": "Property Finding à Pavie: recherche aussi hors marché, contrôle documentaire et négociation jusqu’à l’acte. Conseil RE/MAX."
+    },
+    "en/buy-home-bergamo": {
+      "title": "Buy a home in Bergamo: advisory | Piraino"
+    },
+    "en/buy-home-brescia": {
+      "title": "Buy a home in Brescia: advisory | Piraino"
+    },
+    "en/buy-home-monza": {
+      "title": "Buy a home in Monza: buyer advisory | Piraino"
+    },
+    "en/buy-home-sondrio": {
+      "title": "Buy a home in Sondrio: advisory | Piraino"
+    },
+    "en/buy-home-cremona": {
+      "title": "Buy a home in Cremona: advisory | Piraino"
+    },
+    "en/buy-home-mantova": {
+      "title": "Buy a home in Mantova: advisory | Piraino"
+    },
+    "de/haus-kaufen": {
+      "title": "Haus kaufen in der Lombardei | Piraino",
+      "description": "Käuferberatung in allen Provinzen der Lombardei: OMI-Analyse, technische Prüfung und gezielte Suche. Property Finding mit RE/MAX-Netzwerk."
+    },
+    "zh": {
+      "description": "米兰与伦巴第房产顾问：买房、投资与卖房。通过 RE/MAX 网络亦可服务意大利其他地区。专属寻盘、销售分析与过户协助。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "cremona": {
+      "description": "Vendi a Cremona o in provincia con analisi riservata su dati reali. Risposta entro 24h — nessun obbligo di incarico. Consulenza RE/MAX, risposta entro 2…"
+    },
+    "sondrio": {
+      "description": "Vendi a Sondrio o in Valtellina con analisi riservata su dati reali. Risposta entro 24h — nessun obbligo di incarico. Consulenza RE/MAX, risposta entro…"
+    },
+    "zh/mai-fang-sondrio": {
+      "description": "松德里奥专属寻盘: 含非公开盘源搜索、文件核查、谈判与过户支持。RE/MAX 购房者与投资者顾问。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "zh/mai-fang-monza": {
+      "description": "蒙扎与布里安扎专属寻盘：含非公开盘源搜索、文件核查、谈判与过户支持。RE/MAX 购房者与投资者顾问。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "zh/mai-fang-bergamo": {
+      "description": "贝加莫专属寻盘: 含非公开盘源搜索、文件核查、谈判与过户支持。RE/MAX 购房者与投资者顾问。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "zh/mai-fang-pavia": {
+      "description": "帕维亚专属寻盘: 含非公开盘源搜索、文件核查、谈判与过户支持。RE/MAX 购房者与投资者顾问。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "zh/mai-fang-milan": {
+      "description": "米兰专属寻盘: 含非公开盘源搜索、文件核查、谈判与过户支持。RE/MAX 购房者与投资者顾问。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "zh/mai-fang-mantova": {
+      "description": "曼托瓦专属寻盘: 含非公开盘源搜索、文件核查、谈判与过户支持。RE/MAX 购房者与投资者顾问。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "zh/chu-shou": {
+      "description": "伦巴第各省私密房产分析与销售策略。OMI 数据、微区域分析与 RE/MAX 方法——无委托义务。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "zh/mai-fang-varese": {
+      "description": "瓦雷泽专属寻盘: 含非公开盘源搜索、文件核查、谈判与过户支持。RE/MAX 购房者与投资者顾问。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "zh/chu-shou-milan": {
+      "description": "想在米兰卖房？基于真实数据与微区域的私密房产分析——在任何委托之前。先分析，再出售。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "zh/mai-fang-brescia": {
+      "description": "布雷西亚专属寻盘: 含非公开盘源搜索、文件核查、谈判与过户支持。RE/MAX 购房者与投资者顾问。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "zh/mai-fang-cremona": {
+      "description": "克雷莫纳专属寻盘: 含非公开盘源搜索、文件核查、谈判与过户支持。RE/MAX 购房者与投资者顾问。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "zh/mai-fang-lodi": {
+      "description": "洛迪专属寻盘: 含非公开盘源搜索、文件核查、谈判与过户支持。RE/MAX 购房者与投资者顾问。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "zh/mai-fang-como": {
+      "description": "科莫专属寻盘: 含非公开盘源搜索、文件核查、谈判与过户支持。RE/MAX 购房者与投资者顾问。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "zh/mai-fang": {
+      "description": "覆盖伦巴第全部省份的专属寻盘。OMI 分析、技术核查与 RE/MAX 精准搜索——米兰、科莫、蒙扎、贝加莫等。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "zh/mai-fang-lecco": {
+      "description": "莱科专属寻盘: 含非公开盘源搜索、文件核查、谈判与过户支持。RE/MAX 购房者与投资者顾问。基于真实市场数据与微区域分析，提供购房或售房咨询，并可通过 RE/MAX 网络覆盖意大利其他地区。欢迎通过表单或 WhatsApp 联系。欢迎通过表单或 WhatsApp 联系。"
+    },
+    "fr/varese": {
+      "description": "Vendez à Varèse, Busto ou Gallarate sans mauvais prix. Analyse confidentielle sur données réelles — réponse sous 24h. Conseil RE/MAX — réponse sous 24 h…"
+    },
+    "fr/como": {
+      "description": "Vendez à Côme et sur le lac avec une analyse confidentielle sur données réelles, avant tout mandat. Réponse sous 24h. Conseil RE/MAX — réponse sous 24 h…"
+    },
+    "de/varese": {
+      "description": "Verkaufen in Varese, Busto oder Gallarate ohne falschen Preis. Vertrauliche Analyse auf realen Daten — Antwort in 24h. Beratung mit RE/MAX — Antwort in…"
+    }
+  }
+}

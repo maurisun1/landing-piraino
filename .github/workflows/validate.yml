@@ -47,3 +47,9 @@ jobs:
               raise SystemExit("Missing site-nav.js in: " + ", ".join(missing_js))
           print(f"Validated {len(pages)} pages")
           PY
+
+      - name: Fail on unresolved content placeholders
+        run: python3 tools/check_placeholders.py
+
+      - name: Check hreflang reciprocity
+        run: python3 tools/check_hreflang.py
