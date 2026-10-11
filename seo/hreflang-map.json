@@ -1,0 +1,194 @@
+{
+  "base": "https://mauriziopiraino.it",
+  "note": "Only indexable existing URLs. zh-Hans excluded (noindex). x-default = IT.",
+  "groups": [
+    {
+      "it": "https://mauriziopiraino.it/",
+      "en": "https://mauriziopiraino.it/en/",
+      "de": "https://mauriziopiraino.it/de/",
+      "fr": "https://mauriziopiraino.it/fr/",
+      "x-default": "https://mauriziopiraino.it/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/comprare-casa/",
+      "en": "https://mauriziopiraino.it/en/buy-home/",
+      "de": "https://mauriziopiraino.it/de/haus-kaufen/",
+      "fr": "https://mauriziopiraino.it/fr/acheter-maison/",
+      "x-default": "https://mauriziopiraino.it/comprare-casa/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/vendere-casa/",
+      "de": "https://mauriziopiraino.it/de/haus-verkaufen/",
+      "fr": "https://mauriziopiraino.it/fr/vendre-maison/",
+      "x-default": "https://mauriziopiraino.it/vendere-casa/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/vendere-casa-milano/",
+      "de": "https://mauriziopiraino.it/de/haus-verkaufen-milan/",
+      "fr": "https://mauriziopiraino.it/fr/vendre-maison-milan/",
+      "x-default": "https://mauriziopiraino.it/vendere-casa-milano/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/comprare-casa-milano/",
+      "en": "https://mauriziopiraino.it/en/buy-home-milan/",
+      "de": "https://mauriziopiraino.it/de/haus-kaufen-milan/",
+      "fr": "https://mauriziopiraino.it/fr/acheter-maison-milan/",
+      "x-default": "https://mauriziopiraino.it/comprare-casa-milano/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/comprare-casa-bergamo/",
+      "en": "https://mauriziopiraino.it/en/buy-home-bergamo/",
+      "x-default": "https://mauriziopiraino.it/comprare-casa-bergamo/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/comprare-casa-brescia/",
+      "en": "https://mauriziopiraino.it/en/buy-home-brescia/",
+      "x-default": "https://mauriziopiraino.it/comprare-casa-brescia/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/comprare-casa-como/",
+      "en": "https://mauriziopiraino.it/en/buy-home-como/",
+      "de": "https://mauriziopiraino.it/de/haus-kaufen-como/",
+      "fr": "https://mauriziopiraino.it/fr/acheter-maison-como/",
+      "x-default": "https://mauriziopiraino.it/comprare-casa-como/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/comprare-casa-varese/",
+      "en": "https://mauriziopiraino.it/en/buy-home-varese/",
+      "de": "https://mauriziopiraino.it/de/haus-kaufen-varese/",
+      "fr": "https://mauriziopiraino.it/fr/acheter-maison-varese/",
+      "x-default": "https://mauriziopiraino.it/comprare-casa-varese/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/comprare-casa-lecco/",
+      "en": "https://mauriziopiraino.it/en/buy-home-lecco/",
+      "de": "https://mauriziopiraino.it/de/haus-kaufen-lecco/",
+      "fr": "https://mauriziopiraino.it/fr/acheter-maison-lecco/",
+      "x-default": "https://mauriziopiraino.it/comprare-casa-lecco/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/comprare-casa-monza/",
+      "en": "https://mauriziopiraino.it/en/buy-home-monza/",
+      "x-default": "https://mauriziopiraino.it/comprare-casa-monza/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/comprare-casa-sondrio/",
+      "en": "https://mauriziopiraino.it/en/buy-home-sondrio/",
+      "x-default": "https://mauriziopiraino.it/comprare-casa-sondrio/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/comprare-casa-cremona/",
+      "en": "https://mauriziopiraino.it/en/buy-home-cremona/",
+      "x-default": "https://mauriziopiraino.it/comprare-casa-cremona/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/comprare-casa-lodi/",
+      "en": "https://mauriziopiraino.it/en/buy-home-lodi/",
+      "x-default": "https://mauriziopiraino.it/comprare-casa-lodi/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/comprare-casa-mantova/",
+      "en": "https://mauriziopiraino.it/en/buy-home-mantova/",
+      "x-default": "https://mauriziopiraino.it/comprare-casa-mantova/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/comprare-casa-pavia/",
+      "en": "https://mauriziopiraino.it/en/buy-home-pavia/",
+      "x-default": "https://mauriziopiraino.it/comprare-casa-pavia/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/bergamo/",
+      "x-default": "https://mauriziopiraino.it/bergamo/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/brescia/",
+      "x-default": "https://mauriziopiraino.it/brescia/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/como/",
+      "de": "https://mauriziopiraino.it/de/como/",
+      "fr": "https://mauriziopiraino.it/fr/como/",
+      "x-default": "https://mauriziopiraino.it/como/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/varese/",
+      "de": "https://mauriziopiraino.it/de/varese/",
+      "fr": "https://mauriziopiraino.it/fr/varese/",
+      "x-default": "https://mauriziopiraino.it/varese/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/lecco/",
+      "de": "https://mauriziopiraino.it/de/lecco/",
+      "fr": "https://mauriziopiraino.it/fr/lecco/",
+      "x-default": "https://mauriziopiraino.it/lecco/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/monza/",
+      "x-default": "https://mauriziopiraino.it/monza/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/sondrio/",
+      "x-default": "https://mauriziopiraino.it/sondrio/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/cremona/",
+      "x-default": "https://mauriziopiraino.it/cremona/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/lodi/",
+      "x-default": "https://mauriziopiraino.it/lodi/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/mantova/",
+      "x-default": "https://mauriziopiraino.it/mantova/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/pavia/",
+      "x-default": "https://mauriziopiraino.it/pavia/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/immobili-commerciali/",
+      "x-default": "https://mauriziopiraino.it/immobili-commerciali/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/sviluppo-immobiliare/",
+      "x-default": "https://mauriziopiraino.it/sviluppo-immobiliare/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/sviluppo-immobiliare/vendere-terreno-edificabile/",
+      "x-default": "https://mauriziopiraino.it/sviluppo-immobiliare/vendere-terreno-edificabile/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/sviluppo-immobiliare/ricerca-aree-edificabili/",
+      "x-default": "https://mauriziopiraino.it/sviluppo-immobiliare/ricerca-aree-edificabili/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/sviluppo-immobiliare/commercializzazione-cantieri/",
+      "x-default": "https://mauriziopiraino.it/sviluppo-immobiliare/commercializzazione-cantieri/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/vendere-casa/casa-invenduta/",
+      "x-default": "https://mauriziopiraino.it/vendere-casa/casa-invenduta/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/guida-prezzi-mq-milano/",
+      "x-default": "https://mauriziopiraino.it/guida-prezzi-mq-milano/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/guida-prezzi-mq-brescia/",
+      "x-default": "https://mauriziopiraino.it/guida-prezzi-mq-brescia/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/guida-prezzi-mq-bergamo/",
+      "x-default": "https://mauriziopiraino.it/guida-prezzi-mq-bergamo/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/valutazione-casa-brescia/",
+      "x-default": "https://mauriziopiraino.it/valutazione-casa-brescia/"
+    },
+    {
+      "it": "https://mauriziopiraino.it/privacy/",
+      "x-default": "https://mauriziopiraino.it/privacy/"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "year": 2026,
+  "omi_ref": "OMI 2° semestre 2025 (ultimo aggiornamento ufficiale disponibile)",
+  "cities": [
+    {
+      "slug": "milano",
+      "name": "Milano",
+      "title": "Valori OMI Milano 2026: prezzi al mq per zona | Piraino",
+      "description": "Quotazioni OMI 2026 a Milano zona per zona (~1.850–16.000 €/mq) e come leggerle prima di comprare, vendere o investire. Consulenza gratuita.",
+      "h1": "Valori OMI Milano 2026",
+      "range_text": "circa 1.850–16.000 €/mq (abitazioni civili)",
+      "range_low": "1.850",
+      "range_high": "16.000",
+      "hero_img": "/milano.jpg?v=20260930",
+      "vct_url": "https://valorecasatua.it/guide/prezzi-mq-milano/",
+      "buy_url": "/comprare-casa-milano/",
+      "sell_url": "/vendere-casa-milano/",
+      "zones": [
+        {"zone": "Centro / Brera (fascia alta)", "min": "~10.000", "max": "~16.000", "note": "abitazioni civili; signorili possono superare i 20.000 €/mq"},
+        {"zone": "Zone semicentrali (es. Navigli, Isola — orientativo)", "min": "[DATO DA INSERIRE]", "max": "[DATO DA INSERIRE]", "note": "verificare micro-zona OMI ufficiale"},
+        {"zone": "Periferia / cintura urbana (fascia bassa)", "min": "~1.850", "max": "[DATO DA INSERIRE]", "note": "ampia variabilità per quartiere"},
+        {"zone": "Fascia complessiva città (sintesi)", "min": "~1.850", "max": "~16.000", "note": "range statistico abitazioni civili"}
+      ],
+      "local_factors": [
+        "quartiere e micro-zona (anche a pochi isolati di distanza)",
+        "piano, ascensore e stato manutentivo",
+        "classe energetica e costi di gestione",
+        "affaccio, rumore, luminosità e privacy",
+        "documentazione urbanistica e conformità",
+        "domanda da acquirenti e investitori in quel momento"
+      ],
+      "related_internal": [
+        {"href": "/comprare-casa-milano/", "label": "Comprare casa a Milano"},
+        {"href": "/vendere-casa-milano/", "label": "Vendere casa a Milano"},
+        {"href": "/guida-prezzi-mq-brescia/", "label": "Valori OMI Brescia"},
+        {"href": "/guida-prezzi-mq-bergamo/", "label": "Valori OMI Bergamo"}
+      ]
+    },
+    {
+      "slug": "brescia",
+      "name": "Brescia",
+      "title": "Valori OMI Brescia 2026: prezzi al mq per zona | Piraino",
+      "description": "Quotazioni OMI 2026 a Brescia e provincia (~1.250–4.300 €/mq): come leggerle prima di comprare o vendere. Consulenza RE/MAX gratuita.",
+      "h1": "Valori OMI Brescia 2026",
+      "range_text": "circa 1.250–4.300 €/mq (abitazioni civili)",
+      "range_low": "1.250",
+      "range_high": "4.300",
+      "hero_img": "/brescia.jpg?v=20260930",
+      "vct_url": "https://valorecasatua.it/guide/prezzi-mq-brescia/",
+      "buy_url": "/comprare-casa-brescia/",
+      "sell_url": "/brescia/",
+      "zones": [
+        {"zone": "Brescia città — fascia complessiva (sintesi)", "min": "~1.250", "max": "~4.300", "note": "abitazioni civili; dettaglio zona per zona su fonte OMI/VCT"},
+        {"zone": "Centro storico / zone centrali", "min": "[DATO DA INSERIRE]", "max": "[DATO DA INSERIRE]", "note": "verificare micro-zona OMI ufficiale"},
+        {"zone": "Franciacorta (orientativo)", "min": "[DATO DA INSERIRE]", "max": "[DATO DA INSERIRE]", "note": "mercato distinto dalla città"},
+        {"zone": "Lago di Garda / Iseo (orientativo)", "min": "[DATO DA INSERIRE]", "max": "[DATO DA INSERIRE]", "note": "forte componente lifestyle e seconda casa"}
+      ],
+      "local_factors": [
+        "posizione in città, Franciacorta o laghi",
+        "collegamenti verso Milano e servizi",
+        "piano, stato e eventuali lavori recenti",
+        "classe energetica",
+        "vista, esposizione e contesto del condominio",
+        "documenti e destinazione d'uso"
+      ],
+      "related_internal": [
+        {"href": "/brescia/", "label": "Vendere casa a Brescia"},
+        {"href": "/comprare-casa-brescia/", "label": "Comprare casa a Brescia"},
+        {"href": "/valutazione-casa-brescia/", "label": "Valutazione casa Brescia"},
+        {"href": "/guida-prezzi-mq-milano/", "label": "Valori OMI Milano"}
+      ]
+    },
+    {
+      "slug": "bergamo",
+      "name": "Bergamo",
+      "title": "Valori OMI Bergamo 2026: prezzi al mq per zona | Piraino",
+      "description": "Quotazioni OMI 2026 a Bergamo e provincia (~1.400–4.300 €/mq): come leggerle prima di comprare o vendere. Consulenza RE/MAX gratuita.",
+      "h1": "Valori OMI Bergamo 2026",
+      "range_text": "circa 1.400–4.300 €/mq (abitazioni civili)",
+      "range_low": "1.400",
+      "range_high": "4.300",
+      "hero_img": "/bergamo.jpg?v=20260930",
+      "vct_url": "https://valorecasatua.it/guide/prezzi-mq-bergamo/",
+      "buy_url": "/comprare-casa-bergamo/",
+      "sell_url": "/bergamo/",
+      "zones": [
+        {"zone": "Bergamo — fascia complessiva (sintesi)", "min": "~1.400", "max": "~4.300", "note": "abitazioni civili"},
+        {"zone": "Città Alta / zone storiche", "min": "[DATO DA INSERIRE]", "max": "[DATO DA INSERIRE]", "note": "verificare micro-zona OMI ufficiale"},
+        {"zone": "Città Bassa / zone semicentrali", "min": "[DATO DA INSERIRE]", "max": "[DATO DA INSERIRE]", "note": "verificare micro-zona OMI ufficiale"},
+        {"zone": "Provincia / cintura", "min": "[DATO DA INSERIRE]", "max": "[DATO DA INSERIRE]", "note": "dinamiche diverse da comune a comune"}
+      ],
+      "local_factors": [
+        "Città Alta vs Città Bassa vs provincia",
+        "accessibilità e tempi verso Milano",
+        "piano, stato e ristrutturazioni",
+        "classe energetica",
+        "contesto condominiale e spese",
+        "completezza documentale"
+      ],
+      "related_internal": [
+        {"href": "/bergamo/", "label": "Vendere casa a Bergamo"},
+        {"href": "/comprare-casa-bergamo/", "label": "Comprare casa a Bergamo"},
+        {"href": "/guida-prezzi-mq-milano/", "label": "Valori OMI Milano"},
+        {"href": "/guida-prezzi-mq-brescia/", "label": "Valori OMI Brescia"}
+      ]
+    }
+  ]
+}
