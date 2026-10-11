@@ -4,9 +4,9 @@
 
 | URL MP | Before | After |
 | --- | --- | --- |
-| /guida-prezzi-mq-milano/ | Canonical self; title “Valori OMI Milano 2026… tabella”; tabella zone + FAQ; schema Article+FAQPage+Dataset | Canonical → VCT prezzi-mq-milano; title consulenza; sintesi ~300–500 parole; CTA dofollow VCT; schema WebPage+Person/RealEstateAgent |
-| /guida-prezzi-mq-brescia/ | Idem (self-canonical, tabella, FAQ) | Idem pattern → VCT prezzi-mq-brescia |
-| /guida-prezzi-mq-bergamo/ | Idem (self-canonical, tabella, FAQ) | Idem pattern → VCT prezzi-mq-bergamo |
+| https://valorecasatua.it/guide/prezzi-mq-milano/ | Canonical self; title “Valori OMI Milano 2026… tabella”; tabella zone + FAQ; schema Article+FAQPage+Dataset | Canonical → VCT prezzi-mq-milano; title consulenza; sintesi ~300–500 parole; CTA dofollow VCT; schema WebPage+Person/RealEstateAgent |
+| https://valorecasatua.it/guide/prezzi-mq-brescia/ | Idem (self-canonical, tabella, FAQ) | Idem pattern → VCT prezzi-mq-brescia |
+| https://valorecasatua.it/guide/prezzi-mq-bergamo/ | Idem (self-canonical, tabella, FAQ) | Idem pattern → VCT prezzi-mq-bergamo |
 
 ## Link hub / footer / zone CTA
 

@@ -35,9 +35,9 @@
 - 中文首页: https://mauriziopiraino.it/zh/
 
 ### Guide prezzi OMI (sintesi + consulenza; tabelle complete su ValoreCasaTua.it)
-- Milano: https://mauriziopiraino.it/guida-prezzi-mq-milano/
-- Bergamo: https://mauriziopiraino.it/guida-prezzi-mq-bergamo/
-- Brescia: https://mauriziopiraino.it/guida-prezzi-mq-brescia/
+- Milano: https://valorecasatua.it/guide/prezzi-mq-milano/
+- Bergamo: https://valorecasatua.it/guide/prezzi-mq-bergamo/
+- Brescia: https://valorecasatua.it/guide/prezzi-mq-brescia/
 
 ### Landing acquirente per provincia (esempi)
 - Milano IT: https://mauriziopiraino.it/comprare-casa-milano/

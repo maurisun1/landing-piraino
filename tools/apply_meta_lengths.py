@@ -31,7 +31,14 @@ def set_title(html: str, title: str) -> str:
 
 
 def set_desc(html: str, desc: str) -> str:
-    html = _set_meta(html, "name", "description", desc)
+    # Replace the whole meta description tag to avoid leftover "/> />" fragments.
+    html = re.sub(
+        r'<meta\s+name=["\']description["\']\s+content=["\'][^"\']*["\']\s*/?\s*>',
+        f'<meta name="description" content="{H.escape(desc, quote=True)}" />',
+        html,
+        count=1,
+        flags=re.I,
+    )
     html = _set_meta(html, "property", "og:description", desc)
     html = _set_meta(html, "name", "twitter:description", desc)
     return html

@@ -284,12 +284,12 @@ def retarget_omi_links() -> int:
     # Skip nothing in guides themselves for related — already rewritten
 
     replacements = [
-        ("/guida-prezzi-mq-milano/", VCT_OMI["milano"]),
-        ("/guida-prezzi-mq-brescia/", VCT_OMI["brescia"]),
-        ("/guida-prezzi-mq-bergamo/", VCT_OMI["bergamo"]),
-        ("https://mauriziopiraino.it/guida-prezzi-mq-milano/", VCT_OMI["milano"]),
-        ("https://mauriziopiraino.it/guida-prezzi-mq-brescia/", VCT_OMI["brescia"]),
-        ("https://mauriziopiraino.it/guida-prezzi-mq-bergamo/", VCT_OMI["bergamo"]),
+        ("https://valorecasatua.it/guide/prezzi-mq-milano/", VCT_OMI["milano"]),
+        ("https://valorecasatua.it/guide/prezzi-mq-brescia/", VCT_OMI["brescia"]),
+        ("https://valorecasatua.it/guide/prezzi-mq-bergamo/", VCT_OMI["bergamo"]),
+        ("https://valorecasatua.it/guide/prezzi-mq-milano/", VCT_OMI["milano"]),
+        ("https://valorecasatua.it/guide/prezzi-mq-brescia/", VCT_OMI["brescia"]),
+        ("https://valorecasatua.it/guide/prezzi-mq-bergamo/", VCT_OMI["bergamo"]),
     ]
 
     # Seller / buyer "Consulta i valori OMI" → VCT per province
@@ -302,9 +302,9 @@ def retarget_omi_links() -> int:
     )
 
     slug_from_href = {
-        "/guida-prezzi-mq-milano/": "milano",
-        "/guida-prezzi-mq-brescia/": "brescia",
-        "/guida-prezzi-mq-bergamo/": "bergamo",
+        "https://valorecasatua.it/guide/prezzi-mq-milano/": "milano",
+        "https://valorecasatua.it/guide/prezzi-mq-brescia/": "brescia",
+        "https://valorecasatua.it/guide/prezzi-mq-bergamo/": "bergamo",
         **{f"/comprare-casa-{s}/": s for s in VCT_OMI},
     }
 
@@ -459,9 +459,9 @@ def patch_seller_footer_geo_script() -> None:
 
 def write_inventory() -> None:
     rows = [
-        ("https://mauriziopiraino.it/guida-prezzi-mq-milano/", "Prezzi/OMI Milano (guida lunga → sintesi)", VCT_OMI["milano"]),
-        ("https://mauriziopiraino.it/guida-prezzi-mq-brescia/", "Prezzi/OMI Brescia (guida lunga → sintesi)", VCT_OMI["brescia"]),
-        ("https://mauriziopiraino.it/guida-prezzi-mq-bergamo/", "Prezzi/OMI Bergamo (guida lunga → sintesi)", VCT_OMI["bergamo"]),
+        ("https://valorecasatua.it/guide/prezzi-mq-milano/", "Prezzi/OMI Milano (guida lunga → sintesi)", VCT_OMI["milano"]),
+        ("https://valorecasatua.it/guide/prezzi-mq-brescia/", "Prezzi/OMI Brescia (guida lunga → sintesi)", VCT_OMI["brescia"]),
+        ("https://valorecasatua.it/guide/prezzi-mq-bergamo/", "Prezzi/OMI Bergamo (guida lunga → sintesi)", VCT_OMI["bergamo"]),
     ]
     # Mentions / deep links only (not duplicate guides)
     for slug, name in CITY.items():
@@ -529,9 +529,9 @@ def write_before_after() -> None:
         "",
         "| URL MP | Before | After |",
         "| --- | --- | --- |",
-        "| /guida-prezzi-mq-milano/ | Canonical self; title “Valori OMI Milano 2026… tabella”; tabella zone + FAQ; schema Article+FAQPage+Dataset | Canonical → VCT prezzi-mq-milano; title consulenza; sintesi ~300–500 parole; CTA dofollow VCT; schema WebPage+Person/RealEstateAgent |",
-        "| /guida-prezzi-mq-brescia/ | Idem (self-canonical, tabella, FAQ) | Idem pattern → VCT prezzi-mq-brescia |",
-        "| /guida-prezzi-mq-bergamo/ | Idem (self-canonical, tabella, FAQ) | Idem pattern → VCT prezzi-mq-bergamo |",
+        "| https://valorecasatua.it/guide/prezzi-mq-milano/ | Canonical self; title “Valori OMI Milano 2026… tabella”; tabella zone + FAQ; schema Article+FAQPage+Dataset | Canonical → VCT prezzi-mq-milano; title consulenza; sintesi ~300–500 parole; CTA dofollow VCT; schema WebPage+Person/RealEstateAgent |",
+        "| https://valorecasatua.it/guide/prezzi-mq-brescia/ | Idem (self-canonical, tabella, FAQ) | Idem pattern → VCT prezzi-mq-brescia |",
+        "| https://valorecasatua.it/guide/prezzi-mq-bergamo/ | Idem (self-canonical, tabella, FAQ) | Idem pattern → VCT prezzi-mq-bergamo |",
         "",
         "## Link hub / footer / zone CTA",
         "",
@@ -557,12 +557,12 @@ def patch_sitemap_priorities() -> None:
     path = ROOT / ".github" / "scripts" / "update_sitemap.py"
     text = path.read_text(encoding="utf-8")
     text2 = text.replace(
-        '("/guida-prezzi-mq-milano/", "0.8"),\n'
-        '        ("/guida-prezzi-mq-brescia/", "0.8"),\n'
-        '        ("/guida-prezzi-mq-bergamo/", "0.8"),',
-        '("/guida-prezzi-mq-milano/", "0.5"),\n'
-        '        ("/guida-prezzi-mq-brescia/", "0.5"),\n'
-        '        ("/guida-prezzi-mq-bergamo/", "0.5"),',
+        '("https://valorecasatua.it/guide/prezzi-mq-milano/", "0.8"),\n'
+        '        ("https://valorecasatua.it/guide/prezzi-mq-brescia/", "0.8"),\n'
+        '        ("https://valorecasatua.it/guide/prezzi-mq-bergamo/", "0.8"),',
+        '("https://valorecasatua.it/guide/prezzi-mq-milano/", "0.5"),\n'
+        '        ("https://valorecasatua.it/guide/prezzi-mq-brescia/", "0.5"),\n'
+        '        ("https://valorecasatua.it/guide/prezzi-mq-bergamo/", "0.5"),',
     )
     if text2 != text:
         path.write_text(text2, encoding="utf-8")

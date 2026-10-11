@@ -94,9 +94,6 @@ STANDALONE = [
     "/sviluppo-immobiliare/ricerca-aree-edificabili/",
     "/sviluppo-immobiliare/commercializzazione-cantieri/",
     "/vendere-casa/casa-invenduta/",
-    "/guida-prezzi-mq-milano/",
-    "/guida-prezzi-mq-brescia/",
-    "/guida-prezzi-mq-bergamo/",
     "/valutazione-casa-brescia/",
     "/privacy/",
     "/comprare-casa/",  # already above with alts

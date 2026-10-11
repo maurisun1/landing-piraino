@@ -4,9 +4,9 @@ Sito MP: https://mauriziopiraino.it · Master VCT: https://valorecasatua.it
 
 | URL MP | Tema | URL VCT destinazione |
 | --- | --- | --- |
-| https://mauriziopiraino.it/guida-prezzi-mq-milano/ | Prezzi/OMI Milano (guida lunga → sintesi) | https://valorecasatua.it/guide/prezzi-mq-milano/ |
-| https://mauriziopiraino.it/guida-prezzi-mq-brescia/ | Prezzi/OMI Brescia (guida lunga → sintesi) | https://valorecasatua.it/guide/prezzi-mq-brescia/ |
-| https://mauriziopiraino.it/guida-prezzi-mq-bergamo/ | Prezzi/OMI Bergamo (guida lunga → sintesi) | https://valorecasatua.it/guide/prezzi-mq-bergamo/ |
+| https://valorecasatua.it/guide/prezzi-mq-milano/ | Prezzi/OMI Milano (guida lunga → sintesi) | https://valorecasatua.it/guide/prezzi-mq-milano/ |
+| https://valorecasatua.it/guide/prezzi-mq-brescia/ | Prezzi/OMI Brescia (guida lunga → sintesi) | https://valorecasatua.it/guide/prezzi-mq-brescia/ |
+| https://valorecasatua.it/guide/prezzi-mq-bergamo/ | Prezzi/OMI Bergamo (guida lunga → sintesi) | https://valorecasatua.it/guide/prezzi-mq-bergamo/ |
 | https://mauriziopiraino.it/comprare-casa-como/ + /como/ (link OMI) | Link/CTA OMI Como (nessuna tabella duplicata) | https://valorecasatua.it/guide/prezzi-mq-como/ |
 | https://mauriziopiraino.it/comprare-casa-monza/ + /monza/ (link OMI) | Link/CTA OMI Monza e Brianza (nessuna tabella duplicata) | https://valorecasatua.it/guide/prezzi-mq-monza-brianza/ |
 | https://mauriziopiraino.it/comprare-casa-varese/ + /varese/ (link OMI) | Link/CTA OMI Varese (nessuna tabella duplicata) | https://valorecasatua.it/guide/prezzi-mq-varese/ |
