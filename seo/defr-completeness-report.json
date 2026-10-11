@@ -1,124 +1,110 @@
 {
-  "complete": [],
-  "incomplete": [
+  "complete": [
     {
       "path": "/de/haus-kaufen-brescia/",
       "file": "de/haus-kaufen-brescia/index.html",
       "robots": "noindex, follow",
       "words": 799,
-      "title": "Haus kaufen Brescia: Beratung & Analyse | Piraino",
-      "title_len": 49,
+      "title": "Haus kaufen Brescia: Beratung &amp; Analyse | Piraino",
+      "title_len": 53,
       "h1": "Suchen wir gemeinsam die richtige Immobilie in Brescia. Mit Analyse, Schutz und Methode.",
       "desc": "Property Finding in Brescia: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX.",
       "desc_len": 123,
       "it_hits": 0,
       "it_samples": [],
-      "complete": false,
-      "missing": [
-        "words=799<800"
-      ]
+      "complete": true,
+      "missing": []
     },
     {
       "path": "/de/haus-kaufen-cremona/",
       "file": "de/haus-kaufen-cremona/index.html",
       "robots": "noindex, follow",
       "words": 781,
-      "title": "Haus kaufen Cremona: Beratung & Analyse | Piraino",
-      "title_len": 49,
+      "title": "Haus kaufen Cremona: Beratung &amp; Analyse | Piraino",
+      "title_len": 53,
       "h1": "Suchen wir gemeinsam die richtige Immobilie in Cremona. Mit Analyse, Schutz und Methode.",
       "desc": "Property Finding in Cremona: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX.",
       "desc_len": 123,
       "it_hits": 0,
       "it_samples": [],
-      "complete": false,
-      "missing": [
-        "words=781<800"
-      ]
+      "complete": true,
+      "missing": []
     },
     {
       "path": "/de/haus-kaufen-lodi/",
       "file": "de/haus-kaufen-lodi/index.html",
       "robots": "noindex, follow",
       "words": 771,
-      "title": "Haus kaufen Lodi: Beratung & Analyse | Piraino",
-      "title_len": 46,
+      "title": "Haus kaufen Lodi: Beratung &amp; Analyse | Piraino",
+      "title_len": 50,
       "h1": "Suchen wir gemeinsam die richtige Immobilie in Lodi. Mit Analyse, Schutz und Methode.",
       "desc": "Property Finding in Lodi: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX.",
       "desc_len": 120,
       "it_hits": 0,
       "it_samples": [],
-      "complete": false,
-      "missing": [
-        "words=771<800"
-      ]
+      "complete": true,
+      "missing": []
     },
     {
       "path": "/de/haus-kaufen-mantova/",
       "file": "de/haus-kaufen-mantova/index.html",
       "robots": "noindex, follow",
       "words": 773,
-      "title": "Haus kaufen Mantova: Beratung & Analyse | Piraino",
-      "title_len": 49,
+      "title": "Haus kaufen Mantova: Beratung &amp; Analyse | Piraino",
+      "title_len": 53,
       "h1": "Suchen wir gemeinsam die richtige Immobilie in Mantova. Mit Analyse, Schutz und Methode.",
       "desc": "Property Finding in Mantova: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX.",
       "desc_len": 123,
       "it_hits": 0,
       "it_samples": [],
-      "complete": false,
-      "missing": [
-        "words=773<800"
-      ]
+      "complete": true,
+      "missing": []
     },
     {
       "path": "/de/haus-kaufen-monza/",
       "file": "de/haus-kaufen-monza/index.html",
       "robots": "noindex, follow",
       "words": 796,
-      "title": "Haus kaufen Monza: Beratung & Analyse | Piraino",
-      "title_len": 47,
+      "title": "Haus kaufen Monza: Beratung &amp; Analyse | Piraino",
+      "title_len": 51,
       "h1": "Suchen wir gemeinsam die richtige Immobilie in Monza und Brianza. Mit Analyse, Schutz und Methode.",
       "desc": "Property Finding in Monza: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX.",
       "desc_len": 121,
       "it_hits": 0,
       "it_samples": [],
-      "complete": false,
-      "missing": [
-        "words=796<800"
-      ]
+      "complete": true,
+      "missing": []
     },
     {
       "path": "/de/haus-kaufen-pavia/",
       "file": "de/haus-kaufen-pavia/index.html",
       "robots": "noindex, follow",
       "words": 785,
-      "title": "Haus kaufen Pavia: Beratung & Analyse | Piraino",
-      "title_len": 47,
+      "title": "Haus kaufen Pavia: Beratung &amp; Analyse | Piraino",
+      "title_len": 51,
       "h1": "Suchen wir gemeinsam die richtige Immobilie in Pavia. Mit Analyse, Schutz und Methode.",
       "desc": "Property Finding in Pavia: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX.",
       "desc_len": 121,
       "it_hits": 0,
       "it_samples": [],
-      "complete": false,
-      "missing": [
-        "words=785<800"
-      ]
+      "complete": true,
+      "missing": []
     },
     {
       "path": "/de/haus-kaufen-sondrio/",
       "file": "de/haus-kaufen-sondrio/index.html",
       "robots": "noindex, follow",
       "words": 760,
-      "title": "Haus kaufen Sondrio: Beratung & Analyse | Piraino",
-      "title_len": 49,
+      "title": "Haus kaufen Sondrio: Beratung &amp; Analyse | Piraino",
+      "title_len": 53,
       "h1": "Suchen wir gemeinsam die richtige Immobilie in Sondrio. Mit Analyse, Schutz und Methode.",
       "desc": "Property Finding in Sondrio: Suche auch off-market, Dokumentenprüfung und Verhandlung bis zum Notar. Käuferberatung RE/MAX.",
       "desc_len": 123,
       "it_hits": 0,
       "it_samples": [],
-      "complete": false,
-      "missing": [
-        "words=760<800"
-      ]
+      "complete": true,
+      "missing": []
     }
-  ]
+  ],
+  "incomplete": []
 }
