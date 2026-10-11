@@ -2,6 +2,7 @@
 """Apply title/description fixes from seo/meta-fixes.json; sync og: tags."""
 from __future__ import annotations
 
+import html as H
 import json
 import re
 import sys
@@ -11,32 +12,28 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT / "seo" / "meta-fixes.json").read_text(encoding="utf-8"))
 
 
+def _set_meta(html: str, attr: str, name: str, value: str) -> str:
+    """Replace content of <meta {attr}="{name}" content="...">, honouring the actual
+    delimiter quote (so apostrophes inside the value don't truncate the match)."""
+    esc = H.escape(value, quote=True)
+    pat = re.compile(
+        r'(<meta\s+' + attr + r'=(["\'])' + re.escape(name) + r'\2\s+content=)(["\'])(.*?)\3',
+        re.I | re.S,
+    )
+    return pat.sub(lambda m: f'{m.group(1)}"{esc}"', html, count=1)
+
+
 def set_title(html: str, title: str) -> str:
-    html = re.sub(r"<title>[^<]*</title>", f"<title>{title}</title>", html, count=1)
-    if re.search(r'property=["\']og:title["\']', html):
-        html = re.sub(
-            r'(property=["\']og:title["\']\s+content=["\'])([^"\']*)(["\'])',
-            rf"\g<1>{title}\g<3>",
-            html,
-            count=1,
-        )
+    html = re.sub(r"<title>[^<]*</title>", lambda m: f"<title>{H.escape(title, quote=False)}</title>", html, count=1)
+    html = _set_meta(html, "property", "og:title", title)
+    html = _set_meta(html, "name", "twitter:title", title)
     return html
 
 
 def set_desc(html: str, desc: str) -> str:
-    html = re.sub(
-        r'(name=["\']description["\']\s+content=["\'])([^"\']*)(["\'])',
-        rf"\g<1>{desc}\g<3>",
-        html,
-        count=1,
-    )
-    if re.search(r'property=["\']og:description["\']', html):
-        html = re.sub(
-            r'(property=["\']og:description["\']\s+content=["\'])([^"\']*)(["\'])',
-            rf"\g<1>{desc}\g<3>",
-            html,
-            count=1,
-        )
+    html = _set_meta(html, "name", "description", desc)
+    html = _set_meta(html, "property", "og:description", desc)
+    html = _set_meta(html, "name", "twitter:description", desc)
     return html
 
 

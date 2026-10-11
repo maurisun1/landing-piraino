@@ -38,13 +38,12 @@
     {
       "it": "https://mauriziopiraino.it/comprare-casa-bergamo/",
       "en": "https://mauriziopiraino.it/en/buy-home-bergamo/",
-      "de": "https://mauriziopiraino.it/de/haus-kaufen-bergamo/",
-      "fr": "https://mauriziopiraino.it/fr/acheter-maison-bergamo/",
       "x-default": "https://mauriziopiraino.it/comprare-casa-bergamo/"
     },
     {
       "it": "https://mauriziopiraino.it/comprare-casa-brescia/",
       "en": "https://mauriziopiraino.it/en/buy-home-brescia/",
+      "de": "https://mauriziopiraino.it/de/haus-kaufen-brescia/",
       "fr": "https://mauriziopiraino.it/fr/acheter-maison-brescia/",
       "x-default": "https://mauriziopiraino.it/comprare-casa-brescia/"
     },
@@ -72,43 +71,35 @@
     {
       "it": "https://mauriziopiraino.it/comprare-casa-monza/",
       "en": "https://mauriziopiraino.it/en/buy-home-monza/",
-      "fr": "https://mauriziopiraino.it/fr/acheter-maison-monza/",
       "x-default": "https://mauriziopiraino.it/comprare-casa-monza/"
     },
     {
       "it": "https://mauriziopiraino.it/comprare-casa-sondrio/",
       "en": "https://mauriziopiraino.it/en/buy-home-sondrio/",
-      "fr": "https://mauriziopiraino.it/fr/acheter-maison-sondrio/",
       "x-default": "https://mauriziopiraino.it/comprare-casa-sondrio/"
     },
     {
       "it": "https://mauriziopiraino.it/comprare-casa-cremona/",
       "en": "https://mauriziopiraino.it/en/buy-home-cremona/",
-      "fr": "https://mauriziopiraino.it/fr/acheter-maison-cremona/",
       "x-default": "https://mauriziopiraino.it/comprare-casa-cremona/"
     },
     {
       "it": "https://mauriziopiraino.it/comprare-casa-lodi/",
       "en": "https://mauriziopiraino.it/en/buy-home-lodi/",
-      "fr": "https://mauriziopiraino.it/fr/acheter-maison-lodi/",
       "x-default": "https://mauriziopiraino.it/comprare-casa-lodi/"
     },
     {
       "it": "https://mauriziopiraino.it/comprare-casa-mantova/",
       "en": "https://mauriziopiraino.it/en/buy-home-mantova/",
-      "fr": "https://mauriziopiraino.it/fr/acheter-maison-mantova/",
       "x-default": "https://mauriziopiraino.it/comprare-casa-mantova/"
     },
     {
       "it": "https://mauriziopiraino.it/comprare-casa-pavia/",
       "en": "https://mauriziopiraino.it/en/buy-home-pavia/",
-      "fr": "https://mauriziopiraino.it/fr/acheter-maison-pavia/",
       "x-default": "https://mauriziopiraino.it/comprare-casa-pavia/"
     },
     {
       "it": "https://mauriziopiraino.it/bergamo/",
-      "de": "https://mauriziopiraino.it/de/bergamo/",
-      "fr": "https://mauriziopiraino.it/fr/bergamo/",
       "x-default": "https://mauriziopiraino.it/bergamo/"
     },
     {
@@ -137,38 +128,26 @@
     },
     {
       "it": "https://mauriziopiraino.it/monza/",
-      "de": "https://mauriziopiraino.it/de/monza/",
-      "fr": "https://mauriziopiraino.it/fr/monza/",
       "x-default": "https://mauriziopiraino.it/monza/"
     },
     {
       "it": "https://mauriziopiraino.it/sondrio/",
-      "de": "https://mauriziopiraino.it/de/sondrio/",
-      "fr": "https://mauriziopiraino.it/fr/sondrio/",
       "x-default": "https://mauriziopiraino.it/sondrio/"
     },
     {
       "it": "https://mauriziopiraino.it/cremona/",
-      "de": "https://mauriziopiraino.it/de/cremona/",
-      "fr": "https://mauriziopiraino.it/fr/cremona/",
       "x-default": "https://mauriziopiraino.it/cremona/"
     },
     {
       "it": "https://mauriziopiraino.it/lodi/",
-      "de": "https://mauriziopiraino.it/de/lodi/",
-      "fr": "https://mauriziopiraino.it/fr/lodi/",
       "x-default": "https://mauriziopiraino.it/lodi/"
     },
     {
       "it": "https://mauriziopiraino.it/mantova/",
-      "de": "https://mauriziopiraino.it/de/mantova/",
-      "fr": "https://mauriziopiraino.it/fr/mantova/",
       "x-default": "https://mauriziopiraino.it/mantova/"
     },
     {
       "it": "https://mauriziopiraino.it/pavia/",
-      "de": "https://mauriziopiraino.it/de/pavia/",
-      "fr": "https://mauriziopiraino.it/fr/pavia/",
       "x-default": "https://mauriziopiraino.it/pavia/"
     },
     {

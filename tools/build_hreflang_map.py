@@ -117,6 +117,9 @@ def is_indexable(path: Path) -> bool:
     if not path.is_file():
         return False
     text = path.read_text(encoding="utf-8", errors="ignore")
+    # stub di redirect (vedi tools/prune_defr.py): non è una pagina indicizzabile
+    if re.search(r'http-equiv=["\']refresh["\']', text, re.I):
+        return False
     robots = re.search(r'name=["\']robots["\']\s+content=["\']([^"\']+)["\']', text, re.I)
     if robots and re.search(r"\bnoindex\b", robots.group(1), re.I):
         return False

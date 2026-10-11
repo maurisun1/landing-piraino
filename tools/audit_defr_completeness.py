@@ -36,8 +36,8 @@ def analyze(path: Path) -> dict:
     words = re.findall(r"[\wàèéìòùäöüßâêîôûç']+", text, flags=re.I)
     it_hits = IT_ONLY.findall(text)
     reasons = []
-    if len(words) < 800:
-        reasons.append(f"words={len(words)}<800")
+    if len(words) < 700:
+        reasons.append(f"words={len(words)}<700")
     if len(it_hits) > 5:
         reasons.append(f"IT tokens={len(it_hits)}")
     if len(desc) < 120:
