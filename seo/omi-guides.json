@@ -15,10 +15,10 @@
       "vct_url": "https://valorecasatua.it/guide/prezzi-mq-milano/",
       "buy_url": "/comprare-casa-milano/",
       "sell_url": "/vendere-casa-milano/",
+      "valutazione_url": "/#contatto",
       "zones": [
         {"zone": "Centro / Brera (fascia alta)", "min": "~10.000", "max": "~16.000", "note": "abitazioni civili; signorili possono superare i 20.000 €/mq"},
-        {"zone": "Zone semicentrali (es. Navigli, Isola — orientativo)", "min": "[DATO DA INSERIRE]", "max": "[DATO DA INSERIRE]", "note": "verificare micro-zona OMI ufficiale"},
-        {"zone": "Periferia / cintura urbana (fascia bassa)", "min": "~1.850", "max": "[DATO DA INSERIRE]", "note": "ampia variabilità per quartiere"},
+        {"zone": "Periferia / cintura urbana (fascia bassa)", "min": "da ~1.850 €/mq", "max": "—", "note": "ampia variabilità per quartiere; fascia alta da verificare su OMI ufficiale"},
         {"zone": "Fascia complessiva città (sintesi)", "min": "~1.850", "max": "~16.000", "note": "range statistico abitazioni civili"}
       ],
       "local_factors": [
@@ -49,11 +49,9 @@
       "vct_url": "https://valorecasatua.it/guide/prezzi-mq-brescia/",
       "buy_url": "/comprare-casa-brescia/",
       "sell_url": "/brescia/",
+      "valutazione_url": "/valutazione-casa-brescia/",
       "zones": [
-        {"zone": "Brescia città — fascia complessiva (sintesi)", "min": "~1.250", "max": "~4.300", "note": "abitazioni civili; dettaglio zona per zona su fonte OMI/VCT"},
-        {"zone": "Centro storico / zone centrali", "min": "[DATO DA INSERIRE]", "max": "[DATO DA INSERIRE]", "note": "verificare micro-zona OMI ufficiale"},
-        {"zone": "Franciacorta (orientativo)", "min": "[DATO DA INSERIRE]", "max": "[DATO DA INSERIRE]", "note": "mercato distinto dalla città"},
-        {"zone": "Lago di Garda / Iseo (orientativo)", "min": "[DATO DA INSERIRE]", "max": "[DATO DA INSERIRE]", "note": "forte componente lifestyle e seconda casa"}
+        {"zone": "Brescia città — fascia complessiva (sintesi)", "min": "~1.250", "max": "~4.300", "note": "abitazioni civili; dettaglio zona per zona su fonte OMI/VCT"}
       ],
       "local_factors": [
         "posizione in città, Franciacorta o laghi",
@@ -83,11 +81,9 @@
       "vct_url": "https://valorecasatua.it/guide/prezzi-mq-bergamo/",
       "buy_url": "/comprare-casa-bergamo/",
       "sell_url": "/bergamo/",
+      "valutazione_url": "/bergamo/#form",
       "zones": [
-        {"zone": "Bergamo — fascia complessiva (sintesi)", "min": "~1.400", "max": "~4.300", "note": "abitazioni civili"},
-        {"zone": "Città Alta / zone storiche", "min": "[DATO DA INSERIRE]", "max": "[DATO DA INSERIRE]", "note": "verificare micro-zona OMI ufficiale"},
-        {"zone": "Città Bassa / zone semicentrali", "min": "[DATO DA INSERIRE]", "max": "[DATO DA INSERIRE]", "note": "verificare micro-zona OMI ufficiale"},
-        {"zone": "Provincia / cintura", "min": "[DATO DA INSERIRE]", "max": "[DATO DA INSERIRE]", "note": "dinamiche diverse da comune a comune"}
+        {"zone": "Bergamo — fascia complessiva (sintesi)", "min": "~1.400", "max": "~4.300", "note": "abitazioni civili"}
       ],
       "local_factors": [
         "Città Alta vs Città Bassa vs provincia",

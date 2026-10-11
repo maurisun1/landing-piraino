@@ -14,14 +14,34 @@ def esc(s: str) -> str:
     return html.escape(s, quote=True)
 
 
+def clean_zones(city: dict) -> list[dict]:
+    """Keep only rows with real values; drop any cell with [DATO DA INSERIRE]."""
+    out = []
+    for z in city["zones"]:
+        vals = f"{z.get('min','')} {z.get('max','')}"
+        if "[DATO DA INSERIRE]" in vals:
+            continue
+        out.append(z)
+    return out
+
+
 def zone_rows(city: dict) -> str:
     rows = []
-    for z in city["zones"]:
+    for z in clean_zones(city):
         rows.append(
             f"<tr><td>{esc(z['zone'])}</td><td>{esc(z['min'])}</td>"
             f"<td>{esc(z['max'])}</td><td>{esc(z['note'])}</td></tr>"
         )
     return "\n".join(rows)
+
+
+def table_footnote(city: dict) -> str:
+    href = city.get("valutazione_url") or "#valutazione"
+    label = "valutazione gratuita"
+    return (
+        f'<p class="note omi-table-footnote">Valori indicativi su base OMI (Agenzia delle Entrate). '
+        f'Per la micro-zona esatta richiedi una <a href="{esc(href)}">{label}</a>.</p>'
+    )
 
 
 def faq_entities_schema(city: dict, base: str) -> str:
@@ -275,13 +295,14 @@ footer{{background:var(--warm);padding:30px 0;margin-top:50px;font-size:12.5px;c
 
   <section id="valori">
     <h2 class="serif">Valori OMI {esc(name)} {year} per zona</h2>
-    <p>Secondo i dati OMI più recenti disponibili, le abitazioni civili a {esc(name)} si collocano in una fascia indicativa di <strong>{esc(city['range_text'])}</strong>. La tabella sotto è una sintesi orientativa: dove manca il dettaglio di micro-zona lascio un placeholder da completare con il dato ufficiale.</p>
+    <p>Secondo i dati OMI più recenti disponibili, le abitazioni civili a {esc(name)} si collocano in una fascia indicativa di <strong>{esc(city['range_text'])}</strong>. La tabella sotto è una sintesi orientativa delle fasce note; per il dettaglio di micro-zona serve il confronto ufficiale e una lettura sul singolo immobile.</p>
     <table class="omi-table">
       <thead><tr><th>Zona / ambito</th><th>Min €/mq</th><th>Max €/mq</th><th>Nota</th></tr></thead>
       <tbody>
 {zone_rows(city)}
       </tbody>
     </table>
+{table_footnote(city)}
     <p class="note">I valori OMI sono fasce (min–max) per tipologia e stato conservativo, non prezzi di listino. Prima di un&apos;offerta o di una messa in vendita conviene confrontarli con compravendite recenti e con lo stato reale dell&apos;immobile.</p>
     <p>A {esc(name)} la differenza tra due immobili &quot;vicini sulla mappa&quot; può essere ampia: cambia la micro-zona, cambia la domanda, cambiano i tempi di vendita. Per questo la lettura OMI va sempre calata sul contesto locale e sull&apos;obiettivo (acquisto abitativo, investimento, vendita rapida o valorizzazione).</p>
   </section>
@@ -362,25 +383,26 @@ footer{{background:var(--warm);padding:30px 0;margin-top:50px;font-size:12.5px;c
 
 
 def main() -> None:
-    placeholders = []
-    for city in DATA["cities"]:
-        html_out = build_page(city)
-        # word count rough
-        import re
+    import re
 
+    for city in DATA["cities"]:
+        dropped = [
+            z["zone"]
+            for z in city["zones"]
+            if "[DATO DA INSERIRE]" in f"{z.get('min','')} {z.get('max','')}"
+        ]
+        html_out = build_page(city)
+        if "[DATO DA INSERIRE]" in html_out:
+            raise SystemExit(f"Refusing to write guide with placeholder: {city['slug']}")
         text = re.sub(r"<[^>]+>", " ", html_out)
         words = len(re.findall(r"\w+", text, flags=re.UNICODE))
-        for z in city["zones"]:
-            if "[DATO DA INSERIRE]" in z["min"] or "[DATO DA INSERIRE]" in z["max"]:
-                placeholders.append(f"{city['slug']}: {z['zone']}")
         out = ROOT / f"guida-prezzi-mq-{city['slug']}" / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(html_out, encoding="utf-8")
-        print(f"wrote {out.relative_to(ROOT)} words~{words} title_len={len(city['title'])} desc_len={len(city['description'])}")
-    if placeholders:
-        print("PLACEHOLDERS:")
-        for p in placeholders:
-            print(" -", p)
+        msg = f"wrote {out.relative_to(ROOT)} words~{words} title_len={len(city['title'])} desc_len={len(city['description'])}"
+        if dropped:
+            msg += f" dropped_rows={dropped}"
+        print(msg)
 
 
 if __name__ == "__main__":
