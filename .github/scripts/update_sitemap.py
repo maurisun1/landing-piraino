@@ -1,77 +1,26 @@
 #!/usr/bin/env python3
-"""Regenerate sitemap.xml with IT / EN / DE / FR URLs."""
+"""Regenerate sitemap.xml — thin wrapper around tools/build_sitemap.py.
+
+Keeps the historical CI helper entrypoint, but uses the indexable-only
+builder (self-canonical, excludes noindex/zh, real lastmod, includes
+guide + valutazione pages).
+"""
 
 from __future__ import annotations
 
+import runpy
 import sys
-from datetime import date
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-
-from buyer_provinces import LOMBARD_PROVINCES
-from locales import buyer_hub_url, buyer_province_url, seller_hub_url, seller_url
-
 ROOT = Path(__file__).resolve().parents[2]
-BASE = "https://mauriziopiraino.it"
-TODAY = date.today().isoformat()
-
-
-def url_entry(loc: str, *, priority: str, changefreq: str = "monthly") -> str:
-    return f"""  <url>
-    <loc>{loc}</loc>
-    <lastmod>{TODAY}</lastmod>
-    <changefreq>{changefreq}</changefreq>
-    <priority>{priority}</priority>
-  </url>"""
+BUILDER = ROOT / "tools" / "build_sitemap.py"
 
 
 def main() -> None:
-    entries: list[str] = []
-
-    entries.append(url_entry(f"{BASE}/", priority="1.0"))
-    # Consultant homes DE/FR (were missing from sitemap)
-    entries.append(url_entry(f"{BASE}/de/", priority="0.95"))
-    entries.append(url_entry(f"{BASE}/fr/", priority="0.95"))
-    # Dedicated Milan seller landings (homepage is consultant, not sell)
-    for lang in ("it", "de", "fr"):
-        entries.append(url_entry(f"{BASE}{seller_url('milano', lang)}", priority="0.9" if lang == "it" else "0.85"))
-
-    for slug, _it, _en in LOMBARD_PROVINCES:
-        if slug == "milano":
-            continue
-        entries.append(url_entry(f"{BASE}{seller_url(slug, 'it')}", priority="0.9"))
-        for lang in ("de", "fr"):
-            entries.append(url_entry(f"{BASE}{seller_url(slug, lang)}", priority="0.75"))
-
-    for path, priority in (
-        ("/guida-prezzi-mq-milano/", "0.5"),
-        ("/guida-prezzi-mq-brescia/", "0.5"),
-        ("/guida-prezzi-mq-bergamo/", "0.5"),
-        ("/privacy/", "0.3"),
-    ):
-        entries.append(url_entry(f"{BASE}{path}", priority=priority, changefreq="yearly" if path == "/privacy/" else "monthly"))
-
-    for lang in ("it", "en", "de", "fr"):
-        entries.append(url_entry(f"{BASE}{buyer_hub_url(lang)}", priority="0.95" if lang == "it" else "0.85"))
-
-    for lang in ("it", "de", "fr"):
-        entries.append(url_entry(f"{BASE}{seller_hub_url(lang)}", priority="0.95" if lang == "it" else "0.85"))
-
-    for slug, _it, _en in LOMBARD_PROVINCES:
-        for lang in ("it", "en", "de", "fr"):
-            pri = "0.9" if lang == "it" and slug in ("milano", "bergamo", "brescia") else "0.85" if lang == "it" else "0.75"
-            entries.append(url_entry(f"{BASE}{buyer_province_url(slug, lang)}", priority=pri))
-
-    xml = (
-        '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        + "\n".join(entries)
-        + "\n</urlset>\n"
-    )
-    out = ROOT / "sitemap.xml"
-    out.write_text(xml, encoding="utf-8")
-    print(f"Wrote {out} ({len(entries)} URLs)")
+    if not BUILDER.is_file():
+        raise SystemExit(f"Missing sitemap builder: {BUILDER}")
+    sys.path.insert(0, str(ROOT / "tools"))
+    runpy.run_path(str(BUILDER), run_name="__main__")
 
 
 if __name__ == "__main__":

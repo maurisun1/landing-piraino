@@ -23,7 +23,7 @@ def page_url(path: Path) -> str:
 
 def lastmod(path: Path) -> str:
     ts = path.stat().st_mtime
-    return dt.datetime.utcfromtimestamp(ts).strftime("%Y-%m-%d")
+    return dt.datetime.fromtimestamp(ts, dt.timezone.utc).strftime("%Y-%m-%d")
 
 
 def priority_for(url: str) -> str:
