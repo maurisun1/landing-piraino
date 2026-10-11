@@ -406,9 +406,9 @@ def rebuild_sitemap() -> int:
             entries.append(url_entry(f"{BASE}{seller_url(slug, lang)}", priority="0.75"))
 
     for path, priority in (
-        ("/guida-prezzi-mq-milano/", "0.85"),
-        ("/guida-prezzi-mq-brescia/", "0.85"),
-        ("/guida-prezzi-mq-bergamo/", "0.85"),
+        ("https://valorecasatua.it/guide/prezzi-mq-milano/", "0.85"),
+        ("https://valorecasatua.it/guide/prezzi-mq-brescia/", "0.85"),
+        ("https://valorecasatua.it/guide/prezzi-mq-bergamo/", "0.85"),
         ("/privacy/", "0.3"),
     ):
         entries.append(

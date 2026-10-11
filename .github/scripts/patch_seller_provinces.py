@@ -46,7 +46,7 @@ def build_page(slug: str) -> str:
     html = TEMPLATE.read_text(encoding="utf-8")
     tagline = tagline_for(slug)
 
-    html = html.replace("/guida-prezzi-mq-bergamo/", f"/comprare-casa-{slug}/")
+    html = html.replace("https://valorecasatua.it/guide/prezzi-mq-bergamo/", f"/comprare-casa-{slug}/")
     html = html.replace("guida-prezzi-mq-bergamo", f"comprare-casa-{slug}")
 
     replacements = [
