@@ -1,453 +1,636 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mauriziopiraino.it/bergamo/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/bergamo/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/brescia/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/brescia/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/brescia/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/brescia/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/como/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/como/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/como/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/como/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/comprare-casa/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/comprare-casa-bergamo/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-bergamo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-bergamo/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/comprare-casa-brescia/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-brescia/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-brescia/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-brescia/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-brescia/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/comprare-casa-como/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-como/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-como/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-como/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-como/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/comprare-casa-cremona/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-cremona/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/comprare-casa-lecco/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-lecco/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-lecco/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-lecco/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-lecco/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/comprare-casa-lodi/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-lodi/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-lodi/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/comprare-casa-mantova/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-mantova/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/comprare-casa-milano/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-milano/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-milan/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-milan/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-milan/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/comprare-casa-monza/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-monza/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-monza/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/comprare-casa-pavia/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-pavia/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-pavia/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/comprare-casa-sondrio/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-sondrio/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/comprare-casa-varese/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-varese/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-varese/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-varese/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-varese/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/cremona/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/cremona/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/de/brescia/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/brescia/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/brescia/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/brescia/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/de/como/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/como/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/como/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/como/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/de/haus-kaufen/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/de/haus-kaufen-brescia/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-brescia/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-brescia/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-brescia/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-brescia/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/de/haus-kaufen-como/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-como/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-como/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-como/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-como/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/de/haus-kaufen-lecco/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-lecco/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-lecco/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-lecco/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-lecco/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/de/haus-kaufen-milan/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-milano/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-milan/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-milan/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-milan/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/de/haus-kaufen-varese/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-varese/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-varese/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-varese/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-varese/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/de/haus-verkaufen/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/vendere-casa/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-verkaufen/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/vendre-maison/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/de/haus-verkaufen-milan/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/vendere-casa-milano/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-verkaufen-milan/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/vendre-maison-milan/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/de/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/de/lecco/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/lecco/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/lecco/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/lecco/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/de/varese/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/varese/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/varese/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/varese/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/en/buy-home/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/en/buy-home-bergamo/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-bergamo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-bergamo/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/en/buy-home-brescia/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-brescia/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-brescia/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-brescia/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-brescia/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/en/buy-home-como/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/en/buy-home-cremona/</loc>
-    <lastmod>2026-10-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-como/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-como/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-como/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-como/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/en/buy-home-lecco/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-lecco/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-lecco/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-lecco/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-lecco/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/en/buy-home-lodi/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/en/buy-home-mantova/</loc>
-    <lastmod>2026-10-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-lodi/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-lodi/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/en/buy-home-milan/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-milano/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-milan/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-milan/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-milan/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/en/buy-home-monza/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-monza/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-monza/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/en/buy-home-pavia/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mauriziopiraino.it/en/buy-home-sondrio/</loc>
-    <lastmod>2026-10-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-pavia/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-pavia/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/en/buy-home-varese/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-varese/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-varese/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-varese/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-varese/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/en/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/fr/acheter-maison/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/fr/acheter-maison-brescia/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-brescia/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-brescia/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-brescia/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-brescia/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/fr/acheter-maison-como/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-como/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-como/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-como/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-como/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/fr/acheter-maison-lecco/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-lecco/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-lecco/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-lecco/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-lecco/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/fr/acheter-maison-milan/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-milano/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-milan/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-milan/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-milan/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/fr/acheter-maison-varese/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/comprare-casa-varese/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/buy-home-varese/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-kaufen-varese/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/acheter-maison-varese/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/fr/brescia/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/brescia/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/brescia/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/brescia/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/fr/como/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/como/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/como/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/como/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/fr/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/fr/lecco/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/lecco/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/lecco/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/lecco/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/fr/varese/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/varese/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/varese/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/varese/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/fr/vendre-maison/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/vendere-casa/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-verkaufen/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/vendre-maison/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/fr/vendre-maison-milan/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/vendere-casa-milano/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-verkaufen-milan/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/vendre-maison-milan/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/immobili-commerciali/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/immobili-commerciali/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauriziopiraino.it/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/lecco/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/lecco/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/lecco/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/lecco/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/lodi/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/lodi/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/mantova/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/mantova/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/monza/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/monza/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/pavia/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/pavia/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/privacy/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/privacy/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/sondrio/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/sondrio/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/sviluppo-immobiliare/commercializzazione-cantieri/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/sviluppo-immobiliare/commercializzazione-cantieri/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/sviluppo-immobiliare/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/sviluppo-immobiliare/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/sviluppo-immobiliare/ricerca-aree-edificabili/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/sviluppo-immobiliare/ricerca-aree-edificabili/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/sviluppo-immobiliare/vendere-terreno-edificabile/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/sviluppo-immobiliare/vendere-terreno-edificabile/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/valutazione-casa-brescia/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/valutazione-casa-brescia/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/varese/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/varese/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/varese/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/varese/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/vendere-casa/casa-invenduta/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/vendere-casa/casa-invenduta/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/vendere-casa/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/vendere-casa/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-verkaufen/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/vendre-maison/" />
   </url>
   <url>
     <loc>https://mauriziopiraino.it/vendere-casa-milano/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/vendere-casa-milano/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-verkaufen-milan/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/vendre-maison-milan/" />
   </url>
 </urlset>
