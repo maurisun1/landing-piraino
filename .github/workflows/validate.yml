@@ -37,7 +37,8 @@ jobs:
           for page in pages:
               html = page.read_text(encoding="utf-8")
               if 'class="site-header"' in html or page.name == "index.html" and "site-header" in html:
-                  if "/assets/site-nav.css" not in html:
+                  # site.min.css è il bundle che include gli stili di site-nav.css
+                  if "/assets/site-nav.css" not in html and "/assets/site.min.css" not in html:
                       missing_css.append(str(page))
                   if "/assets/site-nav.js" not in html and "privacy" not in str(page):
                       missing_js.append(str(page))
