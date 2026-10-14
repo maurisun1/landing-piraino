@@ -9,6 +9,7 @@ on:
     paths:
       - "**/*.html"
       - "sitemap.xml"
+      - "robots.txt"
   workflow_dispatch:
     inputs:
       full:
@@ -56,6 +57,8 @@ jobs:
               for f in out.split():
                   if f == "sitemap.xml":
                       urls.append(f"{base}/sitemap.xml")
+                  elif f == "robots.txt":
+                      urls.append(f"{base}/robots.txt")
                   elif f.endswith("index.html"):
                       path = f[: -len("index.html")]
                       urls.append(f"{base}/{path}")

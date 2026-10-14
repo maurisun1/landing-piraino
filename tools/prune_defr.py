@@ -13,17 +13,27 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://mauriziopiraino.it"
 DROP_CITIES = ["bergamo", "cremona", "lodi", "mantova", "monza", "pavia", "sondrio"]
+# Pagine EN provinciali in noindex: lo stub DE/FR va all'hub EN, non alla città.
+BUYER_HUB_CITIES = {"cremona", "mantova", "sondrio"}
+# I link <a> verso quelle EN città vanno alla pagina IT acquirenti, non all'hub.
+EN_NOINDEX_LINKS = {
+    "/en/buy-home-cremona/": "/comprare-casa-cremona/",
+    "/en/buy-home-mantova/": "/comprare-casa-mantova/",
+    "/en/buy-home-sondrio/": "/comprare-casa-sondrio/",
+}
 
 REDIRECTS: dict[str, str] = {}
 for c in DROP_CITIES:
     REDIRECTS[f"/de/{c}/"] = f"/{c}/"  # venditori -> pagina IT città
     REDIRECTS[f"/fr/{c}/"] = f"/{c}/"
-    REDIRECTS[f"/de/haus-kaufen-{c}/"] = f"/en/buy-home-{c}/"  # acquirenti -> EN città
-    REDIRECTS[f"/fr/acheter-maison-{c}/"] = f"/en/buy-home-{c}/"
+    buyer = "/en/buy-home/" if c in BUYER_HUB_CITIES else f"/en/buy-home-{c}/"
+    REDIRECTS[f"/de/haus-kaufen-{c}/"] = buyer
+    REDIRECTS[f"/fr/acheter-maison-{c}/"] = buyer
 
 STUB = """<!doctype html>
 <html lang="{lang}">
 <head>
+<meta name="robots" content="noindex, follow">
 <meta charset="utf-8" />
 <title>{title}</title>
 <link rel="canonical" href="{abs}" />
@@ -58,6 +68,12 @@ def main() -> None:
             t = re.sub(
                 r'href=(["\'])(?:' + re.escape(BASE) + r')?' + re.escape(src) + r"\1",
                 lambda m, d=dst: f"href={m.group(1)}{d}{m.group(1)}",
+                t,
+            )
+        for src, dst in EN_NOINDEX_LINKS.items():
+            t = re.sub(
+                r'(<a\b[^>]*\bhref=(["\']))(?:' + re.escape(BASE) + r')?' + re.escape(src) + r"(\2)",
+                lambda m, d=dst: m.group(1) + d + m.group(3),
                 t,
             )
         # hreflang residui verso pagine rimosse
