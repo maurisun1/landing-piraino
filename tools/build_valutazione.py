@@ -42,7 +42,7 @@ def build(city: dict) -> str:
             f"Opero su {city['zones_label']}, direttamente e con la rete professionale quando serve.",
         ),
         (
-            "Quanto tempo serve per una prima stima?",
+            "Quanto tempo serve per una prima analisi di mercato?",
             "Di solito entro 24–48 ore lavorative dal ricevimento dei dati essenziali (zona, tipologia, stato, eventuali documenti).",
         ),
     ]
@@ -164,7 +164,7 @@ def build(city: dict) -> str:
     <div class="seller-form-aside reveal">
       <p class="eyebrow">Valutazione immobiliare · {esc(name)}</p>
       <h1>{esc(city['h1'])}</h1>
-      <p class="lead">Non una cifra a caso: una stima utile per decidere se vendere, a che prezzo riposizionarti e quali passi fare prima di pubblicare l&apos;annuncio.</p>
+      <p class="lead">Non una cifra a caso: un valore indicativo utile per decidere se vendere, a che prezzo riposizionarti e quali passi fare prima di pubblicare l&apos;annuncio.</p>
       <ul class="hero-bullets">
         <li>Analisi di zona, OMI e mercato reale</li>
         <li>Lettura dei limiti di listini e annunci</li>
@@ -175,7 +175,7 @@ def build(city: dict) -> str:
       <input type="hidden" name="_subject" value="Valutazione casa {esc(name)}" />
       <input type="hidden" name="lead_type" value="valutazione" />
       <input type="hidden" name="landing" value="/valutazione-casa-{esc(slug)}/" />
-      <h2>Richiedi una stima gratuita</h2>
+      <h2>Richiedi un valore indicativo gratuito</h2>
       <p class="form-note">Risposta entro 24–48 ore lavorative.</p>
       <div class="field"><label for="nome">Nome *</label><input id="nome" name="nome" required autocomplete="name" /></div>
       <div class="field"><label for="telefono">Telefono *</label><input id="telefono" name="telefono" type="tel" required autocomplete="tel" /></div>
@@ -201,22 +201,22 @@ def build(city: dict) -> str:
   <div class="container" style="max-width:820px">
     <h2>Come facciamo la valutazione</h2>
     <p>La <strong>valutazione casa a {esc(name)}</strong> parte dai dati dell&apos;immobile e della micro-zona, non da una media provinciale. Raccolgo informazioni su superficie commerciale e calpestabile, piano, stato manutentivo, classe energetica, esposizione, vista, box o posto auto, spese condominiali e contesto urbano; poi confronto il posizionamento con i riferimenti OMI, con i listini disponibili e con ciò che il mercato sta davvero assorbendo in quel momento.</p>
-    <p>L&apos;obiettivo non è &quot;dire un numero alto per prendere l&apos;incarico&quot;. L&apos;obiettivo è darti una stima difendibile: abbastanza ambiziosa da non regalare valore, abbastanza realistica da generare visite e trattative. A {esc(name)} questo equilibrio cambia tra città, Franciacorta e laghi: per questo la lettura è locale e non si riduce a un moltiplicatore generico al metro quadro.</p>
+    <p>L&apos;obiettivo non è &quot;dire un numero alto per prendere l&apos;incarico&quot;. L&apos;obiettivo è darti un&apos;analisi di mercato difendibile: abbastanza ambiziosa da non regalare valore, abbastanza realistica da generare visite e trattative. A {esc(name)} questo equilibrio cambia tra città, Franciacorta e laghi: per questo la lettura è locale e non si riduce a un moltiplicatore generico al metro quadro.</p>
     <p>Il metodo è sequenziale. Prima inquadro la domanda e l&apos;offerta nella micro-zona. Poi leggo i limiti delle fonti pubbliche. Infine correggo per le caratteristiche del singolo immobile: un piano alto luminoso con documenti in ordine non si valuta come un piano basso umido con pratiche incomplete, anche se la fascia OMI è la stessa.</p>
-    <p>Quando serve, affianco la stima a indicazioni pratiche: cosa migliorare prima di pubblicare, quali documenti preparare, come impostare prezzo e strategia di uscita, se conviene partire più alti o più contenuti. È una valutazione al servizio della decisione, non un esercizio teorico. Se i dati che mi mandi sono incompleti, ti dico subito cosa manca invece di inventare precisione.</p>
+    <p>Quando serve, affianco l&apos;analisi di mercato a indicazioni pratiche: cosa migliorare prima di pubblicare, quali documenti preparare, come impostare prezzo e strategia di uscita, se conviene partire più alti o più contenuti. È una valutazione al servizio della decisione, non un esercizio teorico. Se i dati che mi mandi sono incompleti, ti dico subito cosa manca invece di inventare precisione.</p>
   </div>
 </section>
 
 <section class="seller-services" style="background:#f5f7fa">
   <div class="container" style="max-width:820px">
     <h2>Valutazione vs perizia immobiliare a {esc(name)}</h2>
-    <p>Molti proprietari cercano online &quot;perizia immobiliare {esc(name)}&quot; intendendo in realtà una stima di mercato. Conviene distinguere con chiarezza, perché strumenti diversi rispondono a scopi diversi:</p>
+    <p>Molti proprietari cercano online &quot;perizia immobiliare {esc(name)}&quot; intendendo in realtà un&apos;analisi di mercato. Conviene distinguere con chiarezza, perché strumenti diversi rispondono a scopi diversi:</p>
     <ul>
-      <li><strong>Valutazione / stima di mercato:</strong> serve a vendere o a capire il valore di scambio. È operativa, commerciale, orientata a prezzo, tempi e platea di acquirenti reali.</li>
+      <li><strong>Valutazione / analisi di mercato:</strong> serve a vendere o a capire il valore di scambio. È operativa, commerciale, orientata a prezzo, tempi e platea di acquirenti reali.</li>
       <li><strong>Perizia:</strong> è un elaborato tecnico con finalità formali (mutuo, successione, contenzioso, divisione). Ha regole, responsabilità professionali e costi diversi.</li>
     </ul>
-    <p>Su questa pagina offro una <strong>valutazione gratuita</strong> di orientamento commerciale. Non è una perizia ai sensi della normativa sulle stime formali e non sostituisce il lavoro di un perito iscritto quando ti serve un atto tecnico. Se ti serve una perizia formale, ti indico il percorso corretto con professionisti abilitati.</p>
-    <p>Questa distinzione evita due errori tipici: aspettarsi da una stima commerciale lo stesso valore legale di una perizia, oppure pagare una perizia quando ti serve solo capire a che prezzo puoi uscire sul mercato di {esc(name)}. Partire dal bisogno reale (vendere, rinegoziare, confrontare offerte) fa risparmiare tempo e riduce fraintendimenti.</p>
+    <p>Su questa pagina offro una <strong>valutazione gratuita</strong> di orientamento commerciale. Non è una perizia ai sensi della normativa sulle valutazioni formali e non sostituisce il lavoro di un perito iscritto quando ti serve un atto tecnico. Se ti serve una perizia formale, ti indico il percorso corretto con professionisti abilitati.</p>
+    <p>Questa distinzione evita due errori tipici: aspettarsi da un&apos;analisi di mercato lo stesso valore legale di una perizia, oppure pagare una perizia quando ti serve solo capire a che prezzo puoi uscire sul mercato di {esc(name)}. Partire dal bisogno reale (vendere, rinegoziare, confrontare offerte) fa risparmiare tempo e riduce fraintendimenti.</p>
   </div>
 </section>
 
@@ -229,7 +229,7 @@ def build(city: dict) -> str:
       <li><strong>Listini / Borsa Immobiliare:</strong> riferimenti di mercato locale con metodologie proprie. Sono un secondo sguardo, non una verità assoluta sul prezzo di chiusura.</li>
       <li><strong>Annunci online:</strong> prezzi richiesti, spesso sopra il prezzo finale. Guardarli senza correzioni porta a sovrastime e a immobilizzarsi sul mercato.</li>
     </ul>
-    <p>Il <strong>listino immobiliare {esc(name)}</strong> e i valori OMI aiutano a inquadrare la zona; la stima seria nasce quando questi numeri incontrano lo stato reale dell&apos;immobile, la domanda e i tempi di vendita osservati. Due immobili nella stessa fascia possono avere esiti molto diversi se cambiano piano, esposizione, classe energetica o completezza documentale.</p>
+    <p>Il <strong>listino immobiliare {esc(name)}</strong> e i valori OMI aiutano a inquadrare la zona; la valutazione seria nasce quando questi numeri incontrano lo stato reale dell&apos;immobile, la domanda e i tempi di vendita osservati. Due immobili nella stessa fascia possono avere esiti molto diversi se cambiano piano, esposizione, classe energetica o completezza documentale.</p>
     <p>Per approfondire le fasce OMI puoi leggere anche la <a href="{esc(city['guide_url'])}">guida valori OMI {esc(name)}</a>. Lì trovi il contesto statistico; qui trasformiamo quel contesto in una lettura utile per decidere se e come vendere.</p>
   </div>
 </section>
@@ -238,8 +238,8 @@ def build(city: dict) -> str:
   <div class="container" style="max-width:820px">
     <h2>Quanto costa la valutazione</h2>
     <p><strong>La prima valutazione è gratuita.</strong> Nessun costo nascosto per il primo confronto. La consulenza iniziale non costituisce obbligo di conferimento incarico: decidi dopo aver capito il quadro, senza pressione commerciale sul primo contatto.</p>
-    <p>Se poi scegli di affidarmi la vendita, le condizioni economiche si concordano in modo trasparente e per iscritto, come previsto dall&apos;attività di mediazione. Niente sorprese sul primo contatto e nessuna &quot;stima omaggio&quot; legata a un incarico già deciso in anticipo.</p>
-    <p>Gratis non significa superficiale: significa che il primo lavoro di lettura (zona, tipologia, stato, fonti di mercato) è incluso nella consulenza iniziale. Se i documenti o i dati sono incompleti, ti dico cosa serve per raffinare la stima invece di inventare un numero definitivo.</p>
+    <p>Se poi scegli di affidarmi la vendita, le condizioni economiche si concordano in modo trasparente e per iscritto, come previsto dall&apos;attività di mediazione. Niente sorprese sul primo contatto e nessuna &quot;analisi di mercato omaggio&quot; legata a un incarico già deciso in anticipo.</p>
+    <p>Gratis non significa superficiale: significa che il primo lavoro di lettura (zona, tipologia, stato, fonti di mercato) è incluso nella consulenza iniziale. Se i documenti o i dati sono incompleti, ti dico cosa serve per raffinare il valore indicativo invece di inventare un numero definitivo.</p>
   </div>
 </section>
 
@@ -253,7 +253,7 @@ def build(city: dict) -> str:
       <li><strong>Lago di Garda:</strong> forte componente lifestyle e, in alcuni comuni, seconda casa; la stagionalità, la vista e la tipologia pesano di più che in città.</li>
       <li><strong>Lago d&apos;Iseo:</strong> mercato più contenuto, da leggere comune per comune, senza copiare le dinamiche del Garda o della città.</li>
     </ul>
-    <p>Quando chiedo la zona non è formalità: è il punto di partenza della stima. Senza micro-zona, ogni media è poco utile. Se hai un immobile in provincia, indica anche accessibilità, servizi e tipologia: spesso pesano quanto il nome del comune.</p>
+    <p>Quando chiedo la zona non è formalità: è il punto di partenza dell&apos;analisi di mercato. Senza micro-zona, ogni media è poco utile. Se hai un immobile in provincia, indica anche accessibilità, servizi e tipologia: spesso pesano quanto il nome del comune.</p>
   </div>
 </section>
 

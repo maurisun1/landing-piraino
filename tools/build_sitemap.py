@@ -2,7 +2,6 @@
 """Rebuild sitemap.xml with indexable pages + xhtml hreflang annotations."""
 from __future__ import annotations
 
-import datetime as dt
 import json
 import re
 import subprocess
@@ -26,35 +25,28 @@ def page_url(path: Path) -> str:
 
 
 def lastmod(path: Path) -> str:
-    """Date the file was last modified.
+    """Date of the last git commit that modified this file (YYYY-MM-DD).
 
-    Uses the git commit that last touched the file. If the working tree
-    differs from HEAD, the edit is in progress and the date is today (UTC).
-    Filesystem mtime is only a fallback: a fresh checkout stamps every file
-    with the clone time, which is not the content's modification date.
+    This is the commit date, not the build clock and not the checkout mtime.
+    A dirty working tree does not move the date: commit the file first, then
+    rebuild the sitemap. Fails if git has no history for the file (for example
+    a shallow clone that does not contain the commit).
     """
     rel = path.relative_to(ROOT).as_posix()
-    today = dt.datetime.now(dt.timezone.utc).date().isoformat()
     try:
-        diff = subprocess.run(
-            ["git", "diff", "--quiet", "HEAD", "--", rel],
+        log = subprocess.check_output(
+            ["git", "log", "-1", "--format=%cs", "--", rel],
             cwd=ROOT,
-            check=False,
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise SystemExit(f"git log failed for {rel}: {exc}") from exc
+    if not log:
+        raise SystemExit(
+            f"No git commit found for {rel}. Commit the file before rebuilding the sitemap."
         )
-        if diff.returncode == 1:
-            return today
-        if diff.returncode == 0:
-            log = subprocess.check_output(
-                ["git", "log", "-1", "--format=%cs", "--", rel],
-                cwd=ROOT,
-                text=True,
-            ).strip()
-            if log:
-                return log
-    except (OSError, subprocess.CalledProcessError):
-        pass
-    ts = path.stat().st_mtime
-    return dt.datetime.fromtimestamp(ts, dt.timezone.utc).strftime("%Y-%m-%d")
+    return log
 
 
 def priority_for(url: str) -> str:
