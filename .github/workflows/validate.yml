@@ -54,3 +54,6 @@ jobs:
 
       - name: Check hreflang reciprocity
         run: python3 tools/check_hreflang.py
+
+      - name: Check FAQPage schema matches visible FAQ
+        run: python3 tools/sync_faq_schema.py --check
