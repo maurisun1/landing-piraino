@@ -5,6 +5,7 @@ from __future__ import annotations
 import datetime as dt
 import json
 import re
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,6 +26,33 @@ def page_url(path: Path) -> str:
 
 
 def lastmod(path: Path) -> str:
+    """Date the file was last modified.
+
+    Uses the git commit that last touched the file. If the working tree
+    differs from HEAD, the edit is in progress and the date is today (UTC).
+    Filesystem mtime is only a fallback: a fresh checkout stamps every file
+    with the clone time, which is not the content's modification date.
+    """
+    rel = path.relative_to(ROOT).as_posix()
+    today = dt.datetime.now(dt.timezone.utc).date().isoformat()
+    try:
+        diff = subprocess.run(
+            ["git", "diff", "--quiet", "HEAD", "--", rel],
+            cwd=ROOT,
+            check=False,
+        )
+        if diff.returncode == 1:
+            return today
+        if diff.returncode == 0:
+            log = subprocess.check_output(
+                ["git", "log", "-1", "--format=%cs", "--", rel],
+                cwd=ROOT,
+                text=True,
+            ).strip()
+            if log:
+                return log
+    except (OSError, subprocess.CalledProcessError):
+        pass
     ts = path.stat().st_mtime
     return dt.datetime.fromtimestamp(ts, dt.timezone.utc).strftime("%Y-%m-%d")
 
