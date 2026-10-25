@@ -71,7 +71,7 @@ COMMON = {
     "formspree": "https://formspree.io/f/mvzlgeqb",
     "wa": "393514581993",
     "email": "maurizio.piraino@remax.it",
-    "instagram": "https://www.instagram.com/mauriziopiraino.immobiliare",
+    "instagram": "https://www.instagram.com/mauriziopiraino.it",
     "phone": "+39 351 458 1993",
     "rea": "REA BS-639579",
     "piva": "P.IVA 14597560961",

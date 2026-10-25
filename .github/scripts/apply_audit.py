@@ -161,7 +161,7 @@ def unify_seller_schema(html: str) -> str:
         },
         "areaServed": ["Milano", "Bergamo", "Brescia", "Lombardia"],
         "description": "Agente Immobiliare affiliato RE/MAX. Consulenza per venditori e acquirenti in Lombardia.",
-        "sameAs": ["https://www.instagram.com/mauriziopiraino.immobiliare"],
+        "sameAs": ["https://www.instagram.com/mauriziopiraino.it"],
     }
     website = {
         "@context": "https://schema.org",

@@ -147,7 +147,7 @@ def build(city: dict) -> str:
           <a href="{esc(city['sell_url'])}" class="nav-link-primary nav-link-core">Vendere</a>
           <span class="nav-path-sep" aria-hidden="true"></span>
           <a href="/immobili-commerciali/" class="nav-link-soft">Commerciali</a>
-          <a href="/sviluppo-immobiliare/" class="nav-link-soft">Sviluppo</a>
+          <a href="https://dallamappaalrogito.it/" class="nav-link-soft">Sviluppo</a>
         </div>
       </div>
       <a class="btn btn-red nav-cta" href="#contatto">Richiedi valutazione</a>
