@@ -165,7 +165,7 @@
     banner.setAttribute('aria-live', 'polite');
     banner.setAttribute('aria-label', 'Preferenze cookie');
     banner.innerHTML =
-      '<p>Questo sito utilizza i cookie. Continuando la navigazione accetti la <a href="/privacy/">cookie policy</a>.</p>' +
+      '<p>Uso cookie tecnici e, solo se accetti, cookie statistici (Google Analytics, Microsoft Clarity) per migliorare il sito. <a href="/privacy/">Privacy e cookie</a></p>' +
       '<div class="mp-cookie-actions">' +
       '<button type="button" class="mp-cookie-accept">Accetta</button>' +
       '<button type="button" class="mp-cookie-reject">Rifiuta</button>' +
@@ -184,7 +184,77 @@
     document.body.appendChild(banner);
   }
 
+  /* ---- Moduli Formspree: anti-spam + invio senza lasciare il sito ---- */
+  function isFormspree(form) {
+    return form && form.tagName === 'FORM' && /formspree\.io/i.test(form.getAttribute('action') || '');
+  }
+
+  function addHoneypots() {
+    var forms = document.querySelectorAll('form');
+    for (var i = 0; i < forms.length; i++) {
+      var f = forms[i];
+      if (!isFormspree(f) || f.querySelector('input[name="_gotcha"]')) continue;
+      var hp = document.createElement('input');
+      hp.type = 'text';
+      hp.name = '_gotcha';
+      hp.tabIndex = -1;
+      hp.autocomplete = 'off';
+      hp.setAttribute('aria-hidden', 'true');
+      hp.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;opacity:0';
+      f.appendChild(hp);
+    }
+  }
+
+  function bindAjaxForms() {
+    // Fase "bubble": se un altro script ha già gestito l'invio (preventDefault), non intervenire.
+    document.addEventListener('submit', function (e) {
+      var form = e.target;
+      if (!isFormspree(form) || e.defaultPrevented) return;
+      e.preventDefault();
+      var btn = form.querySelector('[type="submit"]');
+      if (btn) btn.disabled = true;
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('submit failed');
+          window.setTimeout(function () {
+            window.location.href = '/grazie/';
+          }, 300);
+        })
+        .catch(function () {
+          if (btn) btn.disabled = false;
+          window.alert('Invio non riuscito. Scrivimi su WhatsApp: 351 458 1993');
+        });
+    });
+  }
+
+  /* ---- Link "Preferenze cookie" nel footer ---- */
+  function addCookiePrefsLink() {
+    var footer = document.querySelector('footer');
+    if (!footer || document.getElementById('mp-cookie-prefs')) return;
+    var a = document.createElement('a');
+    a.id = 'mp-cookie-prefs';
+    a.href = '#';
+    a.textContent = 'Preferenze cookie';
+    a.style.cssText = 'display:inline-block;margin:10px 0 0;font-size:12px;color:inherit;text-decoration:underline';
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+      } catch (err) {}
+      window.location.reload();
+    });
+    var holder = footer.querySelector('.footer-links') || footer.querySelector('.wrap') || footer;
+    holder.appendChild(a);
+  }
+
   function init() {
+    addHoneypots();
+    bindAjaxForms();
+    addCookiePrefsLink();
     if (!hasAnyTool()) return;
     bindConversionHooks();
     var consent = getConsent();
