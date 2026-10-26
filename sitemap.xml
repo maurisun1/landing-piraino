@@ -605,4 +605,11 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://mauriziopiraino.it/de/haus-verkaufen-milan/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://mauriziopiraino.it/fr/vendre-maison-milan/" />
   </url>
+  <url>
+    <loc>https://mauriziopiraino.it/chi-sono/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/chi-sono/" />
+  </url>
 </urlset>
