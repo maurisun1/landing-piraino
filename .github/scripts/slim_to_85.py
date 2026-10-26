@@ -515,7 +515,7 @@ SELLER_ABOUT = """
             <span>Consulente immobiliare · Milano</span>
             <div class="badges">
               <div class="badge">REA BS-639579</div>
-              <div class="badge">Geometra</div>
+              <div class="badge">Diplomato geometra</div>
               <div class="badge">RE/MAX Associati</div>
             </div>
           </div>
