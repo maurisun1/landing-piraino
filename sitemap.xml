@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://mauriziopiraino.it/brescia/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/brescia/" />
@@ -566,7 +566,7 @@
   </url>
   <url>
     <loc>https://mauriziopiraino.it/valutazione-casa-brescia/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/valutazione-casa-brescia/" />
@@ -588,8 +588,15 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/vendere-casa/casa-invenduta/" />
   </url>
   <url>
+    <loc>https://mauriziopiraino.it/vendere-casa/piano-di-marketing/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/vendere-casa/piano-di-marketing/" />
+  </url>
+  <url>
     <loc>https://mauriziopiraino.it/vendere-casa/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/vendere-casa/" />
