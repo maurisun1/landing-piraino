@@ -619,4 +619,11 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/chi-sono/" />
   </url>
+  <url>
+    <loc>https://mauriziopiraino.it/check/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mauriziopiraino.it/check/" />
+  </url>
 </urlset>
